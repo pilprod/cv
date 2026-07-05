@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth}
+  body{margin:0;background:#FBFAF7}
+  ::selection{background:rgba(46,82,230,.18)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  ::-webkit-scrollbar{width:11px;height:11px}
+  ::-webkit-scrollbar-thumb{background:#D8D4CB;border-radius:8px;border:3px solid #FBFAF7}
+  ::-webkit-scrollbar-track{background:transparent}
+  @keyframes ipx-pulse{0%{box-shadow:0 0 0 0 rgba(53,192,138,.55)}70%{box-shadow:0 0 0 7px rgba(53,192,138,0)}100%{box-shadow:0 0 0 0 rgba(53,192,138,0)}}
+  @keyframes ipx-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes ipx-blink{0%,48%{opacity:1}49%,100%{opacity:0}}
+  @keyframes ipx-sheen{to{background-position:-220% 0}}
+  @keyframes ipx-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#191C22"/><g stroke="rgba(255,255,255,.10)" stroke-width="1"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/><line x1="0" y1="30" x2="100" y2="30"/><line x1="0" y1="70" x2="100" y2="70"/></g><text x="50" y="59" font-family="'Space Grotesk',sans-serif" font-weight="600" font-size="34" fill="#FBFAF7" text-anchor="middle">IP</text><circle cx="70" cy="30" r="4" fill="#2E52E6"/></svg>
+</template>
+
+<div id="ipx-root" style="--paper:#FBFAF7;--paper2:#F2F0EA;--void:#191C22;--void2:#22262E;--ink:#24272E;--ink2:#585D66;--ink3:#8C9098;--line:#E7E4DD;--line2:#D8D4CB;--accent:#2E52E6;--accentInk:color-mix(in oklch, var(--accent) 74%, #101014);--accentBright:color-mix(in oklch, var(--accent) 62%, white);--accentWash:color-mix(in oklch, var(--accent) 9%, var(--paper));--accentWash2:color-mix(in oklch, var(--accent) 15%, var(--paper));--accentLine:color-mix(in oklch, var(--accent) 30%, var(--line2));--fd:'Space Grotesk',system-ui,sans-serif;--fb:'IBM Plex Sans',system-ui,sans-serif;--fm:'IBM Plex Mono',ui-monospace,monospace;background:var(--paper);color:var(--ink);font-family:var(--fb);position:relative;min-height:100vh">
+
+  <div data-progress style="position:fixed;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;z-index:60;transition:transform .1s linear"></div>
+
+  <!-- ================= RAIL NAV ================= -->
+  <nav style="position:fixed;top:0;left:0;bottom:0;width:212px;z-index:50;background:var(--paper);border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;padding:26px 22px">
+    <a href="#hero" data-nav="hero" style="display:flex;align-items:center;gap:11px">
+      <span style="width:38px;height:38px;border-radius:9px;background:var(--void);color:#fff;font-family:var(--fd);font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;letter-spacing:.02em">IP</span>
+      <span style="display:flex;flex-direction:column;gap:2px">
+        <span style="font-family:var(--fd);font-weight:600;font-size:14px;color:var(--ink)">Ilya Papou</span>
+        <span style="font-family:var(--fm);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)">SRE · Platform</span>
+      </span>
+    </a>
+
+    <div style="display:flex;flex-direction:column;gap:2px;margin:22px 0">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="10">
+        <a href="#{{ item.id }}" data-nav="{{ item.id }}" style="display:flex;align-items:center;gap:11px;padding:7px 8px;border-radius:7px;transition:background .2s" style-hover="background:var(--paper2)">
+          <span data-navdot style="width:7px;height:7px;border-radius:50%;background:transparent;border:1.5px solid var(--line2);transform:scale(.7);transition:all .25s;flex-shrink:0"></span>
+          <span style="font-family:var(--fm);font-size:10.5px;color:var(--ink3);width:16px;flex-shrink:0">{{ item.n }}</span>
+          <span data-navlabel style="font-family:var(--fb);font-weight:500;font-size:13px;color:var(--ink2);opacity:.55;transition:opacity .25s">{{ item.label }}</span>
+        </a>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="width:8px;height:8px;border-radius:50%;background:#35C08A;animation:ipx-pulse 2.4s infinite"></span>
+        <span style="font-family:var(--fm);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)">Available</span>
+      </div>
+      <a href="mailto:admin@ilyapapou.email" style="font-family:var(--fm);font-size:10.5px;color:var(--ink3);word-break:break-all;line-height:1.5" style-hover="color:var(--accentInk)">admin@ilyapapou.email</a>
+    </div>
+  </nav>
+
+  <!-- ================= MAIN ================= -->
+  <main style="margin-left:212px">
+
+    <!-- ===== HERO ===== -->
+    <section data-section="hero" style="position:relative;overflow:hidden;background:var(--void);color:#EEECE7">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(120% 90% at 78% 20%,#000,transparent 72%);mask-image:radial-gradient(120% 90% at 78% 20%,#000,transparent 72%)"></div>
+      <div style="position:relative;max-width:1120px;margin:0 auto;padding:clamp(84px,13vh,150px) clamp(24px,5vw,80px) 0">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,5vw,80px);align-items:center">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:9px;padding:7px 13px;border:1px solid rgba(255,255,255,.16);border-radius:999px;margin-bottom:30px">
+              <span style="width:7px;height:7px;border-radius:50%;background:#35C08A;animation:ipx-pulse 2.4s infinite"></span>
+              <span style="font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(238,236,231,.8)">Open to platform &amp; SRE roles</span>
+            </div>
+            <h1 style="font-family:var(--fd);font-weight:600;font-size:clamp(48px,7.4vw,96px);line-height:.94;letter-spacing:-.025em;margin:0 0 22px">Ilya<br>Papou</h1>
+            <p style="font-family:var(--fd);font-weight:500;font-size:clamp(17px,2.2vw,24px);line-height:1.3;color:var(--accentBright);margin:0 0 22px;letter-spacing:-.01em">Site Reliability Engineer<br>/ Platform Engineer</p>
+            <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.62;color:rgba(238,236,231,.68);margin:0 0 28px;max-width:46ch">I build and operate the production platforms behind business-critical services — where reliability, observability and automation decide whether the business keeps running.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px">
+              <sc-for list="{{ heroTags }}" as="t" hint-placeholder-count="5">
+                <span style="font-family:var(--fm);font-size:11.5px;letter-spacing:.03em;color:rgba(238,236,231,.7);padding:6px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px">{{ t }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+              <a href="#match" data-nav="match" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-family:var(--fd);font-weight:500;font-size:14.5px;padding:13px 22px;border-radius:10px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 22px -8px rgba(46,82,230,.7)" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(46,82,230,.85)">Explore the work<span style="font-family:var(--fm)">↓</span></a>
+              <a href="mailto:admin@ilyapapou.email" style="display:inline-flex;align-items:center;gap:9px;color:#EEECE7;font-family:var(--fm);font-size:13px;padding:13px 20px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:border-color .2s,background .2s" style-hover="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)">admin@ilyapapou.email</a>
+            </div>
+          </div>
+
+          <div style="justify-self:center">
+            <div style="position:relative;width:clamp(240px,26vw,320px)">
+              <div style="position:absolute;inset:-14px -14px 14px 14px;border:1px solid var(--accent);border-radius:18px;opacity:.55"></div>
+              <div style="position:relative;aspect-ratio:1/1.16;border-radius:15px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#2a2e36 url(assets/ilya.jpg) center/cover no-repeat">
+                <div style="position:absolute;top:12px;left:12px;font-family:var(--fm);font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.72);background:rgba(0,0,0,.35);padding:4px 8px;border-radius:6px;backdrop-filter:blur(4px)">IP · 2026</div>
+                <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 14px;background:linear-gradient(transparent,rgba(20,22,28,.86));display:flex;flex-direction:column;gap:3px">
+                  <span style="font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff">SRE · Platform Engineer</span>
+                  <span style="font-family:var(--fm);font-size:10px;color:rgba(255,255,255,.6)">Remote / EU · Financial Crime Prevention</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- stack marquee -->
+        <div style="margin-top:clamp(46px,7vh,84px);border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:16px 0;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+          <div style="display:flex;gap:0;width:max-content;animation:ipx-marquee 34s linear infinite">
+            <div style="display:flex;gap:34px;padding-right:34px">
+              <sc-for list="{{ stackMarquee }}" as="s" hint-placeholder-count="12">
+                <span style="font-family:var(--fm);font-size:12.5px;letter-spacing:.04em;color:rgba(238,236,231,.5);white-space:nowrap">{{ s }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:34px;padding-right:34px" aria-hidden="true">
+              <sc-for list="{{ stackMarquee }}" as="s" hint-placeholder-count="12">
+                <span style="font-family:var(--fm);font-size:12.5px;letter-spacing:.04em;color:rgba(238,236,231,.5);white-space:nowrap">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="height:clamp(40px,6vh,70px)"></div>
+      </div>
+    </section>
+
+    <!-- ===== 02 STRONG MATCH ===== -->
+    <section data-section="match" style="background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">02 — Why I'm a strong match</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch">Requirements, mapped to real production experience.</h2>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:70ch">I'm an SRE / Platform Engineer building production platforms where reliability, scalability, observability and automation directly affect business-critical services — across financial services, iGaming, financial crime prevention, aviation and enterprise. My current work supports Anti-Fraud, AML and KYC workloads; I'm extending it into AI infrastructure and AI-assisted operations.</p>
+        </div>
+
+        <!-- matrix -->
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;margin-top:clamp(40px,5vh,60px);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff">
+          <div style="display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:clamp(14px,2.4vw,40px);padding:15px clamp(18px,2.4vw,28px);background:var(--void);color:#fff">
+            <span style="font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)">Requirement</span>
+            <span style="font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)">What I've actually done</span>
+          </div>
+          <sc-for list="{{ matchRows }}" as="row" hint-placeholder-count="8">
+            <div data-matchrow style="display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:clamp(14px,2.4vw,40px);padding:16px clamp(18px,2.4vw,28px);border-top:1px solid var(--line);transition:background .2s" style-hover="background:var(--accentWash)">
+              <span style="font-family:var(--fd);font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.4">{{ row.r }}</span>
+              <span style="font-size:14px;line-height:1.58;color:var(--ink2)">{{ row.e }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <!-- focus + philosophy + takeaway -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,40px);margin-top:clamp(40px,5vh,60px)">
+          <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+            <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px">Current focus</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ focusTags }}" as="t" hint-placeholder-count="11">
+                <span style="font-family:var(--fm);font-size:12px;color:var(--ink2);padding:8px 13px;border:1px solid var(--line2);border-radius:999px;transition:all .2s" style-hover="border-color:var(--accentLine);color:var(--accentInk)">{{ t }}</span>
+              </sc-for>
+            </div>
+            <p style="font-size:13.5px;line-height:1.6;color:var(--ink3);margin:22px 0 0;max-width:52ch">Comfortable in English-speaking engineering environments — written technical communication, documentation, incident discussions and async collaboration.</p>
+          </div>
+          <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .08s,transform .7s cubic-bezier(.2,.7,.2,1) .08s;display:flex;flex-direction:column;gap:18px">
+            <div style="background:var(--void);color:#EEECE7;border-radius:14px;padding:26px 28px;position:relative;overflow:hidden">
+              <span style="position:absolute;top:16px;right:22px;font-family:var(--fd);font-size:52px;line-height:1;color:rgba(255,255,255,.08)">”</span>
+              <span style="font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentBright)">Philosophy</span>
+              <p style="font-family:var(--fd);font-weight:500;font-size:clamp(16px,1.7vw,19px);line-height:1.44;margin:12px 0 0;letter-spacing:-.01em">Reliable platforms are not created by manual operations. They are built through architecture, automation, observability and continuous engineering improvement.</p>
+            </div>
+            <div style="background:var(--accentWash2);border:1px solid var(--accentLine);border-radius:14px;padding:20px 24px">
+              <span style="font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentInk)">Key takeaway</span>
+              <p style="font-family:var(--fd);font-weight:600;font-size:15.5px;line-height:1.45;color:var(--ink);margin:9px 0 0">SRE / Platform Engineer with production experience across Kubernetes, GitOps, observability, Financial Crime platforms and ML infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03 CURRENT WORK ===== -->
+    <section data-section="current" style="background:var(--paper2)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">03 — Current work</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 18px;max-width:20ch">Reliability layer for real-time anti-fraud platforms.</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px">
+            <sc-for list="{{ currentTags }}" as="t" hint-placeholder-count="6">
+              <span style="font-family:var(--fm);font-size:11px;letter-spacing:.05em;color:var(--ink3)">{{ t }}</span>
+            </sc-for>
+          </div>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:68ch">Every transaction is evaluated in real time, and every decision has to be available, observable and reliable. My role is to keep the infrastructure behind those systems resilient, scalable and continuously deployable.</p>
+        </div>
+
+        <!-- flow diagram -->
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;margin-top:clamp(40px,5vh,60px);max-width:800px;margin-left:auto;margin-right:auto;display:flex;flex-direction:column;align-items:stretch">
+          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+            <span style="font-family:var(--fm);font-size:12.5px;color:var(--ink2);background:#fff;border:1px solid var(--line2);border-radius:9px;padding:11px 18px">Customer Request</span>
+            <span style="align-self:center;font-family:var(--fm);color:var(--ink3)">→</span>
+            <span style="font-family:var(--fm);font-size:12.5px;color:var(--ink2);background:#fff;border:1px solid var(--line2);border-radius:9px;padding:11px 18px">Real-time Transaction</span>
+          </div>
+          <div style="text-align:center;color:var(--ink3);font-family:var(--fm);padding:8px 0">↓</div>
+          <div style="border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#fff">
+            <div style="background:var(--void);color:#fff;padding:13px 22px;font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;text-align:center">Financial Crime Prevention Platform</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:20px">
+              <sc-for list="{{ finCrimeStages }}" as="s" hint-placeholder-count="6">
+                <span style="font-family:var(--fb);font-weight:500;font-size:13px;color:var(--ink);background:var(--paper2);border-radius:8px;padding:9px 15px">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="text-align:center;color:var(--ink3);font-family:var(--fm);padding:8px 0">↓</div>
+          <div style="border:1.5px solid var(--accentLine);border-radius:14px;overflow:hidden;background:var(--accentWash);box-shadow:0 14px 40px -22px rgba(46,82,230,.5)">
+            <div style="background:var(--accent);color:#fff;padding:13px 22px;display:flex;align-items:center;justify-content:center;gap:10px">
+              <span style="width:7px;height:7px;border-radius:50%;background:#fff;animation:ipx-pulse 2.4s infinite"></span>
+              <span style="font-family:var(--fm);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase">Platform Reliability Layer — where I contribute</span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:20px">
+              <sc-for list="{{ reliabilityLayer }}" as="s" hint-placeholder-count="10">
+                <span style="font-family:var(--fb);font-weight:500;font-size:13px;color:var(--accentInk);background:#fff;border:1px solid var(--accentLine);border-radius:8px;padding:9px 15px">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="text-align:center;color:var(--ink3);font-family:var(--fm);padding:8px 0">↓</div>
+          <div style="align-self:center;font-family:var(--fm);font-size:12.5px;letter-spacing:.05em;color:#fff;background:var(--void);border-radius:9px;padding:12px 24px">Cloud Infrastructure</div>
+        </div>
+
+        <!-- responsibilities -->
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin-top:clamp(44px,6vh,68px)">
+          <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px">My responsibilities</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+            <sc-for list="{{ responsibilities }}" as="r" hint-placeholder-count="6">
+              <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .2s,transform .2s" style-hover="border-color:var(--accentLine);transform:translateY(-3px)">
+                <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px">
+                  <span style="width:5px;height:16px;border-radius:2px;background:var(--accent)"></span>
+                  <span style="font-family:var(--fd);font-weight:600;font-size:16px;color:var(--ink)">{{ r.t }}</span>
+                </div>
+                <span style="font-family:var(--fm);font-size:12px;color:var(--ink2);line-height:1.6">{{ r.d }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="font-size:13.5px;line-height:1.6;color:var(--ink3);margin:22px 0 0">I also explore AI-assisted operational tooling as an extension of SRE practices — covered in <a href="#ai" data-nav="ai" style="color:var(--accentInk);border-bottom:1px solid var(--accentLine)">AI Direction</a>.</p>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin-top:26px;background:var(--accentWash2);border:1px solid var(--accentLine);border-radius:14px;padding:22px 26px">
+          <span style="font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentInk)">Key takeaway</span>
+          <p style="font-family:var(--fd);font-weight:600;font-size:clamp(16px,1.8vw,20px);line-height:1.4;color:var(--ink);margin:9px 0 0;max-width:60ch">I keep business-critical, real-time platforms reliable, observable and continuously deployable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04 PLATFORM ===== -->
+    <section data-section="platform" style="background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">04 — Platform</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 18px;max-width:20ch">How the platform fits together — and how it's built.</h2>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:70ch">I work across the full platform stack: business-critical workloads, Kubernetes-based platform capabilities, infrastructure foundations, production operations, and the AI/MLOps direction I'm extending toward.</p>
+        </div>
+
+        <!-- the stack -->
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;margin-top:clamp(40px,5vh,60px)">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:16px">
+            <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)">The stack — request flow ↓</div>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;align-items:center">
+              <span style="font-family:var(--fm);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)">Cross-cutting</span>
+              <sc-for list="{{ crosscut }}" as="c" hint-placeholder-count="4">
+                <span style="font-family:var(--fm);font-size:11px;color:var(--ink2);padding:5px 10px;border:1px dashed var(--line2);border-radius:999px">{{ c }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div data-layer style="display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:18px;align-items:center;padding:16px 20px;border-radius:12px;background:oklch(0.95 0.035 262);border:1px solid oklch(0.87 0.055 262);transition:transform .3s">
+              <span style="font-family:var(--fd);font-weight:600;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:oklch(0.45 0.15 262)">Business Layer</span>
+              <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 262);border-radius:7px;padding:7px 13px">AML</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 262);border-radius:7px;padding:7px 13px">Anti-Fraud</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 262);border-radius:7px;padding:7px 13px">KYC</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 262);border-radius:7px;padding:7px 13px">Risk Scoring</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 262);border-radius:7px;padding:7px 13px">Decision Engine</span></div>
+            </div>
+            <div data-layer style="display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:18px;align-items:center;padding:16px 20px;border-radius:12px;background:oklch(0.95 0.035 200);border:1px solid oklch(0.87 0.05 200);transition:transform .3s">
+              <span style="font-family:var(--fd);font-weight:600;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:oklch(0.44 0.11 210)">Platform Layer</span>
+              <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.045 200);border-radius:7px;padding:7px 13px">Kubernetes</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.045 200);border-radius:7px;padding:7px 13px">GitOps</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.045 200);border-radius:7px;padding:7px 13px">Vault</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.045 200);border-radius:7px;padding:7px 13px">Observability</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.045 200);border-radius:7px;padding:7px 13px">CI/CD</span></div>
+            </div>
+            <div data-layer style="display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:18px;align-items:center;padding:16px 20px;border-radius:12px;background:oklch(0.95 0.04 155);border:1px solid oklch(0.87 0.05 155);transition:transform .3s">
+              <span style="font-family:var(--fd);font-weight:600;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:oklch(0.45 0.11 155)">Infra Layer</span>
+              <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 155);border-radius:7px;padding:7px 13px">Bare Metal</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 155);border-radius:7px;padding:7px 13px">Cloud</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 155);border-radius:7px;padding:7px 13px">Networking</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 155);border-radius:7px;padding:7px 13px">Storage</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.88 0.05 155);border-radius:7px;padding:7px 13px">Multi-Region</span></div>
+            </div>
+            <div data-layer style="display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:18px;align-items:center;padding:16px 20px;border-radius:12px;background:oklch(0.955 0.045 75);border:1px solid oklch(0.88 0.06 75);transition:transform .3s">
+              <span style="font-family:var(--fd);font-weight:600;font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:oklch(0.5 0.11 68)">Ops Layer</span>
+              <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.89 0.06 75);border-radius:7px;padding:7px 13px">On-call</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.89 0.06 75);border-radius:7px;padding:7px 13px">SLI/SLO</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.89 0.06 75);border-radius:7px;padding:7px 13px">RCA</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.89 0.06 75);border-radius:7px;padding:7px 13px">Automation</span><span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid oklch(0.89 0.06 75);border-radius:7px;padding:7px 13px">Runbooks</span></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:12px;font-family:var(--fm);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:oklch(0.55 0.13 55)"><span>↑ Production feedback</span></div>
+
+          <div style="margin-top:20px;border:1px dashed var(--line2);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+            <span style="font-family:var(--fm);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)">Extending toward</span>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ extending }}" as="e" hint-placeholder-count="3">
+                <span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink2);padding:7px 13px;border:1px solid var(--line2);border-radius:999px">{{ e }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin-top:26px;background:var(--void);color:#EEECE7;border-radius:14px;padding:26px 30px;position:relative;overflow:hidden">
+          <span style="position:absolute;top:14px;right:24px;font-family:var(--fd);font-size:54px;line-height:1;color:rgba(255,255,255,.08)">”</span>
+          <p style="font-family:var(--fd);font-weight:500;font-size:clamp(17px,2vw,22px);line-height:1.4;margin:0;letter-spacing:-.01em;max-width:60ch">A platform is not a list of technologies. It's a coherent stack of layers that must stay reliable as each layer changes underneath it.</p>
+        </div>
+
+        <!-- the delivery path -->
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin-top:clamp(56px,8vh,90px);border-top:1px solid var(--line);padding-top:clamp(40px,5vh,60px)">
+          <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px">The delivery path</div>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.64;color:var(--ink2);margin:0 0 32px;max-width:66ch">Every platform I build follows the same delivery path — the real tools I run daily, from a developer's commit through production and back again as a feedback loop.</p>
+
+          <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column">
+            <div style="align-self:center;font-family:var(--fm);font-size:12.5px;color:var(--ink2);background:var(--paper2);border:1px solid var(--line2);border-radius:9px;padding:11px 20px">Developer Commit</div>
+            <div style="text-align:center;color:var(--ink3);font-family:var(--fm);padding:7px 0">↓</div>
+            <sc-for list="{{ deliveryStages }}" as="stage" hint-placeholder-count="4">
+              <div style="border:1px solid var(--line2);border-radius:13px;overflow:hidden;background:#fff">
+                <div style="background:var(--accent);color:#fff;padding:11px 20px;font-family:var(--fm);font-size:11px;letter-spacing:.09em;text-transform:uppercase;text-align:center">{{ stage.name }}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:16px">
+                  <sc-for list="{{ stage.items }}" as="it" hint-placeholder-count="3">
+                    <span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:var(--ink2);background:var(--paper2);border-radius:7px;padding:8px 13px">{{ it }}</span>
+                  </sc-for>
+                </div>
+              </div>
+              <div style="text-align:center;color:var(--ink3);font-family:var(--fm);padding:7px 0">↓</div>
+            </sc-for>
+            <div style="border:1.5px solid oklch(0.8 0.09 60);border-radius:13px;overflow:hidden;background:oklch(0.97 0.03 70)">
+              <div style="background:oklch(0.6 0.15 55);color:#fff;padding:11px 20px;font-family:var(--fm);font-size:11px;letter-spacing:.09em;text-transform:uppercase;text-align:center">Production Feedback Loop</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:16px">
+                <sc-for list="{{ feedbackStage.items }}" as="it" hint-placeholder-count="4">
+                  <span style="font-family:var(--fb);font-weight:500;font-size:12.5px;color:oklch(0.42 0.1 55);background:#fff;border:1px solid oklch(0.86 0.07 65);border-radius:7px;padding:8px 13px">{{ it }}</span>
+                </sc-for>
+              </div>
+            </div>
+            <div style="align-self:center;display:flex;align-items:center;gap:9px;margin-top:16px;font-family:var(--fm);font-size:12px;letter-spacing:.03em;color:oklch(0.55 0.14 55)"><span style="font-size:15px">↺</span> Feeds back into the next commit — the loop closes and repeats.</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:clamp(40px,5vh,60px)">
+            <sc-for list="{{ stageCards }}" as="c" hint-placeholder-count="6">
+              <div style="background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:20px 22px">
+                <div style="font-family:var(--fd);font-weight:600;font-size:15px;color:var(--ink);margin-bottom:8px">{{ c.h }}</div>
+                <div style="font-size:13px;line-height:1.58;color:var(--ink2)">{{ c.d }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="margin-top:26px;display:flex;gap:14px;align-items:flex-start;background:var(--accentWash);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 24px">
+            <p style="font-family:var(--fd);font-weight:500;font-size:clamp(15px,1.6vw,18px);line-height:1.45;color:var(--ink);margin:0;max-width:66ch">A platform is not a one-way pipeline. It's a loop — production signals shape the next commit as much as the commit shapes production.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTIONS-INSERT -->
+
+    <!-- ===== 10 CONTACT ===== -->
+    <section data-section="contact" style="position:relative;overflow:hidden;background:var(--void);color:#EEECE7">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(110% 80% at 20% 30%,#000,transparent 70%);mask-image:radial-gradient(110% 80% at 20% 30%,#000,transparent 70%)"></div>
+      <div style="position:relative;max-width:1120px;margin:0 auto;padding:clamp(80px,12vh,140px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accentBright)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentBright)">10 — Final thoughts</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(34px,5vw,64px);line-height:1.02;letter-spacing:-.025em;margin:0 0 24px;max-width:16ch">What I'm looking for.</h2>
+          <p style="font-size:clamp(16px,1.7vw,20px);line-height:1.55;color:rgba(238,236,231,.72);margin:0;max-width:56ch">I'm looking for business-critical platforms where reliability, automation and observability directly affect product outcomes.</p>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .06s,transform .7s cubic-bezier(.2,.7,.2,1) .06s;margin-top:clamp(40px,6vh,64px)">
+          <p style="font-size:15px;line-height:1.6;color:rgba(238,236,231,.6);margin:0 0 18px">Engineering is ultimately about reducing complexity. Every platform I build aims to be:</p>
+          <div style="display:flex;flex-wrap:wrap;gap:9px">
+            <sc-for list="{{ closingTags }}" as="t" hint-placeholder-count="6">
+              <span style="font-family:var(--fd);font-weight:500;font-size:15px;color:#EEECE7;padding:11px 20px;border:1px solid rgba(255,255,255,.18);border-radius:999px">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .12s,transform .7s cubic-bezier(.2,.7,.2,1) .12s;margin-top:clamp(48px,7vh,80px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding-top:34px;border-top:1px solid rgba(255,255,255,.12)">
+          <div>
+            <div style="font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(238,236,231,.5);margin-bottom:8px">Get in touch</div>
+            <a href="mailto:admin@ilyapapou.email" style="font-family:var(--fd);font-weight:600;font-size:clamp(20px,2.6vw,32px);letter-spacing:-.01em;color:#fff;transition:color .2s" style-hover="color:var(--accentBright)">admin@ilyapapou.email</a>
+          </div>
+          <a href="#hero" data-nav="hero" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:12.5px;color:rgba(238,236,231,.66);padding:12px 18px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:all .2s" style-hover="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)"><span style="font-family:var(--fm)">↑</span> Back to top</a>
+        </div>
+
+        <p style="margin:clamp(40px,6vh,64px) 0 0;font-size:14px;color:rgba(238,236,231,.5)">Thank you for taking the time to read my profile.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2E52E6&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;portrait&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      navItems: [
+        { n: "01", id: "hero", label: "Intro" },
+        { n: "02", id: "match", label: "Strong Match" },
+        { n: "03", id: "current", label: "Current Work" },
+        { n: "04", id: "platform", label: "Platform" },
+        { n: "05", id: "experience", label: "Experience" },
+        { n: "06", id: "philosophy", label: "Philosophy" },
+        { n: "07", id: "decisions", label: "Decisions" },
+        { n: "08", id: "evolution", label: "Evolution" },
+        { n: "09", id: "ai", label: "AI Direction" },
+        { n: "10", id: "contact", label: "Contact" }
+      ],
+      heroTags: ["Kubernetes", "GitOps", "Observability", "Financial Infrastructure", "MLOps"],
+      currentTags: ["Real-time", "· Anti-Fraud", "· AML / KYC", "· Kubernetes", "· On-call", "· Observability"],
+      stackMarquee: ["Kubernetes", "RKE2", "GitOps", "ArgoCD", "Helm", "Vault", "Prometheus", "VictoriaMetrics", "Grafana", "ELK", "Terraform", "GitLab CI", "Kafka", "PostgreSQL", "Redis", "GPU Kubernetes", "Airflow", "Bare Metal", "GCP", "Ansible"],
+      matchRows: [
+        { r: "Platform Ownership", e: "End-to-end ownership of production platform architecture and operational excellence." },
+        { r: "Platform Design", e: "Designing and evolving production platform architecture, rather than only maintaining infrastructure." },
+        { r: "Bare Metal / Self-Managed", e: "Own production Kubernetes (RKE2) on self-managed bare-metal servers — full-stack ownership from node provisioning to workloads, not just managed cloud." },
+        { r: "Kubernetes & Helm", e: "Helm charts and Kubernetes manifests in daily production operations, primarily self-managed on bare metal." },
+        { r: "Reliability & Availability", e: "Daily responsibility for reliability, scalability and production stability of Kubernetes platforms." },
+        { r: "Reliability Engineering", e: "RED, USE, the Four Golden Signals, SLI/SLO design, error budgets and Root Cause Analysis." },
+        { r: "Observability", e: "Production monitoring with Prometheus, VictoriaMetrics, Grafana and ELK — dashboards, alerts and troubleshooting." },
+        { r: "Incident Response", e: "On-call rotations and production incident response: debugging deploy failures, RCA, runbooks and post-incident improvements." },
+        { r: "CI/CD", e: "GitLab CI/CD jobs and reusable pipeline templates, plus GitOps delivery platforms using Helm and ArgoCD." },
+        { r: "Deployment Automation", e: "GitOps (ArgoCD), GitLab CI, Cloud Build, Cloud Deploy, Infrastructure as Code and standardized pipelines." },
+        { r: "Secrets Management", e: "Centralized secret management with HashiCorp Vault — automated delivery and rotation." },
+        { r: "Automation & Scripting", e: "Ansible, Terraform, Bash, Python, Go and GitLab CI/CD." },
+        { r: "Databases & Messaging", e: "Production experience with PostgreSQL, Cloud SQL, Redis and Kafka." },
+        { r: "MLOps Platform", e: "Platform infrastructure for the ML lifecycle: GPU-enabled Kubernetes, training pipelines, model registry, scalable inference and retraining automation." },
+        { r: "Financial Crime Prevention", e: "Production platforms supporting Anti-Fraud, AML and KYC workloads." }
+      ],
+      focusTags: ["Platform Engineering", "Kubernetes", "Cloud-Native Infrastructure", "GitOps", "Infrastructure Automation", "Observability", "Distributed Systems", "AI-assisted Operations", "Agentic Infrastructure", "Production Reliability"],
+      closingTags: ["Reliable", "Observable", "Understandable", "Secure", "Automated", "Maintainable"],
+
+      companies: [
+        { co: "iGaming NDA", domain: "iGaming / Fintech", scale: "High-load" },
+        { co: "Sirena-Travel", domain: "Aviation / Travel Technology", scale: "Enterprise" },
+        { co: "Sber Insurance Broker", domain: "Financial Services", scale: "Enterprise" },
+        { co: "I-Teco", domain: "Government / Enterprise", scale: "Secure Infrastructure" },
+        { co: "Flant", domain: "Kubernetes Consulting", scale: "Cloud Native" },
+        { co: "Freelance", domain: "Cloud Platforms", scale: "SMB / Startups" },
+        { co: "MTS Belarus", domain: "Telecommunications / Security", scale: "Enterprise" }
+      ],
+      roles: [
+        {
+          co: "iGaming NDA", role: "Senior SRE / Platform Engineer", scale: "iGaming / Fintech · High-load",
+          summary: "Production infrastructure for online gaming services and Financial Crime Prevention capabilities.",
+          groups: [
+            { h: "Platform Engineering", items: ["Business-critical infrastructure on self-managed Kubernetes (RKE2) on bare metal — chosen for cost, data residency and predictable performance under sustained high load", "Operated bare-metal node provisioning, networking and storage across the platform lifecycle", "Migrated inter-service traffic to SSL/TLS and centralized secrets in HashiCorp Vault, removing static credentials from repos and configs", "Built GitOps-based CI/CD delivery pipelines for continuous, reliable delivery"] },
+            { h: "MLOps Platform", items: ["Production-grade MLOps platform spanning the full ML lifecycle — automated training pipelines, model registry integration and scalable inference", "GPU-enabled Kubernetes plus a custom Airflow provider integrating Slurm to run GPU-bound training DAGs", "Observability, drift detection and automated retraining for reproducible, highly available AI/ML services", "Apache Airflow as core orchestration, with dedicated monitoring, alerting and incident response"] },
+            { h: "Production Operations", items: ["On-call ownership of incident response across anti-fraud and ML platforms, including RCA and recovery runbooks", "Observability with Prometheus, VictoriaMetrics, Grafana and ELK, applying SLI/SLO and the Four Golden Signals", "Reduced operational complexity through automation and platform-level fixes rather than one-off firefighting"] }
+          ],
+          tech: ["RKE2", "Bare Metal", "Helm", "GitLab CI", "Vault", "External Secrets", "Prometheus", "VictoriaMetrics", "Grafana", "ELK", "PostgreSQL", "Redis", "Kafka", "Terraform", "Airflow", "Slurm", "GPU Kubernetes", "MLOps", "Python"]
+        },
+        {
+          co: "Sirena-Travel", role: "Senior SRE / Platform Engineer", scale: "Aviation / Travel Technology · Enterprise",
+          summary: "Production infrastructure for enterprise aviation and travel systems requiring high availability, secure integrations and continuous delivery.",
+          groups: [
+            { h: "Platform Engineering", items: ["CI/CD and infrastructure automation for high-availability platform reliability", "Observability and incident response — debugged production Kubernetes workloads and deployment failures, preparing runbooks and post-incident improvements", "PostgreSQL, Redis and Kafka in production"] },
+            { h: "Bare Metal Kubernetes", items: ["Bare-metal deployment chosen for the high-availability and data-residency requirements of enterprise aviation systems", "Managed node lifecycle, networking and storage directly, without a managed cloud Kubernetes offering"] },
+            { h: "Engineering Platform", items: ["Designed and operated the platform behind AI-assisted engineering workflows — runtime configuration and automated deployment pipelines", "CI/CD plus dedicated monitoring — health checks, task success/failure rates and latency — separate from general infrastructure observability", "Private-by-default GCP with Terraform, Tailscale-based access and least-privilege IAM, evolving the architecture as integrations grew"] }
+          ],
+          tech: ["RKE2", "Bare Metal", "GCP", "GKE", "Helm", "GitLab CI", "Cloud Build", "Cloud Deploy", "Vault", "Terraform", "Tailscale", "Prometheus", "VictoriaMetrics", "Grafana", "ELK", "PostgreSQL", "Redis", "Kafka"]
+        },
+        {
+          co: "Sber Insurance Broker", role: "Head of DevOps", scale: "Financial Services · Enterprise",
+          summary: "Built and led the DevOps function for a new cloud-native insurance platform — from infrastructure automation and delivery pipelines to team formation and security hardening.",
+          groups: [
+            { h: "Cloud Infrastructure & Automation", items: ["Automated 99.9% of infrastructure with Terraform, combined with GitOps", "Led migration of services to the cloud with minimal downtime", "Defined IaC standards and rolled out infrastructure management best practices"] },
+            { h: "Team Leadership & Delivery", items: ["CI/CD on Jenkins and GitLab CI/CD, cutting deployment time to minutes", "Helm charts for all microservices, standardizing deployment", "Fully automated rollouts across Dev, Psi and Production", "Owned dashboards, alerts and production monitoring on-call"] },
+            { h: "Security, Monitoring & Resilience", items: ["All service-to-service communication moved to HTTPS with mandatory TLS", "Centralized monitoring and logging on ELK plus Prometheus and Grafana", "Geo-distributed Kubernetes across Multi-Region and Multi-AZ with automatic load balancing", "Prepared and tested disaster-recovery scenarios"] }
+          ],
+          tech: ["Terraform", "GitOps", "Kubernetes", "Vault", "Jenkins", "GitLab CI/CD", "Helm", "TLS/HTTPS", "SonarQube", "Nexus", "ELK", "Prometheus", "Grafana", "Multi-Region", "Multi-AZ"]
+        },
+        {
+          co: "I-Teco", role: "Senior DevOps Engineer", scale: "Government / Enterprise · Secure Infrastructure",
+          summary: "Enterprise and public-sector infrastructure with strict security requirements and isolated environments.",
+          groups: [
+            { h: "Responsibilities", items: ["Operated an OpenVPN-isolated infrastructure covering source control, CI/CD, messaging, search and monitoring", "Sole responsibility for the full infrastructure lifecycle — networking, service failures and CI/CD configuration"] },
+            { h: "Kubernetes in a Closed Environment", items: ["Wrote Kubernetes manifests for microservice workloads", "Configured CI/CD for automated deployment into the cluster", "Integrated services under the constraints of a fully closed network"] }
+          ],
+          tech: ["Docker Swarm", "Hyper-V", "TeamCity", "Nexus", "RabbitMQ", "Cassandra", "Solr", "ZooKeeper", "HAProxy", "ELK"]
+        },
+        {
+          co: "Flant", role: "DevOps Engineer", scale: "Kubernetes Consulting · Cloud Native",
+          summary: "Worked alongside experienced Kubernetes engineers, building a strong foundation in production Kubernetes and cloud-native engineering.",
+          groups: [
+            { h: "Helm & Kubernetes Objects", items: ["ConfigMap, Deployment, Service, StatefulSet, Ingress, Certificate, Secret, Job, VerticalPodAutoscaler and PodDisruptionBudget", "Helm templating for affinity rules, environment variables and tolerations", "Adopted Werf, the company's internal CI/CD tool, for chart delivery"] },
+            { h: "Observability & Automation", items: ["Logging pipeline with Filebeat, Logstash and Kibana for structured JSON logs", "Ansible playbooks to automate infrastructure component rollout", "Hands-on PostgreSQL / Patroni cluster operations"] }
+          ],
+          tech: ["Kubernetes", "Werf", "Helm", "PostgreSQL (Patroni)", "Filebeat", "Logstash", "Kibana", "Ansible"]
+        },
+        {
+          co: "Freelance", role: "Platform Engineer / Full-Stack Developer", scale: "Cloud Platforms · SMB / Startups",
+          summary: "Cloud-native infrastructure and CI/CD pipelines for multiple clients using managed cloud services.",
+          groups: [
+            { h: "CI/CD & Delivery", items: ["Multi-environment (Dev / Stage / Production) delivery pipelines — build, push, deploy", "Delivered CI/CD in both GitHub Actions and GitLab CI/CD"] },
+            { h: "Application Layer", items: ["Backend microservices on ExpressJS and SEO-optimized frontends on NextJS", "Nginx as reverse proxy and static file server, with Certbot for automatic TLS renewal"] }
+          ],
+          tech: ["Terraform", "GitHub Actions", "GitLab CI", "Yandex Cloud", "Managed PostgreSQL", "Managed Kubernetes", "Nginx", "Docker"]
+        },
+        {
+          co: "MTS Belarus", role: "Information Security Specialist", scale: "Telecom / Security · Enterprise",
+          summary: "Early career focused on infrastructure security, Linux systems and security research — a foundation in authentication, networking and secure platform design.",
+          groups: [
+            { h: "Focus Areas", items: ["Threat modeling and access-control analysis for corporate infrastructure and workstation security", "Lab-based simulation of infrastructure compromise scenarios to study attack paths and countermeasures"] }
+          ],
+          tech: ["Debian", "Arch Linux", "Kali Linux", "VPN", "Virtualization", "Networking", "Access Control"]
+        }
+      ],
+
+      responsibilities: [
+        { t: "Reliability", d: "On-call · RCA · Availability" },
+        { t: "Delivery", d: "GitLab CI/CD · Helm · ArgoCD" },
+        { t: "Observability", d: "Prometheus · VictoriaMetrics · Grafana" },
+        { t: "Security", d: "Vault · External Secrets · Rotation" },
+        { t: "Data Layer", d: "PostgreSQL · Redis · Kafka" },
+        { t: "Automation", d: "Terraform · Bash · Python" }
+      ],
+      flowChain: ["Customer Request", "Real-time Transaction"],
+      finCrimeStages: ["AML", "Anti-Fraud", "KYC", "Risk Scoring", "Customer Profile", "Decision Engine"],
+      reliabilityLayer: ["Kubernetes", "GitOps", "CI/CD", "Observability", "Secrets Management", "Service Reliability", "Production Monitoring", "Incident Response", "Root Cause Analysis", "Infrastructure Automation"],
+
+      landscapeLayers: [
+        { name: "Business Layer", tone: "biz", items: ["AML", "Anti-Fraud", "KYC", "Risk Scoring", "Decision Engine"] },
+        { name: "Platform Layer", tone: "plat", items: ["Kubernetes", "GitOps", "Vault", "Observability", "CI/CD"] },
+        { name: "Infrastructure Layer", tone: "infra", items: ["Bare Metal", "Cloud", "Networking", "Storage", "Multi-Region"] },
+        { name: "Operations Layer", tone: "ops", items: ["On-call", "SLI/SLO", "RCA", "Automation", "Runbooks"] }
+      ],
+      crosscut: ["Reliability", "Secrets", "Observability", "Automation"],
+      extending: ["AI-assisted Operations", "MLOps Platform", "Agent Tooling"],
+
+      deliveryStages: [
+        { name: "Source & CI", items: ["GitLab", "GitLab Runner", "Tests / Build / Security"] },
+        { name: "Container & Artifacts", items: ["Kaniko", "Artifact Registry"] },
+        { name: "GitOps Delivery", items: ["GitOps Repository", "ArgoCD", "RKE2 / GKE"] },
+        { name: "Secrets & Observability", items: ["Vault / External Secrets", "Prometheus / VictoriaMetrics / ELK", "Grafana / Alerts"] }
+      ],
+      feedbackStage: { name: "Production Feedback Loop", items: ["On-call", "RCA", "Runbooks", "Platform Improvements"] },
+      stageCards: [
+        { h: "GitLab & CI Runners", d: "Every commit triggers GitLab CI — tests, builds and security checks before anything reaches production." },
+        { h: "Kaniko & Artifact Registry", d: "Containers are built with Kaniko and pushed to a versioned registry — no Docker-in-Docker, no unnecessary privilege." },
+        { h: "ArgoCD & Runtime", d: "ArgoCD reconciles the GitOps repository into RKE2 (bare metal) or GKE, depending on the workload." },
+        { h: "Vault & Secrets", d: "Workloads pull secrets from Vault via External Secrets at runtime, never from static config." },
+        { h: "Observability Stack", d: "Prometheus, VictoriaMetrics and ELK feed Grafana dashboards and the alerts the team actually watches." },
+        { h: "Production Feedback Loop", d: "On-call, RCA and platform improvements feed directly back into the next commit — the cycle repeats." }
+      ],
+
+      principles: [
+        { t: "Platform Thinking", d: "Build reusable platforms instead of one-off solutions." },
+        { t: "Reliability Engineering", d: "Design for failure. Automate recovery. Measure availability." },
+        { t: "Automation", d: "Everything repeatable should be automated." },
+        { t: "Observability", d: "Systems should explain themselves before engineers investigate them." },
+        { t: "Security", d: "Security must be embedded into the platform rather than added later." }
+      ],
+      opLead: "Designed observability around actionable signals rather than dashboards — combining RED, USE, SLI/SLO and production telemetry to reduce mean time to detection and recovery.",
+      opBullets: ["Incident Response & RCA — production troubleshooting, root cause analysis and blameless postmortems", "SLI/SLO & Error Budgets — defined reliability targets, balancing velocity against stability", "Continuous Improvement — every incident feeds back into automation, alert tuning and platform simplification"],
+      archBullets: ["Bare metal over managed Kubernetes — when cost, data residency and predictable performance under high load matter more than operational convenience", "GitOps over manual deploys — reusable GitOps platforms that standardize deployment across teams, reducing configuration drift", "HashiCorp Vault over static secrets — centralized secret lifecycle management outweighs the short-term simplicity of embedding credentials", "Multi-Region over Single-AZ — when the cost of downtime exceeds the cost of redundancy"],
+      leadBullets: ["Standardized platform delivery across teams through reusable GitOps pipelines and Helm charts, reducing onboarding time and configuration drift", "Built and led DevOps teams, establishing knowledge sharing, technical syncs and documentation practices", "Designed internal platforms — collaboration tooling and AI-assisted operations — so engineers build on standardized infrastructure rather than reinventing it", "Measured leadership impact by how much operational complexity disappears, not by the number of systems maintained"],
+
+      adrCases: [
+        {
+          n: "Case 01", title: "Why Bare Metal Instead of Managed Kubernetes",
+          problem: "Managed Kubernetes is often the right choice. But cost, data residency and predictable performance under sustained high-load traffic make self-managed Kubernetes a better trade-off for latency-sensitive, business-critical workloads like anti-fraud and travel-technology platforms.",
+          decision: "Run production Kubernetes (RKE2) on self-managed bare-metal servers instead of a managed cloud offering — taking full ownership of node provisioning, networking and storage.",
+          why: ["Lower long-term infrastructure cost at sustained scale", "Full control over data residency and compliance requirements", "Predictable performance under high-load traffic, without shared-tenant noisy neighbors", "Deeper operational visibility across the entire stack, from hardware to workload"],
+          tradeoff: "This means owning more of the operational burden — node lifecycle, hardware failures and capacity planning — that a managed offering would abstract away. I accept this deliberately, in exchange for cost and performance control at scale.",
+          tech: ["RKE2", "Bare Metal", "Kubernetes"]
+        },
+        {
+          n: "Case 02", title: "Why GitOps Instead of Traditional CI/CD",
+          problem: "Push-based CI/CD makes it easy for production state to drift from what's declared in version control, and hard to audit exactly what changed, when and why.",
+          decision: "Adopt GitOps as the standard delivery model — Git repositories as the single source of truth for production infrastructure, with automated reconciliation instead of manual or push-based deployment.",
+          why: ["Reproducible, auditable deployments with a clear history of every production change", "Reusable GitOps platforms that standardize deployment workflows across teams", "Faster, safer rollbacks when something goes wrong", "Declarative infrastructure that's easier to reason about than imperative scripts"],
+          tech: ["GitLab CI", "GitLab Runner", "ArgoCD", "Helm", "Kubernetes"]
+        },
+        {
+          n: "Case 03", title: "Why Platform Instead of Projects",
+          problem: "Every team building its own CI/CD logic, secrets handling and observability leads to duplicated effort, inconsistent practices and a growing maintenance burden as projects multiply.",
+          decision: "Build reusable, self-service platforms — not just automation for a single project — so improvements compound across every team that uses them.",
+          applied: ["Secrets — centralized lifecycle management (Vault + External Secrets) instead of static per-project credentials", "Delivery — standardized, reusable deployment platforms instead of project-specific pipelines", "Observability — treated as a platform capability, not each app team's responsibility", "Operations — automate repetitive work rather than relying on manual runbooks"],
+          outcome: ["Shared engineering standards instead of team-by-team reinvention", "Faster onboarding — new services inherit a proven platform", "Lower total operational cost as the number of services grows"],
+          tech: []
+        }
+      ],
+      decisionQs: [
+        { t: "Reliability", q: "Will this reduce production risk?" },
+        { t: "Simplicity", q: "Will engineers understand and maintain it six months from now?" },
+        { t: "Automation", q: "Can this remove repetitive operational work?" },
+        { t: "Scalability", q: "Will this approach still work as the platform grows?" },
+        { t: "Observability", q: "Will failures become easier to detect and investigate?" },
+        { t: "Maintainability", q: "Does this improve the platform, not just solve today's problem?" }
+      ],
+
+      evolution: [
+        { from: "Static Secrets", to: "HashiCorp Vault", d: "Credentials embedded in configs and repositories, replaced by centralized secret lifecycle management and automated rotation." },
+        { from: "Manual Deploys", to: "GitOps", d: "Push-based, manual deployment steps replaced by Git as the single source of truth, with automated reconciliation into the cluster." },
+        { from: "Docker Swarm", to: "Kubernetes", d: "Simpler container orchestration replaced by production Kubernetes, with declarative manifests, Helm charts and RBAC." },
+        { from: "Individual VMs", to: "Self-Service Platform", d: "Hand-managed virtual machines replaced by a platform other engineers can build on, without needing to understand its internals." },
+        { from: "One-off CI Scripts", to: "Reusable Pipelines", d: "Project-specific CI/CD logic replaced by standardized, reusable GitOps pipelines and Helm charts shared across teams." }
+      ],
+      aiAreas: ["AI-assisted incident investigation", "Agent-based operational tooling", "Automated deployment validation", "AI-assisted Root Cause Analysis", "Context-aware operational tooling", "Event-driven engineering workflows", "Human-supervised infrastructure automation"]
+    };
+  }
+
+  componentDidMount() {
+    const root = document.getElementById("ipx-root");
+    if (!root) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // theme props
+    if (this.props && this.props.accent) root.style.setProperty("--accent", this.props.accent);
+    if (this.props && this.props.portrait === false) {
+      root.querySelectorAll("[data-portrait]").forEach(el => { el.style.display = "none"; });
+    }
+
+    // reveal on scroll
+    const reveals = root.querySelectorAll("[data-reveal]");
+    if (reduce || !("IntersectionObserver" in window)) {
+      reveals.forEach(el => { el.style.opacity = "1"; el.style.transform = "none"; });
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const el = e.target;
+            const d = parseFloat(el.getAttribute("data-reveal-delay") || "0");
+            setTimeout(() => { el.style.opacity = "1"; el.style.transform = "none"; }, d);
+            io.unobserve(el);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+      reveals.forEach(el => io.observe(el));
+    }
+
+    // active nav + progress
+    const links = root.querySelectorAll("[data-nav]");
+    const setActive = (id) => {
+      links.forEach(a => {
+        const on = a.getAttribute("data-nav") === id;
+        const dot = a.querySelector("[data-navdot]");
+        const lbl = a.querySelector("[data-navlabel]");
+        if (dot) { dot.style.background = on ? "var(--accent)" : "transparent"; dot.style.borderColor = on ? "var(--accent)" : "var(--line2)"; dot.style.transform = on ? "scale(1)" : "scale(.7)"; }
+        if (lbl) { lbl.style.opacity = on ? "1" : ".55"; lbl.style.color = on ? "var(--ink)" : "var(--ink2)"; }
+      });
+    };
+    const sections = root.querySelectorAll("[data-section]");
+    if ("IntersectionObserver" in window) {
+      const secIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.getAttribute("data-section")); });
+      }, { threshold: 0, rootMargin: "-45% 0px -50% 0px" });
+      sections.forEach(s => secIO.observe(s));
+    }
+
+    const bar = root.querySelector("[data-progress]");
+    const onScroll = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? Math.min(1, window.scrollY / h) : 0;
+      if (bar) bar.style.transform = "scaleX(" + p + ")";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // smooth-scroll for in-page nav
+    root.querySelectorAll('a[data-nav]').forEach(a => {
+      a.addEventListener("click", (ev) => {
+        const id = a.getAttribute("data-nav");
+        const target = root.querySelector('[data-section="' + id + '"]');
+        if (target) {
+          ev.preventDefault();
+          const y = target.getBoundingClientRect().top + window.scrollY - 6;
+          window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
+        }
+      });
+    });
+
+    this._wireDelegates(root);
+  }
+
+  _wireDelegates(root) {
+    // ADR expand/collapse
+    root.querySelectorAll("[data-adr-toggle]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const body = btn.parentElement.querySelector("[data-adr-body]");
+        const icon = btn.querySelector("[data-adr-icon]");
+        if (!body) return;
+        const open = body.getAttribute("data-open") === "1";
+        body.setAttribute("data-open", open ? "0" : "1");
+        body.style.display = open ? "none" : "flex";
+        if (icon) icon.style.transform = open ? "rotate(0deg)" : "rotate(45deg)";
+      });
+    });
+    // landscape layer hover highlight
+    root.querySelectorAll("[data-layer]").forEach(layer => {
+      layer.addEventListener("mouseenter", () => { layer.style.transform = "translateX(6px)"; });
+      layer.addEventListener("mouseleave", () => { layer.style.transform = "translateX(0)"; });
+    });
+  }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Ilya Papou - Portfolio";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
