@@ -1,0 +1,21 @@
+# Ilya Papou
+
+> Site Reliability / Platform Engineer with production experience across Kubernetes, GitOps, observability and automation — including self-managed bare-metal RKE2, financial-crime platforms (Anti-Fraud, AML, KYC) and MLOps infrastructure. Extending into AI-assisted operations and agentic infrastructure.
+
+- Role: SRE / Platform Engineer (also: DevOps, Cloud-Native Infrastructure)
+- Status: Open to new opportunities
+- Website: https://papou.work
+- Email: ilya@papou.email
+- GitHub: https://github.com/pilprod
+
+## Full CV
+
+- [CV (Markdown)](https://papou.work/cv.md): Complete, plain-text CV — summary, skills, full work history, engineering philosophy and architecture decisions.
+
+## Core skills
+
+Kubernetes, bare-metal RKE2, GitOps, ArgoCD, Helm, Terraform, HashiCorp Vault, GitLab CI/CD, Prometheus, VictoriaMetrics, Grafana, ELK, SLI/SLO design, incident response, MLOps, GPU Kubernetes, Apache Airflow, Kafka, PostgreSQL, Redis, GCP, Ansible, AI-assisted operations.
+
+## Domains
+
+Financial services, iGaming / fintech, financial-crime prevention (Anti-Fraud / AML / KYC), aviation & travel technology, government / enterprise, telecommunications.
