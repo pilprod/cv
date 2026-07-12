@@ -74,6 +74,7 @@
         <span style="font-family:var(--fm);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)">Available</span>
       </div>
       <a href="mailto:ilya@papou.email" style="font-family:var(--fm);font-size:10.5px;color:var(--ink3);word-break:break-all;line-height:1.5" style-hover="color:var(--accentInk)">ilya@papou.email</a>
+      <a href="https://github.com/pilprod" target="_blank" rel="noopener" style="font-family:var(--fm);font-size:10.5px;color:var(--ink3);line-height:1.5" style-hover="color:var(--accentInk)">github.com/pilprod</a>
     </div>
   </nav>
 
@@ -101,6 +102,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
               <a href="#match" data-nav="match" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-family:var(--fd);font-weight:500;font-size:14.5px;padding:13px 22px;border-radius:10px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 22px -8px rgba(46,82,230,.7)" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(46,82,230,.85)">Explore the work<span style="font-family:var(--fm)">↓</span></a>
               <a href="mailto:ilya@papou.email" style="display:inline-flex;align-items:center;gap:9px;color:#EEECE7;font-family:var(--fm);font-size:13px;padding:13px 20px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:border-color .2s,background .2s" style-hover="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)">ilya@papou.email</a>
+              <a href="https://github.com/pilprod" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;color:#EEECE7;font-family:var(--fm);font-size:13px;padding:13px 20px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:border-color .2s,background .2s" style-hover="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>GitHub</a>
             </div>
           </div>
 
@@ -366,7 +368,266 @@
       </div>
     </section>
 
-    <!-- SECTIONS-INSERT -->
+    <!-- ===== 05 EXPERIENCE ===== -->
+    <section data-section="experience" style="background:var(--paper2)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">05 — Experience</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch">Where I've built and operated production platforms.</h2>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:70ch">From telecom security through Kubernetes consulting to leading DevOps functions and owning business-critical SRE platforms — each role compounds into the platform engineering I do today.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px;margin-top:clamp(40px,5vh,60px)">
+          <sc-for list="{{ roles }}" as="job" hint-placeholder-count="7">
+            <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(22px,3vw,30px);transition:border-color .2s" style-hover="border-color:var(--accentLine)">
+              <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+                <span style="font-family:var(--fd);font-weight:600;font-size:clamp(18px,2vw,22px);color:var(--ink);letter-spacing:-.01em">{{ job.co }}</span>
+                <span style="font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)">{{ job.scale }}</span>
+              </div>
+              <div style="font-family:var(--fm);font-size:12.5px;color:var(--accentInk);margin-bottom:14px">{{ job.role }}</div>
+              <p style="font-size:14px;line-height:1.6;color:var(--ink2);margin:0 0 18px;max-width:74ch">{{ job.summary }}</p>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
+                <sc-for list="{{ job.groups }}" as="g" hint-placeholder-count="3">
+                  <div style="background:var(--paper2);border:1px solid var(--line);border-radius:11px;padding:16px 18px">
+                    <div style="font-family:var(--fd);font-weight:600;font-size:13.5px;color:var(--ink);margin-bottom:10px">{{ g.h }}</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3">
+                        <div style="display:flex;gap:9px;align-items:flex-start">
+                          <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                          <span style="font-size:12.5px;line-height:1.55;color:var(--ink2)">{{ it }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:16px">
+                <sc-for list="{{ job.tech }}" as="t" hint-placeholder-count="8">
+                  <span style="font-family:var(--fm);font-size:10.5px;color:var(--ink3);padding:5px 10px;border:1px solid var(--line2);border-radius:999px">{{ t }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06 PHILOSOPHY ===== -->
+    <section data-section="philosophy" style="background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">06 — Philosophy</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch">The principles behind every platform I build.</h2>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:clamp(30px,4vh,44px)">
+          <sc-for list="{{ principles }}" as="p" hint-placeholder-count="5">
+            <div style="background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .2s,transform .2s" style-hover="border-color:var(--accentLine);transform:translateY(-3px)">
+              <div style="font-family:var(--fd);font-weight:600;font-size:15px;color:var(--ink);margin-bottom:8px">{{ p.t }}</div>
+              <div style="font-size:13px;line-height:1.56;color:var(--ink2)">{{ p.d }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(44px,6vh,64px)">
+          <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+            <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px">Operational excellence</div>
+            <p style="font-size:13.5px;line-height:1.62;color:var(--ink2);margin:0 0 14px">{{ opLead }}</p>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <sc-for list="{{ opBullets }}" as="b" hint-placeholder-count="3">
+                <div style="display:flex;gap:9px;align-items:flex-start">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                  <span style="font-size:13px;line-height:1.55;color:var(--ink2)">{{ b }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .06s,transform .7s cubic-bezier(.2,.7,.2,1) .06s">
+            <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px">Architecture judgment</div>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <sc-for list="{{ archBullets }}" as="b" hint-placeholder-count="4">
+                <div style="display:flex;gap:9px;align-items:flex-start">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                  <span style="font-size:13px;line-height:1.55;color:var(--ink2)">{{ b }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .12s,transform .7s cubic-bezier(.2,.7,.2,1) .12s">
+            <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px">Platform leadership</div>
+            <div style="display:flex;flex-direction:column;gap:9px">
+              <sc-for list="{{ leadBullets }}" as="b" hint-placeholder-count="4">
+                <div style="display:flex;gap:9px;align-items:flex-start">
+                  <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                  <span style="font-size:13px;line-height:1.55;color:var(--ink2)">{{ b }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 07 DECISIONS ===== -->
+    <section data-section="decisions" style="background:var(--paper2)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">07 — Decisions</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch">Architecture decisions, with the trade-offs made explicit.</h2>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:70ch">Senior platform work is mostly judgment. These are real decisions from production platforms — the problem, the choice, and what it cost.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:clamp(36px,5vh,54px)">
+          <sc-for list="{{ adrCases }}" as="adr" hint-placeholder-count="3">
+            <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden">
+              <button data-adr-toggle type="button" style="display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:20px clamp(18px,2.6vw,26px);font:inherit">
+                <span style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+                  <span style="font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accentInk)">{{ adr.n }}</span>
+                  <span style="font-family:var(--fd);font-weight:600;font-size:clamp(15.5px,1.7vw,18px);color:var(--ink);letter-spacing:-.01em">{{ adr.title }}</span>
+                </span>
+                <span data-adr-icon style="font-family:var(--fm);font-size:18px;color:var(--ink3);flex-shrink:0;transition:transform .25s;line-height:1">+</span>
+              </button>
+              <div data-adr-body data-open="0" style="display:none;flex-direction:column;gap:18px;padding:0 clamp(18px,2.6vw,26px) 24px;border-top:1px solid var(--line)">
+                <div style="padding-top:18px">
+                  <div style="font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px">Problem</div>
+                  <p style="font-size:13.5px;line-height:1.62;color:var(--ink2);margin:0;max-width:76ch">{{ adr.problem }}</p>
+                </div>
+                <div>
+                  <div style="font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accentInk);margin-bottom:7px">Decision</div>
+                  <p style="font-family:var(--fd);font-weight:500;font-size:14.5px;line-height:1.55;color:var(--ink);margin:0;max-width:76ch">{{ adr.decision }}</p>
+                </div>
+                <sc-if value="{{ adr.why }}">
+                  <div>
+                    <div style="font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px">Why</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ adr.why }}" as="w" hint-placeholder-count="4">
+                        <div style="display:flex;gap:9px;align-items:flex-start">
+                          <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                          <span style="font-size:13px;line-height:1.55;color:var(--ink2)">{{ w }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ adr.applied }}">
+                  <div>
+                    <div style="font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px">Applied as</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ adr.applied }}" as="w" hint-placeholder-count="4">
+                        <div style="display:flex;gap:9px;align-items:flex-start">
+                          <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                          <span style="font-size:13px;line-height:1.55;color:var(--ink2)">{{ w }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ adr.outcome }}">
+                  <div>
+                    <div style="font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px">Outcome</div>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ adr.outcome }}" as="w" hint-placeholder-count="3">
+                        <div style="display:flex;gap:9px;align-items:flex-start">
+                          <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px"></span>
+                          <span style="font-size:13px;line-height:1.55;color:var(--ink2)">{{ w }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ adr.tradeoff }}">
+                  <div style="background:var(--accentWash);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px">
+                    <div style="font-family:var(--fm);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accentInk);margin-bottom:6px">Trade-off accepted</div>
+                    <p style="font-size:13px;line-height:1.6;color:var(--ink2);margin:0;max-width:76ch">{{ adr.tradeoff }}</p>
+                  </div>
+                </sc-if>
+                <div style="display:flex;flex-wrap:wrap;gap:7px">
+                  <sc-for list="{{ adr.tech }}" as="t" hint-placeholder-count="4">
+                    <span style="font-family:var(--fm);font-size:10.5px;color:var(--ink3);padding:5px 10px;border:1px solid var(--line2);border-radius:999px">{{ t }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin-top:clamp(44px,6vh,64px)">
+          <div style="font-family:var(--fm);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px">Questions I ask before every decision</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+            <sc-for list="{{ decisionQs }}" as="q" hint-placeholder-count="6">
+              <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;transition:border-color .2s" style-hover="border-color:var(--accentLine)">
+                <div style="font-family:var(--fd);font-weight:600;font-size:14px;color:var(--ink);margin-bottom:7px">{{ q.t }}</div>
+                <div style="font-size:12.5px;line-height:1.55;color:var(--ink2)">{{ q.q }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 08 EVOLUTION ===== -->
+    <section data-section="evolution" style="background:var(--paper)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">08 — Evolution</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch">How my platforms — and I — have evolved.</h2>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:70ch">Every migration below replaced something that worked with something that scaled — the pattern behind how I approach platform engineering.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:clamp(36px,5vh,54px)">
+          <sc-for list="{{ evolution }}" as="ev" hint-placeholder-count="5">
+            <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);background:var(--paper2);border:1px solid var(--line);border-radius:13px;padding:20px clamp(18px,2.6vw,26px);transition:border-color .2s" style-hover="border-color:var(--accentLine)">
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+                <span style="font-family:var(--fm);font-size:12px;color:var(--ink3);background:#fff;border:1px solid var(--line2);border-radius:7px;padding:7px 13px;text-decoration:line-through;text-decoration-color:rgba(0,0,0,.3)">{{ ev.from }}</span>
+                <span style="font-family:var(--fm);font-size:13px;color:var(--accentInk)">→</span>
+                <span style="font-family:var(--fd);font-weight:600;font-size:13.5px;color:var(--accentInk);background:var(--accentWash2);border:1px solid var(--accentLine);border-radius:7px;padding:7px 13px">{{ ev.to }}</span>
+              </div>
+              <p style="font-size:13.5px;line-height:1.6;color:var(--ink2);margin:0;max-width:80ch">{{ ev.d }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 09 AI DIRECTION ===== -->
+    <section data-section="ai" style="background:var(--paper2)">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(74px,10vh,128px) clamp(24px,5vw,80px)">
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="width:26px;height:2px;background:var(--accent)"></span>
+            <span style="font-family:var(--fm);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accentInk)">09 — AI Direction</span>
+          </div>
+          <h2 style="font-family:var(--fd);font-weight:600;font-size:clamp(30px,3.8vw,50px);line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;max-width:20ch">Extending SRE practice into AI-assisted operations.</h2>
+          <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.66;color:var(--ink2);margin:0;max-width:70ch">I already run production MLOps infrastructure — GPU Kubernetes, training pipelines, model serving. The next step is applying AI to operations itself: tooling that investigates, explains and acts under human supervision.</p>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:clamp(36px,5vh,54px)">
+          <sc-for list="{{ aiAreas }}" as="a" hint-placeholder-count="7">
+            <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;transition:border-color .2s,transform .2s" style-hover="border-color:var(--accentLine);transform:translateY(-3px)">
+              <span style="width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0"></span>
+              <span style="font-family:var(--fd);font-weight:500;font-size:14px;color:var(--ink);line-height:1.4">{{ a }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div data-reveal style="opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin-top:26px;background:var(--accentWash2);border:1px solid var(--accentLine);border-radius:14px;padding:22px 26px">
+          <span style="font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accentInk)">Key takeaway</span>
+          <p style="font-family:var(--fd);font-weight:600;font-size:clamp(16px,1.8vw,20px);line-height:1.4;color:var(--ink);margin:9px 0 0;max-width:60ch">AI doesn't replace SRE judgment — it extends it. Reliable automation still needs someone who understands what reliable means.</p>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== 10 CONTACT ===== -->
     <section data-section="contact" style="position:relative;overflow:hidden;background:var(--void);color:#EEECE7">
@@ -394,6 +655,7 @@
           <div>
             <div style="font-family:var(--fm);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(238,236,231,.5);margin-bottom:8px">Get in touch</div>
             <a href="mailto:ilya@papou.email" style="font-family:var(--fd);font-weight:600;font-size:clamp(20px,2.6vw,32px);letter-spacing:-.01em;color:#fff;transition:color .2s" style-hover="color:var(--accentBright)">ilya@papou.email</a>
+            <div style="margin-top:12px"><a href="https://github.com/pilprod" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:13px;color:rgba(238,236,231,.66);transition:color .2s" style-hover="color:var(--accentBright)"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>github.com/pilprod</a></div>
           </div>
           <a href="#hero" data-nav="hero" style="display:inline-flex;align-items:center;gap:9px;font-family:var(--fm);font-size:12.5px;color:rgba(238,236,231,.66);padding:12px 18px;border:1px solid rgba(255,255,255,.2);border-radius:10px;transition:all .2s" style-hover="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.4)"><span style="font-family:var(--fm)">↑</span> Back to top</a>
         </div>
