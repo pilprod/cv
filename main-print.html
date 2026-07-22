@@ -89,7 +89,7 @@
               <span style="font-family:var(--fm);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(238,236,231,.8)">Open to platform &amp; SRE roles</span>
             </div>
             <h1 style="font-family:var(--fd);font-weight:600;font-size:clamp(48px,7.4vw,96px);line-height:.94;letter-spacing:-.025em;margin:0 0 22px">Ilya<br>Papou</h1>
-            <p style="font-family:var(--fd);font-weight:500;font-size:clamp(17px,2.2vw,24px);line-height:1.3;color:var(--accentBright);margin:0 0 22px;letter-spacing:-.01em">Site Reliability Engineer<br>/ Platform Engineer</p>
+            <p style="font-family:var(--fd);font-weight:500;font-size:clamp(17px,2.2vw,24px);line-height:1.3;color:var(--accentBright);margin:0 0 22px;letter-spacing:-.01em">Site Reliability Engineer<br>/ Platform Architect</p>
             <p style="font-size:clamp(15px,1.5vw,17px);line-height:1.62;color:rgba(238,236,231,.68);margin:0 0 28px;max-width:46ch">I build and operate the production platforms behind business-critical services — where reliability, observability and automation decide whether the business keeps running.</p>
             <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px">
               <sc-for list="{{ heroTags }}" as="t" hint-placeholder-count="5">
@@ -453,7 +453,7 @@ class Component extends DCLogic {
       ],
       roles: [
         {
-          co: "iGaming NDA", role: "Senior SRE / Platform Engineer", scale: "iGaming / Fintech · High-load",
+          co: "iGaming NDA", role: "Senior SRE / Platform Architect", scale: "iGaming / Fintech · High-load",
           summary: "Production infrastructure for online gaming services and Financial Crime Prevention capabilities.",
           groups: [
             { h: "Platform Engineering", items: ["Business-critical infrastructure on self-managed Kubernetes (RKE2) on bare metal — chosen for cost, data residency and predictable performance under sustained high load", "Operated bare-metal node provisioning, networking and storage across the platform lifecycle", "Migrated inter-service traffic to SSL/TLS and centralized secrets in HashiCorp Vault, removing static credentials from repos and configs", "Built GitOps-based CI/CD delivery pipelines for continuous, reliable delivery"] },
@@ -463,7 +463,7 @@ class Component extends DCLogic {
           tech: ["RKE2", "Bare Metal", "Helm", "GitLab CI", "Vault", "External Secrets", "Prometheus", "VictoriaMetrics", "Grafana", "ELK", "PostgreSQL", "Redis", "Kafka", "Terraform", "Airflow", "Slurm", "GPU Kubernetes", "MLOps", "Python"]
         },
         {
-          co: "Sirena-Travel", role: "Senior SRE / Platform Engineer", scale: "Aviation / Travel Technology · Enterprise",
+          co: "Sirena-Travel", role: "Senior SRE / Platform Architect", scale: "Aviation / Travel Technology · Enterprise",
           summary: "Production infrastructure for enterprise aviation and travel systems requiring high availability, secure integrations and continuous delivery.",
           groups: [
             { h: "Platform Engineering", items: ["CI/CD and infrastructure automation for high-availability platform reliability", "Observability and incident response — debugged production Kubernetes workloads and deployment failures, preparing runbooks and post-incident improvements", "PostgreSQL, Redis and Kafka in production"] },
