@@ -1,0 +1,22 @@
+# Ilya Papou — CV
+
+> Personal CV of Ilya Papou, Senior Platform / SRE Engineer based in Buenos Aires, Argentina. Kubernetes platforms, cloud and bare-metal infrastructure, reliable delivery, platform security and agent orchestration.
+
+The canonical HTML CV is the source of truth for employment history, dates, skills and project status. It is readable without JavaScript. YourOwn.Chat is personal R&D with a prototype, architecture work and local validation, not an employment entry or a claim of a production deployment.
+
+## CV
+
+- [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
+- [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank, I-Teco, Freelance / Flant and the MTS Group internship.
+- [Technical skills](https://papou.work/#technologies): Programming, cloud platforms, Kubernetes, delivery tools, security, observability, data and agent systems.
+
+## Personal projects
+
+- [YourOwn.Chat — Agent infrastructure](https://papou.work/#projects): Go Agent Host, kagent integration, local coding agents, Temporal handoff, Helm contracts and controlled release design.
+- [Home Aeroponics — IoT automation](https://papou.work/#home-aeroponics): ESP32, Raspberry Pi, C++, MQTT and Home Assistant for watering, climate control and monitoring.
+- [Zero-Trust Mesh](https://papou.work/#zero-trust-mesh): Tailscale lab networks, Git-managed ACLs and OPNsense segmentation experiments.
+
+## Public profiles
+
+- [GitHub](https://github.com/pilprod): Public repositories.
+- [LinkedIn](https://www.linkedin.com/in/pilprod/): Professional profile.
