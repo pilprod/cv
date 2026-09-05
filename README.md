@@ -8,7 +8,7 @@ September 5 update: the user requested a sidebar portrait and clearer AWS/Google
 
 - `index.html` contains the CV content.
 - `styles.css` provides responsive layouts and two-page A4 printing.
-- `assets/portrait.jpg` and `assets/fonts/` contain the portrait and local fonts.
+- `assets/portrait-source.jpg` and `assets/fonts/` contain the high-resolution portrait and local fonts. `portrait.jpg` remains the social-preview image.
 
 Preview locally:
 
@@ -33,7 +33,7 @@ The exporter starts its own temporary localhost server and creates `assets/Ilya-
 
 Native printing temporarily uses the document title `Ilya Papou — CV` for the suggested PDF filename, then restores the search-friendly browser title when printing ends or is cancelled. The print portrait is an eager-loaded HTML image rather than a CSS image replacement. The PDF exporter waits for it and the fonts before rendering the prepared file, so a failed image load cannot silently produce a portrait-free PDF.
 
-The prepared PDF retains the high-quality portrait. `portrait-print.png` is a 581 × 656 crop rendered from the original PDF's 896 × 1008 embedded photo, preserving the original framing and border without upscaling the source. The sidebar preview uses a 134 CSS-pixel print width, matching the sidebar content and providing about 416 effective PPI. Text, lines and links remain vector-based. Check the exported PDF is below 1,000,000 bytes before release; browser and system PDF exporters can produce different sizes. Do not rasterize the entire CV or reduce the photo back to a preview thumbnail.
+The screen and prepared PDF share the original 896 × 1008 JPEG from Figma. The crop starts from image node `370:66` inside portrait frame `370:64`, then uses the user's final adjustment: `scale(1.1)` with an origin of `50% 25%`, keeping the shirt lettering outside the frame. Only the image transform changes, not the portrait container or responsive grid. The PDF keeps its 134 CSS-pixel portrait width and draws the existing thin frame in CSS, without baking the previous, tighter crop into the image. Text, lines and links remain vector-based. Check the exported PDF is below 1,000,000 bytes before release; browser and system PDF exporters can produce different sizes. Do not rasterize the entire CV or reduce the photo back to a preview thumbnail.
 
 The print stylesheet follows the revised Figma frames and the supplied two-page PDF: original type sizes, 174px sidebar, aligned job headings and dividers, three technology columns, project cards and page counters. The 794 × 1123 source canvas is mapped to A4 while keeping text selectable and links clickable. Screen layouts retain fluid columns, flat cloud tags and the visible Ilya Popov alias. Print keeps compact technology rows, hides the web-only alias row and uses the exact Figma portrait crop. Export at 100% scale with browser headers/footers disabled and background graphics enabled.
 
@@ -41,19 +41,39 @@ Print artwork is exported directly from Figma. IBM Plex Mono Medium and SemiBold
 
 The print layout keeps a 36px gutter beside the sidebar, 4px job separators and heading gaps, 2px sidebar row gaps and 12px gaps between page-two cards. The preview uses a 90px identity row and 8px internal gaps to accommodate the added preference sentence. It retains the source type sizes, high-resolution portrait and two-page A4 layout. Screen spacing remains independent.
 
-The preview portrait aligns with the sidebar's text edges and fills its inner width on desktop and in print. At widths up to 980px, the profile card places the proportional portrait on the left and two columns of contacts on the right. Spoken languages span the full width of the next row, below both the photo and contacts. Below 480px, the photo and contact context share the first row, followed by the six links in two full-width columns, then spoken languages. The expandable background follows them. The original crops are retained and decorative corner marks stay removed. The print preview remains two A4 pages.
+The preview portrait aligns with the sidebar's text edges and fills its inner width on desktop and in print. At widths up to 980px, the profile card places the proportional portrait on the left and two columns of contacts on the right. Spoken languages span the full width of the next row, below both the photo and contacts. Below 480px, the photo and contact context share the first row, followed by the six links in two full-width columns, then spoken languages. The expandable background follows them. Both versions use the revised Figma crop and decorative corner marks stay removed. The print preview remains two A4 pages.
 
-The screen portrait uses discrete widths, not viewport interpolation: 80px up to 479px, 152px from 480–640px, 160px from 641–980px, 152px in the narrow desktop sidebar from 981–1180px, and 172px above 1180px. Its 8:9 aspect ratio is unchanged. At medium widths its height is close to the complete Contact block. From 480–575px a 16px photo gutter and a slightly wider first link column keep the email on one line beside the larger portrait. Mobile contact links have 12px row gaps, and the full-width language section has extra spacing above its heading and between the language and proficiency rows. These rules are screen-only and do not change the print layout.
+The screen portrait uses discrete widths, not viewport interpolation: 80px up to 479px, 152px from 480–640px, 160px from 641–980px, 152px in the narrow desktop sidebar from 981–1180px, and 172px above 1180px. Its 8:9 aspect ratio is unchanged. At medium widths its height is close to the complete Contact block. From 480–575px a 16px photo gutter and a slightly wider first link column keep the email on one line beside the larger portrait. Mobile contact links have 8px row gaps, and the full-width language section has extra spacing above its heading and between the language and proficiency rows. These rules are screen-only and do not change the print layout.
 
 In the narrow contact header, the title and context use their natural text heights instead of stretching to fill the photo's height. The group is visually centered beside the portrait, with 12px after the heading and 8px between the name alias and location. Wrapped context can expand naturally without clipping or affecting the link columns.
 
-From 480–980px the contact title/context retain the same 12px/8px rhythm, with 12px link-row gaps. The full contact block and portrait align by their vertical centers without stretching text. The narrow-screen header arrangement and the desktop/print sidebar are unchanged.
+From 480–980px the contact title/context retain the same 12px/8px rhythm, with 8px link-row gaps. The full contact block and portrait align by their vertical centers without stretching text. The narrow-screen header arrangement and the desktop/print sidebar are unchanged.
 
 The PDF omits the colored bar-and-dot accents above projects, the Contacts accent, the sidebar's colored edge and its circuit motif. Their former spacing is reclaimed by normal flow. Gray experience dividers, card outlines, contact icons and the separate page-two research motif remain unchanged. The same decoration cleanup is applied to the revised Figma CV.
 
 The contact block includes `papou.work`, WhatsApp Business `papou.work` and Telegram `pilprod` in both screen and print layouts. Messaging usernames are displayed without an `@` prefix. Each contact uses a compact monochrome vector icon with an accessible channel label instead of a repeated text prefix. Messaging links use `https://wa.me/papou.work` and `https://t.me/pilprod`; no phone number is published.
 
 GitHub Pages serves the repository root from `main`. No build step is required.
+
+## Optional analytics
+
+The GA4 web stream uses measurement ID `G-HHJNK65HTV`. `analytics.js` is a first-party consent controller, not an eagerly loaded Google tag. One combined **Cookies & analytics** notice controls optional analytics cookies and collection together. It loads Google Analytics only on `https://papou.work` after a visitor explicitly chooses **Allow optional cookies**. Until then, or after **Decline**, no Google Analytics script or measurement request is sent. Local previews never collect analytics.
+
+The consent choice is stored on the visitor's device for 180 days. Expired choices require a new decision. Storage failures do not prevent the CV from working, and the current visit still respects the visitor's choice. **Cookie & analytics settings** remains available below the CV. Withdrawing consent disables collection, removes this site's `_ga` cookies and reloads the page without the tag. If permanent storage is unavailable, a session-only fallback is attempted. If neither storage can replace a stale approval, collection stays disabled without an automatic reload and the interface warns that the choice was not saved. Changes also apply across open tabs. The interface is hidden in print and never changes the CV's editorial content.
+
+Only analytics consent can be granted. All advertising consent states remain denied, Google signals and advertising personalization are disabled, and no user ID, user properties or contact-click events are configured. The page URL is fixed to the canonical homepage. Referrers are reduced to HTTP(S) origins without paths, queries or credentials. The Google script itself is requested without a referrer. One explicit pageview is sent after consent. GA4 may also collect its standard session and engagement measurements. These controls minimize collection; they are not a claim of complete anonymity or legal compliance.
+
+Keep **Enhanced measurement disabled** in the GA4 stream so contact URLs, site-search values, form data and history changes are not automatically recorded. Keep advertising and user-provided-data features disabled. Do not enable automatic event settings without reviewing the collected parameters. The visitor notice links to [Google's explanation of data use](https://policies.google.com/technologies/partner-sites).
+
+Run the dependency-free consent tests before release:
+
+```sh
+node scripts/check_analytics.cjs
+```
+
+Also verify a clean browser sends no Google requests before consent or after decline, a consenting visit appears in GA4, withdrawal stops collection, and both PDF pages remain unchanged. HTML/CSS updates require PDF regeneration because the release manifest fingerprints those files, even when the changed interface is print-hidden.
+
+Implementation references: [basic consent mode](https://developers.google.com/tag-platform/security/concepts/consent-mode), [consent commands](https://developers.google.com/tag-platform/security/guides/consent), [privacy controls](https://developers.google.com/tag-platform/security/guides/privacy), [GA4 configuration](https://developers.google.com/analytics/devguides/collection/ga4/reference/config), [enhanced measurement](https://support.google.com/analytics/answer/9216061?hl=en).
 
 ## Search discoverability
 

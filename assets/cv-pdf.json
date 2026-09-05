@@ -1,8 +1,8 @@
 {
   "file": "assets/Ilya-Papou-CV.pdf",
   "pages": 2,
-  "bytes": 683112,
-  "sha256": "fb6f1676708a020ff85c3235508591c25228d0138f27680e839d65812b8555fc",
+  "bytes": 359386,
+  "sha256": "86d93f4cf40d22f39bce20aa063dcea3fcd724ab55bdbfda95d8101025cab324",
   "sources": {
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
@@ -12,12 +12,13 @@
     "assets/fonts/ibm-plex-sans.ttf": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3",
     "assets/photo-registration.svg": "40208d8b712417d49ce7162cdc39382895d6f3c40e1067518db1c723b9a550f7",
     "assets/portrait-print.png": "5c44bb92b7eea5b328db5a0e924bd0cf8ce90c12fbbd702871c16411f7f5fd8f",
+    "assets/portrait-source.jpg": "bdd5fb0019dabee64fd8067de95d91617929af0643519d105d4a6cf27fff34f2",
     "assets/portrait.jpg": "de9025633e1bc2c08d6e206ab926184054c598d8c5ae49880f6b0995e60401dc",
     "assets/project-accent-blue.svg": "dc152a18e9d025c9e1b97d0d40c4ccad41ab7dde9b3e099a766ddf21f2ddf44c",
     "assets/project-accent-teal.svg": "89957e617bc9f84b886dc88315c433aff06e2c7edcf01fd1c70a10e78401d963",
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "index.html": "9ea33ee65ff23812320cd12d48a318cae6623c155aba01a68aadf915262b73e1",
-    "styles.css": "0a19a6bd220d28895f07ea9526ba4e21be81f19dc967bc642702af714ec9ed79"
+    "index.html": "0f2f42365823d4d4424c6df5f9b3c0a044f8c4b3ffc03f1d25e96bc1b727a5f4",
+    "styles.css": "da29316f73eaf22e7b43c0bf7ca0a53ee664244d5a6e126091a69384b380a750"
   }
 }

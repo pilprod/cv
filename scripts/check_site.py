@@ -157,7 +157,7 @@ class Page(HTMLParser):
             capture = "achievement"
         elif tag == "p":
             capture = next((kind for kind in ("summary", "project-summary") if kind in classes), None)
-        if capture is None and (
+        if capture is None and "cv" in ancestors and (
             tag in ("h1", "h2", "h3") and "tech-group" not in ancestors
             or tag == "p" and (classes & {"eyebrow", "headline", "job-role", "job-meta", "project-meta"} or "page-intro" in ancestors)
             or tag == "li" and "sidebar-section" in ancestors
@@ -294,9 +294,9 @@ def main():
     assert meta["og:url"] == CANONICAL, "OG URL is not canonical"
     print_portraits = [image for image in page.images if "portrait-print" in image.get("class", "").split()]
     assert len(print_portraits) == 1, "Print portrait must be a real HTML image, not a print-time CSS replacement"
-    assert print_portraits[0].get("src") == "assets/portrait-print.png", "Print portrait must use the reviewed crop"
+    assert print_portraits[0].get("src") == "assets/portrait-source.jpg", "Print portrait must share the Figma source and crop with the screen portrait"
     assert print_portraits[0].get("loading") == "eager", "Print portrait must load before opening print preview"
-    assert int(print_portraits[0].get("width", 0)) >= 581 and int(print_portraits[0].get("height", 0)) >= 656, "Print portrait must retain the high-resolution source crop"
+    assert int(print_portraits[0].get("width", 0)) >= 896 and int(print_portraits[0].get("height", 0)) >= 1008, "Print portrait must retain the high-resolution Figma source"
     assert not any("portrait-marks" in image.get("class", "").split() for image in page.images), "Keep decorative corners removed from the portrait"
     assert not any("sidebar-motif" in image.get("class", "").split() for image in page.images), "Keep the removed sidebar circuit decoration out of the CV"
     canonicals = [link.get("href") for link in page.links if "canonical" in link.get("rel", "").split()]
@@ -332,7 +332,7 @@ def main():
     assert hashlib.sha256(pdf_bytes).hexdigest() == pdf_manifest["sha256"], "PDF differs from reviewed export"
     # Local release check prevents a newer CV being published with a stale PDF.
     # On the live check, compare the manifest and PDF, not local unpublished edits.
-    assert {"index.html", "styles.css", "assets/portrait-print.png"} <= set(pdf_manifest["sources"])
+    assert {"index.html", "styles.css", "assets/portrait-source.jpg"} <= set(pdf_manifest["sources"])
     if not base:
         for source, digest in pdf_manifest["sources"].items():
             source_path = (ROOT / source).resolve()

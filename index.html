@@ -30,7 +30,7 @@
   <link rel="describedby" href="/llms.txt" type="text/plain" title="CV overview for agents">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20260905-medium-portrait-preview">
+  <link rel="stylesheet" href="styles.css?v=20260905-figma-portrait-crop">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -103,7 +103,7 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#technologies">Technologies</a>
-      <a id="open-pdf" class="pdf-action" href="assets/Ilya-Papou-CV.pdf?v=20260905-gcp-tag-preview">Open PDF</a>
+      <a id="open-pdf" class="pdf-action" href="assets/Ilya-Papou-CV.pdf?v=20260905-final-portrait-crop">Open PDF</a>
     </nav>
   </div>
   <main class="cv">
@@ -118,8 +118,8 @@
       </header>
       <aside class="sidebar" aria-label="Contact and profile">
         <div class="portrait">
-          <img class="portrait-screen" src="assets/portrait.jpg" width="448" height="504" alt="Portrait of Ilya Papou" fetchpriority="high">
-          <img class="portrait-print" src="assets/portrait-print.png" width="581" height="656" alt="Portrait of Ilya Papou" loading="eager" decoding="sync">
+          <img class="portrait-screen" src="assets/portrait-source.jpg" width="896" height="1008" alt="Portrait of Ilya Papou" fetchpriority="high">
+          <img class="portrait-print" src="assets/portrait-source.jpg" width="896" height="1008" alt="Portrait of Ilya Papou" loading="eager" decoding="sync">
         </div>
         <section class="sidebar-section profile-contact">
           <h2>Contact</h2>
@@ -443,6 +443,26 @@
       <footer class="page-number" aria-hidden="true">Page 2 / 2</footer>
     </section>
   </main>
+  <footer class="analytics-footer" aria-label="Cookies and analytics">
+    <div id="analytics-tools" hidden>
+      <span id="analytics-status" role="status">Analytics is off.</span>
+      <button id="analytics-settings" type="button" aria-expanded="false" aria-controls="analytics-consent">Cookie &amp; analytics settings</button>
+    </div>
+    <noscript>Optional analytics cookies are off. JavaScript is needed to manage your choice.</noscript>
+  </footer>
+  <section class="analytics-consent" id="analytics-consent" aria-labelledby="analytics-heading" hidden>
+    <div class="analytics-copy">
+      <p class="analytics-kicker">Your privacy</p>
+      <h2 id="analytics-heading">Cookies &amp; analytics</h2>
+      <p>This site uses optional Google Analytics cookies to measure visits and basic device and referral information. They are enabled only if you allow them. No advertising or contact-link tracking.</p>
+      <p class="analytics-note">Your choice is stored on this device for 180 days. You can change it in Cookie &amp; analytics settings. <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses data</a>.</p>
+    </div>
+    <div class="analytics-actions">
+      <button class="analytics-decline" id="analytics-decline" type="button">Decline</button>
+      <button class="analytics-allow" id="analytics-allow" type="button">Allow optional cookies</button>
+    </div>
+  </section>
+  <script src="analytics.js" defer></script>
   <script>
     const screenTitle = document.title;
     const setPrintTitle = () => { document.title = "Ilya Papou — CV"; };

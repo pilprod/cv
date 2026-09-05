@@ -19,3 +19,5 @@ jobs:
           persist-credentials: false
       - name: Validate HTML, structured data, crawler access and sitemap
         run: python3 scripts/check_site.py
+      - name: Validate opt-in analytics and cookie consent
+        run: node scripts/check_analytics.cjs
