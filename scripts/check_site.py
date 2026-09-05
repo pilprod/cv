@@ -59,7 +59,7 @@ SOURCE_PARTS = {
 SOURCE_DIGESTS = {
     "identity": "5aea4263ebd3447cf815628953924d714d2931de93f8f563a36adb8a727d532c",
     # Website and messaging handles explicitly added by the user after the baseline.
-    "sidebar/contact": "768083c6ca19561b90ed904c361c8b608a4a590d2ce7738f2231744dcedc63fa",
+    "sidebar/contact": "e747534971c633d6d393b88ae7e244210e86ec756c117d06503496b1a4c71c3b",
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
     "sidebar/strengths": "5eddd31c856782aa6d067cbd9f59c47ab5fd5c09dd58b07b1df42b695bc1c192",
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",

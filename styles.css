@@ -340,7 +340,21 @@ h3 {
 }
 
 .contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   text-decoration: none;
+}
+
+.contact-icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .language-list {
@@ -1030,13 +1044,12 @@ h3 {
   }
 
   .contact-list {
-    display: flex;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
     gap: 6px 14px;
   }
 
   .contact-list > span {
-    flex-basis: 100%;
+    grid-column: 1 / -1;
   }
 
   .language-list {
@@ -1300,6 +1313,16 @@ h3 {
   .sidebar ul,
   .contact-list {
     row-gap: 2px;
+  }
+
+  .contact-list a {
+    gap: 5px;
+  }
+
+  .contact-icon {
+    width: 10px;
+    height: 10px;
+    flex-basis: 10px;
   }
 
   .language-list {
