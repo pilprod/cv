@@ -1121,30 +1121,46 @@ h3 {
   .identity {
     margin-top: 24px;
     row-gap: 20px;
+    border-bottom: 0;
   }
 
   .identity-copy {
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-items: start;
     gap: 6px;
     text-align: left;
   }
 
   .identity .portrait-mobile {
     display: block;
-    width: 176px;
+    grid-column: 1;
+    grid-row: 2;
+    /* The name sets this track's width, not the image's intrinsic size. */
+    contain: inline-size;
+    width: 100%;
     margin: 14px 0;
   }
 
   .identity h1 {
+    grid-column: 1;
+    grid-row: 3;
     font-size: 30px;
   }
 
+  .identity .eyebrow,
+  .identity .headline {
+    grid-column: 1 / -1;
+  }
+
   .identity .eyebrow {
+    grid-row: 1;
     font-size: 10px;
     line-height: 15px;
   }
 
   .identity .headline {
+    grid-row: 4;
     font-size: 14px;
     line-height: 20px;
   }
@@ -1295,10 +1311,6 @@ h3 {
 @media screen and (max-width: 360px) {
   .identity h1 {
     font-size: 27px;
-  }
-
-  .identity .portrait-mobile {
-    width: 160px;
   }
 
   .sidebar {
