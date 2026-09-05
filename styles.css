@@ -518,10 +518,14 @@ h3 {
 }
 
 .job-title-line {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) fit-content(42%);
   align-items: baseline;
-  gap: 3px 12px;
+  column-gap: 12px;
+}
+
+.job-heading {
+  min-width: 0;
 }
 
 .company,
@@ -556,16 +560,15 @@ h3 {
   line-height: 1.55;
 }
 
-.job-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 3px 16px;
-}
-
 .job-domain {
+  min-width: 0;
   color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: right;
+  overflow-wrap: anywhere;
 }
 
 .achievements {
@@ -1668,15 +1671,21 @@ h3 {
   }
 
   .job-header {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 3px 4px;
+    display: grid;
+    row-gap: 3px;
     margin-bottom: 4px;
   }
 
   .job-title-line {
-    display: contents;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 16px;
+  }
+
+  .job-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 4px;
   }
 
   .company,
@@ -1693,12 +1702,9 @@ h3 {
     content: "— ";
   }
 
-  .job-meta {
-    flex-basis: 100%;
-  }
-
   .job-domain {
     font-size: 8.2px;
+    font-weight: 500;
     line-height: 11px;
     letter-spacing: 0;
   }

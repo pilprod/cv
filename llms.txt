@@ -62,7 +62,7 @@ I develop agent infrastructure and orchestration for software engineering, with 
 ### Sirena-Travel — Senior SRE / Platform Engineer
 
 Mar 2025 — Sep 2026 · Contract · Thailand · Remote
-Domain: Aviation & travel
+Aviation & travel
 
 - Built and operated a bare-metal RKE2 platform with encrypted etcd and mTLS for inter-DC Kafka, service-to-service traffic, PostgreSQL and Redis. Managed certificates centrally in Vault and propagated updates using External Secrets Operator (ESO), webhooks and Ansible.
 - Standardized service delivery through GitLab CI/CD, shared Helm charts and Argo CD.
@@ -73,7 +73,7 @@ Domain: Aviation & travel
 ### Sberbank Insurance Broker — Head of DevOps
 
 Jun 2023 — Mar 2025 · Full-time · Russia · Hybrid
-Domain: Finance & insurance
+Finance & insurance
 
 - Built and led a DevOps team with 4 direct reports. Coordinated work across a wider infrastructure group of ~10 people. Established shared standards, documentation and knowledge sharing.
 - Provisioned ~8 Kubernetes clusters (20+ nodes total) with Terraform and GitOps. Integrated Cloud.ru Advanced (Huawei Cloud technology) services with VMware on bare-metal servers at Cloud.ru.
@@ -83,7 +83,7 @@ Domain: Finance & insurance
 ### I-Teco — Senior DevOps Engineer
 
 Apr 2022 — Jun 2023 · Full-time · Russia · Remote
-Domain: Government sector
+Public sector
 
 - Managed development and test infrastructure on ~10 Hyper-V / Windows Server hosts, each running ~50 VMs, including Linux guests and shared engineering services.
 - Built Kubernetes on Alt Linux 9.2 in an air-gapped environment. Prepared releases on USB drives for security-controlled physical transfer and deployed them using scripts.
@@ -92,7 +92,7 @@ Domain: Government sector
 ### Freelance / Flant — Development & DevOps
 
 Nov 2019 — Mar 2022 · Selected projects · Remote
-Domain: Cross-industry IT consulting
+Cross-industry IT consulting
 
 - Delivered cloud infrastructure and web applications across freelance and Flant projects using AWS (S3, Lambda, Kubernetes and IAM) and Yandex Cloud.
 - Built React / Next.js and Node.js / Express applications. Deployed Java / Spring workloads to Kubernetes with Helm, GitHub Actions and Ansible.
@@ -101,7 +101,7 @@ Domain: Cross-industry IT consulting
 ### MTS Group — Information Security Intern
 
 Feb 2018 — Nov 2019 · Internship · Belarus · Remote
-Domain: Telecommunications
+Telecommunications
 
 - Configured Linux, including Kali Linux, and analyzed boot flow and core OS components. Evaluated major virtualization models and built isolated security-testing labs.
 - Mapped networks and assessed exposed services with Nmap and reconnaissance tools. Identified vulnerabilities and validated findings in controlled Metasploit exercises.

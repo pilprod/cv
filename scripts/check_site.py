@@ -70,11 +70,11 @@ SOURCE_DIGESTS = {
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
     "sidebar/domains": "af8993ed452f0f0e2628d93963363c8869efd0a2385924e2c424a137dd098b37",
     # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
-    "job/Sirena-Travel": "016c5ebd76f35e347fd8baaec4679281091e64c7a68afbb53654cdc3550d7079",
-    "job/Sberbank": "bf9f721943d4820f4ea9bfcc81ab28126cc58510a83d61abc224edd5fac17e48",
-    "job/I-Teco": "6633ffd8fadf49e5977930ef5656276805b0d1fe83c539423922b68ffb22068e",
-    "job/Freelance-Flant": "2e65a91d9fe8370c4bd34f0ad9c765cac70084c25e2a025cec713f1f04ed355f",
-    "job/MTS": "9160fe70530471cb2c1366f65af8740022f93cf1627a6d70d9c04ff764feff80",
+    "job/Sirena-Travel": "5e27096f34bb9f31639ebae4ce57b31babfb1ee8bb637d05b54455224260012f",
+    "job/Sberbank": "e3ae8fe8fdd501f99263f59e5de132576834acc7dfd6bdc1bf2412911c30f8b0",
+    "job/I-Teco": "8f9cf7cee4a2983e2156ad502846733006ab4f4e1dc20904ce571e6cfb865543",
+    "job/Freelance-Flant": "e06a19cbcadf7e3192a600ff6aaaa53cdf09e6c1e2c961e2f6c259b5e465ac61",
+    "job/MTS": "2a6ac2283c74a88ff7f03f33172eaf9b49950fd0e0450171adbe7d5a7b80dc28",
     "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
     "project/YourOwn.Chat": "32c342feddc6dbd075e4ef346cc6dc39329b08a35f7e23ca7e8cca5d8a0e19bb",
     "project/Home Aeroponics": "93001b9d293cdd594cc0aa26ad967682e26dbdcdf0bd297319f9e4f6266525ba",
@@ -100,11 +100,11 @@ def normalize_source_text(value):
 
 def check_source_content(page):
     assert len(page.cv_content["achievement"]) == 33, "Expected all 33 source achievement bullets"
-    domains = ("Aviation & travel", "Finance & insurance", "Government sector",
+    domains = ("Aviation & travel", "Finance & insurance", "Public sector",
                "Cross-industry IT consulting", "Telecommunications")
     assert len(page.source_content["job"]) == len(domains), "Expected five professional experiences"
     for item, domain in zip(page.source_content["job"], domains):
-        assert item.count("Domain:") == 1 and "Domain: " + domain in item, "Missing or mismatched experience domain"
+        assert "Domain:" not in item and domain in item, "Missing experience domain or unwanted Domain prefix"
     assert "Full-time · Russia · Hybrid" in page.source_content["job"][1], "Sber's work arrangement must be Hybrid"
     for kind, labels in SOURCE_PARTS.items():
         items = page.source_content[kind]
@@ -169,9 +169,12 @@ class Page(HTMLParser):
             or tag == "p" and (classes & {"eyebrow", "headline", "job-role", "job-meta", "project-meta"} or "page-intro" in ancestors)
             or tag == "li" and "sidebar-section" in ancestors
             or tag == "div" and "language-list" in ancestors
+            or tag == "span" and "job-domain" in classes
             or tag in ("span", "a") and "contact-list" in ancestors
         ):
             capture = "detail"
+        if "job-domain" in classes:
+            assert "job-title-line" in ancestors and "job-meta" not in ancestors, "Industry labels must be beside company headings, not dates"
         source = next((kind for kind, css_class in (("identity", "identity"), ("sidebar", "sidebar-section"),
                       ("job", "job"), ("project", "project"), ("page-intro", "page-intro")) if css_class in classes), None)
         category = attrs.get("data-category") if "tech-group" in classes else next(
