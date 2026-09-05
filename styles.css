@@ -290,24 +290,25 @@ h3 {
 }
 
 .site-toolbar .pdf-action {
-  color: #244cd5;
+  color: white;
   margin-left: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
-  padding: 4px 12px;
-  border: 1px solid var(--blue);
+  min-height: 30px;
+  padding: 3px 12px;
+  border: 1px solid var(--ink);
   border-radius: 6px;
-  background: transparent;
+  background: var(--ink);
   font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .site-toolbar .pdf-action:hover {
-  border-color: #244cd5;
-  color: #244cd5;
+  border-color: #182234;
+  background: #182234;
+  color: white;
 }
 
 .cv {
@@ -1097,9 +1098,9 @@ h3 {
   }
 
   .site-toolbar .pdf-action {
-    min-height: 32px;
+    min-height: 30px;
     font-size: 12px;
-    padding: 3px 6px;
+    padding: 2px 6px;
   }
 
   .cv {
@@ -1199,8 +1200,6 @@ h3 {
 }
 
 @media screen and (max-width: 640px) {
-  .profile-contact > h2,
-  .contact-context,
   .profile-extra {
     text-align: center;
   }
