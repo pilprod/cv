@@ -280,6 +280,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px 24px;
 }
 
@@ -289,7 +290,7 @@ h3 {
 
 .site-toolbar .pdf-action {
   color: white;
-  margin-left: auto;
+  margin-left: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1282,7 +1283,6 @@ h3 {
 
 @media screen and (max-width: 360px) {
   .site-toolbar nav {
-    justify-content: space-between;
     column-gap: 10px;
   }
 
