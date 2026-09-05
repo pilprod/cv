@@ -1,0 +1,23 @@
+{
+  "file": "assets/Ilya-Papou-CV.pdf",
+  "pages": 2,
+  "bytes": 685338,
+  "sha256": "a096f32b43a19fa11272fa0cfa74298c522f03fae844b466d5874496db1d8fe3",
+  "sources": {
+    "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
+    "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
+    "assets/fonts/ibm-plex-mono-medium.ttf": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+    "assets/fonts/ibm-plex-mono-semibold.ttf": "d3c38e55c78f5b0f28009fddba4834ec503278936a5986032424c9bd2d23aa46",
+    "assets/fonts/ibm-plex-mono.ttf": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+    "assets/fonts/ibm-plex-sans.ttf": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3",
+    "assets/photo-registration.svg": "40208d8b712417d49ce7162cdc39382895d6f3c40e1067518db1c723b9a550f7",
+    "assets/portrait-print.png": "5c44bb92b7eea5b328db5a0e924bd0cf8ce90c12fbbd702871c16411f7f5fd8f",
+    "assets/portrait.jpg": "de9025633e1bc2c08d6e206ab926184054c598d8c5ae49880f6b0995e60401dc",
+    "assets/project-accent-blue.svg": "dc152a18e9d025c9e1b97d0d40c4ccad41ab7dde9b3e099a766ddf21f2ddf44c",
+    "assets/project-accent-teal.svg": "89957e617bc9f84b886dc88315c433aff06e2c7edcf01fd1c70a10e78401d963",
+    "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
+    "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
+    "index.html": "8198de9f51341d24572b140fbd952bdb59e17c058d7467104bd4f9f388e9f504",
+    "styles.css": "52db3780b627f04b2dca400e18e4a82dfa57c7b260637a24d04a55c6b7980db8"
+  }
+}

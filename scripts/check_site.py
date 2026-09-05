@@ -251,7 +251,7 @@ def main():
         assert urlsplit(base).scheme in ("http", "https"), "--url must be HTTP(S)"
     checked = set()
 
-    def resource(path, content=True):
+    def resource(path, content=True, binary=False):
         path = unquote(urlsplit(path).path).lstrip("/")
         if base:
             request = Request(urljoin(base, path), method="GET" if content else "HEAD",
@@ -259,9 +259,14 @@ def main():
             with urlopen(request, timeout=20) as response:
                 assert response.status == 200, f"HTTP {response.status}: {path}"
                 assert "noindex" not in response.headers.get("X-Robots-Tag", "").lower(), path + " has noindex"
+                if binary:
+                    assert response.headers.get_content_type() == "application/pdf", "Expected application/pdf: " + path
+                    return response.read()
                 return response.read().decode("utf-8") if content else ""
         local = (ROOT / (path or "index.html")).resolve()
         assert local.is_relative_to(ROOT) and local.is_file(), "Missing local resource: " + path
+        if binary:
+            return local.read_bytes()
         return local.read_text(encoding="utf-8") if content else ""
 
     page = Page()
@@ -306,6 +311,23 @@ def main():
 
     for _, reference in page.refs:
         check_ref(reference)
+    pdf_manifest = json.loads(resource("assets/cv-pdf.json"))
+    pdf_path = "assets/Ilya-Papou-CV.pdf"
+    assert pdf_manifest["file"] == pdf_path, "Unexpected downloadable PDF path"
+    assert sum(tag == "a" and ref == pdf_path for tag, ref in page.refs) == 2, "Keep separate Download PDF and Open PDF links usable without JavaScript"
+    pdf_bytes = resource(pdf_path, binary=True)
+    assert pdf_bytes.startswith(b"%PDF-"), "Download is not a PDF"
+    assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"
+    assert len(re.findall(rb"/Type\s*/Page\b", pdf_bytes)) == pdf_manifest["pages"] == 2, "Download must contain exactly two pages"
+    assert hashlib.sha256(pdf_bytes).hexdigest() == pdf_manifest["sha256"], "PDF differs from reviewed export"
+    # Local release check prevents a newer CV being published with a stale PDF.
+    # On the live check, compare the manifest and PDF, not local unpublished edits.
+    assert {"index.html", "styles.css", "assets/portrait-print.png"} <= set(pdf_manifest["sources"])
+    if not base:
+        for source, digest in pdf_manifest["sources"].items():
+            source_path = (ROOT / source).resolve()
+            assert source_path.is_relative_to(ROOT) and source_path.is_file(), "Missing PDF source: " + source
+            assert hashlib.sha256(source_path.read_bytes()).hexdigest() == digest, "PDF is stale. Run scripts/export_pdf.cjs and review both pages: " + source
     for key in ("og:image", "twitter:image"):
         assert urlsplit(meta[key]).scheme == "https", key + " must be an absolute HTTPS URL"
         check_ref(meta[key])

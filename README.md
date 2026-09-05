@@ -14,7 +14,20 @@ Preview locally:
 python3 -m http.server 8000
 ```
 
-Open [localhost:8000](http://localhost:8000). Use the browser print dialog to save an A4 PDF.
+Open [localhost:8000](http://localhost:8000). **Download PDF** saves the reviewed two-page A4 file (under 1 MB) without asking the device to paginate the website. **Open PDF** is a normal same-tab link for previewing, sharing or saving through the browser. Both links work without JavaScript. On phones, tablets and recognizable in-app browsers, the web Print button is hidden and a short save/open-in-browser hint is shown. The site cannot force an embedded browser to launch Safari or Chrome. If iOS previews the file instead of downloading it, use Share → Save to Files.
+
+Desktop **Print** remains available for A4 web printing. Letter paper, printer margins or browser headers/footers may repaginate the HTML. Use the prepared PDF for consistent page breaks, including when printing on Letter paper with fit-to-page enabled.
+
+### Refresh the downloadable PDF
+
+After any HTML, CSS, portrait or font change, export the exact checkout using Node.js, Playwright and installed Google Chrome:
+
+```sh
+node scripts/export_pdf.cjs
+python3 scripts/check_site.py
+```
+
+The exporter starts its own temporary localhost server and creates `assets/Ilya-Papou-CV.pdf` plus `assets/cv-pdf.json`. It checks for layout overflow, two pages and a size below 1 MB. Render and visually review **both** PDF pages before committing them together. The manifest records PDF and source hashes; the dependency-free release check rejects a stale PDF. Playwright is only needed for regeneration, not for the website or GitHub Pages deployment.
 
 Printing temporarily uses the document title `Ilya Papou — CV` for the suggested PDF filename, then restores the search-friendly browser title when printing ends or is cancelled. This works through the page button and native print shortcuts. The print portrait is an eager-loaded HTML image rather than a CSS image replacement. The page button waits for it and the fonts before opening print, so a failed image load cannot silently produce a portrait-free PDF.
 

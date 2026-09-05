@@ -101,9 +101,14 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#technologies">Technologies</a>
-      <button id="print-cv" type="button" hidden>Print / Save PDF</button>
+      <div class="toolbar-actions">
+        <a id="download-cv" class="pdf-download" href="assets/Ilya-Papou-CV.pdf" download="Ilya Papou — CV.pdf" aria-describedby="pdf-help">Download PDF</a>
+        <a id="open-pdf" href="assets/Ilya-Papou-CV.pdf">Open PDF</a>
+        <button id="print-cv" type="button" hidden>Print</button>
+      </div>
     </nav>
   </div>
+  <p id="pdf-help" class="pdf-help">Ready-to-save PDF · 2 pages · under 1 MB. <span id="pdf-browser-help">For web printing, use A4 at 100% with headers and footers off.</span></p>
   <main class="cv">
     <section class="cv-page page-one" aria-label="Experience and profile">
       <header class="identity">
@@ -445,7 +450,17 @@
     // Native print shortcuts also use the short, filename-safe title.
     window.addEventListener("beforeprint", setPrintTitle);
     window.addEventListener("afterprint", restoreScreenTitle);
-    printButton.hidden = false;
+    const userAgent = navigator.userAgent;
+    const mobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent)
+      || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const embeddedBrowser = /FBAN|FBAV|Instagram|LinkedInApp|Line\/|MicroMessenger|\bwv\b/i.test(userAgent);
+    // Detection only changes the hint and Print button. Both PDF links always
+    // work without JavaScript, including browsers we cannot identify reliably.
+    printButton.hidden = mobileDevice || embeddedBrowser || typeof window.print !== "function";
+    if (mobileDevice || embeddedBrowser) {
+      document.getElementById("pdf-browser-help").textContent =
+        "Open the PDF, then use Share → Save to Files or Download. If this app cannot save it, choose Open in Safari / Chrome from the app menu.";
+    }
     printButton.addEventListener("click", async () => {
       printButton.disabled = true;
       try {
