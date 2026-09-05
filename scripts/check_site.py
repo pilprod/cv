@@ -58,7 +58,8 @@ SOURCE_PARTS = {
 # just a few selected keywords. Update only after reviewing changed source text.
 SOURCE_DIGESTS = {
     "identity": "5aea4263ebd3447cf815628953924d714d2931de93f8f563a36adb8a727d532c",
-    "sidebar/contact": "67a82ab433d18b5382695f5402875d7e2991b3eddfd9f2740a47ef8c855a8a57",
+    # Website and messaging handles explicitly added by the user after the baseline.
+    "sidebar/contact": "768083c6ca19561b90ed904c361c8b608a4a590d2ce7738f2231744dcedc63fa",
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
     "sidebar/strengths": "5eddd31c856782aa6d067cbd9f59c47ab5fd5c09dd58b07b1df42b695bc1c192",
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
@@ -74,6 +75,8 @@ SOURCE_DIGESTS = {
     "project/Zero-Trust Mesh": "35bb3796fb1cfa1a09be4ffa5584110daae98e437d4aa10bf36d9a4ab9433c88",
 }
 SOURCE_LINKS = {
+    "https://papou.work",
+    "https://wa.me/papou.work", "https://t.me/pilprod",
     "mailto:ilya@papou.email", "https://www.linkedin.com/in/pilprod", "https://github.com/pilprod",
     "https://github.com/pilprod/yourown-chat", "https://github.com/pilprod/kagent", "https://github.com/pilprod/mattermost",
 }
