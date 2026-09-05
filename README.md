@@ -65,6 +65,8 @@ Only analytics consent can be granted. All advertising consent states remain den
 
 Keep **Enhanced measurement disabled** in the GA4 stream so contact URLs, site-search values, form data and history changes are not automatically recorded. Keep advertising and user-provided-data features disabled. Do not enable automatic event settings without reviewing the collected parameters. The visitor notice links to [Google's explanation of data use](https://policies.google.com/technologies/partner-sites).
 
+At setup verification on September 5, 2026, the GA4 property had Google signals, user-provided data and advertising personalization disabled, with both event and user data retention set to **2 months**. A consented browser visit appeared in Realtime; the test ended with analytics declined again. Preserve these property-level controls as well as the site-side consent checks.
+
 Run the dependency-free consent tests before release:
 
 ```sh
@@ -98,5 +100,7 @@ GitHub Actions runs the local checks on pushes and pull requests. Pages publicat
 The checks protect the September 4, 2026 Figma/PDF baseline plus the user-directed cloud emphasis noted above: all 33 achievement bullets, identity, sidebar facts, job titles and dates, project descriptions, contact/code links and 85 tags (83 existing technologies plus AWS and Google Cloud). OpenVPN was removed from the security tags at the user's request, while its experience mention remains. Section fingerprints ignore case and presentation punctuation, while retaining numbers and comparison signs. They intentionally allow the Ilya Popov alias, the flat cloud list with one IAM entry and the web placement of Zero-Trust Mesh's date. When the editorial source changes, review the source again and update the affected baseline together with the HTML and Markdown; do not refresh a fingerprint merely to make a failed check pass.
 
 After deployment, the site owner can submit `https://papou.work/sitemap.xml` in Google Search Console and Bing Webmaster Tools, and use their URL inspection tools. This repository does not create verification tokens or automatically claim ownership. Crawling, indexing, rich results and AI citations depend on the search services.
+
+Google Search Console setup was verified on September 5, 2026: ownership confirmed, the sitemap processed successfully with one discovered page, and URL Inspection reported the canonical homepage indexed with HTTPS and valid ProfilePage structured data. This is a point-in-time check, not a guarantee of future indexing or ranking. No Bing submission was performed in this setup.
 
 References: [Google AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), [ProfilePage structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page), [OpenAI crawlers](https://developers.openai.com/api/docs/bots), [llms.txt proposal](https://llmstxt.org/).
