@@ -7,16 +7,16 @@ const http = require('node:http');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
-const pdfTitle = 'Ilya Papou CV — SRE & DevOps';
+const pdfTitle = 'Ilya Papou CV — DevOps & SRE';
 const pdfPath = `assets/${pdfTitle}.pdf`;
-const legacyPdfPath = 'assets/Ilya-Papou-CV.pdf';
+const legacyPdfPaths = ['assets/Ilya-Papou-CV.pdf', 'assets/Ilya Papou CV — SRE & DevOps.pdf'];
 const manifestPath = 'assets/cv-pdf.json';
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const types = { '.html': 'text/html', '.css': 'text/css', '.png': 'image/png',
   '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.pdf': 'application/pdf' };
 const assetSources = directory => fs.readdirSync(path.join(root, directory), { withFileTypes: true })
   .flatMap(entry => entry.isDirectory() ? assetSources(`${directory}/${entry.name}`) : [`${directory}/${entry.name}`])
-  .filter(file => ![pdfPath, legacyPdfPath, manifestPath].includes(file));
+  .filter(file => ![pdfPath, ...legacyPdfPaths, manifestPath].includes(file));
 
 (async () => {
   // Serve this exact checkout, not a possibly stale public or preview site.
@@ -61,9 +61,9 @@ const assetSources = directory => fs.readdirSync(path.join(root, directory), { w
       .map(file => [file, hash(fs.readFileSync(path.join(root, file)))]));
     fs.writeFileSync(path.join(root, pdfPath), pdf);
     // Keep already-shared application links current without changing Open PDF behavior.
-    fs.writeFileSync(path.join(root, legacyPdfPath), pdf);
+    for (const legacyPdfPath of legacyPdfPaths) fs.writeFileSync(path.join(root, legacyPdfPath), pdf);
     fs.writeFileSync(path.join(root, manifestPath), JSON.stringify({ file: pdfPath, title: pdfTitle,
-      legacyFiles: [legacyPdfPath], pages, bytes: pdf.length,
+      legacyFiles: legacyPdfPaths, pages, bytes: pdf.length,
       sha256: hash(pdf), sources }, null, 2) + '\n');
     console.log(`Exported ${pdfPath}: ${pages} A4 pages, ${pdf.length} bytes. Render both pages for visual review before publishing.`);
   } finally {

@@ -332,7 +332,7 @@ def main():
     for _, reference in page.refs:
         check_ref(reference)
     pdf_manifest = json.loads(resource("assets/cv-pdf.json"))
-    pdf_title = "Ilya Papou CV — SRE & DevOps"
+    pdf_title = "Ilya Papou CV — DevOps & SRE"
     pdf_path = f"assets/{pdf_title}.pdf"
     assert pdf_manifest["file"] == pdf_path, "Unexpected downloadable PDF path"
     assert pdf_manifest["title"] == pdf_title, "Unexpected suggested PDF title"
@@ -345,7 +345,7 @@ def main():
     assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"
     assert len(re.findall(rb"/Type\s*/Page\b", pdf_bytes)) == pdf_manifest["pages"] == 2, "Download must contain exactly two pages"
     assert hashlib.sha256(pdf_bytes).hexdigest() == pdf_manifest["sha256"], "PDF differs from reviewed export"
-    assert pdf_manifest["legacyFiles"] == ["assets/Ilya-Papou-CV.pdf"], "Keep the already-shared PDF URL working"
+    assert pdf_manifest["legacyFiles"] == ["assets/Ilya-Papou-CV.pdf", "assets/Ilya Papou CV — SRE & DevOps.pdf"], "Keep the already-shared PDF URLs working"
     for legacy_path in pdf_manifest["legacyFiles"]:
         assert resource(legacy_path, binary=True) == pdf_bytes, "Legacy PDF link is stale"
     # Local release check prevents a newer CV being published with a stale PDF.
