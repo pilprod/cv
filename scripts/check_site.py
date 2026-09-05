@@ -316,6 +316,7 @@ def main():
     assert pdf_manifest["file"] == pdf_path, "Unexpected downloadable PDF path"
     assert sum(tag == "a" and urlsplit(ref).path == pdf_path for tag, ref in page.refs) == 1, "Keep one Open PDF action usable without JavaScript"
     assert "open-pdf" in page.ids and not {"print-cv", "download-cv"} & page.ids, "Expected only Open PDF, without separate print/download controls"
+    assert "pdf-help" not in page.ids, "Keep the toolbar free of the removed PDF instruction text"
     pdf_bytes = resource(pdf_path, binary=True)
     assert pdf_bytes.startswith(b"%PDF-"), "Download is not a PDF"
     assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"

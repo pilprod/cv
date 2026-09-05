@@ -183,14 +183,6 @@ h3 {
   background: var(--teal);
 }
 
-.pdf-help {
-  width: min(1120px, calc(100% - 48px));
-  margin: 10px auto 0;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
 .cv {
   display: grid;
   gap: 28px;
@@ -1133,7 +1125,6 @@ h3 {
   }
 
   .site-toolbar,
-  .pdf-help,
   .skip-link,
   .profile-toggle,
   .name-alias,
