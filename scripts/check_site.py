@@ -62,7 +62,8 @@ SOURCE_DIGESTS = {
     # September 5 user-directed cloud emphasis: the final summary preference,
     # AWS-first freelance wording and deployed GCP components first in R&D.
     # These approved editorial changes are synchronized to the revised Figma CV.
-    "identity": "7398dd3d9ce9d1ab97bcd4bdc2f09b904e671909cd82bf530966aa7b7cb7ce53",
+    # Experience headline now reads "5+ in DevOps and SRE" at the user's request.
+    "identity": "bd22e58725b58c5af1ade70005852737c582a674d4165ec91cbf103a0fe4ee89",
     # Website and messaging handles explicitly added by the user after the baseline.
     "sidebar/contact": "e747534971c633d6d393b88ae7e244210e86ec756c117d06503496b1a4c71c3b",
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
