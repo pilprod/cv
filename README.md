@@ -14,9 +14,9 @@ Preview locally:
 python3 -m http.server 8000
 ```
 
-Open [localhost:8000](http://localhost:8000). **Download PDF** saves the reviewed two-page A4 file (under 1 MB) without asking the device to paginate the website. **Open PDF** is a normal same-tab link for previewing, sharing or saving through the browser. Both links work without JavaScript. On phones, tablets and recognizable in-app browsers, the web Print button is hidden and a short save/open-in-browser hint is shown. The site cannot force an embedded browser to launch Safari or Chrome. If iOS previews the file instead of downloading it, use Share → Save to Files.
+Open [localhost:8000](http://localhost:8000). The toolbar has exactly two PDF actions: **Print PDF** and **Open PDF**. On desktop, Print PDF opens the web print dialog. On phones, tablets and recognizable in-app browsers, it opens the prepared two-page PDF instead, avoiding device-dependent HTML pagination. Open PDF always opens that file in the same tab for previewing, sharing, saving or printing. Both actions are ordinary links without JavaScript. The site cannot force an embedded browser to launch Safari or Chrome. If iOS previews the file, use Share → Save to Files or Print.
 
-Desktop **Print** remains available for A4 web printing. Letter paper, printer margins or browser headers/footers may repaginate the HTML. Use the prepared PDF for consistent page breaks, including when printing on Letter paper with fit-to-page enabled.
+Desktop **Print PDF** uses A4 web printing. Letter paper, printer margins or browser headers/footers may repaginate the HTML. Use **Open PDF** for consistent page breaks, including when printing on Letter paper with fit-to-page enabled.
 
 ### Refresh the downloadable PDF
 
@@ -39,7 +39,7 @@ Print artwork is exported directly from Figma. IBM Plex Mono Medium and SemiBold
 
 The approved spacing refinement is now the default print layout: a 36px gutter beside the sidebar, a 96px identity row, 4px job separators and heading gaps, 2px sidebar row gaps and 12px gaps between page-two cards. It preserves the source text, type sizes, high-resolution portrait and two-page A4 layout. Screen spacing remains independent.
 
-The contact block includes `papou.work`, WhatsApp Business `@papou.work` and Telegram `@pilprod` in both screen and print layouts. Each contact uses a compact monochrome vector icon with an accessible channel label instead of a repeated text prefix. Messaging links use `https://wa.me/papou.work` and `https://t.me/pilprod`; no phone number is published.
+The contact block includes `papou.work`, WhatsApp Business `papou.work` and Telegram `pilprod` in both screen and print layouts. Messaging usernames are displayed without an `@` prefix. Each contact uses a compact monochrome vector icon with an accessible channel label instead of a repeated text prefix. Messaging links use `https://wa.me/papou.work` and `https://t.me/pilprod`; no phone number is published.
 
 GitHub Pages serves the repository root from `main`. No build step is required.
 

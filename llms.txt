@@ -24,8 +24,8 @@ I develop agent infrastructure and orchestration for software engineering, with 
 - Buenos Aires, Argentina
 - [Email: ilya@papou.email](mailto:ilya@papou.email)
 - [Website: papou.work](https://papou.work/)
-- [WhatsApp: @papou.work](https://wa.me/papou.work)
-- [Telegram: @pilprod](https://t.me/pilprod)
+- [WhatsApp: papou.work](https://wa.me/papou.work)
+- [Telegram: pilprod](https://t.me/pilprod)
 - [LinkedIn: pilprod](https://www.linkedin.com/in/pilprod/)
 - [GitHub: pilprod](https://github.com/pilprod)
 
