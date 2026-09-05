@@ -39,6 +39,8 @@ Print artwork is exported directly from Figma. IBM Plex Mono Medium and SemiBold
 
 The approved spacing refinement is now the default print layout: a 36px gutter beside the sidebar, a 96px identity row, 4px job separators and heading gaps, 2px sidebar row gaps and 12px gaps between page-two cards. It preserves the source text, type sizes, high-resolution portrait and two-page A4 layout. Screen spacing remains independent.
 
+The screen portrait is 96 × 108px on larger screens and 80 × 90px on phones. The original crop is retained and decorative corner marks are removed. These screen-only dimensions do not change the approved print portrait or PDF pagination.
+
 The contact block includes `papou.work`, WhatsApp Business `papou.work` and Telegram `pilprod` in both screen and print layouts. Messaging usernames are displayed without an `@` prefix. Each contact uses a compact monochrome vector icon with an accessible channel label instead of a repeated text prefix. Messaging links use `https://wa.me/papou.work` and `https://t.me/pilprod`; no phone number is published.
 
 GitHub Pages serves the repository root from `main`. No build step is required.

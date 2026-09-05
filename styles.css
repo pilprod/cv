@@ -273,16 +273,6 @@ h3 {
   display: none;
 }
 
-.portrait-marks {
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 106px;
-  height: 120px;
-  max-width: none;
-  pointer-events: none;
-}
-
 .sidebar-motif {
   position: absolute;
   bottom: 24px;
@@ -593,7 +583,7 @@ h3 {
 
   .identity {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 86px;
+    grid-template-columns: minmax(0, 1fr) 96px;
     gap: 14px 24px;
     margin-block: 32px 20px;
     padding: 0 0 14px;
@@ -703,20 +693,9 @@ h3 {
     grid-column: 2;
     grid-row: 1;
     align-self: center;
-    width: 86px;
-    height: 97px;
+    width: 96px;
+    height: 108px;
     border-radius: 4px;
-  }
-
-  .portrait-marks {
-    position: relative;
-    grid-column: 2;
-    grid-row: 1;
-    place-self: center;
-    top: auto;
-    right: auto;
-    width: 94px;
-    height: 105px;
   }
 
   .sidebar {
@@ -963,7 +942,7 @@ h3 {
   }
 
   .identity {
-    grid-template-columns: minmax(0, 1fr) 72px;
+    grid-template-columns: minmax(0, 1fr) 80px;
     column-gap: 16px;
     margin-top: 24px;
   }
@@ -987,13 +966,8 @@ h3 {
   }
 
   .portrait {
-    width: 72px;
-    height: 81px;
-  }
-
-  .portrait-marks {
     width: 80px;
-    height: 89px;
+    height: 90px;
   }
 
   .project-agent {
@@ -1127,8 +1101,7 @@ h3 {
   .site-toolbar,
   .skip-link,
   .profile-toggle,
-  .name-alias,
-  .portrait-marks {
+  .name-alias {
     display: none !important;
   }
 

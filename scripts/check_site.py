@@ -292,6 +292,7 @@ def main():
     assert print_portraits[0].get("src") == "assets/portrait-print.png", "Print portrait must use the reviewed crop"
     assert print_portraits[0].get("loading") == "eager", "Print portrait must load before opening print preview"
     assert int(print_portraits[0].get("width", 0)) >= 581 and int(print_portraits[0].get("height", 0)) >= 656, "Print portrait must retain the high-resolution source crop"
+    assert not any("portrait-marks" in image.get("class", "").split() for image in page.images), "Keep decorative corners removed from the portrait"
     canonicals = [link.get("href") for link in page.links if "canonical" in link.get("rel", "").split()]
     assert canonicals == [CANONICAL], "Expected one canonical URL"
     for key, value in meta.items():
@@ -317,6 +318,7 @@ def main():
     assert sum(tag == "a" and urlsplit(ref).path == pdf_path for tag, ref in page.refs) == 1, "Keep one Open PDF action usable without JavaScript"
     assert "open-pdf" in page.ids and not {"print-cv", "download-cv"} & page.ids, "Expected only Open PDF, without separate print/download controls"
     assert "pdf-help" not in page.ids, "Keep the toolbar free of the removed PDF instruction text"
+    assert not any(text in visible for text in ("Ready-to-save PDF", "For web printing, use A4", "2 pages · under 1 MB")), "Removed PDF helper text must not be visible"
     pdf_bytes = resource(pdf_path, binary=True)
     assert pdf_bytes.startswith(b"%PDF-"), "Download is not a PDF"
     assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"
