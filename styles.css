@@ -367,7 +367,7 @@ h3 {
 
 .headline {
   margin-top: 10px;
-  color: var(--teal);
+  color: var(--muted);
   font-family: "IBM Plex Mono", monospace;
   font-size: 16px;
   font-weight: 400;
@@ -767,7 +767,7 @@ h3 {
   }
 
   .identity .headline {
-    color: var(--ink);
+    color: var(--muted);
     font-size: 15px;
     font-weight: 400;
     line-height: 22px;
@@ -1519,7 +1519,7 @@ h3 {
 
   .identity .headline {
     margin: 0;
-    color: var(--ink);
+    color: var(--muted);
     font-size: 13px;
     font-weight: 500;
     line-height: 20px;
