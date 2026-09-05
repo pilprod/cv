@@ -10,7 +10,7 @@ from pathlib import Path
 import re
 import sys
 import unicodedata
-from urllib.parse import unquote, urljoin, urlsplit
+from urllib.parse import quote, unquote, urljoin, urlsplit
 from urllib.request import Request, urlopen
 from urllib.robotparser import RobotFileParser
 import xml.etree.ElementTree as ET
@@ -272,7 +272,7 @@ def main():
     def resource(path, content=True, binary=False):
         path = unquote(urlsplit(path).path).lstrip("/")
         if base:
-            request = Request(urljoin(base, path), method="GET" if content else "HEAD",
+            request = Request(urljoin(base, quote(path, safe="/")), method="GET" if content else "HEAD",
                               headers={"User-Agent": "CV-Site-Check/1.0"})
             with urlopen(request, timeout=20) as response:
                 assert response.status == 200, f"HTTP {response.status}: {path}"
@@ -332,9 +332,11 @@ def main():
     for _, reference in page.refs:
         check_ref(reference)
     pdf_manifest = json.loads(resource("assets/cv-pdf.json"))
-    pdf_path = "assets/Ilya-Papou-CV.pdf"
+    pdf_title = "Ilya Papou CV — SRE & DevOps"
+    pdf_path = f"assets/{pdf_title}.pdf"
     assert pdf_manifest["file"] == pdf_path, "Unexpected downloadable PDF path"
-    assert sum(tag == "a" and urlsplit(ref).path == pdf_path for tag, ref in page.refs) == 1, "Keep one Open PDF action usable without JavaScript"
+    assert pdf_manifest["title"] == pdf_title, "Unexpected suggested PDF title"
+    assert sum(tag == "a" and unquote(urlsplit(ref).path) == pdf_path for tag, ref in page.refs) == 1, "Keep one Open PDF action usable without JavaScript"
     assert "open-pdf" in page.ids and not {"print-cv", "download-cv"} & page.ids, "Expected only Open PDF, without separate print/download controls"
     assert "pdf-help" not in page.ids, "Keep the toolbar free of the removed PDF instruction text"
     assert not any(text in visible for text in ("Ready-to-save PDF", "For web printing, use A4", "2 pages · under 1 MB")), "Removed PDF helper text must not be visible"
@@ -343,6 +345,9 @@ def main():
     assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"
     assert len(re.findall(rb"/Type\s*/Page\b", pdf_bytes)) == pdf_manifest["pages"] == 2, "Download must contain exactly two pages"
     assert hashlib.sha256(pdf_bytes).hexdigest() == pdf_manifest["sha256"], "PDF differs from reviewed export"
+    assert pdf_manifest["legacyFiles"] == ["assets/Ilya-Papou-CV.pdf"], "Keep the already-shared PDF URL working"
+    for legacy_path in pdf_manifest["legacyFiles"]:
+        assert resource(legacy_path, binary=True) == pdf_bytes, "Legacy PDF link is stale"
     # Local release check prevents a newer CV being published with a stale PDF.
     # On the live check, compare the manifest and PDF, not local unpublished edits.
     assert {"index.html", "styles.css", "assets/portrait-source.jpg"} <= set(pdf_manifest["sources"])
