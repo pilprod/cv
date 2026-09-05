@@ -69,11 +69,12 @@ SOURCE_DIGESTS = {
     "sidebar/strengths": "5eddd31c856782aa6d067cbd9f59c47ab5fd5c09dd58b07b1df42b695bc1c192",
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
     "sidebar/domains": "af8993ed452f0f0e2628d93963363c8869efd0a2385924e2c424a137dd098b37",
-    "job/Sirena-Travel": "efbc5de320b45c911643ee273259227a5661c0a8cd5bfc429de7c3efa674eaa0",
-    "job/Sberbank": "fcf547c2bbbed46cfa6318dd9fcde3f2c9e3d158093c9e3c5186a80e4b663e77",
-    "job/I-Teco": "8bf3078f07437e07028401e89ecc71235758d023c19eef251f1ebe14043685a2",
-    "job/Freelance-Flant": "e8fee320a7c53d1f1f138334343d2d1db0bc4a6cbf150694aa2ec9eadaeada13",
-    "job/MTS": "5baf9943b12b1ecba3923edea71404efbeb7e7e20bbe3c70e5f5c2edc5feb872",
+    # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
+    "job/Sirena-Travel": "016c5ebd76f35e347fd8baaec4679281091e64c7a68afbb53654cdc3550d7079",
+    "job/Sberbank": "bf9f721943d4820f4ea9bfcc81ab28126cc58510a83d61abc224edd5fac17e48",
+    "job/I-Teco": "6633ffd8fadf49e5977930ef5656276805b0d1fe83c539423922b68ffb22068e",
+    "job/Freelance-Flant": "2e65a91d9fe8370c4bd34f0ad9c765cac70084c25e2a025cec713f1f04ed355f",
+    "job/MTS": "9160fe70530471cb2c1366f65af8740022f93cf1627a6d70d9c04ff764feff80",
     "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
     "project/YourOwn.Chat": "32c342feddc6dbd075e4ef346cc6dc39329b08a35f7e23ca7e8cca5d8a0e19bb",
     "project/Home Aeroponics": "93001b9d293cdd594cc0aa26ad967682e26dbdcdf0bd297319f9e4f6266525ba",
@@ -99,6 +100,12 @@ def normalize_source_text(value):
 
 def check_source_content(page):
     assert len(page.cv_content["achievement"]) == 33, "Expected all 33 source achievement bullets"
+    domains = ("Aviation & travel", "Finance & insurance", "Government sector",
+               "Cross-industry IT consulting", "Telecommunications")
+    assert len(page.source_content["job"]) == len(domains), "Expected five professional experiences"
+    for item, domain in zip(page.source_content["job"], domains):
+        assert item.count("Domain:") == 1 and "Domain: " + domain in item, "Missing or mismatched experience domain"
+    assert "Full-time · Russia · Hybrid" in page.source_content["job"][1], "Sber's work arrangement must be Hybrid"
     for kind, labels in SOURCE_PARTS.items():
         items = page.source_content[kind]
         assert len(items) == len(labels), f"Missing or extra {kind} source sections"

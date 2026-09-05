@@ -556,6 +556,18 @@ h3 {
   line-height: 1.55;
 }
 
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 3px 16px;
+}
+
+.job-domain {
+  color: var(--muted);
+}
+
 .achievements {
   padding-left: 1.15em;
 }
@@ -1683,6 +1695,12 @@ h3 {
 
   .job-meta {
     flex-basis: 100%;
+  }
+
+  .job-domain {
+    font-size: 8.2px;
+    line-height: 11px;
+    letter-spacing: 0;
   }
 
   .job-meta,
