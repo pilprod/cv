@@ -2,7 +2,7 @@
   "file": "assets/Ilya-Papou-CV.pdf",
   "pages": 2,
   "bytes": 359386,
-  "sha256": "c6d6c07b6b0df9a8fe7528231024fb271e100143c39765b4f0394c9d5c70c0d9",
+  "sha256": "0d16852cc1f0f74dd9be6ce3d3be5c12d2bd08e522cb401e192c7c6555782a88",
   "sources": {
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
@@ -18,7 +18,7 @@
     "assets/project-accent-teal.svg": "89957e617bc9f84b886dc88315c433aff06e2c7edcf01fd1c70a10e78401d963",
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "index.html": "8a0c06f67a7e9544185a1a0ad7e10544df2278702ed65b5742f0a4d6a2d5eba8",
-    "styles.css": "08b7524639b3f211bc508833c310171f750598f850e99668067c602345d3dc29"
+    "index.html": "e0b83f51e82973c765b22fad47a7c45bbc8e2ba40488657060c92c5ca79e74d6",
+    "styles.css": "74df2d91670ad67173b4fd4456f42e66f6eaa2750fb72a866d41c7d40b21bb9e"
   }
 }

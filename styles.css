@@ -153,16 +153,22 @@ h3 {
 .analytics-consent {
   position: fixed;
   z-index: 20;
-  inset: auto 20px 20px;
-  width: min(680px, calc(100% - 40px));
-  max-height: calc(100dvh - 40px);
+  inset: auto 0 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-height: calc(100dvh - 24px);
   overflow: auto;
-  margin: 0 auto;
-  padding: 22px 24px;
-  border: 1px solid #ccdce3;
-  border-radius: 16px;
+  margin: 0;
+  padding: 20px max(24px, calc((100vw - 1120px) / 2));
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  border: 0;
+  border-top: 1px solid #ccdce3;
+  border-radius: 0;
   background: var(--paper);
-  box-shadow: 0 12px 48px rgb(11 18 32 / 16%);
+  box-shadow: 0 -8px 30px rgb(11 18 32 / 10%);
   font-size: 14px;
   line-height: 1.55;
 }
@@ -194,7 +200,7 @@ h3 {
   justify-content: flex-end;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .analytics-actions button {
@@ -220,14 +226,16 @@ h3 {
   box-shadow: 0 0 0 2px rgb(13 96 117 / 15%);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
   .analytics-consent {
-    inset: auto 12px 12px;
-    width: calc(100% - 24px);
-    padding: 18px;
-    border-radius: 12px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding: 16px 20px;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
   }
+}
 
+@media screen and (max-width: 480px) {
   .analytics-actions button {
     flex: 1;
     padding-inline: 10px;
