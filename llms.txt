@@ -9,7 +9,7 @@ I develop agent infrastructure and orchestration for software engineering, with 
 ## CV links
 
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
-- [Download CV as PDF](https://papou.work/assets/Ilya-Papou-CV.pdf): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
+- [Download CV as PDF](https://papou.work/assets/Ilya-Papou-CV.pdf?v=20260905-contacts): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
 - [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank Insurance Broker, I-Teco, Freelance / Flant and the MTS Group internship.
 - [YourOwn.Chat — Agent infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Selected technologies](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.

@@ -164,36 +164,23 @@ h3 {
   text-decoration: none;
 }
 
-.toolbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-left: auto;
-}
-
-.site-toolbar a#print-cv {
+.site-toolbar .pdf-action {
   color: white;
-}
-
-#print-cv {
-  appearance: none;
-  cursor: pointer;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
   padding: 9px 15px;
-  border: 0;
   border-radius: 6px;
   background: var(--ink);
-  color: white;
   font-size: 13px;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-#print-cv:hover {
+.site-toolbar .pdf-action:hover {
   background: var(--teal);
-}
-
-#print-cv[aria-disabled="true"] {
-  opacity: 0.65;
-  cursor: wait;
 }
 
 .pdf-help {
@@ -964,11 +951,7 @@ h3 {
     gap: 8px 14px;
   }
 
-  .toolbar-actions {
-    margin-left: 0;
-  }
-
-  #print-cv {
+  .site-toolbar .pdf-action {
     font-size: 12px;
     padding: 8px 11px;
   }
@@ -1114,10 +1097,6 @@ h3 {
   .site-toolbar nav {
     justify-content: space-between;
     column-gap: 10px;
-  }
-
-  #print-cv {
-    margin-left: 0;
   }
 
   .identity h1 {

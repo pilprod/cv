@@ -314,8 +314,8 @@ def main():
     pdf_manifest = json.loads(resource("assets/cv-pdf.json"))
     pdf_path = "assets/Ilya-Papou-CV.pdf"
     assert pdf_manifest["file"] == pdf_path, "Unexpected downloadable PDF path"
-    assert sum(tag == "a" and ref == pdf_path for tag, ref in page.refs) == 2, "Keep exactly two PDF actions: Print PDF and Open PDF, usable without JavaScript"
-    assert {"print-cv", "open-pdf"} <= page.ids and "download-cv" not in page.ids, "Expected only Print PDF and Open PDF controls"
+    assert sum(tag == "a" and urlsplit(ref).path == pdf_path for tag, ref in page.refs) == 1, "Keep one Open PDF action usable without JavaScript"
+    assert "open-pdf" in page.ids and not {"print-cv", "download-cv"} & page.ids, "Expected only Open PDF, without separate print/download controls"
     pdf_bytes = resource(pdf_path, binary=True)
     assert pdf_bytes.startswith(b"%PDF-"), "Download is not a PDF"
     assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"

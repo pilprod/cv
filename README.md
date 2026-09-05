@@ -14,9 +14,9 @@ Preview locally:
 python3 -m http.server 8000
 ```
 
-Open [localhost:8000](http://localhost:8000). The toolbar has exactly two PDF actions: **Print PDF** and **Open PDF**. On desktop, Print PDF opens the web print dialog. On phones, tablets and recognizable in-app browsers, it opens the prepared two-page PDF instead, avoiding device-dependent HTML pagination. Open PDF always opens that file in the same tab for previewing, sharing, saving or printing. Both actions are ordinary links without JavaScript. The site cannot force an embedded browser to launch Safari or Chrome. If iOS previews the file, use Share → Save to Files or Print.
+Open [localhost:8000](http://localhost:8000). The toolbar has one filled **Open PDF** action at the far right, after the section links. It opens the prepared two-page file in the same tab on every device, without JavaScript or browser detection. Print or save from the PDF viewer; there is no separate Print action. The site cannot force an embedded browser to launch Safari or Chrome. If iOS previews the file, use Share → Save to Files or Print.
 
-Desktop **Print PDF** uses A4 web printing. Letter paper, printer margins or browser headers/footers may repaginate the HTML. Use **Open PDF** for consistent page breaks, including when printing on Letter paper with fit-to-page enabled.
+Native browser print shortcuts still use the A4 stylesheet. Letter paper, printer margins or browser headers/footers may repaginate the HTML. Use **Open PDF** for consistent page breaks, including when printing on Letter paper with fit-to-page enabled.
 
 ### Refresh the downloadable PDF
 
@@ -29,9 +29,9 @@ python3 scripts/check_site.py
 
 The exporter starts its own temporary localhost server and creates `assets/Ilya-Papou-CV.pdf` plus `assets/cv-pdf.json`. It checks for layout overflow, two pages and a size below 1 MB. Render and visually review **both** PDF pages before committing them together. The manifest records PDF and source hashes; the dependency-free release check rejects a stale PDF. Playwright is only needed for regeneration, not for the website or GitHub Pages deployment.
 
-Printing temporarily uses the document title `Ilya Papou — CV` for the suggested PDF filename, then restores the search-friendly browser title when printing ends or is cancelled. This works through the page button and native print shortcuts. The print portrait is an eager-loaded HTML image rather than a CSS image replacement. The page button waits for it and the fonts before opening print, so a failed image load cannot silently produce a portrait-free PDF.
+Native printing temporarily uses the document title `Ilya Papou — CV` for the suggested PDF filename, then restores the search-friendly browser title when printing ends or is cancelled. The print portrait is an eager-loaded HTML image rather than a CSS image replacement. The PDF exporter waits for it and the fonts before rendering the prepared file, so a failed image load cannot silently produce a portrait-free PDF.
 
-High-quality printing is the default through the same button. `portrait-print.png` is a 581 × 656 crop rendered from the original PDF's 896 × 1008 embedded photo, preserving the original framing and border without upscaling the source. At the unchanged 72.538 × 82 CSS-pixel print size, this provides about 768 effective PPI. Text, lines and links remain vector-based. Check the exported PDF is below 1,000,000 bytes before release; browser and system PDF exporters can produce different sizes. Do not rasterize the entire CV or reduce the photo back to a preview thumbnail.
+The prepared PDF retains the high-quality portrait. `portrait-print.png` is a 581 × 656 crop rendered from the original PDF's 896 × 1008 embedded photo, preserving the original framing and border without upscaling the source. At the unchanged 72.538 × 82 CSS-pixel print size, this provides about 768 effective PPI. Text, lines and links remain vector-based. Check the exported PDF is below 1,000,000 bytes before release; browser and system PDF exporters can produce different sizes. Do not rasterize the entire CV or reduce the photo back to a preview thumbnail.
 
 The print stylesheet follows the revised Figma frames and the supplied two-page PDF: original type sizes, 174px sidebar, aligned job headings and dividers, three technology columns, project cards and page counters. The 794 × 1123 source canvas is mapped to A4 while keeping text selectable and links clickable. Screen layouts retain fluid columns, flat cloud tags and the visible Ilya Popov alias. Print restores the source cloud labels, hides the web-only alias row and uses the exact Figma portrait crop. Export at 100% scale with browser headers/footers disabled and background graphics enabled.
 

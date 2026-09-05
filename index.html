@@ -30,7 +30,7 @@
   <link rel="describedby" href="/llms.txt" type="text/plain" title="CV overview for agents">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260905-open-pdf">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -101,13 +101,10 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#technologies">Technologies</a>
-      <div class="toolbar-actions">
-        <a id="print-cv" href="assets/Ilya-Papou-CV.pdf" aria-describedby="pdf-help">Print PDF</a>
-        <a id="open-pdf" href="assets/Ilya-Papou-CV.pdf">Open PDF</a>
-      </div>
+      <a id="open-pdf" class="pdf-action" href="assets/Ilya-Papou-CV.pdf?v=20260905-contacts" aria-describedby="pdf-help">Open PDF</a>
     </nav>
   </div>
-  <p id="pdf-help" class="pdf-help">Ready-to-save PDF · 2 pages · under 1 MB. <span id="pdf-browser-help">For web printing, use A4 at 100% with headers and footers off.</span></p>
+  <p id="pdf-help" class="pdf-help">2 pages · under 1 MB. Open the PDF to print or save it. In an app, use Share or Open in Safari / Chrome if needed.</p>
   <main class="cv">
     <section class="cv-page page-one" aria-label="Experience and profile">
       <header class="identity">
@@ -442,47 +439,12 @@
     </section>
   </main>
   <script>
-    const printButton = document.getElementById("print-cv");
     const screenTitle = document.title;
     const setPrintTitle = () => { document.title = "Ilya Papou — CV"; };
     const restoreScreenTitle = () => { document.title = screenTitle; };
     // Native print shortcuts also use the short, filename-safe title.
     window.addEventListener("beforeprint", setPrintTitle);
     window.addEventListener("afterprint", restoreScreenTitle);
-    const userAgent = navigator.userAgent;
-    const mobileDevice = /Android|iPhone|iPad|iPod/i.test(userAgent)
-      || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-    const embeddedBrowser = /FBAN|FBAV|Instagram|LinkedInApp|Line\/|MicroMessenger|\bwv\b/i.test(userAgent);
-    // Both actions are ordinary PDF links without JavaScript. Only desktop
-    // Print PDF uses web printing; phones and embedded browsers keep the PDF.
-    const canPrintPage = !mobileDevice && !embeddedBrowser && typeof window.print === "function";
-    if (!canPrintPage) {
-      document.getElementById("pdf-browser-help").textContent =
-        "Print PDF opens the prepared file on this device. Use Share to print or save it. If unavailable, choose Open in Safari / Chrome from the app menu.";
-    }
-    let printing = false;
-    printButton.addEventListener("click", async (event) => {
-      if (!canPrintPage || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
-      if (printing) return;
-      printing = true;
-      printButton.setAttribute("aria-disabled", "true");
-      try {
-        await Promise.all([
-          document.fonts.ready,
-          document.querySelector(".portrait-print").decode()
-        ]);
-        setPrintTitle();
-        window.print();
-      } catch (error) {
-        restoreScreenTitle();
-        window.alert("The print photo could not be loaded. Use Open PDF to print the prepared file.");
-      } finally {
-        printing = false;
-        printButton.removeAttribute("aria-disabled");
-      }
-    });
-
     const profileDetails = document.querySelector(".profile-details");
     const profileToggle = document.querySelector(".profile-toggle");
     const wideScreen = window.matchMedia("(min-width: 981px)");
