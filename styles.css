@@ -268,18 +268,12 @@ h3 {
 .site-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 24px;
   max-width: 1120px;
   margin: 0 auto;
   padding: 16px 2px 0;
   font-size: 13px;
-}
-
-.toolbar-title {
-  color: var(--ink);
-  font-weight: 600;
-  letter-spacing: 0.01em;
 }
 
 .site-toolbar nav {
@@ -1058,10 +1052,6 @@ h3 {
 
   .site-toolbar {
     gap: 12px;
-  }
-
-  .toolbar-title {
-    display: none;
   }
 
   .site-toolbar nav {
