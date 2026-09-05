@@ -7,7 +7,7 @@
   ],
   "pages": 2,
   "bytes": 344368,
-  "sha256": "e7a4a49949c72ef51500f035cc466ba79d9aba2c8112edb97acfa8fa6cc199de",
+  "sha256": "941e00b00c923fbc410fa663b9103255b5dbd521262b4aa12a2f2d23359d4258",
   "sources": {
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
@@ -23,7 +23,7 @@
     "assets/project-accent-teal.svg": "89957e617bc9f84b886dc88315c433aff06e2c7edcf01fd1c70a10e78401d963",
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "index.html": "cbc74bc287ed73ee6c27dae9397f544f27cbe882f868ee5a1e2139d7f1e0fd32",
-    "styles.css": "7cc5158fd8fe462b29d30b03ac4a61323eb9e143f14d82dbd5250090ab2fbdad"
+    "index.html": "88a3bb395fbd25aea7e4d40624daf10f7f38d5e333721a9f80ea5ec80a00d632",
+    "styles.css": "d13be0decfe3c74d82911040523607b990165adaa73e10f9ea0d90690f77026f"
   }
 }

@@ -914,6 +914,13 @@ h3 {
   [data-category="agents"] { order: 6; }
 }
 
+@media screen and (min-width: 981px) {
+  .identity .eyebrow {
+    /* Optically match section spacing: the larger name has more space above its glyphs. */
+    margin-bottom: 4px;
+  }
+}
+
 @media screen and (max-width: 1180px) {
   .sidebar {
     --portrait-width: 152px;
