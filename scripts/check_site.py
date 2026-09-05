@@ -22,14 +22,16 @@ ROOT = Path(__file__).resolve().parent.parent
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 
 # Reviewed against Figma frames 370:3 / 370:105 and the supplied PDF on 2026-09-04.
-# Lines retain the editorial print grouping. Cloud provider labels and the second
-# IAM entry are intentionally omitted, as requested for the web presentation.
+# Lines retain the editorial print grouping. Explicit AWS/GCP tags were added
+# on September 5 at the user's request. Providers share a flat list of services.
+# The second IAM entry is intentionally omitted from the screen presentation.
 # OpenVPN was subsequently removed from the tags at the user's request, not from experience.
 SOURCE_TECHNOLOGIES = {
     "platform": ("Platform & delivery", (
         "Linux · Kubernetes · RKE2 · Docker", "Terraform · HCP Terraform Stacks",
         "Helm · Argo CD · Ansible", "GitLab CI/CD · Jenkins", "GitHub Actions · Nexus")),
     "cloud": ("Cloud infrastructure", (
+        "AWS · GCP",
         "S3 · Lambda · EKS · IAM", "GKE · Cloud SQL · GCS",
         "Artifact Registry · Cloud Build / Deploy", "WIF · Secret Manager",
         "Cloud KMS · Pub/Sub · Cloudflare")),
@@ -57,7 +59,10 @@ SOURCE_PARTS = {
 # Source-derived fingerprints cover every word in the editorial sections, not
 # just a few selected keywords. Update only after reviewing changed source text.
 SOURCE_DIGESTS = {
-    "identity": "5aea4263ebd3447cf815628953924d714d2931de93f8f563a36adb8a727d532c",
+    # September 5 user-directed cloud emphasis: the final summary preference,
+    # AWS-first freelance wording and deployed GCP components first in R&D.
+    # These approved editorial changes are synchronized to the revised Figma CV.
+    "identity": "7398dd3d9ce9d1ab97bcd4bdc2f09b904e671909cd82bf530966aa7b7cb7ce53",
     # Website and messaging handles explicitly added by the user after the baseline.
     "sidebar/contact": "e747534971c633d6d393b88ae7e244210e86ec756c117d06503496b1a4c71c3b",
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
@@ -67,10 +72,10 @@ SOURCE_DIGESTS = {
     "job/Sirena-Travel": "efbc5de320b45c911643ee273259227a5661c0a8cd5bfc429de7c3efa674eaa0",
     "job/Sberbank": "fcf547c2bbbed46cfa6318dd9fcde3f2c9e3d158093c9e3c5186a80e4b663e77",
     "job/I-Teco": "8bf3078f07437e07028401e89ecc71235758d023c19eef251f1ebe14043685a2",
-    "job/Freelance-Flant": "f5decf938d29aef09143c4ecd2606c1d4c7a7dc249ce4df837c3d9adcbe49976",
+    "job/Freelance-Flant": "e8fee320a7c53d1f1f138334343d2d1db0bc4a6cbf150694aa2ec9eadaeada13",
     "job/MTS": "5baf9943b12b1ecba3923edea71404efbeb7e7e20bbe3c70e5f5c2edc5feb872",
     "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
-    "project/YourOwn.Chat": "28469a60bdffead689b72d450e2c8eaee06a9d38435cdb5f4b3ec781429ece8a",
+    "project/YourOwn.Chat": "32c342feddc6dbd075e4ef346cc6dc39329b08a35f7e23ca7e8cca5d8a0e19bb",
     "project/Home Aeroponics": "93001b9d293cdd594cc0aa26ad967682e26dbdcdf0bd297319f9e4f6266525ba",
     "project/Zero-Trust Mesh": "35bb3796fb1cfa1a09be4ffa5584110daae98e437d4aa10bf36d9a4ab9433c88",
 }
@@ -126,7 +131,7 @@ def check_technologies(page, llms):
             line_ends.append(position)
         assert group["line_ends"] == line_ends, f"Print technology grouping differs from source: {title}"
         count += len(expected)
-    assert count == 83, "Expected all 83 selected technologies"
+    assert count == 85, "Expected 83 source technologies plus the requested AWS/GCP tags"
     return count
 
 

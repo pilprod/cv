@@ -4,12 +4,12 @@
 
 Ilya Papou is also known as Ilya Popov, PILPROD and pilprod. PILPROD and pilprod are capitalization variants of the same professional handle. All these names refer to the same person and the same professional profile at https://papou.work/.
 
-I develop agent infrastructure and orchestration for software engineering, with MCP/A2A integration and human-in-the-loop workflow design. I build Kubernetes platforms and shared DevSecOps release pipelines used in production by multiple customers.
+I develop agent infrastructure and orchestration for software engineering, with MCP/A2A integration and human-in-the-loop workflow design. I build Kubernetes platforms and shared DevSecOps release pipelines used in production by multiple customers. I enjoy working with AWS and Google Cloud and prefer them for cloud projects.
 
 ## CV links
 
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
-- [Download CV as PDF](https://papou.work/assets/Ilya-Papou-CV.pdf?v=20260905-clean-accents): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
+- [Download CV as PDF](https://papou.work/assets/Ilya-Papou-CV.pdf?v=20260905-gcp-tag-preview): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
 - [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank Insurance Broker, I-Teco, Freelance / Flant and the MTS Group internship.
 - [YourOwn.Chat — Agent infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Selected technologies](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.
@@ -90,7 +90,7 @@ Apr 2022 — Jun 2023 · Full-time · Russia · Remote
 
 Nov 2019 — Mar 2022 · Selected projects · Remote
 
-- Delivered web applications and infrastructure across freelance and Flant projects, including AWS (S3, Lambda, Kubernetes, IAM) and Yandex Cloud.
+- Delivered cloud infrastructure and web applications across freelance and Flant projects using AWS (S3, Lambda, Kubernetes and IAM) and Yandex Cloud.
 - Built React / Next.js and Node.js / Express applications. Deployed Java / Spring workloads to Kubernetes with Helm, GitHub Actions and Ansible.
 - Supported delivery and operations with Prometheus, Grafana, ELK and PostgreSQL / Patroni.
 
@@ -113,10 +113,10 @@ Personal R&D · Research / PoCs: 2025–2026 · Core development: Aug 2026–Pre
 
 R&D platform designed to coordinate developers and AI agents in a persistent conversation, preserving context across agent handoffs and long-running workflows, with human-in-the-loop review and approvals for code and infrastructure changes.
 
+- Deployed YourOwn.Chat components on Google Cloud. Developed four reusable Helm workload profiles for services, workers, jobs and stateful applications, with schema constraints and contract tests for networking, volumes and persistence.
 - Built a Go Agent Host used with YourOwn.Chat on Google Cloud: enrollment, native/Docker execution, outbound TLS/gRPC, Substrate worker registration, short-lived access and slot lifecycle control. Implemented Go adapters for official Codex and Claude binaries with A2A streaming, session continuation and cancellation. Provider login stays with the official clients.
 - Defined declarative agents with Harness, ModelConfig and AgentTemplate, model/effort selection and separate dev/prod namespaces. Prepared Restricted Pod Security and default-deny ingress/egress policies with a DNS baseline.
 - Designed orchestration with kagent for agent discovery and lifecycle, Agent Host for coding execution, and Temporal for durable workflows, retries and human approval waits. Designed A2A-to-workflow handoff with structured task/evidence transfer, idempotent requests, queued messages and fallback to direct execution if workflow startup fails.
-- Developed four reusable Helm workload profiles for services, workers, jobs and stateful applications and deployed YourOwn.Chat components with them on Google Cloud. Added schema constraints and contract tests for networking, volumes and persistence.
 - Implemented a Go policy API with strict validation, canonical request hashes, fail-closed decisions and bounded audits, documented with OpenAPI and an ADR. Added MCP relay tool allowlists and digest-pinned OCI skills for managed runtimes.
 - Built and ran image and Helm-chart release workflows with MCP and agents. Prepared a Pub/Sub-triggered Cloud Build path through private staging and immutable Artifact Registry repositories, with image scanning, digest pinning and GCS release evidence linking source commits, artifacts and SBOM/provenance. Prepared Cloud Deploy promotion of the same artifacts from dev to prod after approval.
 - Validated Agent Host contracts with simulated Codex/Claude providers. Tested release scanning and promotion policies.
@@ -135,6 +135,7 @@ Selected code: [YourOwn.Chat](https://github.com/pilprod/yourown-chat) · [kagen
 
 #### Cloud infrastructure
 
+- AWS · GCP
 - S3 · Lambda · EKS · IAM
 - GKE · Cloud SQL · GCS
 - Artifact Registry · Cloud Build / Deploy
