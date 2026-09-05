@@ -114,7 +114,7 @@ Agent infrastructure, technical skills and selected projects.
 
 ### YourOwn.Chat — Agent infrastructure
 
-Personal R&D · Research / PoCs: 2025–2026 · Core development: Aug 2026–Present
+2025 – 2026 · Personal R&D · PoCs
 
 R&D platform designed to coordinate developers and AI agents in a persistent conversation, preserving context across agent handoffs and long-running workflows, with human-in-the-loop review and approvals for code and infrastructure changes.
 

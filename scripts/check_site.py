@@ -76,7 +76,8 @@ SOURCE_DIGESTS = {
     "job/Freelance-Flant": "e06a19cbcadf7e3192a600ff6aaaa53cdf09e6c1e2c961e2f6c259b5e465ac61",
     "job/MTS": "2a6ac2283c74a88ff7f03f33172eaf9b49950fd0e0450171adbe7d5a7b80dc28",
     "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
-    "project/YourOwn.Chat": "32c342feddc6dbd075e4ef346cc6dc39329b08a35f7e23ca7e8cca5d8a0e19bb",
+    # User-simplified period/status: 2025 – 2026 · Personal R&D · PoCs.
+    "project/YourOwn.Chat": "840ffa83d3cc7fe463b8c713e2cefbf327edeffa3be290f24d9088457c9fc626",
     "project/Home Aeroponics": "93001b9d293cdd594cc0aa26ad967682e26dbdcdf0bd297319f9e4f6266525ba",
     "project/Zero-Trust Mesh": "35bb3796fb1cfa1a09be4ffa5584110daae98e437d4aa10bf36d9a4ab9433c88",
 }
