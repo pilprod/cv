@@ -1072,24 +1072,36 @@ h3 {
   }
 
   .site-toolbar {
-    width: calc(100% - 40px);
-    padding-top: 10px;
+    width: 100%;
+    padding: 6px 0;
   }
 
   .site-toolbar nav {
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: 12px;
-    gap: 8px;
+    gap: 0;
+  }
+
+  .site-toolbar nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+  }
+
+  .site-toolbar a:focus-visible {
+    outline-offset: 2px;
   }
 
   .site-toolbar .pdf-action {
+    min-height: 32px;
     font-size: 12px;
-    padding: 6px 11px;
+    padding: 5px 9px;
   }
 
   .cv {
     width: 100%;
-    margin: 14px 0 0;
+    margin: 0;
     gap: 16px;
   }
 
