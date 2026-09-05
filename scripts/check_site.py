@@ -17,6 +17,7 @@ import xml.etree.ElementTree as ET
 
 CANONICAL = "https://papou.work/"
 ALTERNATIVE_NAME = "Ilya Popov"
+HANDLE_ALIASES = {"PILPROD", "pilprod"}
 ROOT = Path(__file__).resolve().parent.parent
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 
@@ -317,7 +318,7 @@ def main():
     assert all(kind in entities for kind in ("WebSite", "ProfilePage", "Person")), "Missing JSON-LD entities"
     person, profile = entities["Person"], entities["ProfilePage"]
     aliases = person.get("alternateName", [])
-    assert isinstance(aliases, list) and {ALTERNATIVE_NAME, "pilprod"} <= set(aliases), "Person alternateName must preserve both aliases"
+    assert isinstance(aliases, list) and {ALTERNATIVE_NAME, *HANDLE_ALIASES} <= set(aliases), "Person alternateName must preserve name and handle aliases"
     for kind, suffix in (("WebSite", "website"), ("ProfilePage", "profile"), ("Person", "person")):
         assert urljoin(CANONICAL, entities[kind].get("@id", "")) == CANONICAL + "#" + suffix, "Invalid " + kind + " id"
     assert person.get("name") == name and person.get("jobTitle", "!") in visible, "Person name/job differs from visible CV"
@@ -331,11 +332,17 @@ def main():
     if isinstance(person.get("image"), str):
         check_ref(person["image"])
 
+    robots_text = resource("robots.txt")
+    robots_comments = "\n".join(line for line in robots_text.splitlines() if line.startswith("#"))
+    assert all(alias in robots_comments for alias in HANDLE_ALIASES), "Missing handle aliases in robots.txt comments"
     robots = RobotFileParser()
-    robots.parse(resource("robots.txt").splitlines())
+    robots.parse(robots_text.splitlines())
     assert CANONICAL + "sitemap.xml" in (robots.site_maps() or []), "robots.txt must advertise sitemap"
     assert all(robots.can_fetch(bot, CANONICAL) for bot in ("Googlebot", "bingbot", "OAI-SearchBot")), "Search crawler blocked"
-    sitemap = ET.fromstring(resource("sitemap.xml"))
+    sitemap_text = resource("sitemap.xml")
+    sitemap_comments = " ".join(re.findall(r"<!--(.*?)-->", sitemap_text, flags=re.S))
+    assert all(alias in sitemap_comments for alias in HANDLE_ALIASES), "Missing handle aliases in sitemap.xml comments"
+    sitemap = ET.fromstring(sitemap_text)
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     assert sitemap.findall("s:url/s:loc", ns) and [loc.text for loc in sitemap.findall("s:url/s:loc", ns)] == [CANONICAL], "Sitemap must contain canonical homepage only"
     lastmods = sitemap.findall("s:url/s:lastmod", ns)
@@ -347,6 +354,7 @@ def main():
     llms = resource("llms.txt")
     intro = normalize_text(llms.partition("\n## ")[0])
     assert name in intro and ALTERNATIVE_NAME in intro, "llms.txt introduction must identify both names"
+    assert all(alias in intro for alias in HANDLE_ALIASES), "llms.txt introduction must identify both handle variants"
     for reference in re.findall(r"\[[^\]]+\]\(([^)]+)\)", llms):
         check_ref(reference)
     markdown_links = {url.rstrip("/") for url in re.findall(r"\[[^\]]+\]\(([^)]+)\)", llms)}

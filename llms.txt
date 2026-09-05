@@ -2,7 +2,7 @@
 
 > Ilya Papou, Senior Platform / SRE Engineer. 8 years in IT · 5+ in DevOps / SRE. Based in Buenos Aires, Argentina.
 
-Ilya Papou is also known as Ilya Popov and uses the handle pilprod. Both names refer to the same person and the same professional profile at https://papou.work/.
+Ilya Papou is also known as Ilya Popov, PILPROD and pilprod. PILPROD and pilprod are capitalization variants of the same professional handle. All these names refer to the same person and the same professional profile at https://papou.work/.
 
 I develop agent infrastructure and orchestration for software engineering, with MCP/A2A integration and human-in-the-loop workflow design. I build Kubernetes platforms and shared DevSecOps release pipelines used in production by multiple customers.
 
