@@ -36,7 +36,15 @@ const assetSources = directory => fs.readdirSync(path.join(root, directory), { w
     const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
     await page.goto(`http://127.0.0.1:${server.address().port}/`, { waitUntil: 'networkidle' });
     await page.evaluate(() => Promise.all([document.fonts.ready, document.querySelector('.portrait-print').decode()]));
-    await page.emulateMedia({ media: 'print' });
+    // Exercise the device-dark case on every export: print must still be light.
+    await page.emulateMedia({ media: 'print', colorScheme: 'dark' });
+    const lightPrint = await page.evaluate(() => {
+      const rootStyle = getComputedStyle(document.documentElement);
+      return rootStyle.colorScheme === 'light'
+        && rootStyle.getPropertyValue('--paper').trim() === '#f7f9fb'
+        && rootStyle.getPropertyValue('--sidebar').trim() === '#eaf2f5';
+    });
+    if (!lightPrint) throw new Error('Print must retain the light palette when the device uses dark mode.');
     const fits = await page.evaluate(() => {
       const sheets = [...document.querySelectorAll('.cv-page')];
       return sheets.length === 2 && sheets.every(sheet => sheet.scrollHeight <= sheet.offsetHeight

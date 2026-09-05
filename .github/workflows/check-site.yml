@@ -21,3 +21,5 @@ jobs:
         run: python3 scripts/check_site.py
       - name: Validate opt-in analytics and cookie consent
         run: node scripts/check_analytics.cjs
+      - name: Validate device theme and dark-mode contrast
+        run: python3 scripts/check_theme.py

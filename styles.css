@@ -1312,6 +1312,79 @@ h3 {
   }
 }
 
+/* Follow the device live, without scripts or stored preferences. Screen-only
+   colors keep native printing and the downloadable CV on the light palette. */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --paper: #131c27;
+    --sidebar: #192635;
+    --blue: #93adff;
+    --teal: #77cedd;
+    --ink: #f0f5fa;
+    --text: #ced8e3;
+    --muted: #9fb0c3;
+  }
+
+  body {
+    background: #0b1118;
+  }
+
+  .cv-page {
+    box-shadow: 0 12px 48px rgb(0 0 0 / 18%);
+  }
+
+  .identity,
+  .profile-details {
+    border-color: #33465b;
+  }
+
+  .project-agent {
+    background: #152d35;
+    border-color: #2d5c65;
+  }
+
+  .tech-group,
+  .tech-group + .tech-group {
+    background: #1a2938;
+    border-color: #33465b;
+  }
+
+  .tech-list li {
+    background: #243448;
+    border-color: #3c5268;
+    color: var(--text);
+  }
+
+  .skip-link {
+    background: var(--sidebar);
+  }
+
+  /* Keep the PDF action black even though the heading ink is now light. */
+  .site-toolbar .pdf-action {
+    background: #0b1220;
+    border-color: #657586;
+  }
+
+  .site-toolbar .pdf-action:hover {
+    background: #182234;
+    border-color: var(--muted);
+  }
+
+  .analytics-consent {
+    border-color: #33465b;
+    box-shadow: 0 -8px 30px rgb(0 0 0 / 28%);
+  }
+
+  .analytics-allow {
+    color: var(--paper);
+  }
+
+  .analytics-actions button:hover {
+    box-shadow: 0 0 0 2px rgb(119 206 221 / 25%);
+  }
+}
+
 @page {
   size: A4 portrait;
   margin: 0;
