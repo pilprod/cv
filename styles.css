@@ -280,7 +280,8 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  width: 100%;
   min-height: 36px;
   gap: 8px 24px;
 }
@@ -291,7 +292,7 @@ h3 {
 
 .site-toolbar .pdf-action {
   color: white;
-  margin-left: 0;
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1081,7 +1082,7 @@ h3 {
   }
 
   .site-toolbar nav {
-    justify-content: flex-end;
+    justify-content: flex-start;
     font-size: 12px;
     gap: 8px 12px;
   }
