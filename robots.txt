@@ -1,4 +1,5 @@
-# Public CV: search crawlers can read the page and its assets.
+# Ilya Papou (Ilya Popov) CV.
+# Search crawlers can read the HTML, Markdown and assets.
 User-agent: *
 Allow: /
 
