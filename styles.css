@@ -273,16 +273,6 @@ h3 {
   display: none;
 }
 
-.sidebar-motif {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  width: 124px;
-  height: 112px;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
 .profile-details {
   margin-top: 29px;
 }
@@ -701,7 +691,6 @@ h3 {
   .sidebar {
     position: relative;
     align-self: stretch;
-    padding-bottom: 168px;
     border-radius: 0;
   }
 
@@ -805,10 +794,6 @@ h3 {
     gap: 22px 32px;
     padding: 22px clamp(20px, 1.25vw + 12px, 24px);
     border-radius: 10px;
-  }
-
-  .sidebar-motif {
-    display: none;
   }
 
   .sidebar-section + .sidebar-section {
@@ -1234,25 +1219,6 @@ h3 {
     line-height: 14px;
   }
 
-  .sidebar::after {
-    content: "";
-    position: absolute;
-    inset: 0 0 0 auto;
-    width: 2px;
-    background: #22a6b8;
-    opacity: 0.82;
-  }
-
-  .profile-contact::before {
-    content: "";
-    display: block;
-    width: 38px;
-    height: 4px;
-    margin-bottom: 8px;
-    border-radius: 2px;
-    background: #22a6b8;
-  }
-
   .sidebar-section + .sidebar-section,
   .profile-details {
     margin-top: 22px;
@@ -1464,19 +1430,6 @@ h3 {
   .project-agent {
     border-color: #b8e3e8;
     background: #f0fafb;
-  }
-
-  .project::before {
-    content: "";
-    display: block;
-    width: 54px;
-    height: 4px;
-    margin-bottom: 6px;
-    background: url("assets/project-accent-teal.svg") no-repeat center / contain;
-  }
-
-  .projects-secondary .project:last-child::before {
-    background-image: url("assets/project-accent-blue.svg");
   }
 
   .project-agent .project-title {

@@ -41,6 +41,8 @@ The approved spacing refinement is now the default print layout: a 36px gutter b
 
 The screen portrait is 96 × 108px on larger screens and 80 × 90px on phones. The original crop is retained and decorative corner marks are removed. These screen-only dimensions do not change the approved print portrait or PDF pagination.
 
+The PDF omits the colored bar-and-dot accents above projects, the Contacts accent, the sidebar's colored edge and its circuit motif. Their former spacing is reclaimed by normal flow. Gray experience dividers, card outlines, contact icons and the separate page-two research motif remain unchanged. The same decoration cleanup is applied to the revised Figma CV.
+
 The contact block includes `papou.work`, WhatsApp Business `papou.work` and Telegram `pilprod` in both screen and print layouts. Messaging usernames are displayed without an `@` prefix. Each contact uses a compact monochrome vector icon with an accessible channel label instead of a repeated text prefix. Messaging links use `https://wa.me/papou.work` and `https://t.me/pilprod`; no phone number is published.
 
 GitHub Pages serves the repository root from `main`. No build step is required.

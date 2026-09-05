@@ -293,6 +293,7 @@ def main():
     assert print_portraits[0].get("loading") == "eager", "Print portrait must load before opening print preview"
     assert int(print_portraits[0].get("width", 0)) >= 581 and int(print_portraits[0].get("height", 0)) >= 656, "Print portrait must retain the high-resolution source crop"
     assert not any("portrait-marks" in image.get("class", "").split() for image in page.images), "Keep decorative corners removed from the portrait"
+    assert not any("sidebar-motif" in image.get("class", "").split() for image in page.images), "Keep the removed sidebar circuit decoration out of the CV"
     canonicals = [link.get("href") for link in page.links if "canonical" in link.get("rel", "").split()]
     assert canonicals == [CANONICAL], "Expected one canonical URL"
     for key, value in meta.items():
