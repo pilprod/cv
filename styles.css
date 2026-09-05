@@ -1073,8 +1073,9 @@ h3 {
   }
 
   .site-toolbar nav {
+    justify-content: space-between;
     font-size: 12px;
-    gap: 8px 14px;
+    gap: 8px;
   }
 
   .site-toolbar .pdf-action {
@@ -1282,10 +1283,6 @@ h3 {
 }
 
 @media screen and (max-width: 360px) {
-  .site-toolbar nav {
-    column-gap: 10px;
-  }
-
   .identity h1 {
     font-size: 27px;
   }
