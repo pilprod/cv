@@ -397,6 +397,10 @@ h3 {
   display: none;
 }
 
+.portrait-mobile {
+  display: none;
+}
+
 .profile-details {
   margin-top: 29px;
 }
@@ -1099,10 +1103,19 @@ h3 {
 
   .identity {
     margin-top: 24px;
+    row-gap: 20px;
   }
 
   .identity-copy {
+    align-items: flex-start;
     gap: 6px;
+    text-align: left;
+  }
+
+  .identity .portrait-mobile {
+    display: block;
+    width: 192px;
+    margin: 14px 0;
   }
 
   .identity h1 {
@@ -1124,10 +1137,19 @@ h3 {
   }
 
   .sidebar {
-    --portrait-width: 152px;
+    grid-template-columns: minmax(0, 1fr);
     padding: 20px;
-    gap: 18px 24px;
+    gap: 20px;
     font-size: 12.5px;
+  }
+
+  .sidebar > .portrait {
+    display: none;
+  }
+
+  .profile-contact {
+    grid-column: 1;
+    grid-row: 1;
   }
 
   .sidebar-section h2 {
@@ -1163,11 +1185,28 @@ h3 {
 
 @media screen and (max-width: 640px) {
   .contact-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .contact-context {
+    display: grid;
+    gap: 6px;
+  }
+
+  .contact-links {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 8px 12px;
   }
 
   .sidebar .profile-languages {
-    margin-top: 8px;
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  .profile-details {
+    grid-row: 3;
   }
 
   .profile-languages h2 {
@@ -1196,17 +1235,7 @@ h3 {
   }
 }
 
-@media screen and (min-width: 480px) and (max-width: 575px) {
-  .sidebar {
-    column-gap: 16px;
-  }
-
-  .contact-list {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  }
-}
-
-@media screen and (min-width: 480px) and (max-width: 980px) {
+@media screen and (min-width: 641px) and (max-width: 980px) {
   .portrait,
   .profile-contact {
     align-self: center;
@@ -1228,63 +1257,13 @@ h3 {
   }
 }
 
-@media screen and (max-width: 479px) {
-  .sidebar {
-    --portrait-width: 80px;
-    row-gap: 12px;
-    column-gap: 16px;
-  }
-
-  .portrait {
-    grid-row: 1 / 3;
-  }
-
-  .profile-contact,
-  .contact-list {
-    display: contents;
-  }
-
-  .profile-contact > h2 {
-    grid-column: 2;
-    grid-row: 1;
-    margin-bottom: 0;
-    align-self: end;
-  }
-
-  .contact-context {
-    display: grid;
-    grid-column: 2;
-    grid-row: 2;
-    align-self: start;
-    align-content: start;
-    gap: 8px;
-  }
-
-  .contact-links {
-    display: grid;
-    grid-column: 1 / -1;
-    grid-row: 3;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 8px 12px;
-    margin-top: 6px;
-    font-style: normal;
-  }
-
-  .sidebar .profile-languages {
-    grid-row: 4;
-    margin-top: 12px;
-  }
-
-  .profile-details {
-    grid-row: 5;
-    margin-top: 6px;
-  }
-
-}
-
 @media screen and (max-width: 360px) {
   .identity h1 {
     font-size: 27px;
+  }
+
+  .identity .portrait-mobile {
+    width: 176px;
   }
 
   .sidebar {
@@ -1319,6 +1298,7 @@ h3 {
   .site-toolbar,
   .skip-link,
   .profile-toggle,
+  .portrait-mobile,
   .name-alias {
     display: none !important;
   }
