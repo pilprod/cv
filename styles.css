@@ -1580,7 +1580,8 @@ h3 {
   .site-toolbar .pdf-action { font-size: 12px; }
 }
 @media screen and (max-width: 360px) {
-  .site-toolbar nav { gap: 5px; }
+  .site-toolbar { padding-inline: 12px; }
+  .site-toolbar nav { gap: 4px; flex-wrap: nowrap; }
 }
 
 @media print {

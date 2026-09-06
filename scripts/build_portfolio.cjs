@@ -46,7 +46,7 @@ const html = `<!doctype html>
 <title>${esc(socialTitle)}</title>
 <meta name="description" content="${esc(socialDescription)}">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
-<link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-toolbar-alignment"><link rel="stylesheet" href="portfolio.css?v=20260906-toolbar-alignment">
+<link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-toolbar-alignment-2"><link rel="stylesheet" href="portfolio.css?v=20260906-toolbar-alignment-2">
 <link rel="alternate" hreflang="en" href="${data.canonical}"><link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"><link rel="alternate" hreflang="x-default" href="${data.canonical}">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Ilya Papou — CV &amp; Portfolio"><meta property="og:locale" content="en_US">

@@ -46,6 +46,10 @@
   .repository-list, .photo-gallery { grid-template-columns: 1fr; }
   .portfolio-footer { padding: 24px 20px; }
 }
+@media (max-width: 360px) {
+  .portfolio-toolbar { padding-inline: 12px; gap: 8px; flex-wrap: nowrap; }
+  .portfolio-toolbar nav { gap: 10px; }
+}
 @media print {
   .portfolio-page { background: white; }
   .portfolio-main { max-width: none; padding: 0; }
