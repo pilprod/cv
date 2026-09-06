@@ -70,7 +70,8 @@ assert 'https://papou.work/ru/portfolio.html' in ru_html
 assert re.search(r'lang="en"[^>]*aria-current="page"', en_html)
 assert re.search(r'lang="ru"[^>]*aria-current="page"', ru_html)
 for html, flag in [(en_html,'🇬🇧'), (ru_html,'🇷🇺')]:
-    assert html.index('class="language-switch"') < html.index('class="language-menu"') < html.index('id="open-pdf"')
+    assert 'class="language-switch"' not in html
+    assert html.index('class="language-menu"') < html.index('id="open-pdf"')
     assert f'<span class="current-language-flag" aria-hidden="true">{flag}</span>' in html
     assert '<details class="language-menu">' in html and 'class="language-options"' in html
     assert '>EN</a>' not in html and '>RU</a>' not in html
