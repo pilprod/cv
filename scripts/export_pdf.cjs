@@ -61,6 +61,15 @@ const assetSources = directory => fs.readdirSync(path.join(root, directory), { w
         && content.bottom <= footer.top - minimumGap;
     }));
     if (!footerFits) throw new Error('Page footer must stay inside margins and clear of content (10px after project cards, 4px after experience).');
+    const portfolioLinkFits = await page.evaluate(() => {
+      const link = document.querySelector('.page-two .portfolio-overview-link');
+      if (!link || link.href !== 'https://papou.work/portfolio.html') return false;
+      const bounds = link.getBoundingClientRect();
+      const intro = link.closest('.page-intro').getBoundingClientRect();
+      return bounds.width > 0 && bounds.height > 0 && bounds.left >= intro.left
+        && bounds.right <= intro.right && bounds.top >= intro.top && bounds.bottom <= intro.bottom;
+    });
+    if (!portfolioLinkFits) throw new Error('The project portfolio link must remain visible and unclipped on PDF page 2.');
     await page.evaluate(title => { document.title = title; }, pdfTitle);
     const pdf = await page.pdf({ preferCSSPageSize: true, printBackground: true, displayHeaderFooter: false });
     const pages = (pdf.toString('latin1').match(/\/Type\s*\/Page\b/g) || []).length;

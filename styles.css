@@ -1921,6 +1921,12 @@ h3 {
     line-height: 16px;
   }
 
+  .portfolio-overview-link {
+    color: var(--teal);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   .research-motif {
     top: -4px;
   }

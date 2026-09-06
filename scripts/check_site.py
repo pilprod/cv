@@ -78,7 +78,8 @@ SOURCE_DIGESTS = {
     "job/Freelance-Flant": "7ac34f8227b7209b6f028d6f24dfa48c46f7690a316f197834d49e155006303d",
     # User-requested employer name: MTS (Mobile TeleSystems).
     "job/MTS": "876877b59b95625109a51edaef6d659e6fa08216c544bf9b11bc67dcb5e3f91f",
-    "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
+    # September 6: user-requested visible portfolio link on PDF page 2.
+    "page-intro": "a7d473274af9c2166c84356ad45db5775543eb2a08a61f3e97dd644545c75343",
     # September 6: project dates/locations refreshed from LinkedIn Experience.
     # The user subsequently corrected YourOwn.Chat's location to Buenos Aires city.
     # Preserve Personal R&D / PoCs labels and the reviewed achievement text.

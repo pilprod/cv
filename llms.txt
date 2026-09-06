@@ -12,7 +12,7 @@ I develop agent infrastructure and orchestration for software engineering, with 
 - [Portfolio in Markdown](https://papou.work/portfolio.md): Repository scope, fork provenance, archival limitations and captioned photograph links. Five photographs have AI-retouched backgrounds or identifying areas; the root-chamber photograph has not been redrawn.
 - [Structured portfolio graph](https://papou.work/portfolio.jsonld): Separate Person, CreativeWork, SoftwareSourceCode and ImageObject identities, with explicit project/repository/photo relationships. LinkedIn section links are not individual public project permalinks.
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
-- [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-project-links): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contact and project links, under 1 MB.
+- [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-portfolio-link): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contact, repository and project portfolio links, under 1 MB.
 - [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank Insurance Broker, I-Teco, Flant & Freelance and the MTS (Mobile TeleSystems) internship.
 - [Agent Orchestration Infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Technical skills](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.
@@ -113,7 +113,7 @@ Telecommunications
 
 ## Engineering experience & technical skills
 
-Agent infrastructure, technical skills and selected projects.
+[Project sources & lab photographs · papou.work/portfolio.html](https://papou.work/portfolio.html)
 
 ### Agent Orchestration Infrastructure
 
