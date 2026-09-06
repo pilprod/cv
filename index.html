@@ -32,7 +32,7 @@
   <link rel="describedby" href="/llms.txt" type="text/plain" title="CV overview for agents">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20260906-project-dates">
+  <link rel="stylesheet" href="styles.css?v=20260906-project-links">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -105,7 +105,7 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#technologies">Skills</a>
-      <a id="open-pdf" class="pdf-action" href="assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-project-dates">Open PDF</a>
+      <a id="open-pdf" class="pdf-action" href="assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-project-links">Open PDF</a>
     </nav>
   </div>
   <main class="cv">
@@ -305,7 +305,7 @@
               <li>Built and ran container-image and Helm-chart release workflows. Prepared Google Cloud scanning and approval-based promotion pipelines.</li>
               <li>Tested release policies and validated Agent Host contracts with simulated Codex and Claude providers.</li>
             </ul>
-          <p class="project-links">Selected code: <a href="https://github.com/pilprod/yourown-chat">github.com/pilprod/yourown-chat</a>  ·  <a href="https://github.com/pilprod/kagent">github.com/pilprod/kagent</a>  ·  <a href="https://github.com/pilprod/mattermost">github.com/pilprod/mattermost</a></p>
+          <p class="project-links" data-project="agent"><span class="project-links-label">Code</span> <a href="https://github.com/pilprod/yourown-chat">Platform</a> <a href="https://github.com/pilprod/substrate">Agent runtime</a> <a href="https://github.com/pilprod/kagent">kagent fork</a> <a href="https://github.com/pilprod/yourown-chat-kagent">kagent integration</a> <a href="https://github.com/pilprod/mattermost">Mattermost fork</a> <a href="https://github.com/pilprod/yourown-chat-mattermost">Image build</a></p>
         </article>
       </section>
       <section class="technologies" id="technologies" aria-labelledby="technology-heading">
@@ -447,6 +447,7 @@
               <li>Connected ESP and Zigbee devices through Mosquitto and Zigbee2MQTT using JSON over MQTT, with Home Assistant as the control, monitoring and alerting interface.</li>
               <li>Automated Raspberry Pi setup with Ansible, prototyped pH, TDS and EC monitoring, and began preparing Prometheus metrics collection.</li>
             </ul>
+            <p class="project-links" data-project="home"><span class="project-links-label">Code</span> <a href="https://github.com/pilprod/aeroponics-iot-control">Controllers</a> <a href="https://github.com/pilprod/aeroponics-sensor-firmware">Sensor firmware</a></p>
           </article>
 
           <article class="project">
@@ -460,6 +461,7 @@
               <li>Managed all mesh ACLs through GitOps, with distinct user and service-account permissions for DNS discovery and service access.</li>
               <li>Tested OPNsense as an NGFW for subnet routing, network segmentation and traffic filtering.</li>
             </ul>
+            <p class="project-links" data-project="mesh"><span class="project-links-label">Code</span> <a href="https://github.com/pilprod/lab-network-automation">Ansible</a> <a href="https://github.com/pilprod/zero-trust-mesh-policy">Access policy</a> <a href="https://github.com/pilprod/gcp-ngfw-network-lab">GCP network lab</a></p>
           </article>
       </section>
       <footer class="page-number" aria-hidden="true">Page 2 / 2</footer>

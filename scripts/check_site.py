@@ -97,6 +97,24 @@ SOURCE_LINKS = {
     "https://wa.me/papou.work", "https://t.me/pilprod",
     "mailto:ilya@papou.email", "https://www.linkedin.com/in/pilprod", "https://github.com/pilprod",
     "https://github.com/pilprod/yourown-chat", "https://github.com/pilprod/kagent", "https://github.com/pilprod/mattermost",
+    "https://github.com/pilprod/substrate", "https://github.com/pilprod/yourown-chat-kagent",
+    "https://github.com/pilprod/yourown-chat-mattermost",
+    "https://github.com/pilprod/aeroponics-iot-control", "https://github.com/pilprod/aeroponics-sensor-firmware",
+    "https://github.com/pilprod/lab-network-automation", "https://github.com/pilprod/zero-trust-mesh-policy",
+    "https://github.com/pilprod/gcp-ngfw-network-lab",
+}
+PROJECT_LINKS = {
+    "agent": (("Platform", "https://github.com/pilprod/yourown-chat"),
+              ("Agent runtime", "https://github.com/pilprod/substrate"),
+              ("kagent fork", "https://github.com/pilprod/kagent"),
+              ("kagent integration", "https://github.com/pilprod/yourown-chat-kagent"),
+              ("Mattermost fork", "https://github.com/pilprod/mattermost"),
+              ("Image build", "https://github.com/pilprod/yourown-chat-mattermost")),
+    "home": (("Controllers", "https://github.com/pilprod/aeroponics-iot-control"),
+             ("Sensor firmware", "https://github.com/pilprod/aeroponics-sensor-firmware")),
+    "mesh": (("Ansible", "https://github.com/pilprod/lab-network-automation"),
+             ("Access policy", "https://github.com/pilprod/zero-trust-mesh-policy"),
+             ("GCP network lab", "https://github.com/pilprod/gcp-ngfw-network-lab")),
 }
 
 
@@ -111,6 +129,7 @@ def normalize_source_text(value):
 
 
 def check_source_content(page):
+    assert page.project_links == {key: list(links) for key, links in PROJECT_LINKS.items()}, "Project repository labels, URLs or groupings differ from reviewed links"
     assert "Other engineering experience" not in page.cv_content["detail"], "Secondary projects should have no extra section heading"
     assert page.source_content["project"][0].startswith("Agent Orchestration Infrastructure "), "Preserve the shared Agent Orchestration Infrastructure heading"
     project_metadata = (
@@ -176,11 +195,18 @@ class Page(HTMLParser):
         self.cv_content = {kind: [] for kind in ("achievement", "summary", "project-summary", "detail")}
         self.source_content = {kind: [] for kind in SOURCE_PARTS}
         self.technologies = {}
+        self.project_links = {}
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         classes = set(attrs.get("class", "").split())
         ancestors = set().union(*(element["classes"] for element in self.elements))
+        project_group = attrs.get("data-project") if "project-links" in classes else next(
+            (element["project_group"] for element in reversed(self.elements) if element["project_group"]), None)
+        if "project-links" in classes:
+            assert project_group and project_group not in self.project_links, "Missing or duplicate project repository group"
+            self.project_links[project_group] = []
+        project_href = attrs.get("href") if tag == "a" and project_group else None
         capture = None
         if tag == "li" and "achievements" in ancestors and {"job", "project"} & ancestors:
             capture = "achievement"
@@ -211,7 +237,8 @@ class Page(HTMLParser):
                     element["text"].append(" ")
         elif tag not in VOID_TAGS:
             self.elements.append({"tag": tag, "classes": classes, "capture": capture, "source": source,
-                                  "category": category, "tech_capture": tech_capture, "text": []})
+                                  "category": category, "tech_capture": tech_capture, "text": [],
+                                  "project_group": project_group, "project_href": project_href})
         self.tag = tag
         self.in_head |= tag == "head"
         self.in_h1 |= tag == "h1"
@@ -236,6 +263,8 @@ class Page(HTMLParser):
             if self.elements[index]["tag"] == tag:
                 for element in self.elements[index:]:
                     content = normalize_text("".join(element["text"]))
+                    if element["project_href"]:
+                        self.project_links[element["project_group"]].append((content, element["project_href"]))
                     if element["capture"]:
                         self.cv_content[element["capture"]].append(content)
                     if element["source"]:
@@ -267,7 +296,7 @@ class Page(HTMLParser):
             # Responsive/print-only variants repeat the canonical source wording.
             print_repetition = any({"print-only", "company-name-short"} & element["classes"] for element in self.elements)
             for element in self.elements:
-                if not print_repetition and (element["capture"] or element["tech_capture"] or element["source"] and not in_project_links):
+                if not print_repetition and (element["capture"] or element["tech_capture"] or element["project_href"] or element["source"] and not in_project_links):
                     element["text"].append(data)
         if self.in_script:
             self.script.append(data)

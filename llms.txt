@@ -9,7 +9,7 @@ I develop agent infrastructure and orchestration for software engineering, with 
 ## CV links
 
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
-- [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-project-dates): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
+- [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-project-links): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contact and project links, under 1 MB.
 - [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank Insurance Broker, I-Teco, Flant & Freelance and the MTS (Mobile TeleSystems) internship.
 - [Agent Orchestration Infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Technical skills](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.
@@ -126,7 +126,7 @@ Personal R&D platform for developers and AI coding agents working on software an
 - Built and ran container-image and Helm-chart release workflows. Prepared Google Cloud scanning and approval-based promotion pipelines.
 - Tested release policies and validated Agent Host contracts with simulated Codex and Claude providers.
 
-Selected code: [YourOwn.Chat](https://github.com/pilprod/yourown-chat) · [kagent](https://github.com/pilprod/kagent) · [Mattermost](https://github.com/pilprod/mattermost)
+Code: [Platform](https://github.com/pilprod/yourown-chat) · [Agent runtime](https://github.com/pilprod/substrate) · [kagent fork](https://github.com/pilprod/kagent) · [kagent integration](https://github.com/pilprod/yourown-chat-kagent) · [Mattermost fork](https://github.com/pilprod/mattermost) · [Image build](https://github.com/pilprod/yourown-chat-mattermost)
 
 ### Technical skills
 
@@ -189,6 +189,8 @@ Aug 2024 — Jan 2025 · Personal R&D · Moscow City, Russia
 - Connected ESP and Zigbee devices through Mosquitto and Zigbee2MQTT using JSON over MQTT, with Home Assistant as the control, monitoring and alerting interface.
 - Automated Raspberry Pi setup with Ansible, prototyped pH, TDS and EC monitoring, and began preparing Prometheus metrics collection.
 
+Code: [Controllers](https://github.com/pilprod/aeroponics-iot-control) · [Sensor firmware](https://github.com/pilprod/aeroponics-sensor-firmware)
+
 ### Zero-Trust Mesh & Open-source NGFW
 
 Jan 2025 — Mar 2025 · Personal R&D · Bangkok City, Thailand
@@ -197,3 +199,5 @@ Jan 2025 — Mar 2025 · Personal R&D · Bangkok City, Thailand
 - Automated network configuration and enabled one-click onboarding of new nodes.
 - Managed all mesh ACLs through GitOps, with distinct user and service-account permissions for DNS discovery and service access.
 - Tested OPNsense as an NGFW for subnet routing, network segmentation and traffic filtering.
+
+Code: [Ansible](https://github.com/pilprod/lab-network-automation) · [Access policy](https://github.com/pilprod/zero-trust-mesh-policy) · [GCP network lab](https://github.com/pilprod/gcp-ngfw-network-lab)

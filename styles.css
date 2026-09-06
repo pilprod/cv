@@ -728,10 +728,19 @@ h3 {
 .project-links {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: 4px 14px;
   margin-top: 16px;
   font-size: 12px;
-  overflow-wrap: anywhere;
+}
+
+.project-links-label {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.project-links a {
+  white-space: nowrap;
 }
 
 .page-two > .page-number {
@@ -1918,7 +1927,7 @@ h3 {
   .project,
   .technologies {
     position: relative;
-    padding: 9px 13px;
+    padding: 6px 13px;
     border: 1px solid #d8e0e8;
     border-radius: 6px;
     background: white;
@@ -1934,11 +1943,11 @@ h3 {
   }
 
   .project header {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .project-meta {
-    margin-top: 6px;
+    margin-top: 4px;
   }
 
   .project-summary {
@@ -1950,9 +1959,8 @@ h3 {
   }
 
   .project-links {
-    display: block;
+    gap: 2px 12px;
     margin-top: 6px;
-    white-space: pre-wrap;
   }
 
   .technologies .section-label {
