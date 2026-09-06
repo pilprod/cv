@@ -72,10 +72,15 @@ assert re.search(r'lang="en"[^>]*aria-current="page"', en_html)
 assert re.search(r'lang="ru"[^>]*aria-current="page"', ru_html)
 for html, flag in [(en_html,'🇬🇧'), (ru_html,'🇷🇺')]:
     assert 'class="language-switch"' not in html
+    assert re.search(r'<div class="toolbar-actions">\s*<details class="language-menu">.*?</details>\s*<a id="open-pdf"', html, re.S), 'Language and PDF must stay grouped'
     assert html.index('class="language-menu"') < html.index('id="open-pdf"')
     assert f'<span class="current-language-flag" aria-hidden="true">{flag}</span>' in html
     assert '<details class="language-menu">' in html and 'class="language-options"' in html
     assert '>EN</a>' not in html and '>RU</a>' not in html
+
+for file in ('portfolio.html', 'ru/portfolio.html'):
+    toolbar = text(file).split('<div class="portfolio-toolbar">', 1)[1].split('</nav>', 1)[0]
+    assert toolbar.index('class="language-menu"') < toolbar.index('href="https://github.com/pilprod"') < toolbar.index('href="https://www.linkedin.com/in/pilprod/"'), 'Portfolio language menu must precede profile links'
 
 for suffix in ('','-ru'):
     manifest = json.loads(text(f'assets/cv-pdf{suffix}.json'))

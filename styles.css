@@ -1562,7 +1562,7 @@ h3 {
   margin: 0;
 }
 
-.site-toolbar .language-menu { margin-left: auto; }
+.site-toolbar .toolbar-actions { display: flex; align-items: center; flex: 0 0 auto; gap: 8px; margin-left: auto; }
 .site-toolbar .pdf-action { margin-left: 0; }
 .site-toolbar > .site-brand, .site-toolbar nav > a { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; }
 .language-menu { display: block; position: relative; flex: 0 0 auto; }
@@ -1582,6 +1582,7 @@ h3 {
 @media screen and (max-width: 360px) {
   .site-toolbar { padding-inline: 12px; }
   .site-toolbar nav { gap: 4px; flex-wrap: nowrap; }
+  .site-toolbar .toolbar-actions { gap: 4px; }
 }
 
 @media print {
