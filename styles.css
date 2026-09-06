@@ -274,10 +274,10 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 24px;
+  gap: 8px;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 12px 2px 0;
+  padding: 24px 32px;
   font-size: 13px;
 }
 
@@ -293,12 +293,12 @@ h3 {
   flex: 1;
   min-width: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   min-height: 36px;
-  gap: 8px 24px;
+  gap: 8px;
 }
 
 .site-toolbar a {
@@ -331,7 +331,7 @@ h3 {
   display: grid;
   gap: 28px;
   max-width: 1120px;
-  margin: 16px auto 0;
+  margin: 0 auto;
 }
 
 .cv-page {
@@ -774,7 +774,7 @@ h3 {
   }
 
   .site-toolbar {
-    width: min(1120px, calc(100% - 48px));
+    width: 100%;
   }
 
   .identity {
@@ -1138,40 +1138,23 @@ h3 {
   .research-motif {
     display: none;
   }
-
-  .site-toolbar {
-    gap: 12px;
-  }
-
-  .site-toolbar nav {
-    width: 100%;
-    gap: 8px 18px;
-  }
-
 }
 
 @media screen and (min-width: 641px) {
-  .site-toolbar {
-    /* Match the CV edges, then inset navigation like the tablet layout. */
-    width: min(1120px, calc(100% - clamp(0px, 12.5vw - 80px, 48px)));
-    padding-inline: 14px;
-  }
-
   .site-toolbar nav a:not(.pdf-action) {
     font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .site-toolbar {
+    padding: 20px;
   }
 }
 
 @media screen and (max-width: 640px) {
   body {
     font-size: 15px;
-  }
-
-  .site-toolbar {
-    width: 100%;
-    padding: 12px 20px;
-    flex-wrap: nowrap;
-    gap: 16px;
   }
 
   .site-brand {
@@ -1188,7 +1171,7 @@ h3 {
     flex-wrap: nowrap;
     font-size: 13px;
     line-height: 20px;
-    gap: 12px;
+    gap: 8px;
   }
 
   .site-toolbar nav a {
@@ -1453,12 +1436,12 @@ h3 {
 
 @media screen and (max-width: 360px) {
   .site-toolbar {
-    padding-inline: 16px;
-    gap: 12px;
+    padding-inline: 12px;
+    gap: 4px;
   }
 
   .site-toolbar nav {
-    gap: 8px;
+    gap: 4px;
   }
 
   .site-toolbar .pdf-action {
@@ -1576,12 +1559,9 @@ h3 {
 .language-options [aria-current="page"], .language-options a:hover { background: var(--sidebar); }
 @media screen and (max-width: 640px) {
   .site-toolbar > .site-brand { display: none; }
-  .site-toolbar nav { gap: 6px 9px; flex-wrap: wrap; }
   .site-toolbar .pdf-action { font-size: 12px; }
 }
 @media screen and (max-width: 360px) {
-  .site-toolbar { padding-inline: 12px; }
-  .site-toolbar nav { gap: 4px; flex-wrap: nowrap; }
   .site-toolbar .toolbar-actions { gap: 4px; }
 }
 

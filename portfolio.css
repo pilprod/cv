@@ -1,7 +1,7 @@
 .portfolio-page { font-size: 16px; }
 .portfolio-toolbar, .portfolio-main, .portfolio-footer { max-width: 1120px; margin: auto; }
-.portfolio-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 32px; }
-.portfolio-toolbar nav { display: flex; align-items: center; gap: 24px; }
+.portfolio-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 24px 32px; }
+.portfolio-toolbar nav { display: flex; align-items: center; gap: 8px; }
 .portfolio-toolbar > a, .portfolio-toolbar nav > a { display: inline-flex; align-items: center; min-height: 36px; }
 .portfolio-toolbar .language-options { left: 0; right: auto; }
 .portfolio-main { background: var(--paper); padding: 48px 56px; }
@@ -39,8 +39,7 @@
 .portfolio-footer { padding: 28px 32px 44px; font-size: 14px; }
 .portfolio-footer p + p { margin-top: 14px; max-width: 850px; }
 @media (max-width: 700px) {
-  .portfolio-toolbar { padding: 20px; gap: 14px; flex-wrap: wrap; }
-  .portfolio-toolbar nav { gap: 18px; }
+  .portfolio-toolbar { padding: 20px; }
   .portfolio-main { padding: 28px 20px; }
   .portfolio-intro { margin-bottom: 36px; }
   .evidence-project { margin-top: 36px; }
@@ -48,8 +47,8 @@
   .portfolio-footer { padding: 24px 20px; }
 }
 @media (max-width: 360px) {
-  .portfolio-toolbar { padding-inline: 12px; gap: 8px; flex-wrap: nowrap; }
-  .portfolio-toolbar nav { gap: 10px; }
+  .portfolio-toolbar { padding-inline: 12px; gap: 4px; }
+  .portfolio-toolbar nav { gap: 4px; }
 }
 @media print {
   .portfolio-page { background: white; }
