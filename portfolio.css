@@ -1,7 +1,8 @@
 .portfolio-page { font-size: 16px; }
 .portfolio-toolbar, .portfolio-main, .portfolio-footer { max-width: 1120px; margin: auto; }
-.portfolio-toolbar { display: flex; justify-content: space-between; gap: 24px; padding: 24px 32px; }
-.portfolio-toolbar nav { display: flex; gap: 24px; }
+.portfolio-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 32px; }
+.portfolio-toolbar nav { display: flex; align-items: center; gap: 24px; }
+.portfolio-toolbar > a, .portfolio-toolbar nav > a { display: inline-flex; align-items: center; min-height: 36px; }
 .portfolio-main { background: var(--paper); padding: 48px 56px; }
 .portfolio-intro { margin-bottom: 64px; }
 .portfolio-intro h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 24px; }

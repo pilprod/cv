@@ -1157,11 +1157,6 @@ h3 {
     padding-inline: 14px;
   }
 
-  .site-toolbar > .site-brand,
-  .site-toolbar nav a:not(.pdf-action) {
-    transform: translateY(2px);
-  }
-
   .site-toolbar nav a:not(.pdf-action) {
     font-weight: 600;
   }
@@ -1569,12 +1564,13 @@ h3 {
 
 .site-toolbar .language-menu { margin-left: auto; }
 .site-toolbar .pdf-action { margin-left: 0; }
+.site-toolbar > .site-brand, .site-toolbar nav > a { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; }
 .language-menu { display: block; position: relative; flex: 0 0 auto; }
 .language-menu summary { display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 42px; min-height: 36px; padding: 2px 4px; cursor: pointer; list-style: none; border-radius: 5px; }
 .language-menu summary::-webkit-details-marker { display: none; }
 .language-menu summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .current-language-flag { font-size: 20px; line-height: 1; }
-.language-caret { font-size: 12px; }
+.language-caret { font-size: 12px; line-height: 1; }
 .language-options { position: absolute; z-index: 20; top: calc(100% + 6px); right: 0; min-width: 150px; padding: 5px; border: 1px solid var(--muted); border-radius: 8px; background: var(--paper); box-shadow: 0 8px 24px rgb(0 0 0 / 16%); }
 .site-toolbar .language-options a, .portfolio-toolbar .language-options a { display: flex; justify-content: flex-start; align-items: center; gap: 10px; min-height: 42px; padding: 8px 10px; color: var(--ink); font-size: 14px; text-decoration: none; border-radius: 4px; }
 .language-options [aria-current="page"], .language-options a:hover { background: var(--sidebar); }
