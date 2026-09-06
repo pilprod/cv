@@ -270,39 +270,63 @@ h3 {
   transform: translateY(0);
 }
 
-.site-toolbar {
+.site-toolbar,
+.portfolio-toolbar {
+  --toolbar-font-size: 16px;
+  --toolbar-gap: 24px;
+  --toolbar-height: 36px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
+  justify-content: space-between;
+  gap: var(--toolbar-gap);
+  width: 100%;
   max-width: 1120px;
   margin: 0 auto;
   padding: 24px 32px;
-  font-size: 13px;
+  font-size: var(--toolbar-font-size);
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.site-toolbar nav,
+.portfolio-toolbar nav {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--toolbar-gap);
+  font: inherit;
+}
+
+.site-toolbar > a,
+.site-toolbar nav > a,
+.site-toolbar .pdf-action,
+.portfolio-toolbar > a,
+.portfolio-toolbar nav > a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  height: var(--toolbar-height);
+  font: inherit;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--teal);
+}
+
+.site-toolbar a:focus-visible,
+.portfolio-toolbar a:focus-visible {
+  outline-offset: 3px;
 }
 
 .site-brand {
   flex-shrink: 0;
-  color: var(--teal);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 30px;
 }
 
 .site-toolbar nav {
   flex: 1;
   min-width: 0;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
   justify-content: flex-start;
   width: 100%;
-  min-height: 36px;
-  gap: 8px;
-}
-
-.site-toolbar a {
-  text-decoration: none;
 }
 
 .site-toolbar .pdf-action {
@@ -311,14 +335,11 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 30px;
-  padding: 3px 12px;
+  min-height: var(--toolbar-height);
+  padding: 0 12px;
   border: 1px solid var(--ink);
   border-radius: 6px;
   background: var(--ink);
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
 }
 
 .site-toolbar .pdf-action:hover {
@@ -773,10 +794,6 @@ h3 {
     width: min(1120px, calc(100% - clamp(0px, 12.5vw - 80px, 48px)));
   }
 
-  .site-toolbar {
-    width: 100%;
-  }
-
   .identity {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -1140,14 +1157,9 @@ h3 {
   }
 }
 
-@media screen and (min-width: 641px) {
-  .site-toolbar nav a:not(.pdf-action) {
-    font-weight: 600;
-  }
-}
-
 @media screen and (max-width: 700px) {
-  .site-toolbar {
+  .site-toolbar,
+  .portfolio-toolbar {
     padding: 20px;
   }
 }
@@ -1166,32 +1178,14 @@ h3 {
     transform: none;
   }
 
-  .site-toolbar nav {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    font-size: 13px;
-    line-height: 20px;
-    gap: 8px;
-  }
-
-  .site-toolbar nav a {
-    font-weight: 600;
-    flex-shrink: 0;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 36px;
-  }
-
-  .site-toolbar a:focus-visible {
-    outline-offset: 2px;
+  .site-toolbar,
+  .portfolio-toolbar {
+    --toolbar-font-size: 13px;
+    --toolbar-gap: 8px;
   }
 
   .site-toolbar .pdf-action {
-    min-height: 30px;
-    font-size: 13px;
-    padding: 2px 8px;
+    padding-inline: 8px;
   }
 
   .cv {
@@ -1435,13 +1429,11 @@ h3 {
 }
 
 @media screen and (max-width: 360px) {
-  .site-toolbar {
+  .site-toolbar,
+  .portfolio-toolbar {
+    --toolbar-font-size: 12px;
+    --toolbar-gap: 4px;
     padding-inline: 12px;
-    gap: 4px;
-  }
-
-  .site-toolbar nav {
-    gap: 4px;
   }
 
   .site-toolbar .pdf-action {
@@ -1466,10 +1458,6 @@ h3 {
 /* Follow the device live, without scripts or stored preferences. Screen-only
    colors keep native printing and the downloadable CV on the light palette. */
 @media screen and (prefers-color-scheme: dark) {
-  .site-toolbar a {
-    color: #fff;
-  }
-
   :root {
     color-scheme: dark;
     --paper: #131c27;
@@ -1545,11 +1533,10 @@ h3 {
   margin: 0;
 }
 
-.site-toolbar .toolbar-actions { display: flex; align-items: center; flex: 0 0 auto; gap: 8px; margin-left: auto; }
+.site-toolbar .toolbar-actions { display: flex; align-items: center; flex: 0 0 auto; gap: var(--toolbar-gap); margin-left: auto; }
 .site-toolbar .pdf-action { margin-left: 0; }
-.site-toolbar > .site-brand, .site-toolbar nav > a { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; }
 .language-menu { display: block; position: relative; flex: 0 0 auto; }
-.language-menu summary { display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 42px; min-height: 36px; padding: 2px 4px; cursor: pointer; list-style: none; border-radius: 5px; }
+.language-menu summary { display: flex; align-items: center; justify-content: center; gap: 4px; width: 42px; height: var(--toolbar-height); padding: 0 4px; color: var(--teal); cursor: pointer; list-style: none; border-radius: 5px; }
 .language-menu summary::-webkit-details-marker { display: none; }
 .language-menu summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .current-language-flag { font-size: 20px; line-height: 1; }
@@ -1559,10 +1546,6 @@ h3 {
 .language-options [aria-current="page"], .language-options a:hover { background: var(--sidebar); }
 @media screen and (max-width: 640px) {
   .site-toolbar > .site-brand { display: none; }
-  .site-toolbar .pdf-action { font-size: 12px; }
-}
-@media screen and (max-width: 360px) {
-  .site-toolbar .toolbar-actions { gap: 4px; }
 }
 
 @media print {

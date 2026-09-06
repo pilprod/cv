@@ -80,7 +80,7 @@ for html, flag in [(en_html,'🇬🇧'), (ru_html,'🇷🇺')]:
 
 for file in ('portfolio.html', 'ru/portfolio.html'):
     toolbar = text(file).split('<div class="portfolio-toolbar">', 1)[1].split('</nav>', 1)[0]
-    assert toolbar.index('class="language-menu"') < toolbar.index('href="https://github.com/pilprod"') < toolbar.index('href="https://www.linkedin.com/in/pilprod/"'), 'Portfolio language menu must precede profile links'
+    assert toolbar.index('href="https://github.com/pilprod"') < toolbar.index('href="https://www.linkedin.com/in/pilprod/"') < toolbar.index('class="language-menu"'), 'Portfolio language menu must follow profile links'
 
 for suffix in ('','-ru'):
     manifest = json.loads(text(f'assets/cv-pdf{suffix}.json'))
