@@ -33,7 +33,7 @@ SOURCE_TECHNOLOGIES = {
     "cloud": ("Cloud infrastructure", (
         "AWS · GCP",
         "S3 · Lambda · EKS · IAM", "GKE · Cloud SQL · GCS",
-        "Artifact Registry · Cloud Build / Deploy", "WIF · Secret Manager",
+        "Artifact Registry · Cloud Build & Deploy", "WIF · Secret Manager",
         "Cloud KMS · Pub/Sub · Cloudflare")),
     "programming": ("Software engineering", (
         "Go · Python · Bash · JavaScript", "React · Next.js · Node.js · Express",
@@ -74,15 +74,23 @@ SOURCE_DIGESTS = {
     "job/Sirena-Travel": "5e27096f34bb9f31639ebae4ce57b31babfb1ee8bb637d05b54455224260012f",
     "job/Sberbank": "e3ae8fe8fdd501f99263f59e5de132576834acc7dfd6bdc1bf2412911c30f8b0",
     "job/I-Teco": "8f9cf7cee4a2983e2156ad502846733006ab4f4e1dc20904ce571e6cfb865543",
-    "job/Freelance-Flant": "e06a19cbcadf7e3192a600ff6aaaa53cdf09e6c1e2c961e2f6c259b5e465ac61",
-    "job/MTS": "2a6ac2283c74a88ff7f03f33172eaf9b49950fd0e0450171adbe7d5a7b80dc28",
+    # User-requested heading: Flant & Freelance.
+    "job/Freelance-Flant": "7ac34f8227b7209b6f028d6f24dfa48c46f7690a316f197834d49e155006303d",
+    # User-requested employer name: MTS (Mobile TeleSystems).
+    "job/MTS": "876877b59b95625109a51edaef6d659e6fa08216c544bf9b11bc67dcb5e3f91f",
     "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
     # User-simplified period/status: 2025 – 2026 · Personal R&D · PoCs.
-    "project/YourOwn.Chat": "840ffa83d3cc7fe463b8c713e2cefbf327edeffa3be290f24d9088457c9fc626",
-    "project/Home Aeroponics": "93001b9d293cdd594cc0aa26ad967682e26dbdcdf0bd297319f9e4f6266525ba",
-    "project/Zero-Trust Mesh": "35bb3796fb1cfa1a09be4ffa5584110daae98e437d4aa10bf36d9a4ab9433c88",
+    # User-requested heading without a dash and prose without slash separators.
+    "project/YourOwn.Chat": "671d974f91d8317e3da2af32f2ec21dcc0cd1ee2a345425556b2b844a9f56602",
+    # User-directed status wording: Personal project -> Personal R&D.
+    # User clarified Python/MQTT automation, Home Assistant UI and preparatory Prometheus work.
+    "project/Home Aeroponics": "ad3d0bba11e5f77258c36c65f3d4ffa1b0a16bff21c1be31eea9e99d989fc36f",
+    # User confirmed automated network configuration and one-click node onboarding.
+    "project/Zero-Trust Mesh": "97fbbf3918d0f9d07bcc39c02d5f29e2136d5c279a36353bc928cd425897a3d3",
 }
 SOURCE_LINKS = {
+    "https://sirena-travel.com", "https://www.sberbank.com", "https://www.i-teco.ru",
+    "https://flant.ru", "https://mts.ru",
     "https://papou.work",
     "https://wa.me/papou.work", "https://t.me/pilprod",
     "mailto:ilya@papou.email", "https://www.linkedin.com/in/pilprod", "https://github.com/pilprod",
@@ -101,8 +109,10 @@ def normalize_source_text(value):
 
 
 def check_source_content(page):
+    assert "Other engineering experience" not in page.cv_content["detail"], "Secondary projects should have no extra section heading"
+    assert "2024 — 2025 · Personal R&D" in page.source_content["project"][1], "Home Aeroponics must be labeled Personal R&D"
     assert "8 years in IT · 5+ in DevOps & SRE" in page.source_content["identity"][0], "Preserve the requested experience headline"
-    assert len(page.cv_content["achievement"]) == 33, "Expected all 33 source achievement bullets"
+    assert len(page.cv_content["achievement"]) == 35, "Expected all 35 reviewed achievement bullets"
     domains = ("Aviation & travel", "Finance & insurance", "Public sector",
                "Cross-industry IT consulting", "Telecommunications")
     assert len(page.source_content["job"]) == len(domains), "Expected five professional experiences"
@@ -245,8 +255,8 @@ class Page(HTMLParser):
     def handle_data(self, data):
         if not self.in_script:
             in_project_links = any("project-links" in element["classes"] for element in self.elements)
-            # Print-only repetitions may move a web date into a compact heading.
-            print_repetition = any("print-only" in element["classes"] for element in self.elements)
+            # Responsive/print-only variants repeat the canonical source wording.
+            print_repetition = any({"print-only", "company-name-short", "project-name-short"} & element["classes"] for element in self.elements)
             for element in self.elements:
                 if not print_repetition and (element["capture"] or element["tech_capture"] or element["source"] and not in_project_links):
                     element["text"].append(data)
@@ -299,7 +309,7 @@ def main():
     assert meta["author"] == name and name in title, "Title/author must identify the visible person"
     assert meta["og:title"] == title == meta["twitter:title"], "Search/social titles differ"
     assert ALTERNATIVE_NAME in visible, "Alternate name missing from visible CV"
-    assert ALTERNATIVE_NAME in title, "Alternate name missing from search/social title"
+    assert title == "Ilya Papou CV — Senior DevOps & SRE", "Preserve the user-requested search/social title"
     for key in ("description", "og:description", "twitter:description"):
         assert name in meta[key] and ALTERNATIVE_NAME in meta[key], key + " must identify both names"
     assert meta["twitter:card"] in ("summary", "summary_large_image"), "Invalid Twitter card"
@@ -345,9 +355,7 @@ def main():
     assert len(pdf_bytes) == pdf_manifest["bytes"] < 1_000_000, "PDF must be below 1 MB"
     assert len(re.findall(rb"/Type\s*/Page\b", pdf_bytes)) == pdf_manifest["pages"] == 2, "Download must contain exactly two pages"
     assert hashlib.sha256(pdf_bytes).hexdigest() == pdf_manifest["sha256"], "PDF differs from reviewed export"
-    assert pdf_manifest["legacyFiles"] == ["assets/Ilya-Papou-CV.pdf", "assets/Ilya Papou CV — SRE & DevOps.pdf"], "Keep the already-shared PDF URLs working"
-    for legacy_path in pdf_manifest["legacyFiles"]:
-        assert resource(legacy_path, binary=True) == pdf_bytes, "Legacy PDF link is stale"
+    assert not pdf_manifest.get("legacyFiles"), "Only the current canonical PDF should be generated"
     # Local release check prevents a newer CV being published with a stale PDF.
     # On the live check, compare the manifest and PDF, not local unpublished edits.
     assert {"index.html", "styles.css", "assets/portrait-source.jpg"} <= set(pdf_manifest["sources"])

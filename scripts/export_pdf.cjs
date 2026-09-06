@@ -9,14 +9,13 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const pdfTitle = 'Ilya Papou CV — DevOps & SRE';
 const pdfPath = `assets/${pdfTitle}.pdf`;
-const legacyPdfPaths = ['assets/Ilya-Papou-CV.pdf', 'assets/Ilya Papou CV — SRE & DevOps.pdf'];
 const manifestPath = 'assets/cv-pdf.json';
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const types = { '.html': 'text/html', '.css': 'text/css', '.png': 'image/png',
   '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.pdf': 'application/pdf' };
 const assetSources = directory => fs.readdirSync(path.join(root, directory), { withFileTypes: true })
   .flatMap(entry => entry.isDirectory() ? assetSources(`${directory}/${entry.name}`) : [`${directory}/${entry.name}`])
-  .filter(file => ![pdfPath, ...legacyPdfPaths, manifestPath].includes(file));
+  .filter(file => ![pdfPath, manifestPath].includes(file));
 
 (async () => {
   // Serve this exact checkout, not a possibly stale public or preview site.
@@ -53,6 +52,15 @@ const assetSources = directory => fs.readdirSync(path.join(root, directory), { w
         && sheet.scrollWidth <= sheet.offsetWidth);
     });
     if (!fits) throw new Error('CV content exceeds the two-page print layout. Review it before exporting.');
+    const footerFits = await page.evaluate(() => [...document.querySelectorAll('.cv-page')].every(sheet => {
+      const footer = sheet.querySelector('.page-number').getBoundingClientRect();
+      const bounds = sheet.getBoundingClientRect();
+      const content = sheet.querySelector('.projects-secondary, .experience .job:last-child').getBoundingClientRect();
+      const minimumGap = sheet.classList.contains('page-two') ? 10 : 4;
+      return footer.right <= bounds.right - 40 && footer.bottom <= bounds.bottom - 13
+        && content.bottom <= footer.top - minimumGap;
+    }));
+    if (!footerFits) throw new Error('Page footer must stay inside margins and clear of content (10px after project cards, 4px after experience).');
     await page.evaluate(title => { document.title = title; }, pdfTitle);
     const pdf = await page.pdf({ preferCSSPageSize: true, printBackground: true, displayHeaderFooter: false });
     const pages = (pdf.toString('latin1').match(/\/Type\s*\/Page\b/g) || []).length;
@@ -60,10 +68,8 @@ const assetSources = directory => fs.readdirSync(path.join(root, directory), { w
     const sources = Object.fromEntries(['index.html', 'styles.css', ...assetSources('assets')].sort()
       .map(file => [file, hash(fs.readFileSync(path.join(root, file)))]));
     fs.writeFileSync(path.join(root, pdfPath), pdf);
-    // Keep already-shared application links current without changing Open PDF behavior.
-    for (const legacyPdfPath of legacyPdfPaths) fs.writeFileSync(path.join(root, legacyPdfPath), pdf);
     fs.writeFileSync(path.join(root, manifestPath), JSON.stringify({ file: pdfPath, title: pdfTitle,
-      legacyFiles: legacyPdfPaths, pages, bytes: pdf.length,
+      pages, bytes: pdf.length,
       sha256: hash(pdf), sources }, null, 2) + '\n');
     console.log(`Exported ${pdfPath}: ${pages} A4 pages, ${pdf.length} bytes. Render both pages for visual review before publishing.`);
   } finally {

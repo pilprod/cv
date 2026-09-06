@@ -276,7 +276,17 @@ h3 {
   font-size: 13px;
 }
 
+.site-brand {
+  flex-shrink: 0;
+  color: var(--teal);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
 .site-toolbar nav {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -529,6 +539,20 @@ h3 {
   min-width: 0;
 }
 
+.company a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.company a:hover {
+  color: var(--teal);
+}
+
+.company-name-short,
+.project-name-short {
+  display: none;
+}
+
 .company,
 .project h3,
 .project-title {
@@ -716,6 +740,21 @@ h3 {
 }
 
 @media screen {
+  .company a {
+    text-decoration: underline dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  .company a:hover {
+    text-decoration-style: solid;
+  }
+
+  .site-toolbar > .site-brand,
+  .site-toolbar nav a:not(.pdf-action) {
+    transform: none;
+  }
+
   .cv {
     /* Grow the outer gutters smoothly instead of taking space away at 641px. */
     width: min(1120px, calc(100% - clamp(0px, 12.5vw - 80px, 48px)));
@@ -1098,7 +1137,26 @@ h3 {
 
 }
 
+@media screen and (min-width: 641px) {
+  .site-toolbar > .site-brand,
+  .site-toolbar nav a:not(.pdf-action) {
+    transform: translateY(2px);
+  }
+
+  .site-toolbar nav a:not(.pdf-action) {
+    font-weight: 600;
+  }
+}
+
 @media screen and (max-width: 640px) {
+  .project-name-full {
+    display: none;
+  }
+
+  .project-name-short {
+    display: inline;
+  }
+
   body {
     font-size: 15px;
   }
@@ -1106,15 +1164,31 @@ h3 {
   .site-toolbar {
     width: 100%;
     padding: 12px 20px;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .site-brand {
+    flex-basis: auto;
+  }
+
+  .site-toolbar > .site-brand,
+  .site-toolbar nav a:not(.pdf-action) {
+    transform: none;
   }
 
   .site-toolbar nav {
     justify-content: flex-start;
-    font-size: 12px;
-    gap: 8px 12px;
+    flex-wrap: nowrap;
+    font-size: 13px;
+    line-height: 20px;
+    gap: 12px;
   }
 
   .site-toolbar nav a {
+    font-weight: 600;
+    flex-shrink: 0;
+    white-space: nowrap;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1127,8 +1201,8 @@ h3 {
 
   .site-toolbar .pdf-action {
     min-height: 30px;
-    font-size: 12px;
-    padding: 2px 6px;
+    font-size: 13px;
+    padding: 2px 8px;
   }
 
   .cv {
@@ -1175,6 +1249,7 @@ h3 {
     grid-column: 1;
     grid-row: 3;
     font-size: 30px;
+    margin-top: 4px;
   }
 
   .identity .eyebrow,
@@ -1193,6 +1268,7 @@ h3 {
     grid-row: 4;
     /* Tighten only the name-to-experience gap; preserve photo spacing. */
     margin-top: -4px;
+    margin-bottom: 4px;
     font-size: 14px;
     line-height: 20px;
   }
@@ -1237,6 +1313,19 @@ h3 {
 
   .job-title-line {
     gap: 4px 10px;
+  }
+
+  .company-name-full {
+    display: none;
+  }
+
+  .company-name-short {
+    display: inline;
+    white-space: nowrap;
+  }
+
+  .job-title-line:has(.company-name-short) {
+    grid-template-columns: max-content minmax(0, 1fr);
   }
 
   .page-two {
@@ -1357,6 +1446,19 @@ h3 {
 }
 
 @media screen and (max-width: 360px) {
+  .site-toolbar {
+    padding-inline: 16px;
+    gap: 12px;
+  }
+
+  .site-toolbar nav {
+    gap: 8px;
+  }
+
+  .site-toolbar .pdf-action {
+    padding-inline: 6px;
+  }
+
   .identity h1 {
     font-size: 27px;
   }
@@ -1375,6 +1477,10 @@ h3 {
 /* Follow the device live, without scripts or stored preferences. Screen-only
    colors keep native printing and the downloadable CV on the light palette. */
 @media screen and (prefers-color-scheme: dark) {
+  .site-toolbar a {
+    color: #fff;
+  }
+
   :root {
     color-scheme: dark;
     --paper: #131c27;
@@ -1722,7 +1828,7 @@ h3 {
   }
 
   .company,
-  .job-role {
+.job-role {
     margin: 0;
     font-size: 13.5px;
     font-weight: 600;
@@ -1775,7 +1881,7 @@ h3 {
   .page-one > .page-number,
   .page-two > .page-number {
     position: absolute;
-    right: 40px;
+    right: 44px;
     bottom: 14px;
     margin: 0;
     color: var(--blue);
@@ -1792,7 +1898,7 @@ h3 {
   }
 
   .page-intro {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     padding-right: 156px;
     overflow: hidden;
   }
@@ -1809,7 +1915,7 @@ h3 {
   }
 
   .projects-featured {
-    margin: 0 0 12px;
+    margin: 0 0 10px;
   }
 
   .project,
@@ -1902,18 +2008,15 @@ h3 {
   }
 
   .projects-secondary {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   .project + .project {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   .projects-secondary .achievements li + li {
-    margin-top: 4px;
+    margin-top: 3px;
   }
 
-  .projects-secondary .project:last-child .project-meta {
-    display: none;
-  }
 }
