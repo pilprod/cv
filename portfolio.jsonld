@@ -1,0 +1,691 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://papou.work/#website",
+      "url": "https://papou.work/",
+      "name": "Ilya Papou — CV",
+      "publisher": {
+        "@id": "https://papou.work/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://papou.work/#person",
+      "name": "Ilya Papou",
+      "alternateName": [
+        "Ilya Popov",
+        "PILPROD",
+        "pilprod"
+      ],
+      "url": "https://papou.work/",
+      "sameAs": [
+        "https://www.linkedin.com/in/pilprod/",
+        "https://github.com/pilprod"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://papou.work/portfolio.html",
+      "url": "https://papou.work/portfolio.html",
+      "name": "Ilya Papou — project sources and lab photographs",
+      "inLanguage": "en",
+      "dateModified": "2026-09-06T17:28:00-03:00",
+      "about": {
+        "@id": "https://papou.work/#person"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "https://papou.work/portfolio.html#agent"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "https://papou.work/portfolio.html#home"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "https://papou.work/portfolio.html#mesh"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.linkedin.com/in/pilprod/details/projects/",
+      "url": "https://www.linkedin.com/in/pilprod/details/projects/",
+      "name": "Ilya Papou — LinkedIn Projects",
+      "about": [
+        {
+          "@id": "https://papou.work/#person"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#agent"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#home"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#mesh"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.linkedin.com/in/pilprod/details/experience/",
+      "url": "https://www.linkedin.com/in/pilprod/details/experience/",
+      "name": "Ilya Papou — LinkedIn Experience",
+      "about": [
+        {
+          "@id": "https://papou.work/#person"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#agent"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#home"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#mesh"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://papou.work/portfolio.html#agent",
+      "url": "https://papou.work/portfolio.html#agent",
+      "name": "Agent Orchestration Infrastructure",
+      "description": "Personal R&D for developers and AI coding agents working on software and infrastructure tasks, with context-preserving handoffs, tool integration and human review. Platform components were deployed on Google Cloud. Orchestration and approval flows include designed and prepared work; Agent Host contracts were validated with simulated providers, not a claimed production-wide end-to-end deployment.",
+      "creator": {
+        "@id": "https://papou.work/#person"
+      },
+      "creativeWorkStatus": "Personal R&D · PoCs",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Buenos Aires, Argentina"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/yourown-chat"
+        },
+        {
+          "@id": "https://github.com/pilprod/substrate"
+        },
+        {
+          "@id": "https://github.com/pilprod/kagent"
+        },
+        {
+          "@id": "https://github.com/pilprod/yourown-chat-kagent"
+        },
+        {
+          "@id": "https://github.com/pilprod/mattermost"
+        },
+        {
+          "@id": "https://github.com/pilprod/yourown-chat-mattermost"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
+        },
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/experience/"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://papou.work/#projects",
+          "name": "Agent Orchestration Infrastructure in the CV"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/yourown-chat",
+      "url": "https://github.com/pilprod/yourown-chat",
+      "codeRepository": "https://github.com/pilprod/yourown-chat",
+      "name": "pilprod/yourown-chat",
+      "description": "Google Cloud infrastructure and delivery configuration for the chat and agent platform. Terraform, Helm and release-pipeline work.",
+      "programmingLanguage": "Shell",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#agent"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/substrate",
+      "url": "https://github.com/pilprod/substrate",
+      "codeRepository": "https://github.com/pilprod/substrate",
+      "name": "pilprod/substrate",
+      "description": "Substrate fork used for external-worker and Agent Host runtime integration. Fork of kagent-dev/substrate; upstream code and project-specific integration are distinct.",
+      "programmingLanguage": "Go",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#agent"
+      },
+      "isBasedOn": "https://github.com/kagent-dev/substrate"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/kagent",
+      "url": "https://github.com/pilprod/kagent",
+      "codeRepository": "https://github.com/pilprod/kagent",
+      "name": "pilprod/kagent",
+      "description": "Kubernetes-native agent orchestration fork used for integration experiments. Fork of kagent-dev/kagent; not a claim of authorship of the upstream project.",
+      "programmingLanguage": "Go",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#agent"
+      },
+      "isBasedOn": "https://github.com/kagent-dev/kagent"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/yourown-chat-kagent",
+      "url": "https://github.com/pilprod/yourown-chat-kagent",
+      "codeRepository": "https://github.com/pilprod/yourown-chat-kagent",
+      "name": "pilprod/yourown-chat-kagent",
+      "description": "Integration contracts, pinned source and release locks, and testbed configuration. Integration and conformance layer, separate from the kagent fork.",
+      "programmingLanguage": "Go",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#agent"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/mattermost",
+      "url": "https://github.com/pilprod/mattermost",
+      "codeRepository": "https://github.com/pilprod/mattermost",
+      "name": "pilprod/mattermost",
+      "description": "Self-hosted team-chat fork with server-side patches and container-build workflows. Fork of mattermost/mattermost; upstream ownership and licensing remain distinct.",
+      "programmingLanguage": "TypeScript",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#agent"
+      },
+      "isBasedOn": "https://github.com/mattermost/mattermost"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/yourown-chat-mattermost",
+      "url": "https://github.com/pilprod/yourown-chat-mattermost",
+      "codeRepository": "https://github.com/pilprod/yourown-chat-mattermost",
+      "name": "pilprod/yourown-chat-mattermost",
+      "description": "Build configuration combining Mattermost server and web submodules into a runtime image. Includes a private web dependency; the public snapshot alone is not a complete public build.",
+      "programmingLanguage": "Dockerfile",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#agent"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://papou.work/portfolio.html#home",
+      "url": "https://papou.work/portfolio.html#home",
+      "name": "Home Aeroponics & IoT automation",
+      "description": "An integrated aeroponics lab combining sensor electronics, C++ firmware, Python automation, MQTT and Home Assistant monitoring. The photographs document the wider historical lab. The public repositories are selected archival snapshots, not the complete installation or proof of a currently buildable or safety-tested system.",
+      "creator": {
+        "@id": "https://papou.work/#person"
+      },
+      "creativeWorkStatus": "Personal R&D",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Moscow City, Russia"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/aeroponics-iot-control"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
+        },
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/experience/"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://papou.work/#home-aeroponics",
+          "name": "Home Aeroponics & IoT automation in the CV"
+        }
+      ],
+      "image": [
+        {
+          "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-wiring-diagram"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-breadboard-prototype"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-home-assistant-dashboard"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-lighting-ventilation"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-water-system"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-enclosure-camera"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-power-shield"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-root-zone"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-root-chamber"
+        },
+        {
+          "@id": "https://papou.work/portfolio.html#photo-root-inspection"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-iot-control",
+      "url": "https://github.com/pilprod/aeroponics-iot-control",
+      "codeRepository": "https://github.com/pilprod/aeroponics-iot-control",
+      "name": "pilprod/aeroponics-iot-control",
+      "description": "Python/MQTT climate-device controllers and sanitized Mosquitto and Zigbee2MQTT examples. Historical snapshot; not the complete Home Assistant configuration. No integration or physical-safety validation claimed.",
+      "programmingLanguage": "Python",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "pilprod/aeroponics-sensor-firmware",
+      "description": "Five archived Arduino prototypes for light sensing, water-sensor telemetry and relay-command experiments. Experimental 2024 source variants, not final solutions or build-verified releases. Dependencies, incomplete integrations and hardware-safety limitations are documented per sketch.",
+      "programmingLanguage": "C++",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "Light sensors with JSON/MQTT",
+      "description": "Arduino Uno R4 WiFi prototype; missing modified sensor library, undefined software-I2C instances and unregistered message callback.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Archival prototype — not a final solution",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "Light sensors with Serial output",
+      "description": "Four TCS34725 sensors through separate software-I2C buses; modified Adafruit dependency is absent. No MQTT.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Archival prototype — not a final solution",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "pH and relay commands",
+      "description": "Serial-controlled relay experiment with pH readings. No MQTT; calibration and relay states are not hardware-validated.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Archival prototype — not a final solution",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "EC/TDS and Serial1 relay commands",
+      "description": "Water-sensor and relay experiment. MQTT connects but does not publish telemetry in this variant.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Archival prototype — not a final solution",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "pH and moisture telemetry",
+      "description": "pH and two analog moisture inputs with averaging and JSON/MQTT. Calibration, conversion and periodic reset remain unverified.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Archival prototype — not a final solution",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://papou.work/portfolio.html#mesh",
+      "url": "https://papou.work/portfolio.html#mesh",
+      "name": "Zero-Trust Mesh & Open-source NGFW",
+      "description": "A multi-region Tailscale lab with automated node configuration, GitOps-managed access policies and OPNsense network experiments. Public sources are sanitized lab examples. They do not include live inventories, credentials or a claim that the examples are deployed as published.",
+      "creator": {
+        "@id": "https://papou.work/#person"
+      },
+      "creativeWorkStatus": "Personal R&D",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Bangkok City, Thailand"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/lab-network-automation"
+        },
+        {
+          "@id": "https://github.com/pilprod/zero-trust-mesh-policy"
+        },
+        {
+          "@id": "https://github.com/pilprod/gcp-ngfw-network-lab"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
+        },
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/experience/"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://papou.work/#zero-trust-mesh",
+          "name": "Zero-Trust Mesh & Open-source NGFW in the CV"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/lab-network-automation",
+      "url": "https://github.com/pilprod/lab-network-automation",
+      "codeRepository": "https://github.com/pilprod/lab-network-automation",
+      "name": "pilprod/lab-network-automation",
+      "description": "Ansible installation, enrollment and network configuration for Tailscale lab nodes. Sanitized automation without private inventories or credentials.",
+      "programmingLanguage": "YAML",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#mesh"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/zero-trust-mesh-policy",
+      "url": "https://github.com/pilprod/zero-trust-mesh-policy",
+      "codeRepository": "https://github.com/pilprod/zero-trust-mesh-policy",
+      "name": "pilprod/zero-trust-mesh-policy",
+      "description": "Tagged service-access policy for agents, storage, observability and workflow services. Policy example, not a published live network configuration.",
+      "programmingLanguage": "JSON",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#mesh"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/gcp-ngfw-network-lab",
+      "url": "https://github.com/pilprod/gcp-ngfw-network-lab",
+      "codeRepository": "https://github.com/pilprod/gcp-ngfw-network-lab",
+      "name": "pilprod/gcp-ngfw-network-lab",
+      "description": "Terraform LAN/WAN, routing and NAT foundation for an OPNsense lab. Network foundation only; no appliance image, cloud deployment or apply is implied.",
+      "programmingLanguage": "HCL",
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#mesh"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-electronics-workbench",
+      "name": "Electronics workbench",
+      "contentUrl": "https://papou.work/portfolio-images/electronics-workbench.jpg",
+      "url": "https://papou.work/portfolio.html#photo-electronics-workbench",
+      "encodingFormat": "image/jpeg",
+      "width": 1200,
+      "height": 900,
+      "caption": "Development boards, sensors, wiring and soldering tools during prototyping. Background or identifying areas retouched with AI assistance.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-wiring-diagram",
+      "name": "Wiring and I/O diagram",
+      "contentUrl": "https://papou.work/portfolio-images/wiring-diagram.jpg",
+      "url": "https://papou.work/portfolio.html#photo-wiring-diagram",
+      "encodingFormat": "image/jpeg",
+      "width": 1024,
+      "height": 768,
+      "caption": "Original component-connection drawing from system design.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/wiring-diagram.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-breadboard-prototype",
+      "name": "Breadboard prototype",
+      "contentUrl": "https://papou.work/portfolio-images/breadboard-prototype.jpg",
+      "url": "https://papou.work/portfolio.html#photo-breadboard-prototype",
+      "encodingFormat": "image/jpeg",
+      "width": 480,
+      "height": 360,
+      "caption": "Controller connections and jumper wiring on the breadboard.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/breadboard-prototype.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-home-assistant-dashboard",
+      "name": "Home Assistant dashboard",
+      "contentUrl": "https://papou.work/portfolio-images/home-assistant-dashboard.jpg",
+      "url": "https://papou.work/portfolio.html#photo-home-assistant-dashboard",
+      "encodingFormat": "image/jpeg",
+      "width": 1024,
+      "height": 768,
+      "caption": "Climate and water measurements, lighting controls and device states.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-lighting-ventilation",
+      "name": "Lighting and ventilation",
+      "contentUrl": "https://papou.work/portfolio-images/lighting-ventilation.jpg",
+      "url": "https://papou.work/portfolio.html#photo-lighting-ventilation",
+      "encodingFormat": "image/jpeg",
+      "width": 1086,
+      "height": 1448,
+      "caption": "Suspended fixtures, ventilation equipment and wiring inside the enclosure. Background or identifying areas retouched with AI assistance.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/lighting-ventilation.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-water-system",
+      "name": "Water system",
+      "contentUrl": "https://papou.work/portfolio-images/water-system.jpg",
+      "url": "https://papou.work/portfolio.html#photo-water-system",
+      "encodingFormat": "image/jpeg",
+      "width": 1085,
+      "height": 1450,
+      "caption": "Reservoirs, dosing pumps, valves, tubing and circulation plumbing. Background or identifying areas retouched with AI assistance.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-enclosure-camera",
+      "name": "Enclosure camera",
+      "contentUrl": "https://papou.work/portfolio-images/enclosure-camera.jpg",
+      "url": "https://papou.work/portfolio.html#photo-enclosure-camera",
+      "encodingFormat": "image/jpeg",
+      "width": 1086,
+      "height": 1448,
+      "caption": "Camera placement within the experimental installation. Background or identifying areas retouched with AI assistance.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-power-shield",
+      "name": "Power shield",
+      "contentUrl": "https://papou.work/portfolio-images/power-shield.jpg",
+      "url": "https://papou.work/portfolio.html#photo-power-shield",
+      "encodingFormat": "image/jpeg",
+      "width": 1086,
+      "height": 1448,
+      "caption": "A commercial power shield integrated into the electronics assembly. Background or identifying areas retouched with AI assistance.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-root-zone",
+      "name": "Root-zone overview",
+      "contentUrl": "https://papou.work/portfolio-images/root-zone.jpg",
+      "url": "https://papou.work/portfolio.html#photo-root-zone",
+      "encodingFormat": "image/jpeg",
+      "width": 360,
+      "height": 480,
+      "caption": "Roots observed above the chamber during the experiments.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-zone.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-root-chamber",
+      "name": "Root chamber",
+      "contentUrl": "https://papou.work/portfolio-images/root-chamber.jpg",
+      "url": "https://papou.work/portfolio.html#photo-root-chamber",
+      "encodingFormat": "image/jpeg",
+      "width": 360,
+      "height": 480,
+      "caption": "Suspended roots and internal tubing in the chamber.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/portfolio.html#photo-root-inspection",
+      "name": "Root inspection",
+      "contentUrl": "https://papou.work/portfolio-images/root-inspection.jpg",
+      "url": "https://papou.work/portfolio.html#photo-root-inspection",
+      "encodingFormat": "image/jpeg",
+      "width": 1536,
+      "height": 668,
+      "caption": "A lower-region crop of the original inspection photograph, excluding the foliage and basket contents.",
+      "about": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-inspection.jpg"
+    }
+  ]
+}

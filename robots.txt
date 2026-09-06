@@ -1,6 +1,8 @@
 # Ilya Papou (Ilya Popov) CV.
 # Alternative names: PILPROD / pilprod. Identity aliases are defined in the page's structured data and llms.txt.
 # Search crawlers can read the HTML, Markdown and assets.
+# Project sources and photographs: https://papou.work/portfolio.html
+# Machine-readable companions: /portfolio.md and /portfolio.jsonld
 User-agent: *
 Allow: /
 

@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Ilya Papou / Ilya Popov / PILPROD / pilprod: one person and one canonical CV URL. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://papou.work/</loc>
-    <lastmod>2026-09-06T00:54:25-03:00</lastmod>
+<!-- Ilya Papou / Ilya Popov / PILPROD / pilprod: one person with a CV and supporting project materials. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://papou.work/</loc><lastmod>2026-09-06T17:28:00-03:00</lastmod><image:image><image:loc>https://papou.work/assets/portrait.jpg</image:loc></image:image></url>
+  <url><loc>https://papou.work/portfolio.html</loc><lastmod>2026-09-06T17:28:00-03:00</lastmod>
+    <image:image><image:loc>https://papou.work/portfolio-images/electronics-workbench.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/wiring-diagram.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/breadboard-prototype.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/home-assistant-dashboard.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/lighting-ventilation.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/water-system.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/enclosure-camera.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/power-shield.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/root-zone.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/root-chamber.jpg</image:loc></image:image>
+    <image:image><image:loc>https://papou.work/portfolio-images/root-inspection.jpg</image:loc></image:image>
   </url>
 </urlset>

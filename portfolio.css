@@ -1,0 +1,53 @@
+.portfolio-page { font-size: 16px; }
+.portfolio-toolbar, .portfolio-main, .portfolio-footer { max-width: 1120px; margin: auto; }
+.portfolio-toolbar { display: flex; justify-content: space-between; gap: 24px; padding: 24px 32px; }
+.portfolio-toolbar nav { display: flex; gap: 24px; }
+.portfolio-main { background: var(--paper); padding: 48px 56px; }
+.portfolio-intro { margin-bottom: 64px; }
+.portfolio-intro h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 24px; }
+.portfolio-intro > p:last-of-type { max-width: 640px; font-size: 20px; }
+.project-index { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 32px; border-top: 1px solid var(--muted); padding-top: 24px; }
+.evidence-project { margin-top: 64px; padding-top: 32px; border-top: 3px solid var(--teal); scroll-margin-top: 24px; }
+.evidence-project h2 { font-size: clamp(25px, 3vw, 34px); line-height: 1.18; margin: 10px 0 12px; }
+.project-period, .scope-note { color: var(--muted); }
+.project-intro { font-size: 19px; margin-top: 24px; }
+.evidence-project > p { margin-bottom: 14px; max-width: 850px; }
+.profile-mapping { border-left: 3px solid var(--blue); padding-left: 18px; margin: 24px 0; }
+.profile-mapping p + p { margin-top: 6px; }
+.repository-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.repository-list > li { min-width: 0; padding: 20px; border: 1px solid #a8bac3; }
+.variants { font-size: 14px; margin-top: 20px; }
+.variants h4 { margin-bottom: 10px; color: var(--ink); }
+.variants ul { padding-left: 18px; }
+.variants li + li { margin-top: 14px; }
+.variants li p { margin-top: 4px; }
+.repository-list h3 { font-size: 19px; margin-bottom: 6px; }
+.repo-name { overflow-wrap: anywhere; font-family: "IBM Plex Mono", monospace; font-size: 14px; margin-bottom: 14px; }
+.repository-list .scope-note { margin-top: 10px; font-size: 14px; }
+.gallery-title { font-size: 25px; margin: 40px 0 16px; }
+.photo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; margin-top: 28px; align-items: start; }
+.photo-gallery figure { margin: 0; min-width: 0; }
+.photo-gallery img { width: 100%; height: auto; background: var(--sidebar); }
+.photo-gallery figcaption { margin-top: 12px; font-size: 15px; }
+.photo-gallery figcaption p { margin-top: 4px; }
+.photo-gallery small { display: block; font-size: 14px; margin-top: 8px; color: var(--muted); }
+.source-link { display: inline-block; margin-top: 8px; font-size: 14px; }
+#photo-electronics-workbench, #photo-wiring-diagram, #photo-breadboard-prototype, #photo-home-assistant-dashboard, #photo-root-inspection { grid-column: 1 / -1; }
+#photo-breadboard-prototype { max-width: 600px; }
+.portfolio-footer { padding: 28px 32px 44px; font-size: 14px; }
+.portfolio-footer p + p { margin-top: 14px; max-width: 850px; }
+@media (max-width: 700px) {
+  .portfolio-toolbar { padding: 20px; gap: 14px; flex-wrap: wrap; }
+  .portfolio-toolbar nav { gap: 18px; }
+  .portfolio-main { padding: 28px 20px; }
+  .portfolio-intro { margin-bottom: 36px; }
+  .evidence-project { margin-top: 36px; }
+  .repository-list, .photo-gallery { grid-template-columns: 1fr; }
+  .portfolio-footer { padding: 24px 20px; }
+}
+@media print {
+  .portfolio-page { background: white; }
+  .portfolio-main { max-width: none; padding: 0; }
+  .portfolio-toolbar, .project-index { display: none; }
+  .photo-gallery figure, .repository-list li { break-inside: avoid; }
+}

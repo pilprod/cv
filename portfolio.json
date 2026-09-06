@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "modified": "2026-09-06T17:28:00-03:00",
+  "canonical": "https://papou.work/portfolio.html",
+  "person": "https://papou.work/#person",
+  "linkedin": {
+    "profile": "https://www.linkedin.com/in/pilprod/",
+    "projects": "https://www.linkedin.com/in/pilprod/details/projects/",
+    "experience": "https://www.linkedin.com/in/pilprod/details/experience/"
+  },
+  "projects": [
+    {
+      "id": "agent",
+      "name": "Agent Orchestration Infrastructure",
+      "cvAnchor": "projects",
+      "period": "Jun 2026 – Present",
+      "location": "Buenos Aires, Argentina",
+      "status": "Personal R&D · PoCs",
+      "description": "Personal R&D for developers and AI coding agents working on software and infrastructure tasks, with context-preserving handoffs, tool integration and human review.",
+      "scope": "Platform components were deployed on Google Cloud. Orchestration and approval flows include designed and prepared work; Agent Host contracts were validated with simulated providers, not a claimed production-wide end-to-end deployment.",
+      "experience": "Agent Infrastructure Engineer · Personal R&D · PoCs",
+      "experienceCompany": "YourOwn.Chat",
+      "linkedinProject": "Agent Orchestration Infrastructure · Personal R&D · PoCs",
+      "repositories": [
+        {
+          "slug": "yourown-chat",
+          "label": "Platform infrastructure",
+          "description": "Google Cloud infrastructure and delivery configuration for the chat and agent platform.",
+          "scope": "Terraform, Helm and release-pipeline work.",
+          "language": "Shell"
+        },
+        {
+          "slug": "substrate",
+          "label": "Agent runtime",
+          "description": "Substrate fork used for external-worker and Agent Host runtime integration.",
+          "scope": "Fork of kagent-dev/substrate; upstream code and project-specific integration are distinct.",
+          "language": "Go",
+          "upstream": "https://github.com/kagent-dev/substrate"
+        },
+        {
+          "slug": "kagent",
+          "label": "kagent fork",
+          "description": "Kubernetes-native agent orchestration fork used for integration experiments.",
+          "scope": "Fork of kagent-dev/kagent; not a claim of authorship of the upstream project.",
+          "language": "Go",
+          "upstream": "https://github.com/kagent-dev/kagent"
+        },
+        {
+          "slug": "yourown-chat-kagent",
+          "label": "kagent integration",
+          "description": "Integration contracts, pinned source and release locks, and testbed configuration.",
+          "scope": "Integration and conformance layer, separate from the kagent fork.",
+          "language": "Go"
+        },
+        {
+          "slug": "mattermost",
+          "label": "Mattermost fork",
+          "description": "Self-hosted team-chat fork with server-side patches and container-build workflows.",
+          "scope": "Fork of mattermost/mattermost; upstream ownership and licensing remain distinct.",
+          "language": "TypeScript",
+          "upstream": "https://github.com/mattermost/mattermost"
+        },
+        {
+          "slug": "yourown-chat-mattermost",
+          "label": "Runtime image build",
+          "description": "Build configuration combining Mattermost server and web submodules into a runtime image.",
+          "scope": "Includes a private web dependency; the public snapshot alone is not a complete public build.",
+          "language": "Dockerfile"
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "name": "Home Aeroponics & IoT automation",
+      "cvAnchor": "home-aeroponics",
+      "period": "Aug 2024 – Jan 2025",
+      "location": "Moscow City, Russia",
+      "status": "Personal R&D",
+      "description": "An integrated aeroponics lab combining sensor electronics, C++ firmware, Python automation, MQTT and Home Assistant monitoring.",
+      "scope": "The photographs document the wider historical lab. The public repositories are selected archival snapshots, not the complete installation or proof of a currently buildable or safety-tested system.",
+      "experience": "IoT & Automation Engineer · Personal R&D",
+      "experienceCompany": "Home Aeroponics & IoT automation",
+      "linkedinProject": "Home Aeroponics & IoT automation · Personal R&D",
+      "repositories": [
+        {
+          "slug": "aeroponics-iot-control",
+          "label": "Controllers and integration",
+          "description": "Python/MQTT climate-device controllers and sanitized Mosquitto and Zigbee2MQTT examples.",
+          "scope": "Historical snapshot; not the complete Home Assistant configuration. No integration or physical-safety validation claimed.",
+          "language": "Python"
+        },
+        {
+          "slug": "aeroponics-sensor-firmware",
+          "label": "Sensor firmware",
+          "description": "Five archived Arduino prototypes for light sensing, water-sensor telemetry and relay-command experiments.",
+          "scope": "Experimental 2024 source variants, not final solutions or build-verified releases. Dependencies, incomplete integrations and hardware-safety limitations are documented per sketch.",
+          "language": "C++",
+          "variants": [
+            {
+              "path": "uno/uno.ino",
+              "name": "Light sensors with JSON/MQTT",
+              "scope": "Arduino Uno R4 WiFi prototype; missing modified sensor library, undefined software-I2C instances and unregistered message callback."
+            },
+            {
+              "path": "variants/tcs34725_serial/tcs34725_serial.ino",
+              "name": "Light sensors with Serial output",
+              "scope": "Four TCS34725 sensors through separate software-I2C buses; modified Adafruit dependency is absent. No MQTT."
+            },
+            {
+              "path": "variants/ph_relay_serial/ph_relay_serial.ino",
+              "name": "pH and relay commands",
+              "scope": "Serial-controlled relay experiment with pH readings. No MQTT; calibration and relay states are not hardware-validated."
+            },
+            {
+              "path": "variants/ec_tds_relay_serial/ec_tds_relay_serial.ino",
+              "name": "EC/TDS and Serial1 relay commands",
+              "scope": "Water-sensor and relay experiment. MQTT connects but does not publish telemetry in this variant."
+            },
+            {
+              "path": "variants/ph_moisture_mqtt/ph_moisture_mqtt.ino",
+              "name": "pH and moisture telemetry",
+              "scope": "pH and two analog moisture inputs with averaging and JSON/MQTT. Calibration, conversion and periodic reset remain unverified."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mesh",
+      "name": "Zero-Trust Mesh & Open-source NGFW",
+      "cvAnchor": "zero-trust-mesh",
+      "period": "Jan 2025 – Mar 2025",
+      "location": "Bangkok City, Thailand",
+      "status": "Personal R&D",
+      "description": "A multi-region Tailscale lab with automated node configuration, GitOps-managed access policies and OPNsense network experiments.",
+      "scope": "Public sources are sanitized lab examples. They do not include live inventories, credentials or a claim that the examples are deployed as published.",
+      "experience": "Network & Security Engineer · Personal R&D",
+      "experienceCompany": "Zero-Trust Mesh & Open-source NGFW",
+      "linkedinProject": "Zero-Trust Mesh & Open-source NGFW · Personal R&D",
+      "repositories": [
+        {
+          "slug": "lab-network-automation",
+          "label": "Node automation",
+          "description": "Ansible installation, enrollment and network configuration for Tailscale lab nodes.",
+          "scope": "Sanitized automation without private inventories or credentials.",
+          "language": "YAML"
+        },
+        {
+          "slug": "zero-trust-mesh-policy",
+          "label": "Access policy",
+          "description": "Tagged service-access policy for agents, storage, observability and workflow services.",
+          "scope": "Policy example, not a published live network configuration.",
+          "language": "JSON"
+        },
+        {
+          "slug": "gcp-ngfw-network-lab",
+          "label": "Google Cloud network lab",
+          "description": "Terraform LAN/WAN, routing and NAT foundation for an OPNsense lab.",
+          "scope": "Network foundation only; no appliance image, cloud deployment or apply is implied.",
+          "language": "HCL"
+        }
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "id": "electronics-workbench",
+      "title": "Electronics workbench",
+      "caption": "Development boards, sensors, wiring and soldering tools during prototyping.",
+      "width": 1200,
+      "height": 900,
+      "retouched": true,
+      "file": "portfolio-images/electronics-workbench.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg"
+    },
+    {
+      "id": "wiring-diagram",
+      "title": "Wiring and I/O diagram",
+      "caption": "Original component-connection drawing from system design.",
+      "width": 1024,
+      "height": 768,
+      "retouched": false,
+      "file": "portfolio-images/wiring-diagram.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/wiring-diagram.jpg"
+    },
+    {
+      "id": "breadboard-prototype",
+      "title": "Breadboard prototype",
+      "caption": "Controller connections and jumper wiring on the breadboard.",
+      "width": 480,
+      "height": 360,
+      "retouched": false,
+      "file": "portfolio-images/breadboard-prototype.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/breadboard-prototype.jpg"
+    },
+    {
+      "id": "home-assistant-dashboard",
+      "title": "Home Assistant dashboard",
+      "caption": "Climate and water measurements, lighting controls and device states.",
+      "width": 1024,
+      "height": 768,
+      "retouched": false,
+      "file": "portfolio-images/home-assistant-dashboard.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg"
+    },
+    {
+      "id": "lighting-ventilation",
+      "title": "Lighting and ventilation",
+      "caption": "Suspended fixtures, ventilation equipment and wiring inside the enclosure.",
+      "width": 1086,
+      "height": 1448,
+      "retouched": true,
+      "file": "portfolio-images/lighting-ventilation.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/lighting-ventilation.jpg"
+    },
+    {
+      "id": "water-system",
+      "title": "Water system",
+      "caption": "Reservoirs, dosing pumps, valves, tubing and circulation plumbing.",
+      "width": 1085,
+      "height": 1450,
+      "retouched": true,
+      "file": "portfolio-images/water-system.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg"
+    },
+    {
+      "id": "enclosure-camera",
+      "title": "Enclosure camera",
+      "caption": "Camera placement within the experimental installation.",
+      "width": 1086,
+      "height": 1448,
+      "retouched": true,
+      "file": "portfolio-images/enclosure-camera.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg"
+    },
+    {
+      "id": "power-shield",
+      "title": "Power shield",
+      "caption": "A commercial power shield integrated into the electronics assembly.",
+      "width": 1086,
+      "height": 1448,
+      "retouched": true,
+      "file": "portfolio-images/power-shield.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg"
+    },
+    {
+      "id": "root-zone",
+      "title": "Root-zone overview",
+      "caption": "Roots observed above the chamber during the experiments.",
+      "width": 360,
+      "height": 480,
+      "retouched": false,
+      "file": "portfolio-images/root-zone.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-zone.jpg"
+    },
+    {
+      "id": "root-chamber",
+      "title": "Root chamber",
+      "caption": "Suspended roots and internal tubing in the chamber.",
+      "width": 360,
+      "height": 480,
+      "retouched": false,
+      "file": "portfolio-images/root-chamber.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg"
+    },
+    {
+      "id": "root-inspection",
+      "title": "Root inspection",
+      "caption": "A lower-region crop of the original inspection photograph, excluding the foliage and basket contents.",
+      "width": 1536,
+      "height": 668,
+      "retouched": false,
+      "file": "portfolio-images/root-inspection.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-inspection.jpg"
+    }
+  ]
+}

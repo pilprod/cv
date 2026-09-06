@@ -30,6 +30,7 @@
   <meta name="twitter:image:alt" content="Portrait of Ilya Papou">
   <link rel="canonical" href="https://papou.work/">
   <link rel="describedby" href="/llms.txt" type="text/plain" title="CV overview for agents">
+  <link rel="describedby" href="/portfolio.jsonld" type="application/ld+json" title="Project, repository and photograph relationships">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css?v=20260906-project-links">
@@ -54,7 +55,12 @@
           "name": "Ilya Papou CV — Senior DevOps & SRE",
           "description": "Ilya Papou, also known as Ilya Popov. Senior Platform & SRE Engineer. Kubernetes, DevSecOps, AWS projects and Google Cloud agent-platform R&D.",
           "inLanguage": "en",
-          "dateModified": "2026-09-06T00:54:25-03:00",
+          "dateModified": "2026-09-06T17:28:00-03:00",
+          "mentions": [
+            {"@id": "https://papou.work/portfolio.html#agent"},
+            {"@id": "https://papou.work/portfolio.html#home"},
+            {"@id": "https://papou.work/portfolio.html#mesh"}
+          ],
           "isPartOf": {
             "@id": "https://papou.work/#website"
           },
@@ -467,7 +473,8 @@
       <footer class="page-number" aria-hidden="true">Page 2 / 2</footer>
     </section>
   </main>
-  <footer class="analytics-footer" aria-label="Cookies and analytics">
+  <footer class="analytics-footer" aria-label="Portfolio resources and privacy">
+    <p><a href="portfolio.html">Project sources &amp; lab photographs</a></p>
     <div id="analytics-tools" hidden>
       <span id="analytics-status" role="status">Analytics is off.</span>
       <button id="analytics-settings" type="button" aria-expanded="false" aria-controls="analytics-consent">Cookie &amp; analytics settings</button>

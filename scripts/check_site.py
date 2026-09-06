@@ -443,9 +443,9 @@ def main():
     assert all(alias in sitemap_comments for alias in HANDLE_ALIASES), "Missing handle aliases in sitemap.xml comments"
     sitemap = ET.fromstring(sitemap_text)
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    assert sitemap.findall("s:url/s:loc", ns) and [loc.text for loc in sitemap.findall("s:url/s:loc", ns)] == [CANONICAL], "Sitemap must contain canonical homepage only"
+    assert [loc.text for loc in sitemap.findall("s:url/s:loc", ns)] == [CANONICAL, CANONICAL + "portfolio.html"], "Sitemap must contain the CV and supporting portfolio page"
     lastmods = sitemap.findall("s:url/s:lastmod", ns)
-    assert len(lastmods) == 1 and lastmods[0].text, "Missing sitemap lastmod"
+    assert len(lastmods) == 2 and all(node.text for node in lastmods), "Missing sitemap lastmod"
     modified = dt.datetime.fromisoformat(lastmods[0].text.replace("Z", "+00:00"))
     assert modified.date() <= dt.date.today(), "Future sitemap lastmod"
     profile_modified = dt.datetime.fromisoformat(profile.get("dateModified", "").replace("Z", "+00:00"))

@@ -89,20 +89,28 @@ Implementation references: [basic consent mode](https://developers.google.com/ta
 
 ## Search discoverability
 
+- `portfolio.html` is the supporting, indexable project-evidence page. It maps the three R&D projects to eleven public repositories, five archival firmware prototypes, the matching LinkedIn Projects/Experience labels and eleven lab photographs. The CV has one screen-only link to this page; its reviewed wording and two-page PDF layout are unchanged.
+- `portfolio.json` is the reviewed data source. `node scripts/build_portfolio.cjs` generates the visible page, `portfolio.md`, `portfolio.jsonld` and the image-aware `sitemap.xml`. Do not edit generated files individually. Use `--check` to reject stale generated resources without changing them.
+- `portfolio-images/` contains the same privacy-reviewed JPEGs as the two aeroponics READMEs. Five images disclose AI background/identifying-area retouching. Root inspection is an ordinary crop; diagram and root evidence are not AI-redrawn. Do not replace these files with the unreviewed originals or claim a photography license that has not been granted.
+- The portfolio graph uses separate `CreativeWork`, `SoftwareSourceCode` and `ImageObject` identities, with `hasPart/isPartOf`, `about` and `subjectOf` relationships. Source files are parts of their repository; repositories are parts of a project. `Person.sameAs` remains limited to the personal GitHub and LinkedIn profiles. Verified fork origins use `isBasedOn`, without assigning upstream authorship to Ilya. LinkedIn links are public section URLs, never owner-only edit URLs or invented per-entry permalinks.
+- Firmware variants are archived 2024 experiments, not final solutions or releases. Missing modified libraries, incomplete callbacks/telemetry and unverified calibration/relay behavior remain explicit. Research periods are not repository publication dates. Photos document the wider lab and do not certify that archived code builds or runs safely.
 - The complete CV is delivered as semantic HTML and remains readable without JavaScript.
 - Canonical, Open Graph and social-card metadata use `https://papou.work/`.
 - Ilya Papou is also known as Ilya Popov. Keep this identity link in visible contact details, search/social metadata, the Person's `alternateName` and `llms.txt`. Both names share one canonical page and one Person identity. Names in robots.txt comments do not affect indexing, and the sitemap lists URLs rather than keywords.
 - `PILPROD` and `pilprod` are alternative forms of the same professional handle. Keep both in the Person's `alternateName`, `llms.txt` and explanatory comments in `robots.txt` and `sitemap.xml`, without adding them to visible headings, profile labels or the print layout. Existing profile URLs stay unchanged.
-- JSON-LD describes the `ProfilePage`, its `Person` and the `WebSite`. Keep it consistent with the visible CV. YourOwn.Chat is personal R&D, not employment. Its source describes components deployed on Google Cloud, separately from designed orchestration, prepared release infrastructure and simulated-provider validation. Preserve those distinctions rather than applying a blanket deployment claim to the whole project.
+- The CV JSON-LD describes the `ProfilePage`, its `Person` and the `WebSite`, and mentions the three works on the supporting portfolio page. Keep it consistent with visible content. Agent Orchestration Infrastructure is personal R&D. Its source describes components deployed on Google Cloud, separately from designed orchestration, prepared release infrastructure and simulated-provider validation. Preserve those distinctions rather than applying a blanket deployment claim to the whole project.
 - `robots.txt` allows search crawlers, explicitly including `OAI-SearchBot`, and advertises `sitemap.xml`. The existing open crawling policy is retained. Search access and model-training policies are separate concerns.
 - `llms.txt` contains a navigation index and a complete Markdown copy of the same CV for agents. Keep it synchronized with `index.html`. It is not a ranking signal or an indexing guarantee. The named Figma page is the editorial source, and the HTML and Markdown must preserve its distinctions between built, deployed, designed, prepared and simulated work.
-- Update `sitemap.xml`'s `lastmod` and the profile's `dateModified` when the CV content materially changes. Do not refresh dates just because a build runs.
+- The sitemap contains the CV and the supporting portfolio page, plus its eleven image URLs and the CV portrait. Update the reviewed `portfolio.json` modification timestamp and the profile's `dateModified` when content materially changes. Do not refresh dates just because a build runs. Keep each page's canonical URL distinct; both describe the same person.
 
 Run the dependency-free checks before publishing:
 
 ```sh
 python3 scripts/check_site.py
+node scripts/build_portfolio.cjs --check
+python3 scripts/check_portfolio.py
 python3 scripts/check_site.py --url https://papou.work/
+python3 scripts/check_portfolio.py --url https://papou.work/
 ```
 
 GitHub Actions runs the local checks on pushes and pull requests. Pages publication continues to use the existing `main` branch deployment. Keep local audits and working documents untracked.
