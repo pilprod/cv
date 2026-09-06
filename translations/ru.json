@@ -2,19 +2,19 @@
   "replacements": [
     {
       "en": "Ilya Papou — Senior Platform & SRE Engineer | CV",
-      "ru": "Илья Папоу — Senior Platform & SRE Engineer | Резюме"
+      "ru": "Илья Попов — Senior Platform & SRE Engineer | Резюме"
     },
     {
       "en": "Ilya Papou (Ilya Popov), Senior Platform & SRE Engineer. Kubernetes, AWS, Google Cloud and agent infrastructure. CV, GitHub code and R&D prototypes.",
-      "ru": "Илья Папоу (Илья Попов), Senior Platform & SRE Engineer. Kubernetes, AWS, Google Cloud и инфраструктура агентов. Резюме, код на GitHub и R&D-прототипы."
+      "ru": "Илья Попов (Ilya Papou), Senior Platform & SRE Engineer. Kubernetes, AWS, Google Cloud и инфраструктура агентов. Резюме, код на GitHub и R&D-прототипы."
     },
     {
       "en": "Ilya Papou — CV",
-      "ru": "Илья Папоу — Резюме"
+      "ru": "Илья Попов — Резюме"
     },
     {
       "en": "Ilya Papou, Senior Platform & SRE Engineer — CV and R&D portfolio, with portrait.",
-      "ru": "Илья Папоу, Senior Platform & SRE Engineer — резюме и R&D-портфолио с портретом."
+      "ru": "Илья Попов, Senior Platform & SRE Engineer — резюме и R&D-портфолио с портретом."
     },
     {
       "en": "CV overview for agents",
@@ -62,11 +62,11 @@
     },
     {
       "en": "Ilya Papou",
-      "ru": "Илья Папоу"
+      "ru": "Илья Попов"
     },
     {
       "en": "Portrait of Ilya Papou",
-      "ru": "Портрет Ильи Папоу"
+      "ru": "Портрет Ильи Попова"
     },
     {
       "en": "8 years in IT · 5+ in DevOps & SRE",
@@ -86,7 +86,7 @@
     },
     {
       "en": "Also known as Ilya Popov",
-      "ru": "Также известен как Илья Попов"
+      "ru": "Также известен как Ilya Papou"
     },
     {
       "en": "Buenos Aires, Argentina",
@@ -618,7 +618,7 @@
     },
     {
       "en": "Ilya Papou CV — DevOps & SRE",
-      "ru": "Илья Папоу — Резюме DevOps и SRE"
+      "ru": "Илья Попов — Резюме DevOps и SRE"
     }
   ],
   "portfolio": {
@@ -775,8 +775,8 @@
       }
     },
     "ui": {
-      "title": "Илья Папоу — R&D-проекты, исходный код и фото лаборатории",
-      "description": "Личные проекты Ильи Папоу: оркестрация агентов, аэропоника и IoT, Zero-Trust Mesh. 11 публичных репозиториев, архивные прототипы и 9 фотографий лаборатории.",
+      "title": "Илья Попов — R&D-проекты, исходный код и фото лаборатории",
+      "description": "Личные проекты Ильи Попова: оркестрация агентов, аэропоника и IoT, Zero-Trust Mesh. 11 публичных репозиториев, архивные прототипы и 9 фотографий лаборатории.",
       "cv": "Резюме",
       "projects": "Проекты",
       "photos": "Фотографии",

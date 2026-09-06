@@ -17,7 +17,7 @@
     {
       "@type": "Person",
       "@id": "https://papou.work/#person",
-      "name": "Илья Папоу",
+      "name": "Илья Попов",
       "alternateName": [
         "Ilya Popov",
         "PILPROD",
@@ -34,7 +34,7 @@
       "@type": "CollectionPage",
       "@id": "https://papou.work/ru/portfolio.html",
       "url": "https://papou.work/ru/portfolio.html",
-      "name": "Илья Папоу — R&D-проекты, код и фотографии лаборатории",
+      "name": "Илья Попов — R&D-проекты, код и фотографии лаборатории",
       "inLanguage": "ru",
       "dateModified": "2026-09-06T22:08:08Z",
       "primaryImageOfPage": {

@@ -1,12 +1,12 @@
-# Илья Папоу — резюме
+# Илья Попов — резюме
 
 Английская версия является основной. Русская версия содержит те же факты и ссылки. Ilya Papou / Ilya Popov / PILPROD / pilprod — один человек.
 
-[English](https://papou.work/) · [Русская версия](https://papou.work/ru/) · [PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE%20%E2%80%94%20RU.pdf) · [Портфолио](https://papou.work/ru/portfolio.html) · [Markdown](https://papou.work/ru/portfolio.md) · [Связи проектов](https://papou.work/ru/portfolio.jsonld)
+[English](https://papou.work/) · [Русская версия](https://papou.work/ru/) · [PDF](https://papou.work/assets/Ilya%20Popov%20CV%20%E2%80%94%20DevOps%20%26%20SRE%20%E2%80%94%20RU.pdf) · [Портфолио](https://papou.work/ru/portfolio.html) · [Markdown](https://papou.work/ru/portfolio.md) · [Связи проектов](https://papou.work/ru/portfolio.jsonld)
 
 Senior Platform & SRE Engineer
 
-Илья Папоу
+Илья Попов
 
 8 лет в IT · 5+ в DevOps и SRE
 
@@ -14,7 +14,7 @@ Senior Platform & SRE Engineer
 
 Контакты
 
-Также известен как Илья Попов
+Также известен как Ilya Papou
 
 Буэнос-Айрес, Аргентина
 

@@ -30,14 +30,15 @@ for (const p of source.projects) {
 for (const photo of source.photos) fields(photo, copy.portfolio.photos[photo.id]);
 for (const photo of source.photos) translations.set('Open full photograph: ' + photo.title, 'Открыть полное фото: ' + copy.portfolio.photos[photo.id].title);
 const extras = {
+  'Ilya Papou · Ilya Popov · pilprod':'Илья Попов · Ilya Papou · pilprod',
   'Choose language, current: English':'Выбрать язык, текущий: русский',
   'Platform & delivery':'Платформа и CI/CD', 'Cloud infrastructure':'Облака',
   'ML & data infrastructure':'ML и данные', 'Agent infrastructure & R&D':'Агенты и R&D',
   'Security & reliability':'Безопасность и SRE',
   'Project sources & lab photographs · papou.work/portfolio.html':'Код и фото проектов · papou.work/ru/portfolio.html',
   'Language':'Язык', 'Profile links':'Ссылки профиля',
-  'Ilya Papou — R&D projects, source code & lab photographs':'Илья Папоу — R&D-проекты, код и фотографии лаборатории',
-  'Ilya Papou — CV & Portfolio':'Илья Папоу — Резюме и портфолио',
+  'Ilya Papou — R&D projects, source code & lab photographs':'Илья Попов — R&D-проекты, код и фотографии лаборатории',
+  'Ilya Papou — CV & Portfolio':'Илья Попов — Резюме и портфолио',
   'Agent infrastructure, aeroponics and zero-trust network experiments. Public GitHub code, archival prototypes and 9 lab photographs, with project context.':'Инфраструктура агентов, аэропоника и эксперименты с Zero-Trust-сетью. Публичный код на GitHub, архивные прототипы и 9 фотографий лаборатории с описанием проектов.',
   'Project sources in Markdown':'Код и проекты в Markdown', 'Project relationship graph':'Связи проектов',
   'Skip to project sources':'Перейти к материалам проектов', '← Back to CV':'← К резюме',
@@ -99,7 +100,7 @@ function html(en) {
   return en.replace(/<script\b[^>]*>[\s\S]*?<\/script>|<style\b[^>]*>[\s\S]*?<\/style>|<!--[\s\S]*?-->|<[^>]+>|[^<]+/gi, part => {
     if (/^<script/i.test(part)) {
       if (part.includes('application/ld+json')) return '<script type="application/ld+json">' + JSON.stringify(graphValue(JSON.parse(part.replace(/^<script[^>]*>|<\/script>$/gi, ''))), null, 2).replace(/</g, '\\u003c') + '</script>';
-      return part.replace('Ilya Papou CV — DevOps & SRE', 'Ilya Papou CV — DevOps & SRE — RU')
+      return part.replace('Ilya Papou CV — DevOps & SRE', 'Ilya Popov CV — DevOps & SRE — RU')
         .replace('src="analytics.js', 'src="/analytics.js');
     }
     if (/^<(style|!--)/i.test(part)) return part;
@@ -110,8 +111,10 @@ function html(en) {
       if (!languageLink) result = result.replace(/\b(href|src)="([^"]*)"/g, (_, attr, value) => `${attr}="${url(value)}"`);
       if (/^<html/i.test(result)) result = result.replace('lang="en"', 'lang="ru"');
       if (result.includes('property="og:locale"')) result = result.replace('en_US','ru_RU');
+      if (result.includes('property="profile:first_name"')) result = result.replace('content="Ilya"', 'content="Илья"');
+      if (result.includes('property="profile:last_name"')) result = result.replace('content="Papou"', 'content="Попов"');
       if (result.includes('property="og:url"')) result = result.replace(/content="([^"]+)"/, (_, value) => `content="${url(value)}"`);
-      if (result.includes('id="open-pdf"')) result = result.replace('SRE.pdf', 'SRE%20%E2%80%94%20RU.pdf');
+      if (result.includes('id="open-pdf"')) result = result.replace('Ilya%20Papou', 'Ilya%20Popov').replace('SRE.pdf', 'SRE%20%E2%80%94%20RU.pdf');
       if (languageLink) result = result.includes('lang="en"') ? result.replace(' aria-current="page"','') : result.replace('lang="ru"', 'lang="ru" aria-current="page"');
       return result;
     }
@@ -123,7 +126,7 @@ function html(en) {
 const cv = html(read('index.html'));
 const portfolio = html(read('portfolio.html'));
 const graph = graphValue(JSON.parse(read('portfolio.jsonld')));
-let markdown = '# Илья Папоу — проекты, код и фотографии лаборатории\n\n[English version](https://papou.work/portfolio.html) · [Резюме](https://papou.work/ru/) · [LinkedIn](https://www.linkedin.com/in/pilprod/) · [GitHub](https://github.com/pilprod)\n\n';
+let markdown = '# Илья Попов — проекты, код и фотографии лаборатории\n\n[English version](https://papou.work/portfolio.html) · [Резюме](https://papou.work/ru/) · [LinkedIn](https://www.linkedin.com/in/pilprod/) · [GitHub](https://github.com/pilprod)\n\n';
 for (const p of source.projects) {
   markdown += `## ${translate(p.name)}\n\n${translate(p.period)} · ${translate(p.location)} · ${translate(p.status)}\n\n${translate(p.description)}\n\n${translate(p.scope)}\n\n[Проект в CV](https://papou.work/ru/#${p.cvAnchor}) · [LinkedIn Projects](${source.linkedin.projects}) — ${p.linkedinProject} · [LinkedIn Experience](${source.linkedin.experience}) — ${p.experience}\n\n`;
   for (const r of p.repositories) {
@@ -136,7 +139,7 @@ for (const photo of source.photos) markdown += `- [${translate(photo.title)}](ht
 const readableCV = cv.match(/<main class="cv">([\s\S]*?)<\/main>/)[1]
   .replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g, (_, href, text) => `[${decode(text.replace(/<[^>]*>/g, ''))}](${href.startsWith('/') ? 'https://papou.work'+href : href})`)
   .replace(/<\/(?:p|li|h[1-6]|article|section|div|header|footer|dd|dt)>/g, '\n').replace(/<[^>]*>/g,'');
-const llms = '# Илья Папоу — резюме\n\nАнглийская версия является основной. Русская версия содержит те же факты и ссылки. Ilya Papou / Ilya Popov / PILPROD / pilprod — один человек.\n\n[English](https://papou.work/) · [Русская версия](https://papou.work/ru/) · [PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE%20%E2%80%94%20RU.pdf) · [Портфолио](https://papou.work/ru/portfolio.html) · [Markdown](https://papou.work/ru/portfolio.md) · [Связи проектов](https://papou.work/ru/portfolio.jsonld)\n\n' + decode(readableCV).split('\n').map(norm).filter(Boolean).join('\n\n') + '\n';
+const llms = '# Илья Попов — резюме\n\nАнглийская версия является основной. Русская версия содержит те же факты и ссылки. Ilya Papou / Ilya Popov / PILPROD / pilprod — один человек.\n\n[English](https://papou.work/) · [Русская версия](https://papou.work/ru/) · [PDF](https://papou.work/assets/Ilya%20Popov%20CV%20%E2%80%94%20DevOps%20%26%20SRE%20%E2%80%94%20RU.pdf) · [Портфолио](https://papou.work/ru/portfolio.html) · [Markdown](https://papou.work/ru/portfolio.md) · [Связи проектов](https://papou.work/ru/portfolio.jsonld)\n\n' + decode(readableCV).split('\n').map(norm).filter(Boolean).join('\n\n') + '\n';
 // Fail if an English achievement changed without a reviewed Russian replacement.
 for (const block of read('index.html').matchAll(/<ul class="achievements">([\s\S]*?)<\/ul>/g)) {
   for (const item of block[1].matchAll(/<li>([\s\S]*?)<\/li>/g)) {

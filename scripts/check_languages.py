@@ -66,6 +66,7 @@ for en, ru in zip(en_bullets,ru_bullets):
     assert Counter(re.findall(r'\d+(?:\.\d+)?',en)) == Counter(re.findall(r'\d+(?:\.\d+)?',ru)), 'Numbers changed in translated achievement'
 assert tech(en_html) == tech(ru_html), 'Technical skill names changed'
 assert 'Buenos Aires Province' not in ru_html and '5000' not in ru_html
+assert '<h1>Илья Попов</h1>' in ru_html and 'Илья Папоу' not in ru_html
 assert 'https://papou.work/ru/portfolio.html' in ru_html
 assert re.search(r'lang="en"[^>]*aria-current="page"', en_html)
 assert re.search(r'lang="ru"[^>]*aria-current="page"', ru_html)

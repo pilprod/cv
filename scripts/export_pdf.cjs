@@ -9,7 +9,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const isRussian = process.argv.includes('--ru');
 const sourcePage = isRussian ? 'ru/index.html' : 'index.html';
-const pdfTitle = 'Ilya Papou CV — DevOps & SRE' + (isRussian ? ' — RU' : '');
+const pdfTitle = isRussian ? 'Ilya Popov CV — DevOps & SRE — RU' : 'Ilya Papou CV — DevOps & SRE';
 const pdfPath = `assets/${pdfTitle}.pdf`;
 const manifestPath = isRussian ? 'assets/cv-pdf-ru.json' : 'assets/cv-pdf.json';
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');

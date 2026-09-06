@@ -1,4 +1,4 @@
-# Илья Папоу — проекты, код и фотографии лаборатории
+# Илья Попов — проекты, код и фотографии лаборатории
 
 [English version](https://papou.work/portfolio.html) · [Резюме](https://papou.work/ru/) · [LinkedIn](https://www.linkedin.com/in/pilprod/) · [GitHub](https://github.com/pilprod)
 
