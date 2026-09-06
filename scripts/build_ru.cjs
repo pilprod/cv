@@ -30,6 +30,7 @@ for (const p of source.projects) {
 for (const photo of source.photos) fields(photo, copy.portfolio.photos[photo.id]);
 for (const photo of source.photos) translations.set('Open full photograph: ' + photo.title, 'Открыть полное фото: ' + copy.portfolio.photos[photo.id].title);
 const extras = {
+  'Choose language, current: English':'Выбрать язык, текущий: русский',
   'Platform & delivery':'Платформа и CI/CD', 'Cloud infrastructure':'Облака',
   'ML & data infrastructure':'ML и данные', 'Agent infrastructure & R&D':'Агенты и R&D',
   'Security & reliability':'Безопасность и SRE',
@@ -117,7 +118,7 @@ function html(en) {
     const decoded = decode(part);
     if (!decoded.trim()) return part;
     return (part.match(/^\s*/)[0]) + esc(translate(decoded)) + (part.match(/\s*$/)[0]);
-  });
+  }).replace('<span class="current-language-flag" aria-hidden="true">🇬🇧</span>', '<span class="current-language-flag" aria-hidden="true">🇷🇺</span>');
 }
 const cv = html(read('index.html'));
 const portfolio = html(read('portfolio.html'));

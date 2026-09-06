@@ -1570,15 +1570,31 @@ h3 {
 .language-switch {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   white-space: nowrap;
 }
-.language-switch a { font-size: 13px; }
-.language-switch [aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 600px) {
-  .site-toolbar nav { gap: 4px 10px; flex-wrap: wrap; }
-  .site-toolbar .language-switch { gap: 5px; }
-  .language-switch a { font-size: 12px; }
+.language-switch a { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; min-height: 32px; font-size: 20px; text-decoration: none; border-radius: 5px; }
+.language-switch [aria-current="page"] { box-shadow: inset 0 -2px var(--teal); }
+.site-toolbar .language-switch, .site-toolbar .language-menu { margin-left: auto; }
+.site-toolbar .pdf-action { margin-left: 0; }
+.language-menu { display: none; position: relative; flex: 0 0 auto; }
+.language-menu summary { display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 42px; min-height: 36px; padding: 2px 4px; cursor: pointer; list-style: none; border-radius: 5px; }
+.language-menu summary::-webkit-details-marker { display: none; }
+.language-menu summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.current-language-flag { font-size: 20px; line-height: 1; }
+.language-caret { font-size: 12px; }
+.language-options { position: absolute; z-index: 20; top: calc(100% + 6px); right: 0; min-width: 150px; padding: 5px; border: 1px solid var(--muted); border-radius: 8px; background: var(--paper); box-shadow: 0 8px 24px rgb(0 0 0 / 16%); }
+.site-toolbar .language-options a, .portfolio-toolbar .language-options a { display: flex; justify-content: flex-start; align-items: center; gap: 10px; min-height: 42px; padding: 8px 10px; color: var(--ink); font-size: 14px; text-decoration: none; border-radius: 4px; }
+.language-options [aria-current="page"], .language-options a:hover { background: var(--sidebar); }
+@media screen and (max-width: 640px) {
+  .language-switch { display: none; }
+  .language-menu { display: block; }
+  .site-toolbar > .site-brand { display: none; }
+  .site-toolbar nav { gap: 6px 9px; flex-wrap: wrap; }
+  .site-toolbar .pdf-action { font-size: 12px; }
+}
+@media screen and (max-width: 360px) {
+  .site-toolbar nav { gap: 5px; }
 }
 
 @media print {

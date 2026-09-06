@@ -67,8 +67,13 @@ for en, ru in zip(en_bullets,ru_bullets):
 assert tech(en_html) == tech(ru_html), 'Technical skill names changed'
 assert 'Buenos Aires Province' not in ru_html and '5000' not in ru_html
 assert 'https://papou.work/ru/portfolio.html' in ru_html
-assert 'lang="en" aria-current="page"' in en_html
-assert 'lang="ru" aria-current="page"' in ru_html
+assert re.search(r'lang="en"[^>]*aria-current="page"', en_html)
+assert re.search(r'lang="ru"[^>]*aria-current="page"', ru_html)
+for html, flag in [(en_html,'🇬🇧'), (ru_html,'🇷🇺')]:
+    assert html.index('class="language-switch"') < html.index('class="language-menu"') < html.index('id="open-pdf"')
+    assert f'<span class="current-language-flag" aria-hidden="true">{flag}</span>' in html
+    assert '<details class="language-menu">' in html and 'class="language-options"' in html
+    assert '>EN</a>' not in html and '>RU</a>' not in html
 
 for suffix in ('','-ru'):
     manifest = json.loads(text(f'assets/cv-pdf{suffix}.json'))

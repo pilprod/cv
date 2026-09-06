@@ -2,6 +2,8 @@
 
 A static CV published at [papou.work](https://papou.work). English is primary; [Russian](https://papou.work/ru/) is an optional language version, with its own PDF and portfolio. There is no automatic language redirect.
 
+Language flags sit immediately to the left of Open PDF; PDF remains the rightmost control. On mobile, a single current-language flag opens a native disclosure with named language links; it works without JavaScript. The redundant mobile CV brand is hidden to keep the section links, PDF and language choice compact. Language controls are excluded from print.
+
 Russian content is generated from the English HTML and `portfolio.json`, with reviewed translations in `translations/ru.json`. Dates, links, technologies and prototype caveats share the English source. Run `node scripts/build_portfolio.cjs`, then `node scripts/build_ru.cjs`; stale translations fail validation instead of silently changing facts. Export both PDFs with `node scripts/export_pdf.cjs` and `node scripts/export_pdf.cjs --ru`, then render both for review. Language-specific PDF manifests exclude PDF outputs to avoid circular fingerprints. `python3 scripts/check_languages.py` checks the language pairs and Russian PDF.
 
 Content source: [CV — Revised · Platform & Agent Systems](https://www.figma.com/design/IGMsmWvk5wS9uS77rJqMLd/?node-id=370-2), frames `370:3` and `370:105`. The website uses this editorial baseline and six selected-technology categories, with separate screen and print layouts. Semicolons in prose are replaced with sentence breaks without changing meaning.

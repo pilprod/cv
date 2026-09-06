@@ -37,7 +37,7 @@
   <link rel="describedby" href="/portfolio.jsonld" type="application/ld+json" title="Project, repository and photograph relationships">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20260906-languages">
+  <link rel="stylesheet" href="styles.css?v=20260906-language-menu">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -121,7 +121,11 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#technologies">Skills</a>
-      <span class="language-switch" aria-label="Language"><a href="/" lang="en" aria-current="page">EN</a><a href="/ru/" lang="ru">RU</a></span>
+      <span class="language-switch" role="group" aria-label="Language"><a href="/" lang="en" aria-label="English" title="English" aria-current="page"><span aria-hidden="true">🇬🇧</span></a><a href="/ru/" lang="ru" aria-label="Русский" title="Русский"><span aria-hidden="true">🇷🇺</span></a></span>
+      <details class="language-menu">
+        <summary aria-label="Choose language, current: English"><span class="current-language-flag" aria-hidden="true">🇬🇧</span><span class="language-caret" aria-hidden="true">▾</span></summary>
+        <div class="language-options"><a href="/" lang="en" aria-current="page"><span aria-hidden="true">🇬🇧</span> English</a><a href="/ru/" lang="ru"><span aria-hidden="true">🇷🇺</span> Русский</a></div>
+      </details>
       <a id="open-pdf" class="pdf-action" href="assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-languages">Open PDF</a>
     </nav>
   </div>
