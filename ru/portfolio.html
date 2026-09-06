@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Илья Папоу — R&amp;D-проекты, код и фотографии лаборатории</title>
+<meta name="description" content="Инфраструктура агентов, аэропоника и эксперименты с Zero-Trust-сетью. Публичный код на GitHub, архивные прототипы и 9 фотографий лаборатории с описанием проектов.">
+<meta name="author" content="Илья Папоу"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://papou.work/ru/portfolio.html"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css?v=20260906-project-links"><link rel="stylesheet" href="/portfolio.css?v=20260906-breadboard-1024">
+<link rel="alternate" hreflang="en" href="https://papou.work/portfolio.html"><link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"><link rel="alternate" hreflang="x-default" href="https://papou.work/portfolio.html">
+<link rel="alternate" href="/ru/portfolio.md" type="text/markdown" title="Код и проекты в Markdown"><link rel="alternate" href="/ru/portfolio.jsonld" type="application/ld+json" title="Связи проектов"><link rel="describedby" href="/ru/llms.txt" type="text/plain" title="Обзор резюме для AI-агентов">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Илья Папоу — Резюме и портфолио"><meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Илья Папоу — R&amp;D-проекты, код и фотографии лаборатории"><meta property="og:description" content="Инфраструктура агентов, аэропоника и эксперименты с Zero-Trust-сетью. Публичный код на GitHub, архивные прототипы и 9 фотографий лаборатории с описанием проектов."><meta property="og:url" content="https://papou.work/ru/portfolio.html">
+<meta property="og:image" content="https://papou.work/portfolio-images/electronics-workbench.jpg"><meta property="og:image:secure_url" content="https://papou.work/portfolio-images/electronics-workbench.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="900"><meta property="og:image:alt" content="Отладочные платы, датчики, проводка и паяльные инструменты во время прототипирования. Фон или идентифицирующие детали отретушированы с помощью AI.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Илья Папоу — R&amp;D-проекты, код и фотографии лаборатории"><meta name="twitter:description" content="Инфраструктура агентов, аэропоника и эксперименты с Zero-Trust-сетью. Публичный код на GitHub, архивные прототипы и 9 фотографий лаборатории с описанием проектов."><meta name="twitter:image" content="https://papou.work/portfolio-images/electronics-workbench.jpg"><meta name="twitter:image:alt" content="Отладочные платы, датчики, проводка и паяльные инструменты во время прототипирования. Фон или идентифицирующие детали отретушированы с помощью AI.">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://papou.work/#website",
+      "url": "https://papou.work/",
+      "name": "Ilya Papou — CV",
+      "publisher": {
+        "@id": "https://papou.work/#person"
+      },
+      "inLanguage": [
+        "en",
+        "ru"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://papou.work/#person",
+      "name": "Илья Папоу",
+      "alternateName": [
+        "Ilya Popov",
+        "PILPROD",
+        "pilprod",
+        "Ilya Papou"
+      ],
+      "url": "https://papou.work/",
+      "sameAs": [
+        "https://www.linkedin.com/in/pilprod/",
+        "https://github.com/pilprod"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://papou.work/ru/portfolio.html",
+      "url": "https://papou.work/ru/portfolio.html",
+      "name": "Илья Папоу — R&D-проекты, код и фотографии лаборатории",
+      "inLanguage": "ru",
+      "dateModified": "2026-09-06T22:08:08Z",
+      "primaryImageOfPage": {
+        "@id": "https://papou.work/ru/portfolio.html#photo-electronics-workbench"
+      },
+      "about": {
+        "@id": "https://papou.work/#person"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "https://papou.work/ru/portfolio.html#agent"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "https://papou.work/ru/portfolio.html#home"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "https://papou.work/ru/portfolio.html#mesh"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.linkedin.com/in/pilprod/details/projects/",
+      "url": "https://www.linkedin.com/in/pilprod/details/projects/",
+      "name": "Ilya Papou — LinkedIn Projects",
+      "about": [
+        {
+          "@id": "https://papou.work/#person"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#agent"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#home"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#mesh"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.linkedin.com/in/pilprod/details/experience/",
+      "url": "https://www.linkedin.com/in/pilprod/details/experience/",
+      "name": "Ilya Papou — LinkedIn Experience",
+      "about": [
+        {
+          "@id": "https://papou.work/#person"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#agent"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#home"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#mesh"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://papou.work/ru/portfolio.html#agent",
+      "url": "https://papou.work/ru/portfolio.html#agent",
+      "name": "Agent Orchestration Infrastructure",
+      "description": "Личный R&D-проект для разработчиков и AI-агентов: совместная работа над ПО и инфраструктурой, передача задач с сохранением контекста, подключение инструментов и проверка человеком. Компоненты платформы развёрнуты в Google Cloud. Оркестрация и согласование включают спроектированные и подготовленные решения. Контракты Agent Host проверены с имитацией провайдеров. Полное сквозное развёртывание системы в production не заявляется.",
+      "creator": {
+        "@id": "https://papou.work/#person"
+      },
+      "creativeWorkStatus": "Личный R&D · PoC",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Буэнос-Айрес, Аргентина"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/yourown-chat"
+        },
+        {
+          "@id": "https://github.com/pilprod/substrate"
+        },
+        {
+          "@id": "https://github.com/pilprod/kagent"
+        },
+        {
+          "@id": "https://github.com/pilprod/yourown-chat-kagent"
+        },
+        {
+          "@id": "https://github.com/pilprod/mattermost"
+        },
+        {
+          "@id": "https://github.com/pilprod/yourown-chat-mattermost"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
+        },
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/experience/"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://papou.work/#projects",
+          "name": "Agent Orchestration Infrastructure in the CV"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/yourown-chat",
+      "url": "https://github.com/pilprod/yourown-chat",
+      "codeRepository": "https://github.com/pilprod/yourown-chat",
+      "name": "pilprod/yourown-chat",
+      "description": "Инфраструктура Google Cloud и конфигурация поставки для платформы чата и агентов. Terraform, Helm и пайплайны выпуска.",
+      "programmingLanguage": "Shell",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#agent"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/substrate",
+      "url": "https://github.com/pilprod/substrate",
+      "codeRepository": "https://github.com/pilprod/substrate",
+      "name": "pilprod/substrate",
+      "description": "Форк Substrate для интеграции внешних worker-процессов и Agent Host. Форк kagent-dev/substrate. Исходный код upstream-проекта и собственная интеграция разделены.",
+      "programmingLanguage": "Go",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#agent"
+      },
+      "isBasedOn": "https://github.com/kagent-dev/substrate"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/kagent",
+      "url": "https://github.com/pilprod/kagent",
+      "codeRepository": "https://github.com/pilprod/kagent",
+      "name": "pilprod/kagent",
+      "description": "Форк платформы оркестрации агентов в Kubernetes для интеграционных экспериментов. Форк kagent-dev/kagent. Авторство исходного upstream-проекта не заявляется.",
+      "programmingLanguage": "Go",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#agent"
+      },
+      "isBasedOn": "https://github.com/kagent-dev/kagent"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/yourown-chat-kagent",
+      "url": "https://github.com/pilprod/yourown-chat-kagent",
+      "codeRepository": "https://github.com/pilprod/yourown-chat-kagent",
+      "name": "pilprod/yourown-chat-kagent",
+      "description": "Контракты интеграции, зафиксированные версии исходного кода и релизов, конфигурация тестового стенда. Слой интеграции и проверки совместимости, отдельный от форка kagent.",
+      "programmingLanguage": "Go",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#agent"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/mattermost",
+      "url": "https://github.com/pilprod/mattermost",
+      "codeRepository": "https://github.com/pilprod/mattermost",
+      "name": "pilprod/mattermost",
+      "description": "Форк self-hosted командного чата с серверными исправлениями и процессами сборки контейнеров. Форк mattermost/mattermost. Авторство и лицензирование upstream-проекта сохраняются отдельно.",
+      "programmingLanguage": "TypeScript",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#agent"
+      },
+      "isBasedOn": "https://github.com/mattermost/mattermost"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/yourown-chat-mattermost",
+      "url": "https://github.com/pilprod/yourown-chat-mattermost",
+      "codeRepository": "https://github.com/pilprod/yourown-chat-mattermost",
+      "name": "pilprod/yourown-chat-mattermost",
+      "description": "Конфигурация сборки серверного и веб-подмодулей Mattermost в образ для запуска. Содержит зависимость от закрытого веб-подмодуля. Одного публичного среза недостаточно для полной сборки.",
+      "programmingLanguage": "Dockerfile",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#agent"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://papou.work/ru/portfolio.html#home",
+      "url": "https://papou.work/ru/portfolio.html#home",
+      "name": "Home Aeroponics & IoT automation",
+      "description": "Аэропонная лаборатория: электроника и датчики, прошивки на C++, автоматизация на Python, MQTT и мониторинг через Home Assistant. Фотографии показывают лабораторию в период работы над проектом. Публичные репозитории — отдельные архивные срезы, а не вся установка. Возможность сборки и безопасность системы в её нынешнем виде не подтверждены.",
+      "creator": {
+        "@id": "https://papou.work/#person"
+      },
+      "creativeWorkStatus": "Личный R&D",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Москва, Россия"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/aeroponics-iot-control"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
+        },
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/experience/"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://papou.work/#home-aeroponics",
+          "name": "Home Aeroponics & IoT automation in the CV"
+        }
+      ],
+      "image": [
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-electronics-workbench"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-wiring-diagram"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-breadboard-prototype"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-home-assistant-dashboard"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-lighting-ventilation"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-water-system"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-enclosure-camera"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-power-shield"
+        },
+        {
+          "@id": "https://papou.work/ru/portfolio.html#photo-root-chamber"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-iot-control",
+      "url": "https://github.com/pilprod/aeroponics-iot-control",
+      "codeRepository": "https://github.com/pilprod/aeroponics-iot-control",
+      "name": "pilprod/aeroponics-iot-control",
+      "description": "Контроллеры климатических устройств на Python/MQTT и очищенные примеры Mosquitto и Zigbee2MQTT. Архивный срез, а не полная конфигурация Home Assistant. Проверка всей интеграции и безопасности оборудования не заявляется.",
+      "programmingLanguage": "Python",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "pilprod/aeroponics-sensor-firmware",
+      "description": "Пять архивных Arduino-прототипов: измерение света, телеметрия воды и эксперименты с управлением реле. Экспериментальные варианты исходного кода 2024 года, не готовые решения и не релизы с проверенной сборкой. Для каждого скетча указаны зависимости, незавершённые интеграции и ограничения безопасности оборудования.",
+      "programmingLanguage": "C++",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino"
+        },
+        {
+          "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "Датчики света с JSON/MQTT",
+      "description": "Прототип на Arduino Uno R4 WiFi. Отсутствует модифицированная библиотека датчиков, не определены экземпляры программного I2C и не зарегистрирован обработчик сообщений.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Архивный прототип — не готовое решение",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "Датчики света с выводом в Serial",
+      "description": "Четыре датчика TCS34725 на отдельных программных шинах I2C. Модифицированная зависимость Adafruit отсутствует. MQTT не используется.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Архивный прототип — не готовое решение",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "pH и команды управления реле",
+      "description": "Эксперимент с измерением pH и управлением реле через Serial. Без MQTT. Калибровка и состояния реле на оборудовании не проверены.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Архивный прототип — не готовое решение",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "EC/TDS и управление реле через Serial1",
+      "description": "Эксперимент с датчиками воды и реле. MQTT подключается, но в этом варианте не публикует телеметрию.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Архивный прототип — не готовое решение",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino",
+      "url": "https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino",
+      "codeRepository": "https://github.com/pilprod/aeroponics-sensor-firmware",
+      "name": "Телеметрия pH и влажности",
+      "description": "pH и два аналоговых входа влажности с усреднением и JSON/MQTT. Калибровка, преобразование значений и периодический сброс не проверены.",
+      "programmingLanguage": "C++",
+      "creativeWorkStatus": "Архивный прототип — не готовое решение",
+      "isPartOf": {
+        "@id": "https://github.com/pilprod/aeroponics-sensor-firmware"
+      }
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://papou.work/ru/portfolio.html#mesh",
+      "url": "https://papou.work/ru/portfolio.html#mesh",
+      "name": "Zero-Trust Mesh & Open-source NGFW",
+      "description": "Многорегиональная лабораторная сеть Tailscale с автоматической настройкой узлов, политиками доступа через GitOps и сетевыми экспериментами на OPNsense. Опубликованы очищенные лабораторные примеры. В них нет актуальных списков узлов и учётных данных. Развёртывание примеров именно в опубликованном виде не заявляется.",
+      "creator": {
+        "@id": "https://papou.work/#person"
+      },
+      "creativeWorkStatus": "Личный R&D",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Бангкок, Таиланд"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html"
+      },
+      "hasPart": [
+        {
+          "@id": "https://github.com/pilprod/lab-network-automation"
+        },
+        {
+          "@id": "https://github.com/pilprod/zero-trust-mesh-policy"
+        },
+        {
+          "@id": "https://github.com/pilprod/gcp-ngfw-network-lab"
+        }
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
+        },
+        {
+          "@id": "https://www.linkedin.com/in/pilprod/details/experience/"
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://papou.work/#zero-trust-mesh",
+          "name": "Zero-Trust Mesh & Open-source NGFW in the CV"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/lab-network-automation",
+      "url": "https://github.com/pilprod/lab-network-automation",
+      "codeRepository": "https://github.com/pilprod/lab-network-automation",
+      "name": "pilprod/lab-network-automation",
+      "description": "Установка, регистрация и настройка сети для лабораторных узлов Tailscale через Ansible. Очищенные примеры автоматизации без частных списков узлов и учётных данных.",
+      "programmingLanguage": "YAML",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#mesh"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/zero-trust-mesh-policy",
+      "url": "https://github.com/pilprod/zero-trust-mesh-policy",
+      "codeRepository": "https://github.com/pilprod/zero-trust-mesh-policy",
+      "name": "pilprod/zero-trust-mesh-policy",
+      "description": "Политика доступа по тегам к агентам, хранилищам, сервисам наблюдаемости и рабочим процессам. Пример политики, а не опубликованная конфигурация действующей сети.",
+      "programmingLanguage": "JSON",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#mesh"
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/pilprod/gcp-ngfw-network-lab",
+      "url": "https://github.com/pilprod/gcp-ngfw-network-lab",
+      "codeRepository": "https://github.com/pilprod/gcp-ngfw-network-lab",
+      "name": "pilprod/gcp-ngfw-network-lab",
+      "description": "Основа лаборатории OPNsense на Terraform: LAN/WAN, маршрутизация и NAT. Только сетевая основа. Наличие образа сетевого устройства, развёртывание в облаке и выполнение apply не подразумеваются.",
+      "programmingLanguage": "HCL",
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#mesh"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-electronics-workbench",
+      "name": "Рабочее место для сборки электроники",
+      "contentUrl": "https://papou.work/portfolio-images/electronics-workbench.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-electronics-workbench",
+      "encodingFormat": "image/jpeg",
+      "width": 1200,
+      "height": 900,
+      "caption": "Отладочные платы, датчики, проводка и паяльные инструменты во время прототипирования. Фон или идентифицирующие детали отретушированы с помощью AI.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-wiring-diagram",
+      "name": "Схема соединений и ввода-вывода",
+      "contentUrl": "https://papou.work/portfolio-images/wiring-diagram.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-wiring-diagram",
+      "encodingFormat": "image/jpeg",
+      "width": 1024,
+      "height": 768,
+      "caption": "Исходная схема подключения компонентов, созданная при проектировании системы.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/wiring-diagram.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-breadboard-prototype",
+      "name": "Прототип на макетной плате",
+      "contentUrl": "https://papou.work/portfolio-images/breadboard-prototype-1024.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-breadboard-prototype",
+      "encodingFormat": "image/jpeg",
+      "width": 1024,
+      "height": 768,
+      "caption": "Модули датчиков и соединительные провода на макетной плате при разработке контроллера.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/6e428389b7df697cc4fede585ad199d1fd922211/docs/images/breadboard-prototype-1024.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-home-assistant-dashboard",
+      "name": "Панель Home Assistant",
+      "contentUrl": "https://papou.work/portfolio-images/home-assistant-dashboard.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-home-assistant-dashboard",
+      "encodingFormat": "image/jpeg",
+      "width": 1024,
+      "height": 768,
+      "caption": "Показатели климата и воды, управление освещением и состояния устройств.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-lighting-ventilation",
+      "name": "Освещение и вентиляция",
+      "contentUrl": "https://papou.work/portfolio-images/lighting-ventilation.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-lighting-ventilation",
+      "encodingFormat": "image/jpeg",
+      "width": 1086,
+      "height": 1448,
+      "caption": "Подвесные светильники, вентиляционное оборудование и проводка внутри установки. Фон или идентифицирующие детали отретушированы с помощью AI.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/lighting-ventilation.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-water-system",
+      "name": "Водяной контур",
+      "contentUrl": "https://papou.work/portfolio-images/water-system.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-water-system",
+      "encodingFormat": "image/jpeg",
+      "width": 1085,
+      "height": 1450,
+      "caption": "Резервуары, дозирующие насосы, клапаны, трубки и контур циркуляции. Фон или идентифицирующие детали отретушированы с помощью AI.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-enclosure-camera",
+      "name": "Камера внутри установки",
+      "contentUrl": "https://papou.work/portfolio-images/enclosure-camera.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-enclosure-camera",
+      "encodingFormat": "image/jpeg",
+      "width": 1086,
+      "height": 1448,
+      "caption": "Размещение камеры в экспериментальной установке. Фон или идентифицирующие детали отретушированы с помощью AI.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-power-shield",
+      "name": "Плата расширения питания",
+      "contentUrl": "https://papou.work/portfolio-images/power-shield.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-power-shield",
+      "encodingFormat": "image/jpeg",
+      "width": 1086,
+      "height": 1448,
+      "caption": "Готовая плата расширения питания, подключённая к электронике установки. Фон или идентифицирующие детали отретушированы с помощью AI.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://papou.work/ru/portfolio.html#photo-root-chamber",
+      "name": "Корневая камера",
+      "contentUrl": "https://papou.work/portfolio-images/root-chamber.jpg",
+      "url": "https://papou.work/ru/portfolio.html#photo-root-chamber",
+      "encodingFormat": "image/jpeg",
+      "width": 360,
+      "height": 480,
+      "caption": "Подвешенные корни и трубки внутри камеры.",
+      "about": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isPartOf": {
+        "@id": "https://papou.work/ru/portfolio.html#home"
+      },
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg"
+    }
+  ]
+}</script>
+</head><body class="portfolio-page">
+<a class="skip-link" href="#project-sources">Перейти к материалам проектов</a>
+<div class="portfolio-toolbar"><a href="/ru/">← К резюме</a><nav aria-label="Ссылки профиля"><span class="language-switch" aria-label="Язык"><a href="/portfolio.html" lang="en">EN</a><a href="/ru/portfolio.html" lang="ru" aria-current="page">RU</a></span><a href="https://github.com/pilprod">GitHub</a><a href="https://www.linkedin.com/in/pilprod/">LinkedIn</a></nav></div>
+<main class="portfolio-main" id="project-sources"><header class="portfolio-intro"><p class="eyebrow">Ilya Papou · Ilya Popov · pilprod</p><h1>Код проектов<br>и фотографии лаборатории</h1><p>Код, описание и практическая работа в трёх личных R&amp;D-проектах.</p><nav class="project-index" aria-label="R&amp;D-проекты"><a href="#agent">Agent Orchestration Infrastructure</a><a href="#home">Home Aeroponics &amp; IoT automation</a><a href="#mesh">Zero-Trust Mesh &amp; Open-source NGFW</a></nav></header>
+<section class="evidence-project" id="agent" aria-labelledby="title-agent">
+  <header><p class="eyebrow">Личный R&amp;D · PoC</p><h2 id="title-agent">Agent Orchestration Infrastructure</h2><p class="project-period">Июн 2026 – н. в. · Буэнос-Айрес, Аргентина</p></header>
+  <p class="project-intro">Личный R&amp;D-проект для разработчиков и AI-агентов: совместная работа над ПО и инфраструктурой, передача задач с сохранением контекста, подключение инструментов и проверка человеком.</p><p>Компоненты платформы развёрнуты в Google Cloud. Оркестрация и согласование включают спроектированные и подготовленные решения. Контракты Agent Host проверены с имитацией провайдеров. Полное сквозное развёртывание системы в production не заявляется.</p>
+  <div class="profile-mapping"><p><a href="/ru/#projects">Проект в резюме</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Agent Orchestration Infrastructure · Личный R&amp;D · PoC</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Связанный опыт</a>: Agent Infrastructure Engineer · Личный R&amp;D · PoC — YourOwn.Chat</p></div>
+  <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/yourown-chat">Инфраструктура платформы</a></h3><p class="repo-name">pilprod/yourown-chat</p><p>Инфраструктура Google Cloud и конфигурация поставки для платформы чата и агентов.</p><p class="scope-note">Terraform, Helm и пайплайны выпуска.</p></li>
+<li><h3><a href="https://github.com/pilprod/substrate">Среда выполнения агентов</a></h3><p class="repo-name">pilprod/substrate</p><p>Форк Substrate для интеграции внешних worker-процессов и Agent Host.</p><p class="scope-note">Форк kagent-dev/substrate. Исходный код upstream-проекта и собственная интеграция разделены.</p><p class="scope-note">Upstream: <a href="https://github.com/kagent-dev/substrate">kagent-dev/substrate</a></p></li>
+<li><h3><a href="https://github.com/pilprod/kagent">Форк kagent</a></h3><p class="repo-name">pilprod/kagent</p><p>Форк платформы оркестрации агентов в Kubernetes для интеграционных экспериментов.</p><p class="scope-note">Форк kagent-dev/kagent. Авторство исходного upstream-проекта не заявляется.</p><p class="scope-note">Upstream: <a href="https://github.com/kagent-dev/kagent">kagent-dev/kagent</a></p></li>
+<li><h3><a href="https://github.com/pilprod/yourown-chat-kagent">Интеграция kagent</a></h3><p class="repo-name">pilprod/yourown-chat-kagent</p><p>Контракты интеграции, зафиксированные версии исходного кода и релизов, конфигурация тестового стенда.</p><p class="scope-note">Слой интеграции и проверки совместимости, отдельный от форка kagent.</p></li>
+<li><h3><a href="https://github.com/pilprod/mattermost">Форк Mattermost</a></h3><p class="repo-name">pilprod/mattermost</p><p>Форк self-hosted командного чата с серверными исправлениями и процессами сборки контейнеров.</p><p class="scope-note">Форк mattermost/mattermost. Авторство и лицензирование upstream-проекта сохраняются отдельно.</p><p class="scope-note">Upstream: <a href="https://github.com/mattermost/mattermost">mattermost/mattermost</a></p></li>
+<li><h3><a href="https://github.com/pilprod/yourown-chat-mattermost">Сборка образа</a></h3><p class="repo-name">pilprod/yourown-chat-mattermost</p><p>Конфигурация сборки серверного и веб-подмодулей Mattermost в образ для запуска.</p><p class="scope-note">Содержит зависимость от закрытого веб-подмодуля. Одного публичного среза недостаточно для полной сборки.</p></li></ul>
+
+</section>
+<section class="evidence-project" id="home" aria-labelledby="title-home">
+  <header><p class="eyebrow">Личный R&amp;D</p><h2 id="title-home">Home Aeroponics &amp; IoT automation</h2><p class="project-period">Авг 2024 – Янв 2025 · Москва, Россия</p></header>
+  <p class="project-intro">Аэропонная лаборатория: электроника и датчики, прошивки на C++, автоматизация на Python, MQTT и мониторинг через Home Assistant.</p><p>Фотографии показывают лабораторию в период работы над проектом. Публичные репозитории — отдельные архивные срезы, а не вся установка. Возможность сборки и безопасность системы в её нынешнем виде не подтверждены.</p>
+  <div class="profile-mapping"><p><a href="/ru/#home-aeroponics">Проект в резюме</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Home Aeroponics &amp; IoT automation · Personal R&amp;D</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Связанный опыт</a>: IoT &amp; Automation Engineer · Личный R&amp;D — Home Aeroponics &amp; IoT automation</p></div>
+  <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/aeroponics-iot-control">Контроллеры и интеграции</a></h3><p class="repo-name">pilprod/aeroponics-iot-control</p><p>Контроллеры климатических устройств на Python/MQTT и очищенные примеры Mosquitto и Zigbee2MQTT.</p><p class="scope-note">Архивный срез, а не полная конфигурация Home Assistant. Проверка всей интеграции и безопасности оборудования не заявляется.</p></li>
+<li><h3><a href="https://github.com/pilprod/aeroponics-sensor-firmware">Прошивки датчиков</a></h3><p class="repo-name">pilprod/aeroponics-sensor-firmware</p><p>Пять архивных Arduino-прототипов: измерение света, телеметрия воды и эксперименты с управлением реле.</p><p class="scope-note">Экспериментальные варианты исходного кода 2024 года, не готовые решения и не релизы с проверенной сборкой. Для каждого скетча указаны зависимости, незавершённые интеграции и ограничения безопасности оборудования.</p><div class="variants"><h4>Архивные прототипы · 2024</h4><ul><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino">Датчики света с JSON/MQTT</a><p>Прототип на Arduino Uno R4 WiFi. Отсутствует модифицированная библиотека датчиков, не определены экземпляры программного I2C и не зарегистрирован обработчик сообщений.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino">Датчики света с выводом в Serial</a><p>Четыре датчика TCS34725 на отдельных программных шинах I2C. Модифицированная зависимость Adafruit отсутствует. MQTT не используется.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino">pH и команды управления реле</a><p>Эксперимент с измерением pH и управлением реле через Serial. Без MQTT. Калибровка и состояния реле на оборудовании не проверены.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino">EC/TDS и управление реле через Serial1</a><p>Эксперимент с датчиками воды и реле. MQTT подключается, но в этом варианте не публикует телеметрию.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino">Телеметрия pH и влажности</a><p>pH и два аналоговых входа влажности с усреднением и JSON/MQTT. Калибровка, преобразование значений и периодический сброс не проверены.</p></li></ul></div></li></ul>
+  <h3 class="gallery-title" id="lab-gallery">Фотографии лаборатории</h3><p>9 фотографий установки периода работы над проектом. Галерея также опубликована в <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">README контроллеров</a> и <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">README прошивок</a>. Фотографии не подтверждают возможность сборки архивных прошивок или наличие всей системы в публичном коде.</p><p class="scope-note">На пяти фотографиях фон или идентифицирующие детали обработаны с помощью AI; это указано в подписях. Схема соединений, макетная плата и фото корневой камеры не перерисованы.</p><div class="photo-gallery"><figure id="photo-electronics-workbench"><a href="/portfolio-images/electronics-workbench.jpg" aria-label="Открыть полное фото: Рабочее место для сборки электроники"><img src="/portfolio-images/electronics-workbench.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Отладочные платы, датчики, проводка и паяльные инструменты во время прототипирования."></a><figcaption><strong>Рабочее место для сборки электроники</strong><p>Отладочные платы, датчики, проводка и паяльные инструменты во время прототипирования.</p><small>Фон и идентифицирующие детали отретушированы с помощью AI.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-wiring-diagram"><a href="/portfolio-images/wiring-diagram.jpg" aria-label="Открыть полное фото: Схема соединений и ввода-вывода"><img src="/portfolio-images/wiring-diagram.jpg" width="1024" height="768" loading="lazy" decoding="async" alt="Исходная схема подключения компонентов, созданная при проектировании системы."></a><figcaption><strong>Схема соединений и ввода-вывода</strong><p>Исходная схема подключения компонентов, созданная при проектировании системы.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/wiring-diagram.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-breadboard-prototype"><a href="/portfolio-images/breadboard-prototype-1024.jpg" aria-label="Открыть полное фото: Прототип на макетной плате"><img src="/portfolio-images/breadboard-prototype-1024.jpg" width="1024" height="768" loading="lazy" decoding="async" alt="Модули датчиков и соединительные провода на макетной плате при разработке контроллера."></a><figcaption><strong>Прототип на макетной плате</strong><p>Модули датчиков и соединительные провода на макетной плате при разработке контроллера.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/6e428389b7df697cc4fede585ad199d1fd922211/docs/images/breadboard-prototype-1024.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-home-assistant-dashboard"><a href="/portfolio-images/home-assistant-dashboard.jpg" aria-label="Открыть полное фото: Панель Home Assistant"><img src="/portfolio-images/home-assistant-dashboard.jpg" width="1024" height="768" loading="lazy" decoding="async" alt="Показатели климата и воды, управление освещением и состояния устройств."></a><figcaption><strong>Панель Home Assistant</strong><p>Показатели климата и воды, управление освещением и состояния устройств.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-lighting-ventilation"><a href="/portfolio-images/lighting-ventilation.jpg" aria-label="Открыть полное фото: Освещение и вентиляция"><img src="/portfolio-images/lighting-ventilation.jpg" width="1086" height="1448" loading="lazy" decoding="async" alt="Подвесные светильники, вентиляционное оборудование и проводка внутри установки."></a><figcaption><strong>Освещение и вентиляция</strong><p>Подвесные светильники, вентиляционное оборудование и проводка внутри установки.</p><small>Фон и идентифицирующие детали отретушированы с помощью AI.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/lighting-ventilation.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-water-system"><a href="/portfolio-images/water-system.jpg" aria-label="Открыть полное фото: Водяной контур"><img src="/portfolio-images/water-system.jpg" width="1085" height="1450" loading="lazy" decoding="async" alt="Резервуары, дозирующие насосы, клапаны, трубки и контур циркуляции."></a><figcaption><strong>Водяной контур</strong><p>Резервуары, дозирующие насосы, клапаны, трубки и контур циркуляции.</p><small>Фон и идентифицирующие детали отретушированы с помощью AI.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-enclosure-camera"><a href="/portfolio-images/enclosure-camera.jpg" aria-label="Открыть полное фото: Камера внутри установки"><img src="/portfolio-images/enclosure-camera.jpg" width="1086" height="1448" loading="lazy" decoding="async" alt="Размещение камеры в экспериментальной установке."></a><figcaption><strong>Камера внутри установки</strong><p>Размещение камеры в экспериментальной установке.</p><small>Фон и идентифицирующие детали отретушированы с помощью AI.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-power-shield"><a href="/portfolio-images/power-shield.jpg" aria-label="Открыть полное фото: Плата расширения питания"><img src="/portfolio-images/power-shield.jpg" width="1086" height="1448" loading="lazy" decoding="async" alt="Готовая плата расширения питания, подключённая к электронике установки."></a><figcaption><strong>Плата расширения питания</strong><p>Готовая плата расширения питания, подключённая к электронике установки.</p><small>Фон и идентифицирующие детали отретушированы с помощью AI.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg">Исходное фото в репозитории</a></figcaption></figure>
+<figure id="photo-root-chamber"><a href="/portfolio-images/root-chamber.jpg" aria-label="Открыть полное фото: Корневая камера"><img src="/portfolio-images/root-chamber.jpg" width="360" height="480" loading="lazy" decoding="async" alt="Подвешенные корни и трубки внутри камеры."></a><figcaption><strong>Корневая камера</strong><p>Подвешенные корни и трубки внутри камеры.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg">Исходное фото в репозитории</a></figcaption></figure></div>
+</section>
+<section class="evidence-project" id="mesh" aria-labelledby="title-mesh">
+  <header><p class="eyebrow">Личный R&amp;D</p><h2 id="title-mesh">Zero-Trust Mesh &amp; Open-source NGFW</h2><p class="project-period">Янв 2025 – Мар 2025 · Бангкок, Таиланд</p></header>
+  <p class="project-intro">Многорегиональная лабораторная сеть Tailscale с автоматической настройкой узлов, политиками доступа через GitOps и сетевыми экспериментами на OPNsense.</p><p>Опубликованы очищенные лабораторные примеры. В них нет актуальных списков узлов и учётных данных. Развёртывание примеров именно в опубликованном виде не заявляется.</p>
+  <div class="profile-mapping"><p><a href="/ru/#zero-trust-mesh">Проект в резюме</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Zero-Trust Mesh &amp; Open-source NGFW · Personal R&amp;D</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Связанный опыт</a>: Network &amp; Security Engineer · Личный R&amp;D — Zero-Trust Mesh &amp; Open-source NGFW</p></div>
+  <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/lab-network-automation">Автоматизация узлов</a></h3><p class="repo-name">pilprod/lab-network-automation</p><p>Установка, регистрация и настройка сети для лабораторных узлов Tailscale через Ansible.</p><p class="scope-note">Очищенные примеры автоматизации без частных списков узлов и учётных данных.</p></li>
+<li><h3><a href="https://github.com/pilprod/zero-trust-mesh-policy">Политика доступа</a></h3><p class="repo-name">pilprod/zero-trust-mesh-policy</p><p>Политика доступа по тегам к агентам, хранилищам, сервисам наблюдаемости и рабочим процессам.</p><p class="scope-note">Пример политики, а не опубликованная конфигурация действующей сети.</p></li>
+<li><h3><a href="https://github.com/pilprod/gcp-ngfw-network-lab">Сетевой стенд Google Cloud</a></h3><p class="repo-name">pilprod/gcp-ngfw-network-lab</p><p>Основа лаборатории OPNsense на Terraform: LAN/WAN, маршрутизация и NAT.</p><p class="scope-note">Только сетевая основа. Наличие образа сетевого устройства, развёртывание в облаке и выполнение apply не подразумеваются.</p></li></ul>
+
+</section>
+</main><footer class="portfolio-footer"><p><a href="/ru/portfolio.md">Обзор в Markdown</a> · <a href="/ru/portfolio.jsonld">Структурированные данные</a> · <a href="/ru/">Полное резюме</a></p><p>Даты относятся к работе над проектами, а не к публикации репозиториев. Ссылки LinkedIn открывают разделы профиля: названия соответствующих проектов и ролей указаны выше. Для просмотра может потребоваться вход.</p></footer>
+</body></html>

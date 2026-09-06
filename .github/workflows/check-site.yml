@@ -22,6 +22,8 @@ jobs:
       - name: Validate portfolio relationships and generated discovery resources
         run: |
           node scripts/build_portfolio.cjs --check
+          node scripts/build_ru.cjs --check
+          python3 scripts/check_languages.py
           python3 scripts/check_portfolio.py
           python3 scripts/check_social.py
       - name: Validate opt-in analytics and cookie consent

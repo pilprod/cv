@@ -1567,10 +1567,44 @@ h3 {
   margin: 0;
 }
 
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.language-switch a { font-size: 13px; }
+.language-switch [aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .site-toolbar nav { gap: 4px 10px; flex-wrap: wrap; }
+  .site-toolbar .language-switch { gap: 5px; }
+  .language-switch a { font-size: 12px; }
+}
+
 @media print {
   html {
     scroll-behavior: auto;
   }
+
+  /* Cyrillic prose uses a slightly wider text column; type sizes stay unchanged. */
+  html[lang="ru"] body { line-height: 15px; }
+  html[lang="ru"] .page-one {
+    grid-template-columns: 162px minmax(0, 1fr);
+    column-gap: 28px;
+    padding-right: 28px;
+  }
+  html[lang="ru"] .sidebar { padding-left: 14px; padding-right: 14px; }
+  html[lang="ru"] .job-domain { max-width: 112px; }
+  html[lang="ru"] .job-title-line { column-gap: 8px; }
+  html[lang="ru"] .job-role { text-transform: none; }
+  html[lang="ru"] .page-two { padding-left: 32px; padding-right: 32px; }
+  html[lang="ru"] .page-intro { padding-right: 130px; }
+  html[lang="ru"] .tech-columns { min-height: 0; }
+  html[lang="ru"] .tech-column { padding: 8px; }
+  html[lang="ru"] .tech-list { line-height: 15px; }
+  html[lang="ru"] .tech-group + .tech-group { margin-top: 10px; }
+  html[lang="ru"] .project-agent .achievements li + li { margin-top: 1px; }
+  html[lang="ru"] .projects-secondary .achievements li + li { margin-top: 2px; }
 
   body {
     background: white;

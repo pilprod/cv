@@ -49,6 +49,7 @@ function browser(options = {}) {
     };
   }
   const document = {
+    documentElement: {lang: options.lang || 'en'},
     referrer: options.referrer ?? "https://alice:password@example.org/private?email=referrer@example.com#hidden",
     visibilityState: "visible",
     head: { appendChild(script) { state.scripts.push(script); } },
@@ -220,6 +221,17 @@ test("session fallback overrides a stale permanent grant before reloading", () =
   assert.equal(app.window["ga-disable-" + ID], true);
   assert.equal(JSON.parse(app.window.sessionStorage.getItem(KEY)).value, "denied");
   assert.equal(app.state.reloads, 1);
+});
+
+test("Russian interface retains the same opt-in privacy behavior", () => {
+  const app = browser({ lang: 'ru', url: 'https://papou.work/ru/' });
+  assert.equal(app.elements['analytics-status'].textContent, 'Аналитика отключена.');
+  assert.equal(app.state.scripts.length, 0);
+  app.click('analytics-allow');
+  assert.equal(app.elements['analytics-status'].textContent, 'Аналитика включена.');
+  assert.equal(app.state.scripts.length, 1);
+  app.click('analytics-decline');
+  assert.equal(app.window['ga-disable-' + ID], true);
 });
 
 console.log(`\n${passed} analytics checks passed. No network requests were made.`);

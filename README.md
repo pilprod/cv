@@ -1,6 +1,8 @@
 # Ilya Papou — CV
 
-A static English CV published at [papou.work](https://papou.work).
+A static CV published at [papou.work](https://papou.work). English is primary; [Russian](https://papou.work/ru/) is an optional language version, with its own PDF and portfolio. There is no automatic language redirect.
+
+Russian content is generated from the English HTML and `portfolio.json`, with reviewed translations in `translations/ru.json`. Dates, links, technologies and prototype caveats share the English source. Run `node scripts/build_portfolio.cjs`, then `node scripts/build_ru.cjs`; stale translations fail validation instead of silently changing facts. Export both PDFs with `node scripts/export_pdf.cjs` and `node scripts/export_pdf.cjs --ru`, then render both for review. Language-specific PDF manifests exclude PDF outputs to avoid circular fingerprints. `python3 scripts/check_languages.py` checks the language pairs and Russian PDF.
 
 Content source: [CV — Revised · Platform & Agent Systems](https://www.figma.com/design/IGMsmWvk5wS9uS77rJqMLd/?node-id=370-2), frames `370:3` and `370:105`. The website uses this editorial baseline and six selected-technology categories, with separate screen and print layouts. Semicolons in prose are replaced with sentence breaks without changing meaning.
 
@@ -39,7 +41,7 @@ node scripts/export_pdf.cjs
 python3 scripts/check_site.py
 ```
 
-The exporter starts its own temporary localhost server and creates only `assets/Ilya Papou CV — DevOps & SRE.pdf` plus `assets/cv-pdf.json`. The Open PDF link uses this filename. Older PDF aliases were removed at the user's request and are no longer generated. It checks for layout overflow, footer clearance, two pages and a size below 1 MB. Render and visually review **both** PDF pages before committing them together. The manifest records PDF and source hashes; the dependency-free release check rejects a stale PDF. Playwright is only needed for regeneration, not for the website or GitHub Pages deployment.
+The exporter starts its own temporary localhost server and creates `assets/Ilya Papou CV — DevOps & SRE.pdf` plus `assets/cv-pdf.json`. With `--ru`, it instead exports `assets/Ilya Papou CV — DevOps & SRE — RU.pdf` plus `assets/cv-pdf-ru.json`. Each language's Open PDF link selects its own file. Older PDF aliases are not generated. It checks layout overflow, footer clearance, two pages and a size below 1 MB. Render and visually review **both pages of each language** before committing. The manifests record PDF and source hashes; release checks reject stale PDFs. Playwright is only needed for regeneration, not for the website or GitHub Pages deployment.
 
 The downloadable PDF's title and native printing use `Ilya Papou CV — DevOps & SRE` for the suggested filename. Native printing restores the search-friendly browser title when printing ends or is cancelled. The print portrait is an eager-loaded HTML image rather than a CSS image replacement. The PDF exporter waits for it and the fonts before rendering the prepared file, so a failed image load cannot silently produce a portrait-free PDF.
 

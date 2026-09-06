@@ -1,0 +1,405 @@
+# Илья Папоу — резюме
+
+Английская версия является основной. Русская версия содержит те же факты и ссылки. Ilya Papou / Ilya Popov / PILPROD / pilprod — один человек.
+
+[English](https://papou.work/) · [Русская версия](https://papou.work/ru/) · [PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE%20%E2%80%94%20RU.pdf) · [Портфолио](https://papou.work/ru/portfolio.html) · [Markdown](https://papou.work/ru/portfolio.md) · [Связи проектов](https://papou.work/ru/portfolio.jsonld)
+
+Senior Platform & SRE Engineer
+
+Илья Папоу
+
+8 лет в IT · 5+ в DevOps и SRE
+
+Разрабатываю инфраструктуру и оркестрацию AI-агентов для ПО: MCP, A2A и процессы с проверкой и согласованием человеком. Создаю Kubernetes-платформы и общие DevSecOps-пайплайны для нескольких заказчиков в production. В облачных проектах предпочитаю AWS и Google Cloud.
+
+Контакты
+
+Также известен как Илья Попов
+
+Буэнос-Айрес, Аргентина
+
+[ilya@papou.email](mailto:ilya@papou.email)
+
+[papou.work](https://papou.work/ru/)
+
+[papou.work](https://wa.me/papou.work)
+
+[pilprod](https://t.me/pilprod)
+
+[pilprod](https://www.linkedin.com/in/pilprod/)
+
+[pilprod](https://github.com/pilprod)
+
+Языки
+
+Русский
+
+Родной
+
+Английский
+
+B1
+
+Испанский
+
+A1
+
+Немецкий
+
+A1
+
+Обо мне и опыте
+
+Сильные стороны
+
+Ответственность за платформу
+
+Надёжность production
+
+Автоматизация поставки ПО
+
+Руководство командой
+
+Условия работы
+
+Облака и bare metal
+
+Изолированные, air-gapped среды
+
+Продуктовые команды и консалтинг
+
+Распределённые команды
+
+Отрасли
+
+Финансы и страхование
+
+Авиация и туризм
+
+iGaming и антифрод
+
+Государственный сектор
+
+Опыт работы
+
+[Sirena-Travel](https://sirena-travel.com/)
+
+Senior SRE & Platform Engineer
+
+Авиация и туризм
+
+Мар 2025 — Сен 2026 · Контракт · Таиланд · Удалённо
+
+Создал и сопровождал RKE2 на bare metal: шифрование etcd, mTLS для Kafka между ЦОД, межсервисного трафика, PostgreSQL и Redis. Централизовал сертификаты в Vault, обновление — через External Secrets Operator (ESO), webhooks и Ansible.
+
+Стандартизировал поставку сервисов: GitLab CI/CD, общие Helm-чарты, Argo CD.
+
+Отвечал за on-call, разбирал сбои, документировал восстановление и предотвращение повторных инцидентов.
+
+Централизовал образы и зависимости в Nexus. Проверки SAST, GitGuardian и Trivy блокировали релизы и Argo CD sync в production. Ставил разработчикам задачи: устранить уязвимости, обновить зависимости, удалить секреты и сменить dev-пароли.
+
+Интегрировал kagent и Mattermost для работы с AI-агентами. Конфигурацией агентов и платформы управлял через IaC и GitOps.
+
+[Сбербанк страховой брокерСбербанк страх. брокер](https://www.sberbank.com/)
+
+Руководитель DevOps
+
+Финансы и страхование
+
+Июн 2023 — Мар 2025 · Полная занятость · Россия · Гибрид
+
+Создал и возглавил DevOps-команду с 4 прямыми подчинёнными, координировал инфраструктурную группу из ~10 человек. Внедрил общие стандарты, документацию и обмен знаниями.
+
+Развернул ~8 Kubernetes-кластеров (20+ узлов) через Terraform и GitOps. Связал сервисы Cloud.ru Advanced (технологии Huawei Cloud) с VMware на bare-metal серверах Cloud.ru.
+
+Создал DevSecOps-пайплайн Jenkins для 30–40 микросервисов: релизы из Jira, общие Helm-чарты, проверки ИБ, тесты, согласования. Сборка и доставка >6 сервисов — ~5 мин, релиз с согласованием между отделами — до дня. После моего ухода пайплайн работал и поддерживал новые сервисы.
+
+Создал SSO PoC на Keycloak и Nginx. Координировал изменения микросервисов, передал требования и ТЗ командам ИБ и разработки. Внедрил Vault, шифрование сервисного трафика и централизованный мониторинг. Проверил аварийное восстановление.
+
+[I-Teco](https://www.i-teco.ru/)
+
+Senior DevOps Engineer
+
+Государственный сектор
+
+Апр 2022 — Июн 2023 · Полная занятость · Россия · Удалённо
+
+Сопровождал dev/test-среды на ~10 хостах Hyper-V и Windows Server, по ~50 ВМ на каждом, включая Linux и общие инженерные сервисы.
+
+Развернул Kubernetes на Alt Linux 9.2 в air-gapped среде. Готовил релизы на USB для переноса под контролем ИБ и развёртывал скриптами.
+
+Сопровождал Airflow, Cassandra, RabbitMQ, PostgreSQL и Patroni, Docker Swarm, TeamCity, Nexus. Автоматизировал операции: Ansible, Python, Bash. Изолированный доступ — OpenVPN.
+
+[Flant](https://flant.ru/) и фриланс
+
+Разработка и DevOps
+
+IT-консалтинг в разных отраслях
+
+Ноя 2019 — Мар 2022 · Отдельные проекты · Удалённо
+
+Создавал облачную инфраструктуру и веб-приложения во фрилансе и Flant: AWS (S3, Lambda, Kubernetes, IAM) и Yandex Cloud.
+
+Писал приложения на React, Next.js, Node.js, Express. Развёртывал Java и Spring в Kubernetes через Helm, GitHub Actions и Ansible.
+
+Поддерживал поставку и эксплуатацию: Prometheus, Grafana, ELK, PostgreSQL и Patroni.
+
+[МТС (Мобильные ТелеСистемы)](https://mts.ru/)
+
+Стажёр по информационной безопасности
+
+Телекоммуникации
+
+Фев 2018 — Ноя 2019 · Стажировка · Беларусь · Удалённо
+
+Настраивал Linux и Kali Linux, изучал загрузку и компоненты ОС. Сравнивал модели виртуализации, создавал изолированные стенды тестирования безопасности.
+
+Исследовал сети и открытые сервисы с Nmap и средствами разведки. Находил уязвимости и проверял их на учебных стендах Metasploit.
+
+Настраивал и проверял маршрутизацию VPN, Tor и I2P. Шифровал и расшифровывал бинарные файлы.
+
+На примере криптокошельков и переводов изучал проверку транзакций и движение данных в блокчейне.
+
+Страница 1 / 2
+
+Инженерные проекты и технологии
+
+[Код и фото проектов · papou.work/ru/portfolio.html](https://papou.work/ru/portfolio.html)
+
+Agent Orchestration Infrastructure
+
+Июн 2026 – н. в. · Личный R&D · PoC · Буэнос-Айрес, Аргентина
+
+Личная R&D-платформа для разработчиков и AI-агентов, работающих над ПО и инфраструктурой. Спроектирована для передачи задач с сохранением контекста, подключения инструментов и длительных процессов с проверкой и согласованием изменений человеком.
+
+Развернул компоненты в Google Cloud. Создал четыре переиспользуемых Helm-профиля нагрузок с валидацией конфигурации и автотестами.
+
+Создал Go Agent Host для запуска в ОС и Docker, адаптеры официальных клиентов Codex и Claude. Реализовал A2A-стриминг, продолжение и отмену сессий, TLS и краткосрочный доступ к хосту.
+
+Добавил декларативную конфигурацию агентов, выбор моделей, отдельные dev/prod. Подготовил изоляцию нагрузок Kubernetes и сетевые политики default-deny.
+
+Спроектировал A2A-передачу задач и длительные процессы с kagent и Temporal: повторы и Human-in-the-loop согласование изменений кода и инфраструктуры.
+
+Реализовал allowlist MCP-инструментов и Go API политик: строгая валидация запросов, запрет по умолчанию, аудит. Зафиксировал runtime skills по неизменяемым digest артефактов.
+
+Создал и запускал выпуск контейнерных образов и Helm-чартов. Подготовил пайплайны Google Cloud: сканирование и продвижение после согласования.
+
+Проверил политики релизов и контракты Agent Host с имитацией провайдеров Codex и Claude.
+
+Код [Платформа](https://github.com/pilprod/yourown-chat) [Среда выполнения агентов](https://github.com/pilprod/substrate) [Форк kagent](https://github.com/pilprod/kagent) [Интеграция kagent](https://github.com/pilprod/yourown-chat-kagent) [Форк Mattermost](https://github.com/pilprod/mattermost) [Сборка образа](https://github.com/pilprod/yourown-chat-mattermost)
+
+Технические навыки
+
+Платформа и CI/CD
+
+Linux
+
+Kubernetes
+
+RKE2
+
+Docker
+
+Terraform
+
+HCP Terraform Stacks
+
+Helm
+
+Argo CD
+
+Ansible
+
+GitLab CI/CD
+
+Jenkins
+
+GitHub Actions
+
+Nexus
+
+Облака
+
+AWS
+
+GCP
+
+S3
+
+Lambda
+
+EKS
+
+IAM
+
+GKE
+
+Cloud SQL
+
+GCS
+
+Artifact Registry
+
+Cloud Build & Deploy
+
+WIF
+
+Secret Manager
+
+Cloud KMS
+
+Pub/Sub
+
+Cloudflare
+
+Разработка ПО
+
+Go
+
+Python
+
+Bash
+
+JavaScript
+
+React
+
+Next.js
+
+Node.js
+
+Express
+
+Java
+
+Spring
+
+C++
+
+OpenAPI
+
+gRPC
+
+Schema validation
+
+contract tests
+
+Безопасность и SRE
+
+Vault
+
+ESO
+
+Keycloak
+
+mTLS
+
+Kyverno
+
+GitGuardian
+
+Trivy
+
+Prometheus
+
+VictoriaMetrics
+
+Grafana
+
+ELK
+
+OpenTelemetry
+
+Tailscale
+
+OPNsense
+
+ML и данные
+
+Airflow
+
+Slurm
+
+JupyterHub
+
+MLflow
+
+PostgreSQL
+
+Patroni
+
+Redis
+
+Kafka
+
+RabbitMQ
+
+Cassandra
+
+MinIO
+
+VectorDB
+
+BigQuery
+
+Агенты и R&D
+
+kagent
+
+agentgateway
+
+MCP
+
+A2A
+
+RAG
+
+Temporal
+
+Human-in-the-loop
+
+LangChain
+
+ADK
+
+Codex
+
+Claude Code
+
+Gemini
+
+vLLM
+
+Langfuse
+
+Home Aeroponics & IoT automation
+
+Авг 2024 — Янв 2025 · Личный R&D · Москва, Россия
+
+Спроектировал и собрал аэропонную систему: схемы соединений, пайка, подключение ESP32, Arduino, Raspberry Pi, датчиков и исполнительных устройств.
+
+Создал C++ прошивки датчиков и Python-автоматизацию: климат, туман, подача и циркуляция воды, перекачка между баками, обнаружение протечек.
+
+Автоматизировал освещение, собирал данные о качестве света для корректировки. Использовал компьютерное зрение для оценки экспериментов по изменениям листьев.
+
+Подключил ESP и Zigbee через Mosquitto и Zigbee2MQTT: JSON поверх MQTT, Home Assistant для управления, мониторинга и оповещений.
+
+Автоматизировал настройку Raspberry Pi в Ansible. Создал прототипы мониторинга pH, TDS, EC. Начал готовить сбор метрик Prometheus.
+
+Код [Контроллеры](https://github.com/pilprod/aeroponics-iot-control) [Прошивки датчиков](https://github.com/pilprod/aeroponics-sensor-firmware)
+
+Zero-Trust Mesh & Open-source NGFW
+
+Янв 2025 — Мар 2025 · Личный R&D · Бангкок, Таиланд
+
+Создал зашифрованную многорегиональную mesh-сеть Tailscale для лаборатории: устройства и частные сети в облаках, на bare metal и домашних стендах.
+
+Автоматизировал настройку сети и подключение узлов в один клик.
+
+Управлял всеми ACL mesh-сети через GitOps, разделил права пользователей и сервисных аккаунтов на DNS-обнаружение и доступ к сервисам.
+
+Тестировал OPNsense как NGFW: маршрутизация между подсетями, сегментация, фильтрация трафика.
+
+Код [Ansible](https://github.com/pilprod/lab-network-automation) [Политика доступа](https://github.com/pilprod/zero-trust-mesh-policy) [Сетевой стенд GCP](https://github.com/pilprod/gcp-ngfw-network-lab)
+
+Страница 2 / 2

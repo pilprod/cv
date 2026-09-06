@@ -47,6 +47,7 @@ const html = `<!doctype html>
 <meta name="description" content="${esc(socialDescription)}">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
 <link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-project-links"><link rel="stylesheet" href="portfolio.css?v=20260906-breadboard-1024">
+<link rel="alternate" hreflang="en" href="${data.canonical}"><link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"><link rel="alternate" hreflang="x-default" href="${data.canonical}">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Ilya Papou — CV &amp; Portfolio"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="${esc(socialTitle)}"><meta property="og:description" content="${esc(socialDescription)}"><meta property="og:url" content="${data.canonical}">
@@ -55,7 +56,7 @@ const html = `<!doctype html>
 <script type="application/ld+json">${jsonld.replace(/</g,'\\u003c')}</script>
 </head><body class="portfolio-page">
 <a class="skip-link" href="#project-sources">Skip to project sources</a>
-<div class="portfolio-toolbar"><a href="/">← Back to CV</a><nav aria-label="Profile links"><a href="https://github.com/pilprod">GitHub</a><a href="${data.linkedin.profile}">LinkedIn</a></nav></div>
+<div class="portfolio-toolbar"><a href="/">← Back to CV</a><nav aria-label="Profile links"><span class="language-switch" aria-label="Language"><a href="/portfolio.html" lang="en" aria-current="page">EN</a><a href="/ru/portfolio.html" lang="ru">RU</a></span><a href="https://github.com/pilprod">GitHub</a><a href="${data.linkedin.profile}">LinkedIn</a></nav></div>
 <main class="portfolio-main" id="project-sources"><header class="portfolio-intro"><p class="eyebrow">Ilya Papou · Ilya Popov · pilprod</p><h1>Project sources<br>and lab photographs</h1><p>Code, context and hands-on work behind three personal R&D projects.</p><nav class="project-index" aria-label="R&D projects">${data.projects.map(p=>`<a href="#${p.id}">${esc(p.name)}</a>`).join('')}</nav></header>
 ${data.projects.map(projectHtml).join('\n')}
 </main><footer class="portfolio-footer"><p><a href="portfolio.md">Markdown overview</a> · <a href="portfolio.jsonld">Structured project data</a> · <a href="/">Full CV</a></p><p>Research periods describe the work, not the publication date of a repository. LinkedIn links open the profile sections; locate the matching project and role shown here. Access may require sign-in.</p></footer>
@@ -76,14 +77,19 @@ for(const p of data.projects){
 }
 const sitemap=`<?xml version="1.0" encoding="UTF-8"?>
 <!-- Ilya Papou / Ilya Popov / PILPROD / pilprod: one person with a CV and supporting project materials. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://papou.work/</loc><lastmod>${data.cvModified}</lastmod><image:image><image:loc>https://papou.work/assets/portrait.jpg</image:loc></image:image></url>
   <url><loc>${data.canonical}</loc><lastmod>${data.modified}</lastmod>
 ${data.photos.map(p=>`    <image:image><image:loc>https://papou.work/${p.file}</image:loc></image:image>`).join('\n')}
   </url>
+  <url><loc>https://papou.work/ru/</loc><lastmod>${data.cvModified}</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://papou.work/"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://papou.work/"/></url>
+  <url><loc>https://papou.work/ru/portfolio.html</loc><lastmod>${data.modified}</lastmod><xhtml:link rel="alternate" hreflang="en" href="${data.canonical}"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"/><xhtml:link rel="alternate" hreflang="x-default" href="${data.canonical}"/></url>
 </urlset>
 `;
-for(const [file,draft] of Object.entries({'portfolio.html':html,'portfolio.md':markdown,'portfolio.jsonld':jsonld+'\n','sitemap.xml':sitemap})){
+// Each language pair declares reciprocal alternates, including English as the default.
+const bilingualSitemap = sitemap.replace('</lastmod><image:image>', '</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://papou.work/"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://papou.work/"/><image:image>')
+  .replace(`<loc>${data.canonical}</loc><lastmod>${data.modified}</lastmod>`, `<loc>${data.canonical}</loc><lastmod>${data.modified}</lastmod><xhtml:link rel="alternate" hreflang="en" href="${data.canonical}"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"/><xhtml:link rel="alternate" hreflang="x-default" href="${data.canonical}"/>`);
+for(const [file,draft] of Object.entries({'portfolio.html':html,'portfolio.md':markdown,'portfolio.jsonld':jsonld+'\n','sitemap.xml':bilingualSitemap})){
   const content = draft.replace(/[ \t]+$/gm, '').trimEnd() + '\n';
   const target=path.join(root,file);
   if(check){if(!fs.existsSync(target)||fs.readFileSync(target,'utf8')!==content)throw Error('Stale generated discovery resource: '+file);}

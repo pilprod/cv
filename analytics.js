@@ -11,6 +11,9 @@
   const status = document.getElementById("analytics-status");
   const tools = document.getElementById("analytics-tools");
   if (!panel || !settings || !status || !tools) return;
+  const isRussian = document.documentElement?.lang === "ru";
+  const messages = isRussian ? ["В предпросмотре аналитика отключена.", "Аналитика включена.", "Аналитика отключена.", "Аналитика отключена на время этого посещения. Браузер не смог сохранить выбор."]
+    : ["Analytics is disabled in this preview.", "Analytics is on.", "Analytics is off.", "Analytics is off for this visit. Your browser could not save this choice."];
 
   const denied = {
     analytics_storage: "denied",
@@ -45,9 +48,9 @@
 
   function render() {
     tools.hidden = false;
-    status.textContent = !production ? "Analytics is disabled in this preview."
-      : choice?.value === "granted" ? "Analytics is on."
-      : choiceSaved ? "Analytics is off." : "Analytics is off for this visit. Your browser could not save this choice.";
+    status.textContent = !production ? messages[0]
+      : choice?.value === "granted" ? messages[1]
+      : choiceSaved ? messages[2] : messages[3];
     showPanel(!choice);
   }
 

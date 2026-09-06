@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Ilya Papou / Ilya Popov / PILPROD / pilprod: one person with a CV and supporting project materials. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://papou.work/</loc><lastmod>2026-09-06T18:18:00-03:00</lastmod><image:image><image:loc>https://papou.work/assets/portrait.jpg</image:loc></image:image></url>
-  <url><loc>https://papou.work/portfolio.html</loc><lastmod>2026-09-06T18:24:00-03:00</lastmod>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://papou.work/</loc><lastmod>2026-09-06T22:08:08Z</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://papou.work/"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://papou.work/"/><image:image><image:loc>https://papou.work/assets/portrait.jpg</image:loc></image:image></url>
+  <url><loc>https://papou.work/portfolio.html</loc><lastmod>2026-09-06T22:08:08Z</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://papou.work/portfolio.html"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://papou.work/portfolio.html"/>
     <image:image><image:loc>https://papou.work/portfolio-images/electronics-workbench.jpg</image:loc></image:image>
     <image:image><image:loc>https://papou.work/portfolio-images/wiring-diagram.jpg</image:loc></image:image>
     <image:image><image:loc>https://papou.work/portfolio-images/breadboard-prototype-1024.jpg</image:loc></image:image>
@@ -13,4 +13,6 @@
     <image:image><image:loc>https://papou.work/portfolio-images/power-shield.jpg</image:loc></image:image>
     <image:image><image:loc>https://papou.work/portfolio-images/root-chamber.jpg</image:loc></image:image>
   </url>
+  <url><loc>https://papou.work/ru/</loc><lastmod>2026-09-06T22:08:08Z</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://papou.work/"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://papou.work/"/></url>
+  <url><loc>https://papou.work/ru/portfolio.html</loc><lastmod>2026-09-06T22:08:08Z</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://papou.work/portfolio.html"/><xhtml:link rel="alternate" hreflang="ru" href="https://papou.work/ru/portfolio.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://papou.work/portfolio.html"/></url>
 </urlset>

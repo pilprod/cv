@@ -8,6 +8,8 @@ I develop agent infrastructure and orchestration for software engineering, with 
 
 ## CV links
 
+English is the primary version. The optional [Russian CV](https://papou.work/ru/) and [Russian portfolio](https://papou.work/ru/portfolio.html) contain the same facts and source relationships. [Russian agent-readable overview](https://papou.work/ru/llms.txt).
+
 - [Project sources and lab photographs](https://papou.work/portfolio.html): Three R&D projects mapped to eleven public GitHub repositories, their LinkedIn Projects and associated Experience entries, with nine photographs of the aeroponics lab.
 - [Portfolio in Markdown](https://papou.work/portfolio.md): Repository scope, fork provenance, archival limitations and captioned photograph links. Five photographs have AI-retouched backgrounds or identifying areas; the root-chamber photograph has not been redrawn.
 - [Structured portfolio graph](https://papou.work/portfolio.jsonld): Separate Person, CreativeWork, SoftwareSourceCode and ImageObject identities, with explicit project/repository/photo relationships. LinkedIn section links are not individual public project permalinks.
