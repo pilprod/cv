@@ -27,13 +27,13 @@
 .gallery-title { font-size: 25px; margin: 40px 0 16px; }
 .photo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; margin-top: 28px; align-items: start; }
 .photo-gallery figure { margin: 0; min-width: 0; }
-.photo-gallery img { width: 100%; height: auto; background: var(--sidebar); }
+.photo-gallery img { width: 100%; height: auto; max-height: none; object-fit: contain; background: var(--sidebar); }
 .photo-gallery figcaption { margin-top: 12px; font-size: 15px; }
 .photo-gallery figcaption p { margin-top: 4px; }
 .photo-gallery small { display: block; font-size: 14px; margin-top: 8px; color: var(--muted); }
 .source-link { display: inline-block; margin-top: 8px; font-size: 14px; }
 #photo-electronics-workbench, #photo-wiring-diagram, #photo-breadboard-prototype, #photo-home-assistant-dashboard { grid-column: 1 / -1; }
-#photo-breadboard-prototype { max-width: 600px; }
+#photo-breadboard-prototype { max-width: 480px; }
 .portfolio-footer { padding: 28px 32px 44px; font-size: 14px; }
 .portfolio-footer p + p { margin-top: 14px; max-width: 850px; }
 @media (max-width: 700px) {

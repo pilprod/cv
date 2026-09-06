@@ -23,6 +23,7 @@ jobs:
         run: |
           node scripts/build_portfolio.cjs --check
           python3 scripts/check_portfolio.py
+          python3 scripts/check_social.py
       - name: Validate opt-in analytics and cookie consent
         run: node scripts/check_analytics.cjs
       - name: Validate device theme and dark-mode contrast

@@ -11,10 +11,15 @@ const projectId = p => `${data.canonical}#${p.id}`;
 const repoUrl = r => `https://github.com/pilprod/${r.slug}`;
 const variantUrl = (r, v) => `${repoUrl(r)}/blob/main/${v.path}`;
 const imageId = p => `${data.canonical}#photo-${p.id}`;
+const socialPhoto = data.photos.find(p => p.id === 'electronics-workbench');
+const socialTitle = 'Ilya Papou — R&D projects, source code & lab photographs';
+const socialDescription = `Agent infrastructure, aeroponics and zero-trust network experiments. Public GitHub code, archival prototypes and ${data.photos.length} lab photographs, with project context.`;
+const socialImage = `https://papou.work/${socialPhoto.file}`;
+const socialImageAlt = socialPhoto.caption + ' Background or identifying areas retouched with AI assistance.';
 const graph = [
   {'@type':'WebSite','@id':'https://papou.work/#website',url:'https://papou.work/',name:'Ilya Papou — CV',publisher:ref(data.person)},
   {'@type':'Person','@id':data.person,name:'Ilya Papou',alternateName:['Ilya Popov','PILPROD','pilprod'],url:'https://papou.work/',sameAs:[data.linkedin.profile,'https://github.com/pilprod']},
-  {'@type':'CollectionPage','@id':data.canonical,url:data.canonical,name:'Ilya Papou — project sources and lab photographs',inLanguage:'en',dateModified:data.modified,about:ref(data.person),isPartOf:ref('https://papou.work/#website'),mainEntity:{'@type':'ItemList',itemListElement:data.projects.map((p,i)=>({'@type':'ListItem',position:i+1,item:ref(projectId(p))}))}},
+  {'@type':'CollectionPage','@id':data.canonical,url:data.canonical,name:socialTitle,inLanguage:'en',dateModified:data.modified,primaryImageOfPage:ref(imageId(socialPhoto)),about:ref(data.person),isPartOf:ref('https://papou.work/#website'),mainEntity:{'@type':'ItemList',itemListElement:data.projects.map((p,i)=>({'@type':'ListItem',position:i+1,item:ref(projectId(p))}))}},
   ...['projects','experience'].map(kind=>({'@type':'WebPage','@id':data.linkedin[kind],url:data.linkedin[kind],name:`Ilya Papou — LinkedIn ${kind === 'projects' ? 'Projects' : 'Experience'}`,about:[ref(data.person),...data.projects.map(p=>ref(projectId(p)))]})),
   ...data.projects.flatMap(p=>[
     {'@type':'CreativeWork','@id':projectId(p),url:projectId(p),name:p.name,description:`${p.description} ${p.scope}`,creator:ref(data.person),creativeWorkStatus:p.status,spatialCoverage:{'@type':'Place',name:p.location},isPartOf:ref(data.canonical),hasPart:p.repositories.map(r=>ref(repoUrl(r))),subjectOf:[ref(data.linkedin.projects),ref(data.linkedin.experience),{'@type':'WebPage',url:`https://papou.work/#${p.cvAnchor}`,name:`${p.name} in the CV`}],...(p.id==='home'?{image:data.photos.map(photo=>ref(imageId(photo)))}:{})},
@@ -38,12 +43,15 @@ const projectHtml = p => `<section class="evidence-project" id="${esc(p.id)}" ar
 const html = `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ilya Papou — Project sources and lab photographs</title>
-<meta name="description" content="Public source repositories, LinkedIn project and experience connections, and ${data.photos.length} aeroponics lab photographs for Ilya Papou (Ilya Popov).">
+<title>${esc(socialTitle)}</title>
+<meta name="description" content="${esc(socialDescription)}">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
 <link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-project-links"><link rel="stylesheet" href="portfolio.css">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
-<meta property="og:type" content="website"><meta property="og:title" content="Ilya Papou — Project sources and lab photographs"><meta property="og:description" content="Three personal R&D projects, eleven public repositories and photographs from the aeroponics lab."><meta property="og:url" content="${data.canonical}"><meta property="og:image" content="https://papou.work/assets/portrait.jpg"><meta property="og:image:alt" content="Ilya Papou"><meta name="twitter:card" content="summary">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Ilya Papou — CV &amp; Portfolio"><meta property="og:locale" content="en_US">
+<meta property="og:title" content="${esc(socialTitle)}"><meta property="og:description" content="${esc(socialDescription)}"><meta property="og:url" content="${data.canonical}">
+<meta property="og:image" content="${socialImage}"><meta property="og:image:secure_url" content="${socialImage}"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="${socialPhoto.width}"><meta property="og:image:height" content="${socialPhoto.height}"><meta property="og:image:alt" content="${esc(socialImageAlt)}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(socialTitle)}"><meta name="twitter:description" content="${esc(socialDescription)}"><meta name="twitter:image" content="${socialImage}"><meta name="twitter:image:alt" content="${esc(socialImageAlt)}">
 <script type="application/ld+json">${jsonld.replace(/</g,'\\u003c')}</script>
 </head><body class="portfolio-page">
 <a class="skip-link" href="#project-sources">Skip to project sources</a>

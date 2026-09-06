@@ -16,7 +16,7 @@ September 5 update: the user requested a sidebar portrait and clearer AWS/Google
 
 - `index.html` contains the CV content.
 - `styles.css` provides responsive layouts and two-page A4 printing.
-- `assets/portrait-source.jpg` and `assets/fonts/` contain the high-resolution portrait and local fonts. `portrait.jpg` remains the social-preview image.
+- `assets/portrait-source.jpg` and `assets/fonts/` contain the high-resolution portrait and local fonts. `portrait.jpg` remains the screen/person image; `assets/social/cv-preview-20260906.jpg` is the landscape CV-sharing card.
 
 Preview locally:
 
@@ -89,9 +89,22 @@ Implementation references: [basic consent mode](https://developers.google.com/ta
 
 ## Search discoverability
 
+### Link previews
+
+- The CV shares a dedicated 1200 × 630 JPEG card with the current name and role, portrait and portfolio context. Open Graph and X Card title, description and image tags are delivered in the initial HTML; no JavaScript, cookie consent or login is needed to read them.
+- `scripts/build_social_card.cjs` renders the card with the existing local fonts and the unchanged `assets/portrait-source.jpg`, scaled proportionally without cropping or AI resynthesis. The user explicitly selected original-photo composition. It uses the same local Playwright/Chrome setup as the PDF exporter. Inspect the resulting card before publishing; any changed asset also requires the normal PDF manifest refresh.
+- The portfolio page has its own title, description and existing workbench photograph. It does not reuse the CV card or imply that the lab photograph verifies the archived firmware. Its AI-background-retouch disclosure is retained in the image description.
+- Each page declares one canonical HTTPS URL and one primary image, including HTTPS image URL, JPEG MIME, dimensions and descriptive alt text. The image filename is versioned so later replacements can avoid an old image-cache entry. Do not invent social handles, app IDs or verification tokens.
+- `python3 scripts/check_social.py` checks both pages, metadata consistency, real image dimensions, file size and crawler permissions. After deployment, use `--url https://papou.work/ --bots` to check delivery using common sharing-crawler user agents. This is an HTTP compatibility check, not proof that every app has refreshed or renders the same layout.
+- LinkedIn and other apps can cache previously shared cards. Use [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/) to inspect the canonical link. An existing message or post can retain its older card; display size and image cropping are controlled by each app and sometimes its user.
+- References: [Open Graph](https://ogp.me/), [LinkedIn sharing requirements](https://www.linkedin.com/help/linkedin/answer/a521928), [Apple Messages rich previews](https://developer.apple.com/documentation/technotes/tn3156-create-rich-previews-for-messages).
+
+### Project and image discovery
+
 - `portfolio.html` is the supporting, indexable project-evidence page. It maps the three R&D projects to eleven public repositories, five archival firmware prototypes, the matching LinkedIn Projects/Experience labels and nine lab photographs. The CV has one screen-only link to this page; its reviewed wording and two-page PDF layout are unchanged.
 - `portfolio.json` is the reviewed data source. `node scripts/build_portfolio.cjs` generates the visible page, `portfolio.md`, `portfolio.jsonld` and the image-aware `sitemap.xml`. Do not edit generated files individually. Use `--check` to reject stale generated resources without changing them.
 - `portfolio-images/` contains the same privacy-reviewed JPEGs as the two aeroponics READMEs. Five images disclose AI background/identifying-area retouching. One root-chamber photograph shows both the roots and internal tubing, without repetitive views. The diagram and root evidence are not AI-redrawn. Do not replace these files with the unreviewed originals or claim a photography license that has not been granted.
+- The breadboard photograph retains every pixel of the supplied 480 × 360 source. Its display is capped at 480px on the website and in both READMEs, with proportional downscaling on narrow screens and a link to the complete image. The original camera framing is tight; do not invent electronics beyond its edges with AI.
 - The portfolio graph uses separate `CreativeWork`, `SoftwareSourceCode` and `ImageObject` identities, with `hasPart/isPartOf`, `about` and `subjectOf` relationships. Source files are parts of their repository; repositories are parts of a project. `Person.sameAs` remains limited to the personal GitHub and LinkedIn profiles. Verified fork origins use `isBasedOn`, without assigning upstream authorship to Ilya. LinkedIn links are public section URLs, never owner-only edit URLs or invented per-entry permalinks.
 - Firmware variants are archived 2024 experiments, not final solutions or releases. Missing modified libraries, incomplete callbacks/telemetry and unverified calibration/relay behavior remain explicit. Research periods are not repository publication dates. Photos document the wider lab and do not certify that archived code builds or runs safely.
 - The complete CV is delivered as semantic HTML and remains readable without JavaScript.

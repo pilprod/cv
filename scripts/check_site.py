@@ -347,10 +347,10 @@ def main():
     assert meta["author"] == name and name in title, "Title/author must identify the visible person"
     assert meta["og:title"] == title == meta["twitter:title"], "Search/social titles differ"
     assert ALTERNATIVE_NAME in visible, "Alternate name missing from visible CV"
-    assert title == "Ilya Papou CV — Senior DevOps & SRE", "Preserve the user-requested search/social title"
+    assert title == "Ilya Papou — Senior Platform & SRE Engineer | CV", "Search/social title must reflect the current role and CV"
     for key in ("description", "og:description", "twitter:description"):
         assert name in meta[key] and ALTERNATIVE_NAME in meta[key], key + " must identify both names"
-    assert meta["twitter:card"] in ("summary", "summary_large_image"), "Invalid Twitter card"
+    assert meta["twitter:card"] == "summary_large_image", "Use the reviewed landscape sharing card"
     assert meta["og:type"] == "profile", "OG type must be profile"
     assert meta["og:url"] == CANONICAL, "OG URL is not canonical"
     print_portraits = [image for image in page.images if "portrait-print" in image.get("class", "").split()]
