@@ -46,7 +46,7 @@ const html = `<!doctype html>
 <title>${esc(socialTitle)}</title>
 <meta name="description" content="${esc(socialDescription)}">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
-<link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-project-links"><link rel="stylesheet" href="portfolio.css">
+<link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-project-links"><link rel="stylesheet" href="portfolio.css?v=20260906-breadboard-1024">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Ilya Papou — CV &amp; Portfolio"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="${esc(socialTitle)}"><meta property="og:description" content="${esc(socialDescription)}"><meta property="og:url" content="${data.canonical}">

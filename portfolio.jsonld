@@ -31,7 +31,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-06T17:57:15-03:00",
+      "dateModified": "2026-09-06T18:24:00-03:00",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -526,19 +526,19 @@
       "@type": "ImageObject",
       "@id": "https://papou.work/portfolio.html#photo-breadboard-prototype",
       "name": "Breadboard prototype",
-      "contentUrl": "https://papou.work/portfolio-images/breadboard-prototype.jpg",
+      "contentUrl": "https://papou.work/portfolio-images/breadboard-prototype-1024.jpg",
       "url": "https://papou.work/portfolio.html#photo-breadboard-prototype",
       "encodingFormat": "image/jpeg",
-      "width": 480,
-      "height": 360,
-      "caption": "Controller connections and jumper wiring on the breadboard.",
+      "width": 1024,
+      "height": 768,
+      "caption": "Breadboard-mounted sensor modules and jumper wiring during controller prototyping.",
       "about": {
         "@id": "https://papou.work/portfolio.html#home"
       },
       "isPartOf": {
         "@id": "https://papou.work/portfolio.html#home"
       },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/breadboard-prototype.jpg"
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/6e428389b7df697cc4fede585ad199d1fd922211/docs/images/breadboard-prototype-1024.jpg"
     },
     {
       "@type": "ImageObject",

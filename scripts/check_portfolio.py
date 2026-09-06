@@ -105,6 +105,10 @@ def main():
                 assert variant_node['creativeWorkStatus'] == 'Archival prototype — not a final solution'
     assert len(page.images) == len(data['photos']) == 9
     assert [p['id'] for p in data['photos'] if p['id'].startswith('root-')] == ['root-chamber'], 'Keep one informative root photograph'
+    breadboard = next(p for p in data['photos'] if p['id'] == 'breadboard-prototype')
+    assert (breadboard['width'], breadboard['height']) == (1024, 768), 'Preserve the full replacement breadboard photograph'
+    assert breadboard['file'] == 'portfolio-images/breadboard-prototype-1024.jpg' and not breadboard['retouched']
+    assert 'breadboard-prototype.jpg' not in html and 'breadboard-prototype.jpg' not in markdown, 'Do not reuse the old cropped-looking photo or its cached URL'
     if not base:
         assert {p.name for p in (ROOT / 'portfolio-images').glob('*.jpg')} == {Path(p['file']).name for p in data['photos']}, 'Remove unreferenced gallery images'
     assert sum(p['retouched'] for p in data['photos']) == 5
