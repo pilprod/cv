@@ -33,13 +33,13 @@ const projectHtml = p => `<section class="evidence-project" id="${esc(p.id)}" ar
   <p class="project-intro">${esc(p.description)}</p><p>${esc(p.scope)}</p>
   <div class="profile-mapping"><p><a href="/#${esc(p.cvAnchor)}">Project in the CV</a></p><p><a href="${esc(data.linkedin.projects)}">LinkedIn Projects</a>: ${esc(p.linkedinProject)}</p><p><a href="${esc(data.linkedin.experience)}">Associated Experience</a>: ${esc(p.experience)} — ${esc(p.experienceCompany)}</p></div>
   <ul class="repository-list">${p.repositories.map(r=>`<li><h3><a href="${esc(repoUrl(r))}">${esc(r.label)}</a></h3><p class="repo-name">pilprod/${esc(r.slug)}</p><p>${esc(r.description)}</p><p class="scope-note">${esc(r.scope)}</p>${r.upstream?`<p class="scope-note">Upstream: <a href="${esc(r.upstream)}">${esc(r.upstream.replace('https://github.com/',''))}</a></p>`:''}${variantsHtml(r)}</li>`).join('\n')}</ul>
-  ${p.id==='home'?`<h3 class="gallery-title" id="lab-gallery">Lab photographs</h3><p>Eleven photographs of the wider historical installation, also published in the <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">controller README</a> and <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">firmware README</a>. They do not verify that the archived firmware builds or that the full system is represented by the public code.</p><p class="scope-note">Five photographs have AI-retouched backgrounds or identifying areas, individually marked below. Root inspection is an ordinary crop. The wiring diagram, breadboard and other root photographs have not been redrawn.</p><div class="photo-gallery">${data.photos.map(photoHtml).join('\n')}</div>`:''}
+  ${p.id==='home'?`<h3 class="gallery-title" id="lab-gallery">Lab photographs</h3><p>${data.photos.length} photographs of the wider historical installation, also published in the <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">controller README</a> and <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">firmware README</a>. They do not verify that the archived firmware builds or that the full system is represented by the public code.</p><p class="scope-note">Five photographs have AI-retouched backgrounds or identifying areas, individually marked below. The wiring diagram, breadboard and root-chamber photograph have not been redrawn.</p><div class="photo-gallery">${data.photos.map(photoHtml).join('\n')}</div>`:''}
 </section>`;
 const html = `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ilya Papou — Project sources and lab photographs</title>
-<meta name="description" content="Public source repositories, LinkedIn project and experience connections, and eleven aeroponics lab photographs for Ilya Papou (Ilya Popov).">
+<meta name="description" content="Public source repositories, LinkedIn project and experience connections, and ${data.photos.length} aeroponics lab photographs for Ilya Papou (Ilya Popov).">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
 <link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-project-links"><link rel="stylesheet" href="portfolio.css">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
@@ -61,7 +61,7 @@ for(const p of data.projects){
     for(const v of r.variants || [])markdown+=`  - [${v.name}](${variantUrl(r,v)}): Archival prototype, not a final solution. ${v.scope}\n`;
   }
   if(p.id==='home'){
-    markdown+='\n### Lab photographs\n\nThese show the wider historical installation, not build verification or all code in either public repository. Both aeroponics READMEs contain the gallery. Five photos have background or identifying-area AI retouching. Root inspection is an ordinary source crop.\n\n';
+    markdown+='\n### Lab photographs\n\nThese show the wider historical installation, not build verification or all code in either public repository. Both aeroponics READMEs contain the gallery. Five photos have background or identifying-area AI retouching. The root-chamber photograph has not been redrawn.\n\n';
     for(const photo of data.photos)markdown+=`- [${photo.title}](https://papou.work/${photo.file}): ${photo.caption}${photo.retouched?' AI-retouched background or identifying areas.':''} [Published source](${photo.source}).\n`;
   }
   markdown+='\n';
@@ -69,7 +69,7 @@ for(const p of data.projects){
 const sitemap=`<?xml version="1.0" encoding="UTF-8"?>
 <!-- Ilya Papou / Ilya Popov / PILPROD / pilprod: one person with a CV and supporting project materials. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://papou.work/</loc><lastmod>${data.modified}</lastmod><image:image><image:loc>https://papou.work/assets/portrait.jpg</image:loc></image:image></url>
+  <url><loc>https://papou.work/</loc><lastmod>${data.cvModified}</lastmod><image:image><image:loc>https://papou.work/assets/portrait.jpg</image:loc></image:image></url>
   <url><loc>${data.canonical}</loc><lastmod>${data.modified}</lastmod>
 ${data.photos.map(p=>`    <image:image><image:loc>https://papou.work/${p.file}</image:loc></image:image>`).join('\n')}
   </url>

@@ -45,7 +45,7 @@ The photographs document the wider historical lab. The public repositories are s
 
 ### Lab photographs
 
-These show the wider historical installation, not build verification or all code in either public repository. Both aeroponics READMEs contain the gallery. Five photos have background or identifying-area AI retouching. Root inspection is an ordinary source crop.
+These show the wider historical installation, not build verification or all code in either public repository. Both aeroponics READMEs contain the gallery. Five photos have background or identifying-area AI retouching. The root-chamber photograph has not been redrawn.
 
 - [Electronics workbench](https://papou.work/portfolio-images/electronics-workbench.jpg): Development boards, sensors, wiring and soldering tools during prototyping. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg).
 - [Wiring and I/O diagram](https://papou.work/portfolio-images/wiring-diagram.jpg): Original component-connection drawing from system design. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/wiring-diagram.jpg).
@@ -55,9 +55,7 @@ These show the wider historical installation, not build verification or all code
 - [Water system](https://papou.work/portfolio-images/water-system.jpg): Reservoirs, dosing pumps, valves, tubing and circulation plumbing. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg).
 - [Enclosure camera](https://papou.work/portfolio-images/enclosure-camera.jpg): Camera placement within the experimental installation. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg).
 - [Power shield](https://papou.work/portfolio-images/power-shield.jpg): A commercial power shield integrated into the electronics assembly. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg).
-- [Root-zone overview](https://papou.work/portfolio-images/root-zone.jpg): Roots observed above the chamber during the experiments. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-zone.jpg).
 - [Root chamber](https://papou.work/portfolio-images/root-chamber.jpg): Suspended roots and internal tubing in the chamber. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg).
-- [Root inspection](https://papou.work/portfolio-images/root-inspection.jpg): A lower-region crop of the original inspection photograph, excluding the foliage and basket contents. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-inspection.jpg).
 
 ## Zero-Trust Mesh & Open-source NGFW
 

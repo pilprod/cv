@@ -31,7 +31,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — project sources and lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-06T17:28:00-03:00",
+      "dateModified": "2026-09-06T17:50:27-03:00",
       "about": {
         "@id": "https://papou.work/#person"
       },
@@ -295,13 +295,7 @@
           "@id": "https://papou.work/portfolio.html#photo-power-shield"
         },
         {
-          "@id": "https://papou.work/portfolio.html#photo-root-zone"
-        },
-        {
           "@id": "https://papou.work/portfolio.html#photo-root-chamber"
-        },
-        {
-          "@id": "https://papou.work/portfolio.html#photo-root-inspection"
         }
       ]
     },
@@ -635,24 +629,6 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://papou.work/portfolio.html#photo-root-zone",
-      "name": "Root-zone overview",
-      "contentUrl": "https://papou.work/portfolio-images/root-zone.jpg",
-      "url": "https://papou.work/portfolio.html#photo-root-zone",
-      "encodingFormat": "image/jpeg",
-      "width": 360,
-      "height": 480,
-      "caption": "Roots observed above the chamber during the experiments.",
-      "about": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isPartOf": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-zone.jpg"
-    },
-    {
-      "@type": "ImageObject",
       "@id": "https://papou.work/portfolio.html#photo-root-chamber",
       "name": "Root chamber",
       "contentUrl": "https://papou.work/portfolio-images/root-chamber.jpg",
@@ -668,24 +644,6 @@
         "@id": "https://papou.work/portfolio.html#home"
       },
       "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://papou.work/portfolio.html#photo-root-inspection",
-      "name": "Root inspection",
-      "contentUrl": "https://papou.work/portfolio-images/root-inspection.jpg",
-      "url": "https://papou.work/portfolio.html#photo-root-inspection",
-      "encodingFormat": "image/jpeg",
-      "width": 1536,
-      "height": 668,
-      "caption": "A lower-region crop of the original inspection photograph, excluding the foliage and basket contents.",
-      "about": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isPartOf": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-inspection.jpg"
     }
   ]
 }

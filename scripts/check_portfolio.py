@@ -70,7 +70,7 @@ def main():
     by_id = {n['@id']: n for n in graph}
     assert len(by_id) == len(graph), 'Duplicate graph identities'
     assert len(set(page.ids)) == len(page.ids), 'Duplicate HTML IDs'
-    for type_, count in [('CreativeWork',3),('SoftwareSourceCode',16),('ImageObject',11)]:
+    for type_, count in [('CreativeWork',3),('SoftwareSourceCode',16),('ImageObject',9)]:
         assert sum(n['@type'] == type_ for n in graph) == count, type_
     person = by_id[data['person']]
     assert person['sameAs'] == [data['linkedin']['profile'],'https://github.com/pilprod'], 'Do not conflate person and repositories'
@@ -103,7 +103,10 @@ def main():
                 assert variant['name'] in visible and variant['scope'] in visible
                 assert variant_node['isPartOf']['@id'] == url
                 assert variant_node['creativeWorkStatus'] == 'Archival prototype — not a final solution'
-    assert len(page.images) == len(data['photos']) == 11
+    assert len(page.images) == len(data['photos']) == 9
+    assert [p['id'] for p in data['photos'] if p['id'].startswith('root-')] == ['root-chamber'], 'Keep one informative root photograph'
+    if not base:
+        assert {p.name for p in (ROOT / 'portfolio-images').glob('*.jpg')} == {Path(p['file']).name for p in data['photos']}, 'Remove unreferenced gallery images'
     assert sum(p['retouched'] for p in data['photos']) == 5
     for photo, img in zip(data['photos'],page.images):
         node = by_id[data['canonical'] + '#photo-' + photo['id']]
@@ -123,6 +126,8 @@ def main():
     ns = {'s':'http://www.sitemaps.org/schemas/sitemap/0.9','i':'http://www.google.com/schemas/sitemap-image/1.1'}
     sitemap = ET.fromstring(read('sitemap.xml'))
     urls = sitemap.findall('s:url', ns)
+    cv_url = next(n for n in urls if n.findtext('s:loc', namespaces=ns) == CANONICAL)
+    assert cv_url.findtext('s:lastmod', namespaces=ns) == data['cvModified']
     portfolio_url = next(n for n in urls if n.findtext('s:loc', namespaces=ns) == data['canonical'])
     assert portfolio_url.findtext('s:lastmod', namespaces=ns) == data['modified']
     images = [n.text for n in portfolio_url.findall('i:image/i:loc', ns)]
@@ -130,9 +135,14 @@ def main():
     llms = read('llms.txt')
     for resource in ['portfolio.html','portfolio.md','portfolio.jsonld']:
         assert CANONICAL + resource in llms
-    assert 'href="portfolio.html"' in read('index.html'), 'CV must link to the portfolio page'
+    cv_html = read('index.html')
+    assert 'href="portfolio.html"' in cv_html, 'CV must link to the portfolio page'
+    cv_page = EvidencePage()
+    cv_page.feed(cv_html)
+    profile = next(n for doc in cv_page.scripts for n in doc['@graph'] if n['@type'] == 'ProfilePage')
+    assert profile['dateModified'] == data['cvModified'], 'CV modification date differs from sitemap'
     assert '<link rel="canonical" href="'+data['canonical']+'">' in html
-    print('PASS: 3 projects, 11 repositories, 5 archival firmware prototypes, 11 photographs, LinkedIn associations, visible/structured/Markdown consistency and image sitemap')
+    print('PASS: 3 projects, 11 repositories, 5 archival firmware prototypes, 9 photographs, LinkedIn associations, visible/structured/Markdown consistency and image sitemap')
 
 
 if __name__ == '__main__':

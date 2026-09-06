@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ilya Papou — Project sources and lab photographs</title>
-<meta name="description" content="Public source repositories, LinkedIn project and experience connections, and eleven aeroponics lab photographs for Ilya Papou (Ilya Popov).">
+<meta name="description" content="Public source repositories, LinkedIn project and experience connections, and 9 aeroponics lab photographs for Ilya Papou (Ilya Popov).">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://papou.work/portfolio.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260906-project-links"><link rel="stylesheet" href="portfolio.css">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
@@ -40,7 +40,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — project sources and lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-06T17:28:00-03:00",
+      "dateModified": "2026-09-06T17:50:27-03:00",
       "about": {
         "@id": "https://papou.work/#person"
       },
@@ -304,13 +304,7 @@
           "@id": "https://papou.work/portfolio.html#photo-power-shield"
         },
         {
-          "@id": "https://papou.work/portfolio.html#photo-root-zone"
-        },
-        {
           "@id": "https://papou.work/portfolio.html#photo-root-chamber"
-        },
-        {
-          "@id": "https://papou.work/portfolio.html#photo-root-inspection"
         }
       ]
     },
@@ -644,24 +638,6 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://papou.work/portfolio.html#photo-root-zone",
-      "name": "Root-zone overview",
-      "contentUrl": "https://papou.work/portfolio-images/root-zone.jpg",
-      "url": "https://papou.work/portfolio.html#photo-root-zone",
-      "encodingFormat": "image/jpeg",
-      "width": 360,
-      "height": 480,
-      "caption": "Roots observed above the chamber during the experiments.",
-      "about": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isPartOf": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-zone.jpg"
-    },
-    {
-      "@type": "ImageObject",
       "@id": "https://papou.work/portfolio.html#photo-root-chamber",
       "name": "Root chamber",
       "contentUrl": "https://papou.work/portfolio-images/root-chamber.jpg",
@@ -677,24 +653,6 @@
         "@id": "https://papou.work/portfolio.html#home"
       },
       "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://papou.work/portfolio.html#photo-root-inspection",
-      "name": "Root inspection",
-      "contentUrl": "https://papou.work/portfolio-images/root-inspection.jpg",
-      "url": "https://papou.work/portfolio.html#photo-root-inspection",
-      "encodingFormat": "image/jpeg",
-      "width": 1536,
-      "height": 668,
-      "caption": "A lower-region crop of the original inspection photograph, excluding the foliage and basket contents.",
-      "about": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isPartOf": {
-        "@id": "https://papou.work/portfolio.html#home"
-      },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-inspection.jpg"
     }
   ]
 }</script>
@@ -720,7 +678,7 @@
   <div class="profile-mapping"><p><a href="/#home-aeroponics">Project in the CV</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Home Aeroponics &amp; IoT automation · Personal R&amp;D</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Associated Experience</a>: IoT &amp; Automation Engineer · Personal R&amp;D — Home Aeroponics &amp; IoT automation</p></div>
   <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/aeroponics-iot-control">Controllers and integration</a></h3><p class="repo-name">pilprod/aeroponics-iot-control</p><p>Python/MQTT climate-device controllers and sanitized Mosquitto and Zigbee2MQTT examples.</p><p class="scope-note">Historical snapshot; not the complete Home Assistant configuration. No integration or physical-safety validation claimed.</p></li>
 <li><h3><a href="https://github.com/pilprod/aeroponics-sensor-firmware">Sensor firmware</a></h3><p class="repo-name">pilprod/aeroponics-sensor-firmware</p><p>Five archived Arduino prototypes for light sensing, water-sensor telemetry and relay-command experiments.</p><p class="scope-note">Experimental 2024 source variants, not final solutions or build-verified releases. Dependencies, incomplete integrations and hardware-safety limitations are documented per sketch.</p><div class="variants"><h4>Archived prototypes · 2024</h4><ul><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino">Light sensors with JSON/MQTT</a><p>Arduino Uno R4 WiFi prototype; missing modified sensor library, undefined software-I2C instances and unregistered message callback.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino">Light sensors with Serial output</a><p>Four TCS34725 sensors through separate software-I2C buses; modified Adafruit dependency is absent. No MQTT.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino">pH and relay commands</a><p>Serial-controlled relay experiment with pH readings. No MQTT; calibration and relay states are not hardware-validated.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino">EC/TDS and Serial1 relay commands</a><p>Water-sensor and relay experiment. MQTT connects but does not publish telemetry in this variant.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino">pH and moisture telemetry</a><p>pH and two analog moisture inputs with averaging and JSON/MQTT. Calibration, conversion and periodic reset remain unverified.</p></li></ul></div></li></ul>
-  <h3 class="gallery-title" id="lab-gallery">Lab photographs</h3><p>Eleven photographs of the wider historical installation, also published in the <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">controller README</a> and <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">firmware README</a>. They do not verify that the archived firmware builds or that the full system is represented by the public code.</p><p class="scope-note">Five photographs have AI-retouched backgrounds or identifying areas, individually marked below. Root inspection is an ordinary crop. The wiring diagram, breadboard and other root photographs have not been redrawn.</p><div class="photo-gallery"><figure id="photo-electronics-workbench"><a href="portfolio-images/electronics-workbench.jpg" aria-label="Open full photograph: Electronics workbench"><img src="portfolio-images/electronics-workbench.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Development boards, sensors, wiring and soldering tools during prototyping."></a><figcaption><strong>Electronics workbench</strong><p>Development boards, sensors, wiring and soldering tools during prototyping.</p><small>AI-retouched background / identifying areas.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg">Published source photo</a></figcaption></figure>
+  <h3 class="gallery-title" id="lab-gallery">Lab photographs</h3><p>9 photographs of the wider historical installation, also published in the <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">controller README</a> and <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">firmware README</a>. They do not verify that the archived firmware builds or that the full system is represented by the public code.</p><p class="scope-note">Five photographs have AI-retouched backgrounds or identifying areas, individually marked below. The wiring diagram, breadboard and root-chamber photograph have not been redrawn.</p><div class="photo-gallery"><figure id="photo-electronics-workbench"><a href="portfolio-images/electronics-workbench.jpg" aria-label="Open full photograph: Electronics workbench"><img src="portfolio-images/electronics-workbench.jpg" width="1200" height="900" loading="lazy" decoding="async" alt="Development boards, sensors, wiring and soldering tools during prototyping."></a><figcaption><strong>Electronics workbench</strong><p>Development boards, sensors, wiring and soldering tools during prototyping.</p><small>AI-retouched background / identifying areas.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/electronics-workbench.jpg">Published source photo</a></figcaption></figure>
 <figure id="photo-wiring-diagram"><a href="portfolio-images/wiring-diagram.jpg" aria-label="Open full photograph: Wiring and I/O diagram"><img src="portfolio-images/wiring-diagram.jpg" width="1024" height="768" loading="lazy" decoding="async" alt="Original component-connection drawing from system design."></a><figcaption><strong>Wiring and I/O diagram</strong><p>Original component-connection drawing from system design.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/wiring-diagram.jpg">Published source photo</a></figcaption></figure>
 <figure id="photo-breadboard-prototype"><a href="portfolio-images/breadboard-prototype.jpg" aria-label="Open full photograph: Breadboard prototype"><img src="portfolio-images/breadboard-prototype.jpg" width="480" height="360" loading="lazy" decoding="async" alt="Controller connections and jumper wiring on the breadboard."></a><figcaption><strong>Breadboard prototype</strong><p>Controller connections and jumper wiring on the breadboard.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/breadboard-prototype.jpg">Published source photo</a></figcaption></figure>
 <figure id="photo-home-assistant-dashboard"><a href="portfolio-images/home-assistant-dashboard.jpg" aria-label="Open full photograph: Home Assistant dashboard"><img src="portfolio-images/home-assistant-dashboard.jpg" width="1024" height="768" loading="lazy" decoding="async" alt="Climate and water measurements, lighting controls and device states."></a><figcaption><strong>Home Assistant dashboard</strong><p>Climate and water measurements, lighting controls and device states.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg">Published source photo</a></figcaption></figure>
@@ -728,9 +686,7 @@
 <figure id="photo-water-system"><a href="portfolio-images/water-system.jpg" aria-label="Open full photograph: Water system"><img src="portfolio-images/water-system.jpg" width="1085" height="1450" loading="lazy" decoding="async" alt="Reservoirs, dosing pumps, valves, tubing and circulation plumbing."></a><figcaption><strong>Water system</strong><p>Reservoirs, dosing pumps, valves, tubing and circulation plumbing.</p><small>AI-retouched background / identifying areas.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg">Published source photo</a></figcaption></figure>
 <figure id="photo-enclosure-camera"><a href="portfolio-images/enclosure-camera.jpg" aria-label="Open full photograph: Enclosure camera"><img src="portfolio-images/enclosure-camera.jpg" width="1086" height="1448" loading="lazy" decoding="async" alt="Camera placement within the experimental installation."></a><figcaption><strong>Enclosure camera</strong><p>Camera placement within the experimental installation.</p><small>AI-retouched background / identifying areas.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg">Published source photo</a></figcaption></figure>
 <figure id="photo-power-shield"><a href="portfolio-images/power-shield.jpg" aria-label="Open full photograph: Power shield"><img src="portfolio-images/power-shield.jpg" width="1086" height="1448" loading="lazy" decoding="async" alt="A commercial power shield integrated into the electronics assembly."></a><figcaption><strong>Power shield</strong><p>A commercial power shield integrated into the electronics assembly.</p><small>AI-retouched background / identifying areas.</small><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg">Published source photo</a></figcaption></figure>
-<figure id="photo-root-zone"><a href="portfolio-images/root-zone.jpg" aria-label="Open full photograph: Root-zone overview"><img src="portfolio-images/root-zone.jpg" width="360" height="480" loading="lazy" decoding="async" alt="Roots observed above the chamber during the experiments."></a><figcaption><strong>Root-zone overview</strong><p>Roots observed above the chamber during the experiments.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-zone.jpg">Published source photo</a></figcaption></figure>
-<figure id="photo-root-chamber"><a href="portfolio-images/root-chamber.jpg" aria-label="Open full photograph: Root chamber"><img src="portfolio-images/root-chamber.jpg" width="360" height="480" loading="lazy" decoding="async" alt="Suspended roots and internal tubing in the chamber."></a><figcaption><strong>Root chamber</strong><p>Suspended roots and internal tubing in the chamber.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg">Published source photo</a></figcaption></figure>
-<figure id="photo-root-inspection"><a href="portfolio-images/root-inspection.jpg" aria-label="Open full photograph: Root inspection"><img src="portfolio-images/root-inspection.jpg" width="1536" height="668" loading="lazy" decoding="async" alt="A lower-region crop of the original inspection photograph, excluding the foliage and basket contents."></a><figcaption><strong>Root inspection</strong><p>A lower-region crop of the original inspection photograph, excluding the foliage and basket contents.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-inspection.jpg">Published source photo</a></figcaption></figure></div>
+<figure id="photo-root-chamber"><a href="portfolio-images/root-chamber.jpg" aria-label="Open full photograph: Root chamber"><img src="portfolio-images/root-chamber.jpg" width="360" height="480" loading="lazy" decoding="async" alt="Suspended roots and internal tubing in the chamber."></a><figcaption><strong>Root chamber</strong><p>Suspended roots and internal tubing in the chamber.</p><a class="source-link" href="https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg">Published source photo</a></figcaption></figure></div>
 </section>
 <section class="evidence-project" id="mesh" aria-labelledby="title-mesh">
   <header><p class="eyebrow">Personal R&amp;D</p><h2 id="title-mesh">Zero-Trust Mesh &amp; Open-source NGFW</h2><p class="project-period">Jan 2025 – Mar 2025 · Bangkok City, Thailand</p></header>
