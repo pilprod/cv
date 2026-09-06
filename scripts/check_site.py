@@ -79,14 +79,16 @@ SOURCE_DIGESTS = {
     # User-requested employer name: MTS (Mobile TeleSystems).
     "job/MTS": "876877b59b95625109a51edaef6d659e6fa08216c544bf9b11bc67dcb5e3f91f",
     "page-intro": "90e16fbcab2f683c5e9dc5cc83bc6cf53801271fde4a6fc09b2e4d318dd10e5f",
-    # User-simplified period/status: 2025 – 2026 · Personal R&D · PoCs.
-    # User-requested heading without a dash and prose without slash separators.
-    "project/YourOwn.Chat": "671d974f91d8317e3da2af32f2ec21dcc0cd1ee2a345425556b2b844a9f56602",
+    # September 6: project dates/locations refreshed from LinkedIn Experience.
+    # The user subsequently corrected YourOwn.Chat's location to Buenos Aires city.
+    # Preserve Personal R&D / PoCs labels and the reviewed achievement text.
+    # User-requested shared heading: Agent Orchestration Infrastructure.
+    "project/YourOwn.Chat": "4498c2ffe688132ab906fcf6bd018f9cb77ca824f0919df752a81ec5c35734a2",
     # User-directed status wording: Personal project -> Personal R&D.
     # User clarified Python/MQTT automation, Home Assistant UI and preparatory Prometheus work.
-    "project/Home Aeroponics": "ad3d0bba11e5f77258c36c65f3d4ffa1b0a16bff21c1be31eea9e99d989fc36f",
+    "project/Home Aeroponics": "90d7598431d6810b3f0079855586404316b95ef625c853c198fbae2be68d8bad",
     # User confirmed automated network configuration and one-click node onboarding.
-    "project/Zero-Trust Mesh": "97fbbf3918d0f9d07bcc39c02d5f29e2136d5c279a36353bc928cd425897a3d3",
+    "project/Zero-Trust Mesh": "cee98493976f507c51414d6d50e886e8d0f634bc1876cb53f99fa53732c9f0ca",
 }
 SOURCE_LINKS = {
     "https://sirena-travel.com", "https://www.sberbank.com", "https://www.i-teco.ru",
@@ -110,7 +112,14 @@ def normalize_source_text(value):
 
 def check_source_content(page):
     assert "Other engineering experience" not in page.cv_content["detail"], "Secondary projects should have no extra section heading"
-    assert "2024 — 2025 · Personal R&D" in page.source_content["project"][1], "Home Aeroponics must be labeled Personal R&D"
+    assert page.source_content["project"][0].startswith("Agent Orchestration Infrastructure "), "Preserve the shared Agent Orchestration Infrastructure heading"
+    project_metadata = (
+        "Jun 2026 – Present · Personal R&D · PoCs · Buenos Aires, Argentina",
+        "Aug 2024 — Jan 2025 · Personal R&D · Moscow City, Russia",
+        "Jan 2025 — Mar 2025 · Personal R&D · Bangkok City, Thailand",
+    )
+    for item, metadata in zip(page.source_content["project"], project_metadata):
+        assert metadata in item, "Project dates/locations differ from the reviewed LinkedIn source"
     assert "8 years in IT · 5+ in DevOps & SRE" in page.source_content["identity"][0], "Preserve the requested experience headline"
     assert len(page.cv_content["achievement"]) == 35, "Expected all 35 reviewed achievement bullets"
     domains = ("Aviation & travel", "Finance & insurance", "Public sector",
@@ -256,7 +265,7 @@ class Page(HTMLParser):
         if not self.in_script:
             in_project_links = any("project-links" in element["classes"] for element in self.elements)
             # Responsive/print-only variants repeat the canonical source wording.
-            print_repetition = any({"print-only", "company-name-short", "project-name-short"} & element["classes"] for element in self.elements)
+            print_repetition = any({"print-only", "company-name-short"} & element["classes"] for element in self.elements)
             for element in self.elements:
                 if not print_repetition and (element["capture"] or element["tech_capture"] or element["source"] and not in_project_links):
                     element["text"].append(data)

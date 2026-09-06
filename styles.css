@@ -548,8 +548,7 @@ h3 {
   color: var(--teal);
 }
 
-.company-name-short,
-.project-name-short {
+.company-name-short {
   display: none;
 }
 
@@ -1138,6 +1137,12 @@ h3 {
 }
 
 @media screen and (min-width: 641px) {
+  .site-toolbar {
+    /* Match the CV edges, then inset navigation like the tablet layout. */
+    width: min(1120px, calc(100% - clamp(0px, 12.5vw - 80px, 48px)));
+    padding-inline: 14px;
+  }
+
   .site-toolbar > .site-brand,
   .site-toolbar nav a:not(.pdf-action) {
     transform: translateY(2px);
@@ -1149,14 +1154,6 @@ h3 {
 }
 
 @media screen and (max-width: 640px) {
-  .project-name-full {
-    display: none;
-  }
-
-  .project-name-short {
-    display: inline;
-  }
-
   body {
     font-size: 15px;
   }

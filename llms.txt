@@ -9,9 +9,9 @@ I develop agent infrastructure and orchestration for software engineering, with 
 ## CV links
 
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
-- [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260905-other-experience): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
+- [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260906-project-dates): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contacts, under 1 MB.
 - [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank Insurance Broker, I-Teco, Flant & Freelance and the MTS (Mobile TeleSystems) internship.
-- [YourOwn.Chat as Agent Orchestration Infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
+- [Agent Orchestration Infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Technical skills](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.
 - [Home Aeroponics & IoT automation](https://papou.work/#home-aeroponics): Home growing automation, climate control and monitoring.
 - [Zero-Trust Mesh & Open-source NGFW](https://papou.work/#zero-trust-mesh): Encrypted lab networks, GitOps-managed ACLs and OPNsense experiments.
@@ -112,9 +112,9 @@ Telecommunications
 
 Agent infrastructure, technical skills and selected projects.
 
-### YourOwn.Chat as Agent Orchestration Infrastructure
+### Agent Orchestration Infrastructure
 
-2025 – 2026 · Personal R&D · PoCs
+Jun 2026 – Present · Personal R&D · PoCs · Buenos Aires, Argentina
 
 Personal R&D platform for developers and AI coding agents working on software and infrastructure tasks. Designed to preserve context across agent handoffs, connect tools and long-running workflows, and keep changes under human review and approval.
 
@@ -181,7 +181,7 @@ Selected code: [YourOwn.Chat](https://github.com/pilprod/yourown-chat) · [kagen
 
 ### Home Aeroponics & IoT automation
 
-2024 — 2025 · Personal R&D
+Aug 2024 — Jan 2025 · Personal R&D · Moscow City, Russia
 
 - Designed and built an integrated aeroponic system: drew wiring schematics, soldered electronics, and connected ESP32, Arduino, Raspberry Pi, sensors and actuators.
 - Developed C++ sensor firmware and Python automation for climate control, mist generation, water supply and circulation, tank-to-tank transfers and leak detection.
@@ -191,7 +191,7 @@ Selected code: [YourOwn.Chat](https://github.com/pilprod/yourown-chat) · [kagen
 
 ### Zero-Trust Mesh & Open-source NGFW
 
-2025 · Personal R&D
+Jan 2025 — Mar 2025 · Personal R&D · Bangkok City, Thailand
 
 - Built an encrypted, multi-region Tailscale lab mesh linking devices and private networks across cloud, bare metal and homelabs.
 - Automated network configuration and enabled one-click onboarding of new nodes.
