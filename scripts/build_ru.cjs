@@ -99,7 +99,7 @@ function html(en) {
     if (/^<script/i.test(part)) {
       if (part.includes('application/ld+json')) return '<script type="application/ld+json">' + JSON.stringify(graphValue(JSON.parse(part.replace(/^<script[^>]*>|<\/script>$/gi, ''))), null, 2).replace(/</g, '\\u003c') + '</script>';
       return part.replace('Ilya Papou CV — DevOps & SRE', 'Ilya Papou CV — DevOps & SRE — RU')
-        .replace('src="analytics.js"', 'src="/analytics.js"');
+        .replace('src="analytics.js', 'src="/analytics.js');
     }
     if (/^<(style|!--)/i.test(part)) return part;
     if (part.startsWith('<')) {
