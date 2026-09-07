@@ -63,7 +63,10 @@ SOURCE_DIGESTS = {
     # AWS-first freelance wording and deployed GCP components first in R&D.
     # These approved editorial changes are synchronized to the revised Figma CV.
     # Experience headline now reads "5+ in DevOps & SRE" at the user's request.
-    "identity": "7398dd3d9ce9d1ab97bcd4bdc2f09b904e671909cd82bf530966aa7b7cb7ce53",
+    # September 7: user-approved summary distinguishes past production platform work
+    # from personal agent R&D prototypes, with no concurrent-customer implication.
+    # AWS/GCP preferences now also name RKE2, Proxmox and Ubuntu for self-hosting.
+    "identity": "7933494f0b080d75f158097d14c7fe42c56022400a026ef678bdfb08ca5d69e2",
     # Website and messaging handles explicitly added by the user after the baseline.
     "sidebar/contact": "e747534971c633d6d393b88ae7e244210e86ec756c117d06503496b1a4c71c3b",
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",

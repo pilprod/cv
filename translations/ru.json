@@ -73,8 +73,8 @@
       "ru": "8 лет в IT · 5+ в DevOps и SRE"
     },
     {
-      "en": "I develop agent infrastructure and orchestration for software engineering, with MCP & A2A integration and human-in-the-loop workflow design. I build Kubernetes platforms and shared DevSecOps release pipelines used in production by multiple customers. I enjoy working with AWS and Google Cloud and prefer them for cloud projects.",
-      "ru": "Разрабатываю инфраструктуру и оркестрацию AI-агентов для ПО: MCP, A2A и процессы с проверкой и согласованием человеком. Создаю Kubernetes-платформы и общие DevSecOps-пайплайны для нескольких заказчиков в production. В облачных проектах предпочитаю AWS и Google Cloud."
+      "en": "I’ve built and operated production Kubernetes platforms and reusable DevSecOps pipelines. My personal R&D includes agent infrastructure prototypes for software engineering with MCP, A2A and human-in-the-loop workflow design. I prefer AWS and Google Cloud for cloud projects, and RKE2, Proxmox and Ubuntu for bare-metal and self-hosted infrastructure.",
+      "ru": "Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. В облачных проектах предпочитаю AWS и Google Cloud, для bare-metal и собственной инфраструктуры — RKE2, Proxmox и Ubuntu."
     },
     {
       "en": "Contact and profile",
