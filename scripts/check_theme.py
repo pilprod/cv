@@ -36,6 +36,8 @@ class Metadata(HTMLParser):
 
 def main():
     css = re.sub(r"/\*.*?\*/", "", (ROOT / "styles.css").read_text(), flags=re.S)
+    brand = re.search(r"^\.site-toolbar > \.site-brand \{([^}]+)\}", css, re.M)
+    assert brand and declarations(brand.group(1)).get("font-weight") == "700", "The CV navigation label must stay bold"
     # This stylesheet keeps top-level closing braces unindented. The dark block
     # must contain color rules only, with no nested breakpoint or print rules.
     blocks = re.findall(r"@media screen and \(prefers-color-scheme: dark\) \{\n(.*?)\n\}", css, re.S)

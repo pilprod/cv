@@ -324,8 +324,9 @@ h3 {
   outline-offset: 3px;
 }
 
-.site-brand {
+.site-toolbar > .site-brand {
   flex-shrink: 0;
+  font-weight: 700;
 }
 
 .site-toolbar nav {

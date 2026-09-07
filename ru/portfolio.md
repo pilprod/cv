@@ -24,7 +24,7 @@
 
 Аэропонная лаборатория: электроника и датчики, прошивки на C++, автоматизация на Python, MQTT и мониторинг через Home Assistant.
 
-Фотографии показывают лабораторию в период работы над проектом. Публичные репозитории — отдельные архивные срезы, а не вся установка. Возможность сборки и безопасность системы в её нынешнем виде не подтверждены.
+Фотографии показывают лабораторию в период работы над проектом. Публичные репозитории содержат отдельные архивные срезы, а не всю установку. Возможность сборки и безопасность системы в её нынешнем виде не подтверждены.
 
 [Проект в CV](https://papou.work/ru/#home-aeroponics) · [LinkedIn Projects](https://www.linkedin.com/in/pilprod/details/projects/) — Home Aeroponics & IoT automation · Personal R&D · [LinkedIn Experience](https://www.linkedin.com/in/pilprod/details/experience/) — IoT & Automation Engineer · Personal R&D
 

@@ -10,7 +10,7 @@ Senior Platform & SRE Engineer
 
 8 лет в IT · 5+ в DevOps и SRE
 
-Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. В облачных проектах предпочитаю AWS и Google Cloud, для bare-metal и собственной инфраструктуры — RKE2, Proxmox и Ubuntu.
+Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. Для облачных проектов предпочитаю AWS и Google Cloud. Для bare-metal и собственной инфраструктуры предпочитаю RKE2, Proxmox и Ubuntu.
 
 Контакты
 
@@ -90,7 +90,7 @@ Senior SRE & Platform Engineer
 
 Мар 2025 — Сен 2026 · Контракт · Таиланд · Удалённо
 
-Создал и сопровождал RKE2 на bare metal: шифрование etcd, mTLS для Kafka между ЦОД, межсервисного трафика, PostgreSQL и Redis. Централизовал сертификаты в Vault, обновление — через External Secrets Operator (ESO), webhooks и Ansible.
+Создал и сопровождал RKE2 на bare metal: шифрование etcd, mTLS для Kafka между ЦОД, межсервисного трафика, PostgreSQL и Redis. Централизовал сертификаты в Vault. Настроил обновление через External Secrets Operator (ESO), webhooks и Ansible.
 
 Стандартизировал поставку сервисов: GitLab CI/CD, общие Helm-чарты, Argo CD.
 
@@ -112,7 +112,7 @@ Senior SRE & Platform Engineer
 
 Развернул ~8 Kubernetes-кластеров (20+ узлов) через Terraform и GitOps. Связал сервисы Cloud.ru Advanced (технологии Huawei Cloud) с VMware на bare-metal серверах Cloud.ru.
 
-Создал DevSecOps-пайплайн Jenkins для 30–40 микросервисов: релизы из Jira, общие Helm-чарты, проверки ИБ, тесты, согласования. Сборка и доставка >6 сервисов — ~5 мин, релиз с согласованием между отделами — до дня. После моего ухода пайплайн работал и поддерживал новые сервисы.
+Создал DevSecOps-пайплайн Jenkins для 30–40 микросервисов: релизы из Jira, общие Helm-чарты, проверки ИБ, тесты, согласования. Сборка и доставка >6 сервисов занимали ~5 мин, релиз с согласованием между отделами укладывался в день. После моего ухода пайплайн работал и поддерживал новые сервисы.
 
 Создал SSO PoC на Keycloak и Nginx. Координировал изменения микросервисов, передал требования и ТЗ командам ИБ и разработки. Внедрил Vault, шифрование сервисного трафика и централизованный мониторинг. Проверил аварийное восстановление.
 
@@ -128,7 +128,7 @@ Senior DevOps Engineer
 
 Развернул Kubernetes на Alt Linux 9.2 в air-gapped среде. Готовил релизы на USB для переноса под контролем ИБ и развёртывал скриптами.
 
-Сопровождал Airflow, Cassandra, RabbitMQ, PostgreSQL и Patroni, Docker Swarm, TeamCity, Nexus. Автоматизировал операции: Ansible, Python, Bash. Изолированный доступ — OpenVPN.
+Сопровождал Airflow, Cassandra, RabbitMQ, PostgreSQL и Patroni, Docker Swarm, TeamCity, Nexus. Автоматизировал операции: Ansible, Python, Bash. Изолированный доступ настроил через OpenVPN.
 
 [Flant](https://flant.ru/) и фриланс
 

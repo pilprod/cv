@@ -74,7 +74,7 @@
     },
     {
       "en": "I’ve built and operated production Kubernetes platforms and reusable DevSecOps pipelines. My personal R&D includes agent infrastructure prototypes for software engineering with MCP, A2A and human-in-the-loop workflow design. I prefer AWS and Google Cloud for cloud projects, and RKE2, Proxmox and Ubuntu for bare-metal and self-hosted infrastructure.",
-      "ru": "Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. В облачных проектах предпочитаю AWS и Google Cloud, для bare-metal и собственной инфраструктуры — RKE2, Proxmox и Ubuntu."
+      "ru": "Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. Для облачных проектов предпочитаю AWS и Google Cloud. Для bare-metal и собственной инфраструктуры предпочитаю RKE2, Proxmox и Ubuntu."
     },
     {
       "en": "Contact and profile",
@@ -214,7 +214,7 @@
     },
     {
       "en": "Built and operated a bare-metal RKE2 platform with encrypted etcd and mTLS for inter-DC Kafka, service-to-service traffic, PostgreSQL and Redis. Managed certificates centrally in Vault and propagated updates using External Secrets Operator (ESO), webhooks and Ansible.",
-      "ru": "Создал и сопровождал RKE2 на bare metal: шифрование etcd, mTLS для Kafka между ЦОД, межсервисного трафика, PostgreSQL и Redis. Централизовал сертификаты в Vault, обновление — через External Secrets Operator (ESO), webhooks и Ansible."
+      "ru": "Создал и сопровождал RKE2 на bare metal: шифрование etcd, mTLS для Kafka между ЦОД, межсервисного трафика, PostgreSQL и Redis. Централизовал сертификаты в Vault. Настроил обновление через External Secrets Operator (ESO), webhooks и Ansible."
     },
     {
       "en": "Standardized service delivery through GitLab CI/CD, shared Helm charts and Argo CD.",
@@ -262,7 +262,7 @@
     },
     {
       "en": "Built a Jenkins DevSecOps pipeline for 30–40 microservices: Jira-triggered releases with shared Helm charts, security checks, tests and approvals. Build and delivery took ~5 min for >6 services. Full releases with cross-department approvals completed within a day. The pipeline remained in use and supported new services after my departure.",
-      "ru": "Создал DevSecOps-пайплайн Jenkins для 30–40 микросервисов: релизы из Jira, общие Helm-чарты, проверки ИБ, тесты, согласования. Сборка и доставка >6 сервисов — ~5 мин, релиз с согласованием между отделами — до дня. После моего ухода пайплайн работал и поддерживал новые сервисы."
+      "ru": "Создал DevSecOps-пайплайн Jenkins для 30–40 микросервисов: релизы из Jira, общие Helm-чарты, проверки ИБ, тесты, согласования. Сборка и доставка >6 сервисов занимали ~5 мин, релиз с согласованием между отделами укладывался в день. После моего ухода пайплайн работал и поддерживал новые сервисы."
     },
     {
       "en": "Built a Keycloak SSO PoC with Nginx. Coordinated microservice changes and handed off requirements and technical specs to Security and Development. Introduced Vault, encrypted service traffic, centralized monitoring and tested disaster recovery.",
@@ -286,7 +286,7 @@
     },
     {
       "en": "Maintained Airflow, Cassandra, RabbitMQ, PostgreSQL & Patroni, Docker Swarm, TeamCity and Nexus. Automated operations with Ansible, Python and Bash and used OpenVPN for isolated access.",
-      "ru": "Сопровождал Airflow, Cassandra, RabbitMQ, PostgreSQL и Patroni, Docker Swarm, TeamCity, Nexus. Автоматизировал операции: Ansible, Python, Bash. Изолированный доступ — OpenVPN."
+      "ru": "Сопровождал Airflow, Cassandra, RabbitMQ, PostgreSQL и Patroni, Docker Swarm, TeamCity, Nexus. Автоматизировал операции: Ansible, Python, Bash. Изолированный доступ настроил через OpenVPN."
     },
     {
       "en": " & Freelance",
@@ -640,7 +640,7 @@
         "location": "Москва, Россия",
         "status": "Личный R&D",
         "description": "Аэропонная лаборатория: электроника и датчики, прошивки на C++, автоматизация на Python, MQTT и мониторинг через Home Assistant.",
-        "scope": "Фотографии показывают лабораторию в период работы над проектом. Публичные репозитории — отдельные архивные срезы, а не вся установка. Возможность сборки и безопасность системы в её нынешнем виде не подтверждены.",
+        "scope": "Фотографии показывают лабораторию в период работы над проектом. Публичные репозитории содержат отдельные архивные срезы, а не всю установку. Возможность сборки и безопасность системы в её нынешнем виде не подтверждены.",
         "experience": "IoT & Automation Engineer · Личный R&D",
         "experienceCompany": "Домашняя аэропоника и IoT-автоматизация",
         "linkedinProject": "Домашняя аэропоника и IoT-автоматизация · Личный R&D"
