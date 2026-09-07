@@ -31,7 +31,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-06T22:08:08Z",
+      "dateModified": "2026-09-07T16:44:23Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -634,11 +634,11 @@
       "@type": "ImageObject",
       "@id": "https://papou.work/portfolio.html#photo-root-chamber",
       "name": "Root chamber",
-      "contentUrl": "https://papou.work/portfolio-images/root-chamber.jpg",
+      "contentUrl": "https://papou.work/portfolio-images/root-chamber-original-1536.jpg",
       "url": "https://papou.work/portfolio.html#photo-root-chamber",
       "encodingFormat": "image/jpeg",
-      "width": 360,
-      "height": 480,
+      "width": 1536,
+      "height": 2048,
       "caption": "Suspended roots and internal tubing in the chamber.",
       "about": {
         "@id": "https://papou.work/portfolio.html#home"
@@ -646,7 +646,7 @@
       "isPartOf": {
         "@id": "https://papou.work/portfolio.html#home"
       },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg"
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/7c0c97df694f764d4c7354408b18146c63ca5864/docs/images/root-chamber.jpg"
     }
   ]
 }

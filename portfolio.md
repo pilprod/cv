@@ -55,7 +55,7 @@ These show the wider historical installation, not build verification or all code
 - [Water system](https://papou.work/portfolio-images/water-system.jpg): Reservoirs, dosing pumps, valves, tubing and circulation plumbing. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/water-system.jpg).
 - [Enclosure camera](https://papou.work/portfolio-images/enclosure-camera.jpg): Camera placement within the experimental installation. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/enclosure-camera.jpg).
 - [Power shield](https://papou.work/portfolio-images/power-shield.jpg): A commercial power shield integrated into the electronics assembly. AI-retouched background or identifying areas. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/power-shield.jpg).
-- [Root chamber](https://papou.work/portfolio-images/root-chamber.jpg): Suspended roots and internal tubing in the chamber. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/root-chamber.jpg).
+- [Root chamber](https://papou.work/portfolio-images/root-chamber-original-1536.jpg): Suspended roots and internal tubing in the chamber. [Published source](https://github.com/pilprod/aeroponics-iot-control/blob/7c0c97df694f764d4c7354408b18146c63ca5864/docs/images/root-chamber.jpg).
 
 ## Zero-Trust Mesh & Open-source NGFW
 

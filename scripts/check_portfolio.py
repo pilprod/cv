@@ -105,6 +105,10 @@ def main():
                 assert variant_node['creativeWorkStatus'] == 'Archival prototype — not a final solution'
     assert len(page.images) == len(data['photos']) == 9
     assert [p['id'] for p in data['photos'] if p['id'].startswith('root-')] == ['root-chamber'], 'Keep one informative root photograph'
+    root_chamber = next(p for p in data['photos'] if p['id'] == 'root-chamber')
+    assert (root_chamber['width'], root_chamber['height']) == (1536, 2048), 'Preserve the supplied full-resolution root photograph'
+    assert root_chamber['file'] == 'portfolio-images/root-chamber-original-1536.jpg' and not root_chamber['retouched']
+    assert 'portfolio-images/root-chamber.jpg' not in html and 'portfolio-images/root-chamber.jpg' not in markdown, 'Do not reuse the cached low-resolution photograph'
     breadboard = next(p for p in data['photos'] if p['id'] == 'breadboard-prototype')
     assert (breadboard['width'], breadboard['height']) == (1024, 768), 'Preserve the full replacement breadboard photograph'
     assert breadboard['file'] == 'portfolio-images/breadboard-prototype-1024.jpg' and not breadboard['retouched']
