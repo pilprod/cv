@@ -108,7 +108,7 @@ function html(en) {
       if (/\bhreflang=/.test(part)) return part;
       const languageLink = /^<a\s/i.test(part) && /lang="(?:en|ru)"/.test(part);
       let result = part.replace(/\b(alt|title|aria-label|content)="([^"]*)"/g, (_, attr, text) => `${attr}="${esc(translate(decode(text)))}"`);
-      if (!languageLink) result = result.replace(/\b(href|src)="([^"]*)"/g, (_, attr, value) => `${attr}="${url(value)}"`);
+      if (!languageLink) result = result.replace(/\b(href|src|srcset)="([^"]*)"/g, (_, attr, value) => `${attr}="${url(value)}"`);
       if (/^<html/i.test(result)) result = result.replace('lang="en"', 'lang="ru"');
       if (result.includes('property="og:locale"')) result = result.replace('en_US','ru_RU');
       if (result.includes('property="profile:first_name"')) result = result.replace('content="Ilya"', 'content="Илья"');

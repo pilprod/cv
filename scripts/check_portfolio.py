@@ -15,6 +15,7 @@ class EvidencePage(HTMLParser):
     def __init__(self):
         super().__init__()
         self.ids, self.links, self.images, self.scripts = [], [], [], []
+        self.picture_sources = []
         self.capture, self.current = False, []
         self.text = []
 
@@ -26,6 +27,8 @@ class EvidencePage(HTMLParser):
             self.links.append(attrs.get('href', ''))
         if tag == 'img':
             self.images.append(attrs)
+        if tag == 'source':
+            self.picture_sources.append(attrs)
         if tag == 'script' and attrs.get('type') == 'application/ld+json':
             self.capture, self.current = True, []
 
@@ -108,6 +111,7 @@ def main():
     root_chamber = next(p for p in data['photos'] if p['id'] == 'root-chamber')
     assert (root_chamber['width'], root_chamber['height']) == (1536, 2048), 'Preserve the supplied full-resolution root photograph'
     assert root_chamber['file'] == 'portfolio-images/root-chamber-original-1536.jpg' and not root_chamber['retouched']
+    assert root_chamber['preview'] == 'portfolio-images/root-chamber-1536.webp', 'Use an optimized preview while keeping the original available'
     assert 'portfolio-images/root-chamber.jpg' not in html and 'portfolio-images/root-chamber.jpg' not in markdown, 'Do not reuse the cached low-resolution photograph'
     breadboard = next(p for p in data['photos'] if p['id'] == 'breadboard-prototype')
     assert (breadboard['width'], breadboard['height']) == (1024, 768), 'Preserve the full replacement breadboard photograph'
@@ -115,6 +119,8 @@ def main():
     assert 'breadboard-prototype.jpg' not in html and 'breadboard-prototype.jpg' not in markdown, 'Do not reuse the old cropped-looking photo or its cached URL'
     if not base:
         assert {p.name for p in (ROOT / 'portfolio-images').glob('*.jpg')} == {Path(p['file']).name for p in data['photos']}, 'Remove unreferenced gallery images'
+        assert {p.name for p in (ROOT / 'portfolio-images').glob('*.webp')} == {Path(p['preview']).name for p in data['photos'] if p.get('preview')}, 'Remove unreferenced preview images'
+    assert page.picture_sources == [{'srcset':root_chamber['preview'],'type':'image/webp'}]
     assert sum(p['retouched'] for p in data['photos']) == 5
     for photo, img in zip(data['photos'],page.images):
         node = by_id[data['canonical'] + '#photo-' + photo['id']]
@@ -127,6 +133,12 @@ def main():
         assert bool('AI assistance' in node['caption']) == photo['retouched']
         image_bytes = read(photo['file'], binary=True)
         assert image_bytes.startswith(b'\xff\xd8') and image_bytes.endswith(b'\xff\xd9'), 'Invalid JPEG'
+        if photo.get('preview'):
+            preview_bytes = read(photo['preview'], binary=True)
+            assert preview_bytes[:4] == b'RIFF' and preview_bytes[8:12] == b'WEBP', 'Invalid WebP preview'
+            assert len(preview_bytes) < len(image_bytes) * 0.65, 'Preview should be materially lighter than the original'
+            assert node['thumbnailUrl'] == CANONICAL + photo['preview']
+            assert photo['file'] in page.links, 'Full-resolution original must remain clickable'
         assert CANONICAL + photo['file'] in markdown
     for link in page.links:
         if link.startswith('#'):

@@ -36,7 +36,7 @@
       "url": "https://papou.work/ru/portfolio.html",
       "name": "Илья Попов — R&D-проекты, код и фотографии лаборатории",
       "inLanguage": "ru",
-      "dateModified": "2026-09-07T16:44:23Z",
+      "dateModified": "2026-09-07T16:52:29Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/ru/portfolio.html#photo-electronics-workbench"
       },
@@ -640,6 +640,7 @@
       "@id": "https://papou.work/ru/portfolio.html#photo-root-chamber",
       "name": "Корневая камера",
       "contentUrl": "https://papou.work/portfolio-images/root-chamber-original-1536.jpg",
+      "thumbnailUrl": "https://papou.work/portfolio-images/root-chamber-1536.webp",
       "url": "https://papou.work/ru/portfolio.html#photo-root-chamber",
       "encodingFormat": "image/jpeg",
       "width": 1536,

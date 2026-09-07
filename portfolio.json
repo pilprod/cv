@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "modified": "2026-09-07T16:44:23Z",
+  "modified": "2026-09-07T16:52:29Z",
   "cvModified": "2026-09-07T16:26:28Z",
   "canonical": "https://papou.work/portfolio.html",
   "person": "https://papou.work/#person",
@@ -252,6 +252,7 @@
       "height": 2048,
       "retouched": false,
       "file": "portfolio-images/root-chamber-original-1536.jpg",
+      "preview": "portfolio-images/root-chamber-1536.webp",
       "source": "https://github.com/pilprod/aeroponics-iot-control/blob/7c0c97df694f764d4c7354408b18146c63ca5864/docs/images/root-chamber.jpg"
     }
   ]

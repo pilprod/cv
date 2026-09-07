@@ -28,7 +28,7 @@ class Page(HTMLParser):
         if tag == 'link': self.links.append(a)
         if a.get('id'): self.ids.add(a['id'])
         if tag == 'time': self.times.append(a.get('datetime'))
-        for key in ('href', 'src'):
+        for key in ('href', 'src', 'srcset'):
             if key in a: self.refs.append(a[key])
 
 def text(file):

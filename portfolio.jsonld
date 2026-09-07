@@ -31,7 +31,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-07T16:44:23Z",
+      "dateModified": "2026-09-07T16:52:29Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -635,6 +635,7 @@
       "@id": "https://papou.work/portfolio.html#photo-root-chamber",
       "name": "Root chamber",
       "contentUrl": "https://papou.work/portfolio-images/root-chamber-original-1536.jpg",
+      "thumbnailUrl": "https://papou.work/portfolio-images/root-chamber-1536.webp",
       "url": "https://papou.work/portfolio.html#photo-root-chamber",
       "encodingFormat": "image/jpeg",
       "width": 1536,
