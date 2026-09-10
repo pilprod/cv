@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "modified": "2026-09-07T16:52:29Z",
+  "modified": "2026-09-10T00:54:10Z",
   "cvModified": "2026-09-07T16:26:28Z",
   "canonical": "https://papou.work/portfolio.html",
   "person": "https://papou.work/#person",
@@ -190,9 +190,9 @@
       "caption": "Breadboard-mounted sensor modules and jumper wiring during controller prototyping.",
       "width": 1024,
       "height": 768,
-      "retouched": false,
-      "file": "portfolio-images/breadboard-prototype-1024.jpg",
-      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/6e428389b7df697cc4fede585ad199d1fd922211/docs/images/breadboard-prototype-1024.jpg"
+      "retouched": true,
+      "file": "portfolio-images/breadboard-prototype-privacy-20260909.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/83f7e6a2a1ab138aa541010033e774c1c7a1783b/docs/images/breadboard-prototype-privacy-20260909.jpg"
     },
     {
       "id": "home-assistant-dashboard",

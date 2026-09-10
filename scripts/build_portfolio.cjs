@@ -16,6 +16,7 @@ const socialTitle = 'Ilya Papou — R&D projects, source code & lab photographs'
 const socialDescription = `Agent infrastructure, aeroponics and zero-trust network experiments. Public GitHub code, archival prototypes and ${data.photos.length} lab photographs, with project context.`;
 const socialImage = `https://papou.work/${socialPhoto.file}`;
 const socialImageAlt = socialPhoto.caption + ' Background or identifying areas retouched with AI assistance.';
+const breadboardRetouch = 'Patterned wallpaper replaced with a neutral wall using AI assistance for privacy.';
 const graph = [
   {'@type':'WebSite','@id':'https://papou.work/#website',url:'https://papou.work/',name:'Ilya Papou — CV',publisher:ref(data.person)},
   {'@type':'Person','@id':data.person,name:'Ilya Papou',alternateName:['Ilya Popov','PILPROD','pilprod'],url:'https://papou.work/',sameAs:[data.linkedin.profile,'https://github.com/pilprod']},
@@ -28,17 +29,17 @@ const graph = [
       ...(r.variants || []).map(v=>({'@type':'SoftwareSourceCode','@id':variantUrl(r,v),url:variantUrl(r,v),codeRepository:repoUrl(r),name:v.name,description:v.scope,programmingLanguage:'C++',creativeWorkStatus:'Archival prototype — not a final solution',isPartOf:ref(repoUrl(r))}))
     ])
   ]),
-  ...data.photos.map(p=>({'@type':'ImageObject','@id':imageId(p),name:p.title,contentUrl:`https://papou.work/${p.file}`,...(p.preview?{thumbnailUrl:`https://papou.work/${p.preview}`} : {}),url:`${data.canonical}#photo-${p.id}`,encodingFormat:'image/jpeg',width:p.width,height:p.height,caption:p.caption+(p.retouched?' Background or identifying areas retouched with AI assistance.':''),about:ref(`${data.canonical}#home`),isPartOf:ref(`${data.canonical}#home`),isBasedOn:p.source}))
+  ...data.photos.map(p=>({'@type':'ImageObject','@id':imageId(p),name:p.title,contentUrl:`https://papou.work/${p.file}`,...(p.preview?{thumbnailUrl:`https://papou.work/${p.preview}`} : {}),url:`${data.canonical}#photo-${p.id}`,encodingFormat:'image/jpeg',width:p.width,height:p.height,caption:p.caption+(p.retouched?' '+(p.id==='breadboard-prototype'?breadboardRetouch:'Background or identifying areas retouched with AI assistance.'):''),about:ref(`${data.canonical}#home`),isPartOf:ref(`${data.canonical}#home`),isBasedOn:p.source}))
 ];
 const jsonld = JSON.stringify({'@context':'https://schema.org','@graph':graph},null,2);
-const photoHtml = p => `<figure id="photo-${esc(p.id)}"><a href="${esc(p.file)}" aria-label="Open full photograph: ${esc(p.title)}">${p.preview?`<picture><source srcset="${esc(p.preview)}" type="image/webp">`:''}<img src="${esc(p.file)}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async" alt="${esc(p.caption)}">${p.preview?'</picture>':''}</a><figcaption><strong>${esc(p.title)}</strong><p>${esc(p.caption)}</p>${p.retouched?'<small>AI-retouched background / identifying areas.</small>':''}<a class="source-link" href="${esc(p.source)}">Published source photo</a></figcaption></figure>`;
+const photoHtml = p => `<figure id="photo-${esc(p.id)}"><a href="${esc(p.file)}" aria-label="Open full photograph: ${esc(p.title)}">${p.preview?`<picture><source srcset="${esc(p.preview)}" type="image/webp">`:''}<img src="${esc(p.file)}" width="${p.width}" height="${p.height}" loading="lazy" decoding="async" alt="${esc(p.caption)}">${p.preview?'</picture>':''}</a><figcaption><strong>${esc(p.title)}</strong><p>${esc(p.caption)}</p>${p.retouched?`<small>${p.id==='breadboard-prototype'?breadboardRetouch:'AI-retouched background / identifying areas.'}</small>`:''}<a class="source-link" href="${esc(p.source)}">Published source photo</a></figcaption></figure>`;
 const variantsHtml = r => r.variants ? `<div class="variants"><h4>Archived prototypes · 2024</h4><ul>${r.variants.map(v=>`<li><a href="${esc(variantUrl(r,v))}">${esc(v.name)}</a><p>${esc(v.scope)}</p></li>`).join('')}</ul></div>` : '';
 const projectHtml = p => `<section class="evidence-project" id="${esc(p.id)}" aria-labelledby="title-${esc(p.id)}">
   <header><p class="eyebrow">${esc(p.status)}</p><h2 id="title-${esc(p.id)}">${esc(p.name)}</h2><p class="project-period">${esc(p.period)} · ${esc(p.location)}</p></header>
   <p class="project-intro">${esc(p.description)}</p><p>${esc(p.scope)}</p>
   <div class="profile-mapping"><p><a href="/#${esc(p.cvAnchor)}">Project in the CV</a></p><p><a href="${esc(data.linkedin.projects)}">LinkedIn Projects</a>: ${esc(p.linkedinProject)}</p><p><a href="${esc(data.linkedin.experience)}">Associated Experience</a>: ${esc(p.experience)} — ${esc(p.experienceCompany)}</p></div>
   <ul class="repository-list">${p.repositories.map(r=>`<li><h3><a href="${esc(repoUrl(r))}">${esc(r.label)}</a></h3><p class="repo-name">pilprod/${esc(r.slug)}</p><p>${esc(r.description)}</p><p class="scope-note">${esc(r.scope)}</p>${r.upstream?`<p class="scope-note">Upstream: <a href="${esc(r.upstream)}">${esc(r.upstream.replace('https://github.com/',''))}</a></p>`:''}${variantsHtml(r)}</li>`).join('\n')}</ul>
-  ${p.id==='home'?`<h3 class="gallery-title" id="lab-gallery">Lab photographs</h3><p>${data.photos.length} photographs of the wider historical installation, also published in the <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">controller README</a> and <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">firmware README</a>. They do not verify that the archived firmware builds or that the full system is represented by the public code.</p><p class="scope-note">Five photographs have AI-retouched backgrounds or identifying areas, individually marked below. The wiring diagram, breadboard and root-chamber photograph have not been redrawn.</p><div class="photo-gallery">${data.photos.map(photoHtml).join('\n')}</div>`:''}
+  ${p.id==='home'?`<h3 class="gallery-title" id="lab-gallery">Lab photographs</h3><p>${data.photos.length} photographs of the wider historical installation, also published in the <a href="https://github.com/pilprod/aeroponics-iot-control#lab-gallery">controller README</a> and <a href="https://github.com/pilprod/aeroponics-sensor-firmware#lab-gallery">firmware README</a>. They do not verify that the archived firmware builds or that the full system is represented by the public code.</p><p class="scope-note">Six photographs have AI-retouched backgrounds or identifying areas, individually marked below. The wiring diagram and root-chamber photograph have not been redrawn.</p><div class="photo-gallery">${data.photos.map(photoHtml).join('\n')}</div>`:''}
 </section>`;
 const html = `<!doctype html>
 <html lang="en"><head>
@@ -70,8 +71,8 @@ for(const p of data.projects){
     for(const v of r.variants || [])markdown+=`  - [${v.name}](${variantUrl(r,v)}): Archival prototype, not a final solution. ${v.scope}\n`;
   }
   if(p.id==='home'){
-    markdown+='\n### Lab photographs\n\nThese show the wider historical installation, not build verification or all code in either public repository. Both aeroponics READMEs contain the gallery. Five photos have background or identifying-area AI retouching. The root-chamber photograph has not been redrawn.\n\n';
-    for(const photo of data.photos)markdown+=`- [${photo.title}](https://papou.work/${photo.file}): ${photo.caption}${photo.retouched?' AI-retouched background or identifying areas.':''} [Published source](${photo.source}).\n`;
+    markdown+='\n### Lab photographs\n\nThese show the wider historical installation, not build verification or all code in either public repository. Both aeroponics READMEs contain the gallery. Six photos have background or identifying-area AI retouching. The root-chamber photograph has not been redrawn.\n\n';
+    for(const photo of data.photos)markdown+=`- [${photo.title}](https://papou.work/${photo.file}): ${photo.caption}${photo.retouched?' '+(photo.id==='breadboard-prototype'?breadboardRetouch:'AI-retouched background or identifying areas.'):''} [Published source](${photo.source}).\n`;
   }
   markdown+='\n';
 }

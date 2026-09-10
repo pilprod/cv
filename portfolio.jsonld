@@ -31,7 +31,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-07T16:52:29Z",
+      "dateModified": "2026-09-10T00:54:10Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -526,19 +526,19 @@
       "@type": "ImageObject",
       "@id": "https://papou.work/portfolio.html#photo-breadboard-prototype",
       "name": "Breadboard prototype",
-      "contentUrl": "https://papou.work/portfolio-images/breadboard-prototype-1024.jpg",
+      "contentUrl": "https://papou.work/portfolio-images/breadboard-prototype-privacy-20260909.jpg",
       "url": "https://papou.work/portfolio.html#photo-breadboard-prototype",
       "encodingFormat": "image/jpeg",
       "width": 1024,
       "height": 768,
-      "caption": "Breadboard-mounted sensor modules and jumper wiring during controller prototyping.",
+      "caption": "Breadboard-mounted sensor modules and jumper wiring during controller prototyping. Patterned wallpaper replaced with a neutral wall using AI assistance for privacy.",
       "about": {
         "@id": "https://papou.work/portfolio.html#home"
       },
       "isPartOf": {
         "@id": "https://papou.work/portfolio.html#home"
       },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/6e428389b7df697cc4fede585ad199d1fd922211/docs/images/breadboard-prototype-1024.jpg"
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/83f7e6a2a1ab138aa541010033e774c1c7a1783b/docs/images/breadboard-prototype-privacy-20260909.jpg"
     },
     {
       "@type": "ImageObject",
