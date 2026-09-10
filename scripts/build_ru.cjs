@@ -54,7 +54,7 @@ const extras = {
   '9 photographs of the wider historical installation, also published in the':'9 фотографий установки периода работы над проектом. Галерея также опубликована в',
   'controller README':'README контроллеров', 'firmware README':'README прошивок', 'and':'и',
   '. They do not verify that the archived firmware builds or that the full system is represented by the public code.':'. Фотографии не подтверждают возможность сборки архивных прошивок или наличие всей системы в публичном коде.',
-  'Six photographs have AI-retouched backgrounds or identifying areas, individually marked below. The wiring diagram and root-chamber photograph have not been redrawn.':'На шести фотографиях фон или идентифицирующие детали обработаны с помощью AI; это указано в подписях. Схема соединений и фото корневой камеры не перерисованы.',
+  'Seven photographs have AI-retouched backgrounds or identifying areas, individually marked below. The wiring diagram and root-chamber photograph have not been redrawn.':'На семи фотографиях фон или идентифицирующие детали обработаны с помощью AI; это указано в подписях. Схема соединений и фото корневой камеры не перерисованы.',
   'Markdown overview':'Обзор в Markdown', 'Structured project data':'Структурированные данные', 'Full CV':'Полное резюме',
   'Research periods describe the work, not the publication date of a repository. LinkedIn links open the profile sections; locate the matching project and role shown here. Access may require sign-in.':'Даты относятся к работе над проектами, а не к публикации репозиториев. Ссылки LinkedIn открывают разделы профиля: названия соответствующих проектов и ролей указаны выше. Для просмотра может потребоваться вход.',
   'Archival prototype — not a final solution':'Архивный прототип — не готовое решение',
@@ -136,7 +136,7 @@ for (const p of source.projects) {
   }
 }
 markdown += '\n## Фотографии лаборатории\n\nФото показывают историческую установку, а не подтверждение сборки публичного кода.\n\n';
-for (const photo of source.photos) markdown += `- [${translate(photo.title)}](https://papou.work/${photo.file}): ${translate(photo.caption)}${photo.retouched ? (photo.id==='breadboard-prototype' ? ' Для приватности узорчатые обои заменены нейтральной стеной с помощью AI.' : ' Фон или идентифицирующие детали обработаны с помощью AI.') : ''} [Источник](${photo.source}).\n`;
+for (const photo of source.photos) markdown += `- [${translate(photo.title)}](https://papou.work/${photo.file}): ${translate(photo.caption)}${photo.retouched ? (['breadboard-prototype', 'home-assistant-dashboard'].includes(photo.id) ? ' Для приватности узорчатые обои заменены нейтральной стеной с помощью AI.' : ' Фон или идентифицирующие детали обработаны с помощью AI.') : ''} [Источник](${photo.source}).\n`;
 const readableCV = cv.match(/<main class="cv">([\s\S]*?)<\/main>/)[1]
   .replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g, (_, href, text) => `[${decode(text.replace(/<[^>]*>/g, ''))}](${href.startsWith('/') ? 'https://papou.work'+href : href})`)
   .replace(/<\/(?:p|li|h[1-6]|article|section|div|header|footer|dd|dt)>/g, '\n').replace(/<[^>]*>/g,'');

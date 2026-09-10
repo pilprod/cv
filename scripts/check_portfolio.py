@@ -116,17 +116,24 @@ def main():
     breadboard = next(p for p in data['photos'] if p['id'] == 'breadboard-prototype')
     assert (breadboard['width'], breadboard['height']) == (1024, 768), 'Preserve the full replacement breadboard photograph'
     assert breadboard['file'] == 'portfolio-images/breadboard-prototype-privacy-20260909.jpg' and breadboard['retouched']
-    breadboard_alias = 'portfolio-images/breadboard-prototype-1024.jpg'
-    assert read(breadboard_alias, binary=True) == read(breadboard['file'], binary=True), 'The old photo URL must serve the same privacy-edited bytes'
-    assert breadboard_alias not in page.links and CANONICAL + breadboard_alias not in markdown, 'Use the new privacy-edited URL in the gallery'
+    dashboard = next(p for p in data['photos'] if p['id'] == 'home-assistant-dashboard')
+    assert (dashboard['width'], dashboard['height']) == (1024, 768), 'Preserve the full dashboard photograph'
+    assert dashboard['file'] == 'portfolio-images/home-assistant-dashboard-privacy-20260909.jpg' and dashboard['retouched']
+    privacy_aliases = {
+        'portfolio-images/breadboard-prototype-1024.jpg': breadboard['file'],
+        'portfolio-images/home-assistant-dashboard.jpg': dashboard['file'],
+    }
+    for alias, canonical in privacy_aliases.items():
+        assert read(alias, binary=True) == read(canonical, binary=True), 'The old photo URL must serve the same privacy-edited bytes: ' + alias
+        assert alias not in page.links and CANONICAL + alias not in markdown, 'Use the new privacy-edited URL in the gallery: ' + alias
     assert 'breadboard-prototype.jpg' not in html and 'breadboard-prototype.jpg' not in markdown, 'Do not reuse the old cropped-looking photo or its cached URL'
     if not base:
         gallery_files = {Path(p['file']).name for p in data['photos']}
         preview_files = {Path(p['preview']).name for p in data['photos'] if p.get('preview')}
-        expected_files = gallery_files | preview_files | {Path(breadboard_alias).name}
-        assert {p.name for p in (ROOT / 'portfolio-images').iterdir() if p.is_file()} == expected_files, 'Keep only gallery assets, their previews and the safe compatibility alias'
+        expected_files = gallery_files | preview_files | {Path(alias).name for alias in privacy_aliases}
+        assert {p.name for p in (ROOT / 'portfolio-images').iterdir() if p.is_file()} == expected_files, 'Keep only gallery assets, their previews and the two safe compatibility aliases'
     assert page.picture_sources == [{'srcset':root_chamber['preview'],'type':'image/webp'}]
-    assert sum(p['retouched'] for p in data['photos']) == 6
+    assert sum(p['retouched'] for p in data['photos']) == 7
     for photo, img in zip(data['photos'],page.images):
         node = by_id[data['canonical'] + '#photo-' + photo['id']]
         assert img['src'] == photo['file'] and img['alt'] == photo['caption']

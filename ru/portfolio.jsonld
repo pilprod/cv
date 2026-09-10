@@ -36,7 +36,7 @@
       "url": "https://papou.work/ru/portfolio.html",
       "name": "Илья Попов — R&D-проекты, код и фотографии лаборатории",
       "inLanguage": "ru",
-      "dateModified": "2026-09-10T00:54:10Z",
+      "dateModified": "2026-09-10T01:00:22Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/ru/portfolio.html#photo-electronics-workbench"
       },
@@ -549,19 +549,19 @@
       "@type": "ImageObject",
       "@id": "https://papou.work/ru/portfolio.html#photo-home-assistant-dashboard",
       "name": "Панель Home Assistant",
-      "contentUrl": "https://papou.work/portfolio-images/home-assistant-dashboard.jpg",
+      "contentUrl": "https://papou.work/portfolio-images/home-assistant-dashboard-privacy-20260909.jpg",
       "url": "https://papou.work/ru/portfolio.html#photo-home-assistant-dashboard",
       "encodingFormat": "image/jpeg",
       "width": 1024,
       "height": 768,
-      "caption": "Показатели климата и воды, управление освещением и состояния устройств.",
+      "caption": "Показатели климата и воды, управление освещением и состояния устройств. Для приватности узорчатые обои заменены нейтральной стеной с помощью AI.",
       "about": {
         "@id": "https://papou.work/ru/portfolio.html#home"
       },
       "isPartOf": {
         "@id": "https://papou.work/ru/portfolio.html#home"
       },
-      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg"
+      "isBasedOn": "https://github.com/pilprod/aeroponics-iot-control/blob/994f20e27f54e8f3659731089f2d0208cead39c1/docs/images/home-assistant-dashboard-privacy-20260909.jpg"
     },
     {
       "@type": "ImageObject",

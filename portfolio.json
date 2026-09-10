@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "modified": "2026-09-10T00:54:10Z",
+  "modified": "2026-09-10T01:00:22Z",
   "cvModified": "2026-09-07T16:26:28Z",
   "canonical": "https://papou.work/portfolio.html",
   "person": "https://papou.work/#person",
@@ -200,9 +200,9 @@
       "caption": "Climate and water measurements, lighting controls and device states.",
       "width": 1024,
       "height": 768,
-      "retouched": false,
-      "file": "portfolio-images/home-assistant-dashboard.jpg",
-      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/9057bcd017df480416863801cf507760f6c2b6da/docs/images/home-assistant-dashboard.jpg"
+      "retouched": true,
+      "file": "portfolio-images/home-assistant-dashboard-privacy-20260909.jpg",
+      "source": "https://github.com/pilprod/aeroponics-iot-control/blob/994f20e27f54e8f3659731089f2d0208cead39c1/docs/images/home-assistant-dashboard-privacy-20260909.jpg"
     },
     {
       "id": "lighting-ventilation",
