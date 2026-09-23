@@ -60,11 +60,14 @@ for en_file, ru_file, en_url, ru_url in [('index.html','ru/index.html',BASE,BASE
 
 en_html, ru_html = text('index.html'), text('ru/index.html')
 en_bullets, ru_bullets = bullets(en_html), bullets(ru_html)
-assert len(en_bullets) == len(ru_bullets) == 35
+assert len(en_bullets) == len(ru_bullets) == 32
 for en, ru in zip(en_bullets,ru_bullets):
     assert re.search('[А-Яа-яЁё]',ru), 'Untranslated achievement'
     assert Counter(re.findall(r'\d+(?:\.\d+)?',en)) == Counter(re.findall(r'\d+(?:\.\d+)?',ru)), 'Numbers changed in translated achievement'
 assert tech(en_html) == tech(ru_html), 'Technical skill names changed'
+for employer in ('Sirena-Travel', 'Сбербанк Страховой брокер', 'I-Teco', 'МТС'):
+    assert employer in ru_html, 'Russian employer name missing: '+employer
+assert 'employer-note' not in en_html + ru_html, 'Keep editorial employer notes out of the CV'
 assert 'Buenos Aires Province' not in ru_html and '5000' not in ru_html
 assert '<h1>Илья Попов</h1>' in ru_html and 'Илья Папоу' not in ru_html
 assert 'https://papou.work/ru/portfolio.html' in ru_html
@@ -107,4 +110,4 @@ for p in data['projects']:
 ns = {'s':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml'}
 for page in ET.fromstring(text('sitemap.xml')).findall('s:url',ns):
     assert {n.attrib['hreflang'] for n in page.findall('x:link',ns)} == {'en','ru','x-default'}
-print('PASS: EN primary, reciprocal RU language pages, 35 achievements, unchanged dates/skills/repositories, 9 photos, both two-page PDFs and source manifests.')
+print('PASS: EN primary, reciprocal RU language pages, 32 achievements, unchanged dates/skills/repositories, 9 photos, both two-page PDFs and source manifests.')

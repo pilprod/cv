@@ -99,7 +99,7 @@
       "url": "https://papou.work/",
       "image": "https://papou.work/assets/portrait.jpg",
       "jobTitle": "Senior Platform & SRE Engineer",
-      "description": "Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. Для облачных проектов предпочитаю AWS и Google Cloud. Для bare-metal и собственной инфраструктуры предпочитаю RKE2, Proxmox и Ubuntu.",
+      "description": "Senior Platform & SRE Engineer с опытом создания и эксплуатации production-платформ на Kubernetes, автоматизации доставки ПО и руководства DevOps-командами. Мой опыт включает облачную и bare-metal инфраструктуру, меры безопасности, наблюдаемость, реагирование на инциденты и аварийное восстановление. Текущие личные R&D-проекты посвящены инфраструктуре агентов для разработки ПО: MCP, A2A и процессам с проверкой и согласованием изменений человеком.",
       "homeLocation": {
         "@type": "Place",
         "name": "Буэнос-Айрес, Аргентина"
@@ -153,7 +153,7 @@
           <h1>Илья Попов</h1>
           <p class="headline">8 лет в IT · 5+ в DevOps и SRE</p>
         </div>
-        <p class="summary">Создал и сопровождал Kubernetes-платформы и переиспользуемые DevSecOps-пайплайны для production. В личном R&amp;D разработал прототипы инфраструктуры AI-агентов с MCP и A2A и спроектировал процессы с проверкой человеком. Для облачных проектов предпочитаю AWS и Google Cloud. Для bare-metal и собственной инфраструктуры предпочитаю RKE2, Proxmox и Ubuntu.</p>
+        <p class="summary">Senior Platform &amp; SRE Engineer с опытом создания и эксплуатации production-платформ на Kubernetes, автоматизации доставки ПО и руководства DevOps-командами. Мой опыт включает облачную и bare-metal инфраструктуру, меры безопасности, наблюдаемость, реагирование на инциденты и аварийное восстановление. Текущие личные R&amp;D-проекты посвящены инфраструктуре агентов для разработки ПО: MCP, A2A и процессам с проверкой и согласованием изменений человеком.</p>
       </header>
       <aside class="sidebar" aria-label="Контакты и профиль">
         <div class="portrait">
@@ -213,7 +213,6 @@
                 <li>Финансы и страхование</li>
                 <li>Авиация и туризм</li>
                 <li>iGaming и антифрод</li>
-                <li>Государственный сектор</li>
               </ul>
             </section>
           </div>
@@ -221,99 +220,70 @@
       </aside>
       <section class="experience" id="experience" aria-labelledby="experience-heading">
         <h2 class="section-label" id="experience-heading">Опыт работы</h2>
-          <article class="job">
-            <header class="job-header">
-              <div class="job-title-line">
-                <div class="job-heading">
-                <h3 class="company"><a href="https://sirena-travel.com/">Sirena-Travel</a></h3>
-                <p class="job-role">Senior SRE &amp; Platform Engineer</p>
-                </div>
-                <span class="job-domain">Авиация и туризм</span>
-              </div>
-              <p class="job-meta"><time datetime="2025-03">Мар 2025</time> — <time datetime="2026-09">Сен 2026</time> · Контракт · Таиланд · Удалённо</p>
-            </header>
-            <ul class="achievements">
-              <li>Создал и сопровождал RKE2 на bare metal: шифрование etcd, mTLS для Kafka между ЦОД, межсервисного трафика, PostgreSQL и Redis. Централизовал сертификаты в Vault. Настроил обновление через External Secrets Operator (ESO), webhooks и Ansible.</li>
-              <li>Стандартизировал поставку сервисов: GitLab CI/CD, общие Helm-чарты, Argo CD.</li>
-              <li>Отвечал за on-call, разбирал сбои, документировал восстановление и предотвращение повторных инцидентов.</li>
-              <li>Централизовал образы и зависимости в Nexus. Проверки SAST, GitGuardian и Trivy блокировали релизы и Argo CD sync в production. Ставил разработчикам задачи: устранить уязвимости, обновить зависимости, удалить секреты и сменить dev-пароли.</li>
-              <li>Интегрировал kagent и Mattermost для работы с AI-агентами. Конфигурацией агентов и платформы управлял через IaC и GitOps.</li>
-            </ul>
-          </article>
-
-          <article class="job">
-            <header class="job-header">
-              <div class="job-title-line">
-                <div class="job-heading">
-                <h3 class="company"><a href="https://www.sberbank.com/" aria-label="Сбербанк страховой брокер"><span class="company-name-full">Сбербанк страховой брокер</span><span class="company-name-short" aria-hidden="true">Сбербанк страх. брокер</span></a></h3>
-                <p class="job-role">Руководитель DevOps</p>
-                </div>
-                <span class="job-domain">Финансы и страхование</span>
-              </div>
-              <p class="job-meta"><time datetime="2023-06">Июн 2023</time> — <time datetime="2025-03">Мар 2025</time> · Полная занятость · Россия · Гибрид</p>
-            </header>
-            <ul class="achievements">
-              <li>Создал и возглавил DevOps-команду с 4 прямыми подчинёнными, координировал инфраструктурную группу из ~10 человек. Внедрил общие стандарты, документацию и обмен знаниями.</li>
-              <li>Развернул ~8 Kubernetes-кластеров (20+ узлов) через Terraform и GitOps. Связал сервисы Cloud.ru Advanced (технологии Huawei Cloud) с VMware на bare-metal серверах Cloud.ru.</li>
-              <li>Создал DevSecOps-пайплайн Jenkins для 30–40 микросервисов: релизы из Jira, общие Helm-чарты, проверки ИБ, тесты, согласования. Сборка и доставка &gt;6 сервисов занимали ~5 мин, релиз с согласованием между отделами укладывался в день. После моего ухода пайплайн работал и поддерживал новые сервисы.</li>
-              <li>Создал SSO PoC на Keycloak и Nginx. Координировал изменения микросервисов, передал требования и ТЗ командам ИБ и разработки. Внедрил Vault, шифрование сервисного трафика и централизованный мониторинг. Проверил аварийное восстановление.</li>
-            </ul>
-          </article>
-
-          <article class="job">
-            <header class="job-header">
-              <div class="job-title-line">
-                <div class="job-heading">
-                <h3 class="company"><a href="https://www.i-teco.ru/">I-Teco</a></h3>
-                <p class="job-role">Senior DevOps Engineer</p>
-                </div>
-                <span class="job-domain">Государственный сектор</span>
-              </div>
-              <p class="job-meta"><time datetime="2022-04">Апр 2022</time> — <time datetime="2023-06">Июн 2023</time> · Полная занятость · Россия · Удалённо</p>
-            </header>
-            <ul class="achievements">
-              <li>Сопровождал dev/test-среды на ~10 хостах Hyper-V и Windows Server, по ~50 ВМ на каждом, включая Linux и общие инженерные сервисы.</li>
-              <li>Развернул Kubernetes на Alt Linux 9.2 в air-gapped среде. Готовил релизы на USB для переноса под контролем ИБ и развёртывал скриптами.</li>
-              <li>Сопровождал Airflow, Cassandra, RabbitMQ, PostgreSQL и Patroni, Docker Swarm, TeamCity, Nexus. Автоматизировал операции: Ansible, Python, Bash. Изолированный доступ настроил через OpenVPN.</li>
-            </ul>
-          </article>
-
-          <article class="job">
-            <header class="job-header">
-              <div class="job-title-line">
-                <div class="job-heading">
-                <h3 class="company"><a href="https://flant.ru/">Flant</a> и фриланс</h3>
-                <p class="job-role">Разработка и DevOps</p>
-                </div>
-                <span class="job-domain">IT-консалтинг</span>
-              </div>
-              <p class="job-meta"><time datetime="2019-11">Ноя 2019</time> — <time datetime="2022-03">Мар 2022</time> · Отдельные проекты · Удалённо</p>
-            </header>
-            <ul class="achievements">
-              <li>Создавал облачную инфраструктуру и веб-приложения во фрилансе и Flant: AWS (S3, Lambda, Kubernetes, IAM) и Yandex Cloud.</li>
-              <li>Писал приложения на React, Next.js, Node.js, Express. Развёртывал Java и Spring в Kubernetes через Helm, GitHub Actions и Ansible.</li>
-              <li>Поддерживал поставку и эксплуатацию: Prometheus, Grafana, ELK, PostgreSQL и Patroni.</li>
-            </ul>
-          </article>
-
-          <article class="job">
-            <header class="job-header">
-              <div class="job-title-line">
-                <div class="job-heading">
-                <h3 class="company"><a href="https://mts.ru/">МТС (Мобильные ТелеСистемы)</a></h3>
-                <p class="job-role">Стажёр по информационной безопасности</p>
-                </div>
-                <span class="job-domain">Телекоммуникации</span>
-              </div>
-              <p class="job-meta"><time datetime="2018-02">Фев 2018</time> — <time datetime="2019-11">Ноя 2019</time> · Стажировка · Беларусь · Удалённо</p>
-            </header>
-            <ul class="achievements">
-              <li>Настраивал Linux и Kali Linux, изучал загрузку и компоненты ОС. Сравнивал модели виртуализации, создавал изолированные стенды тестирования безопасности.</li>
-              <li>Исследовал сети и открытые сервисы с Nmap и средствами разведки. Находил уязвимости и проверял их на учебных стендах Metasploit.</li>
-              <li>Настраивал и проверял маршрутизацию VPN, Tor и I2P. Шифровал и расшифровывал бинарные файлы.</li>
-              <li>На примере криптокошельков и переводов изучал проверку транзакций и движение данных в блокчейне.</li>
-            </ul>
-          </article>
+        <article class="job">
+          <header class="job-header">
+            <div class="job-title-line"><div class="job-heading">
+              <h3 class="company">Sirena-Travel</h3>
+              <p class="job-role">Senior SRE &amp; Platform Engineer</p>
+            </div><span class="job-domain">Авиация и туризм</span></div>
+            <p class="job-meta"><time datetime="2025-03">Мар 2025</time> — <time datetime="2026-09">Сен 2026</time> · Контракт · Удалённо</p>
+          </header>
+          <ul class="achievements">
+            <li>Создал и эксплуатировал Kubernetes-платформу на bare-metal с RKE2, шифрованием etcd, mTLS для сервисов и систем хранения данных и централизованным управлением сертификатами через Vault.</li>
+            <li>Стандартизировал развёртывание с GitLab CI/CD, переиспользуемыми Helm-чартами и Argo CD. Встроил проверки безопасности в релизные процессы для блокировки уязвимых сборок и развёртываний в production.</li>
+            <li>Отвечал за реагирование на инциденты в рамках дежурств, расследовал сбои и документировал процедуры восстановления и профилактические меры.</li>
+            <li>Интегрировал kagent и Mattermost для инженерных задач с помощью AI. Управлял определениями агентов и конфигурацией платформы через IaC и GitOps.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <header class="job-header">
+            <div class="job-title-line"><div class="job-heading">
+              <h3 class="company">Сбербанк Страховой брокер</h3>
+              <p class="job-role">Руководитель DevOps</p>
+            </div><span class="job-domain">Финансы и страхование</span></div>
+            <p class="job-meta"><time datetime="2023-06">Июн 2023</time> — <time datetime="2025-03">Мар 2025</time> · Полная занятость · Гибридно</p>
+          </header>
+          <ul class="achievements">
+            <li>Создал DevOps-команду с четырьмя сотрудниками в прямом подчинении и координировал инфраструктурную группу из ~10 человек. Организовал онбординг, обучение, обмен знаниями и регулярные технические ревью.</li>
+            <li>Построил облачную инфраструктуру с нуля и развернул ~8 Kubernetes-кластеров (20+ узлов суммарно) с Terraform и GitOps. Повысил доступность за счёт Multi-AZ и Multi-Region архитектуры, объединив облачные сервисы с инфраструктурой VMware.</li>
+            <li>Руководил миграцией сервисов в облако с минимальным простоем и контролируемым управлением изменениями.</li>
+            <li>Снизил затраты на инфраструктуру благодаря автоматическому выключению неиспользуемых ресурсов и контролю потребления.</li>
+            <li>Создал переиспользуемые пайплайны Jenkins для 30–40 микросервисов с Helm, проверками безопасности, тестами и согласованиями. Сборка и доставка пакетов более чем из шести сервисов занимали ~5 минут.</li>
+            <li>Внедрил Vault, шифрование межсервисного взаимодействия, централизованный мониторинг и проверенные процедуры аварийного восстановления. Разработал прототип SSO на Keycloak и согласовал требования с командами безопасности и разработки.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <header class="job-header">
+            <div class="job-title-line"><div class="job-heading">
+              <h3 class="company">I-Teco</h3>
+              <p class="job-role">Senior DevOps Engineer</p>
+            </div><span class="job-domain">ИТ-услуги</span></div>
+            <p class="job-meta"><time datetime="2022-04">Апр 2022</time> — <time datetime="2023-06">Июн 2023</time> · Полная занятость · Удалённо</p>
+          </header>
+          <ul class="achievements">
+            <li>Управлял инфраструктурой разработки и тестирования на примерно десяти хостах виртуализации, каждый из которых обслуживал около 50 виртуальных машин.</li>
+            <li>Развернул Kubernetes в изолированной Linux-среде и автоматизировал офлайн-релизы.</li>
+            <li>Сопровождал сервисы данных, обмена сообщениями и доставки, включая PostgreSQL/Patroni, Cassandra, RabbitMQ, Airflow, TeamCity и Nexus. Автоматизировал операции с Ansible, Python и Bash.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <header class="job-header">
+            <div class="job-title-line"><div class="job-heading">
+              <h3 class="company"><a href="https://flant.ru/">Flant</a> и фриланс</h3>
+              <p class="job-role">Разработка ПО и DevOps</p>
+            </div><span class="job-domain">IT-консалтинг</span></div>
+            <p class="job-meta"><time datetime="2019-11">Ноя 2019</time> — <time datetime="2022-03">Мар 2022</time> · Отдельные проекты · Удалённо</p>
+          </header>
+          <ul class="achievements">
+            <li>Разрабатывал облачную инфраструктуру и веб-приложения в рамках фриланса и проектов Flant, в том числе с использованием сервисов AWS.</li>
+            <li>Разрабатывал приложения на React/Next.js и Node.js и развёртывал Java/Spring-сервисы в Kubernetes с Helm и автоматизированными процессами доставки.</li>
+            <li>Поддерживал доставку и эксплуатацию production-систем с Prometheus, Grafana, ELK и PostgreSQL/Patroni.</li>
+          </ul>
+        </article>
+        <article class="job job-earlier">
+          <h3 class="section-label">Ранний опыт</h3>
+          <p class="job-meta">Стажёр по информационной безопасности · МТС · <time datetime="2018-02">Фев 2018</time> — <time datetime="2019-11">Ноя 2019</time></p>
+        </article>
       </section>
       <footer class="page-number" aria-hidden="true">Страница 1 / 2</footer>
     </section>
@@ -327,7 +297,7 @@
         <article class="project project-agent">
           <header>
             <h2 class="project-title" id="projects-heading">Agent Orchestration Infrastructure</h2>
-            <p class="project-meta"><time datetime="2026-06">Июн 2026</time> – н. в. · Личный R&amp;D · PoC · Буэнос-Айрес, Аргентина</p>
+            <p class="project-meta"><time datetime="2026-06">Июн 2026</time> – настоящее время · Личные R&amp;D · PoC</p>
           </header>
           <p class="project-summary">Личная R&amp;D-платформа для разработчиков и AI-агентов, работающих над ПО и инфраструктурой. Спроектирована для передачи задач с сохранением контекста, подключения инструментов и длительных процессов с проверкой и согласованием изменений человеком.</p>
           <ul class="achievements">
@@ -472,7 +442,7 @@
           <article class="project">
             <header>
               <h3 id="home-aeroponics">Home Aeroponics &amp; IoT automation</h3>
-              <p class="project-meta"><time datetime="2024-08">Авг 2024</time> — <time datetime="2025-01">Янв 2025</time> · Личный R&amp;D · Москва, Россия</p>
+              <p class="project-meta"><time datetime="2024-08">Авг 2024</time> — <time datetime="2025-01">Янв 2025</time> · Личные R&amp;D</p>
             </header>
             <ul class="achievements">
               <li>Спроектировал и собрал аэропонную систему: схемы соединений, пайка, подключение ESP32, Arduino, Raspberry Pi, датчиков и исполнительных устройств.</li>
@@ -487,7 +457,7 @@
           <article class="project">
             <header>
               <h3 id="zero-trust-mesh">Zero-Trust Mesh &amp; Open-source NGFW</h3>
-              <p class="project-meta"><time datetime="2025-01">Янв 2025</time> — <time datetime="2025-03">Мар 2025</time> · Личный R&amp;D · Бангкок, Таиланд</p>
+              <p class="project-meta"><time datetime="2025-01">Янв 2025</time> — <time datetime="2025-03">Мар 2025</time> · Личные R&amp;D</p>
             </header>
             <ul class="achievements">
               <li>Создал зашифрованную многорегиональную mesh-сеть Tailscale для лаборатории: устройства и частные сети в облаках, на bare metal и домашних стендах.</li>

@@ -558,6 +558,10 @@ h3 {
   margin-top: 29px;
 }
 
+.job-earlier .section-label {
+  margin-bottom: 6px;
+}
+
 .job-header {
   margin-bottom: 10px;
 }

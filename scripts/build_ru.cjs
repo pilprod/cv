@@ -65,8 +65,10 @@ for (const [en, ru] of Object.entries(extras)) translations.set(norm(en), ru);
 translations.set('Agent Orchestration Infrastructure', 'Agent Orchestration Infrastructure');
 for (const term of ['Schema validation', 'contract tests']) translations.set(term, term);
 const fragments = [...translations].filter(([en]) => en.length > 12).sort((a,b) => b[0].length-a[0].length);
+const projectLabels = new Set(source.projects.flatMap(p => [p.linkedinProject, p.experienceCompany]).map(norm));
 function translate(value) {
   const text = norm(value);
+  if (projectLabels.has(text.replace(/^:\s*/, ''))) return text;
   if (translations.has(text)) return translations.get(text);
   let result = text;
   for (const [en, ru] of fragments) if (en !== ru) result = result.split(en).join(ru);
@@ -124,6 +126,8 @@ function html(en) {
     return (part.match(/^\s*/)[0]) + esc(translate(decoded)) + (part.match(/\s*$/)[0]);
   }).replace('<span class="current-language-flag" aria-hidden="true">🇬🇧</span>', '<span class="current-language-flag" aria-hidden="true">🇷🇺</span>');
 }
+// Employer anonymization is specific to the English public CV.
+// Reviewed translations restore actual names in the Russian version.
 const cv = html(read('index.html'));
 const portfolio = html(read('portfolio.html'));
 const graph = graphValue(JSON.parse(read('portfolio.jsonld')));

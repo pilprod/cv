@@ -2,8 +2,8 @@
   "file": "assets/Ilya Popov CV — DevOps & SRE — RU.pdf",
   "title": "Ilya Popov CV — DevOps & SRE — RU",
   "pages": 2,
-  "bytes": 434592,
-  "sha256": "43e1c35209bce57fa4a0cff5a861d70892e9b58710157d34080d4b84440a967d",
+  "bytes": 420567,
+  "sha256": "e18a3c019c5ee555eac6459eac434034ee92fab6b7f6fe341af7593142435be3",
   "sources": {
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
@@ -20,7 +20,7 @@
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/social/cv-preview-20260906.jpg": "65becfd41f14750bc094b9bab179f4240771aa8a88d61c7c3277feedbf095ba0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "ru/index.html": "c0adce0861c41c134bc31fd0524f612d5f67c03a9eda232bb58065f80b50e4b8",
-    "styles.css": "08284e7021903fc0ec352fb8189bae669f9d2cf17fa17ef6405b5113f25d4efb"
+    "ru/index.html": "80580967b2f22300f11e5800680b498143d6dae4bb9ebef272b5c3339faf1185",
+    "styles.css": "db058d266f9691cb60ad47e772274c68e2ac87fa6a6aaa6f2eb11e5c5f12ebcf"
   }
 }

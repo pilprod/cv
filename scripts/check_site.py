@@ -56,8 +56,10 @@ SOURCE_PARTS = {
     "page-intro": ("page-intro",),
     "project": ("project/YourOwn.Chat", "project/Home Aeroponics", "project/Zero-Trust Mesh"),
 }
-# Source-derived fingerprints cover every word in the editorial sections, not
-# just a few selected keywords. Update only after reviewing changed source text.
+# Editorial fingerprints cover every word, not just selected keywords.
+# September 23 local draft: condensed experience, one-line internship,
+# architecture-focused wording and no historical-role or project locations.
+# This draft has not been published or synchronized to Figma.
 SOURCE_DIGESTS = {
     # September 5 user-directed cloud emphasis: the final summary preference,
     # AWS-first freelance wording and deployed GCP components first in R&D.
@@ -66,37 +68,36 @@ SOURCE_DIGESTS = {
     # September 7: user-approved summary distinguishes past production platform work
     # from personal agent R&D prototypes, with no concurrent-customer implication.
     # AWS/GCP preferences now also name RKE2, Proxmox and Ubuntu for self-hosting.
-    "identity": "7933494f0b080d75f158097d14c7fe42c56022400a026ef678bdfb08ca5d69e2",
+    "identity": "b7525a81c2b6bc0d9437923be1a697a8d1b00bb8daa03455f685f5cd5609e163",
     # Website and messaging handles explicitly added by the user after the baseline.
     "sidebar/contact": "e747534971c633d6d393b88ae7e244210e86ec756c117d06503496b1a4c71c3b",
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
     "sidebar/strengths": "5eddd31c856782aa6d067cbd9f59c47ab5fd5c09dd58b07b1df42b695bc1c192",
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
-    "sidebar/domains": "af8993ed452f0f0e2628d93963363c8869efd0a2385924e2c424a137dd098b37",
+    "sidebar/domains": "aa1a04b74e0f55359df2e37c216274da92c68cf36be9f935cd6fbf7f70a7c6a6",
     # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
-    "job/Sirena-Travel": "5e27096f34bb9f31639ebae4ce57b31babfb1ee8bb637d05b54455224260012f",
-    "job/Sberbank": "e3ae8fe8fdd501f99263f59e5de132576834acc7dfd6bdc1bf2412911c30f8b0",
-    "job/I-Teco": "8f9cf7cee4a2983e2156ad502846733006ab4f4e1dc20904ce571e6cfb865543",
+    "job/Sirena-Travel": "feb1192e9e65b06610839607198d9e27737a676a792705aa1c4a390cbade62f7",
+    "job/Sberbank": "5ca756e6625e58ca1ef1441f0dcb3ac2a9ab405c68d549b6d54b7ecb3627ff0b",
+    "job/I-Teco": "a45b607c218374d6134f9304aec55a3d7c537536a1ab71091a155f5b1809f4aa",
     # User-requested heading: Flant & Freelance.
-    "job/Freelance-Flant": "7ac34f8227b7209b6f028d6f24dfa48c46f7690a316f197834d49e155006303d",
+    "job/Freelance-Flant": "60346478e3bbc7daacc8e7f0581bdff208a9b532c509e235aabe5cadc164800e",
     # User-requested employer name: MTS (Mobile TeleSystems).
-    "job/MTS": "876877b59b95625109a51edaef6d659e6fa08216c544bf9b11bc67dcb5e3f91f",
+    "job/MTS": "4625a439806f61d2e36d51dedb2e32ffe362cb0cc6fd6f23c9d7f1f7ff7911b6",
     # September 6: user-requested visible portfolio link on PDF page 2.
     "page-intro": "a7d473274af9c2166c84356ad45db5775543eb2a08a61f3e97dd644545c75343",
     # September 6: project dates/locations refreshed from LinkedIn Experience.
     # The user subsequently corrected YourOwn.Chat's location to Buenos Aires city.
     # Preserve Personal R&D / PoCs labels and the reviewed achievement text.
     # User-requested shared heading: Agent Orchestration Infrastructure.
-    "project/YourOwn.Chat": "4498c2ffe688132ab906fcf6bd018f9cb77ca824f0919df752a81ec5c35734a2",
+    "project/YourOwn.Chat": "48e540fb9d9d04b9a96ef54009a1a300269179a785ae4983675ad6ff747d4f44",
     # User-directed status wording: Personal project -> Personal R&D.
     # User clarified Python/MQTT automation, Home Assistant UI and preparatory Prometheus work.
-    "project/Home Aeroponics": "90d7598431d6810b3f0079855586404316b95ef625c853c198fbae2be68d8bad",
+    "project/Home Aeroponics": "1f6dabd7d4008299505924ac5106dff04e0701009e4699ca3a5b03f2308c556c",
     # User confirmed automated network configuration and one-click node onboarding.
-    "project/Zero-Trust Mesh": "cee98493976f507c51414d6d50e886e8d0f634bc1876cb53f99fa53732c9f0ca",
+    "project/Zero-Trust Mesh": "90d4b875a562f7c906289293af223ba04b104f77bf5fd191628e74282d00c197",
 }
 SOURCE_LINKS = {
-    "https://sirena-travel.com", "https://www.sberbank.com", "https://www.i-teco.ru",
-    "https://flant.ru", "https://mts.ru",
+    "https://flant.ru",
     "https://papou.work",
     "https://wa.me/papou.work", "https://t.me/pilprod",
     "mailto:ilya@papou.email", "https://www.linkedin.com/in/pilprod", "https://github.com/pilprod",
@@ -137,20 +138,21 @@ def check_source_content(page):
     assert "Other engineering experience" not in page.cv_content["detail"], "Secondary projects should have no extra section heading"
     assert page.source_content["project"][0].startswith("Agent Orchestration Infrastructure "), "Preserve the shared Agent Orchestration Infrastructure heading"
     project_metadata = (
-        "Jun 2026 – Present · Personal R&D · PoCs · Buenos Aires, Argentina",
-        "Aug 2024 — Jan 2025 · Personal R&D · Moscow City, Russia",
-        "Jan 2025 — Mar 2025 · Personal R&D · Bangkok City, Thailand",
+        "Jun 2026 – Present · Personal R&D · PoCs",
+        "Aug 2024 — Jan 2025 · Personal R&D",
+        "Jan 2025 — Mar 2025 · Personal R&D",
     )
     for item, metadata in zip(page.source_content["project"], project_metadata):
-        assert metadata in item, "Project dates/locations differ from the reviewed LinkedIn source"
+        assert metadata in item, "Project dates or personal R&D status changed"
     assert "8 years in IT · 5+ in DevOps & SRE" in page.source_content["identity"][0], "Preserve the requested experience headline"
-    assert len(page.cv_content["achievement"]) == 35, "Expected all 35 reviewed achievement bullets"
-    domains = ("Aviation & travel", "Finance & insurance", "Public sector",
-               "Cross-industry IT consulting", "Telecommunications")
+    assert len(page.cv_content["achievement"]) == 32, "Expected 16 professional and 16 personal-project achievements"
+    domains = ("Aviation & travel", "Finance & insurance", "IT services",
+               "Cross-industry IT consulting", "Earlier experience")
     assert len(page.source_content["job"]) == len(domains), "Expected five professional experiences"
     for item, domain in zip(page.source_content["job"], domains):
         assert "Domain:" not in item and domain in item, "Missing experience domain or unwanted Domain prefix"
-    assert "Full-time · Russia · Hybrid" in page.source_content["job"][1], "Sber's work arrangement must be Hybrid"
+    assert not re.search(r"Sberbank|Sber|Sirena-Travel|I-Teco|\bMTS\b|Cloud\.ru|Huawei|Yandex|Alt Linux", " ".join(page.source_content["job"])), "English employer anonymization regressed"
+    assert "Full-time · Hybrid" in page.source_content["job"][1], "Sber's work arrangement must be Hybrid"
     for kind, labels in SOURCE_PARTS.items():
         items = page.source_content[kind]
         assert len(items) == len(labels), f"Missing or extra {kind} source sections"
@@ -158,7 +160,7 @@ def check_source_content(page):
             if label == "sidebar/contact":
                 item = item.replace("Also known as " + ALTERNATIVE_NAME, "")
             digest = hashlib.sha256(normalize_source_text(item).encode("utf-8")).hexdigest()
-            assert digest == SOURCE_DIGESTS[label], f"CV differs from reviewed Figma/PDF source in {label}. Review the source before changing its fingerprint."
+            assert digest == SOURCE_DIGESTS[label], f"CV differs from reviewed Figma/PDF source in {label}. Review the local editorial changes before changing its fingerprint."
 
 
 def check_technologies(page, llms):

@@ -619,6 +619,142 @@
     {
       "en": "Ilya Papou CV — DevOps & SRE",
       "ru": "Илья Попов — Резюме DevOps и SRE"
+    },
+    {
+      "en": "Built and operated a bare-metal Kubernetes platform using RKE2, with encrypted etcd, mTLS across services and data systems, and centralized certificate management through Vault.",
+      "ru": "Создал и эксплуатировал Kubernetes-платформу на bare-metal с RKE2, шифрованием etcd, mTLS для сервисов и систем хранения данных и централизованным управлением сертификатами через Vault."
+    },
+    {
+      "en": "Standardized deployments with GitLab CI/CD, reusable Helm charts, and Argo CD. Integrated security checks into release workflows to block vulnerable builds and production deployments.",
+      "ru": "Стандартизировал развёртывание с GitLab CI/CD, переиспользуемыми Helm-чартами и Argo CD. Встроил проверки безопасности в релизные процессы для блокировки уязвимых сборок и развёртываний в production."
+    },
+    {
+      "en": "Owned on-call incident response, investigated failures, and documented recovery procedures and preventive actions.",
+      "ru": "Отвечал за реагирование на инциденты в рамках дежурств, расследовал сбои и документировал процедуры восстановления и профилактические меры."
+    },
+    {
+      "en": "Integrated kagent and Mattermost for AI-assisted engineering, managing agent definitions and platform configuration through IaC and GitOps.",
+      "ru": "Интегрировал kagent и Mattermost для инженерных задач с помощью AI. Управлял определениями агентов и конфигурацией платформы через IaC и GitOps."
+    },
+    {
+      "en": "Built and led a DevOps team with four direct reports and coordinated delivery across an infrastructure group of approximately ten people.",
+      "ru": "Создал команду DevOps и руководил четырьмя сотрудниками в прямом подчинении. Координировал работу инфраструктурной группы примерно из десяти человек."
+    },
+    {
+      "en": "Provisioned ~8 Kubernetes clusters (20+ nodes total) with Terraform and GitOps, integrating cloud services with VMware infrastructure.",
+      "ru": "Развернул ~8 Kubernetes-кластеров (20+ узлов суммарно) с Terraform и GitOps, объединив облачные сервисы с инфраструктурой VMware."
+    },
+    {
+      "en": "Built reusable Jenkins delivery pipelines for 30–40 microservices, combining Helm deployments, security checks, testing, and approvals. Build and delivery took approximately five minutes for batches of more than six services.",
+      "ru": "Создал переиспользуемые пайплайны доставки в Jenkins для 30–40 микросервисов с развёртыванием через Helm, проверками безопасности, тестированием и согласованиями. Сборка и доставка пакетов более чем из шести сервисов занимали около пяти минут."
+    },
+    {
+      "en": "Introduced Vault, encrypted service communication, centralized monitoring, and tested disaster recovery procedures. Developed a Keycloak SSO proof of concept and coordinated implementation requirements with security and development teams.",
+      "ru": "Внедрил Vault, шифрование межсервисного взаимодействия, централизованный мониторинг и проверенные процедуры аварийного восстановления. Разработал прототип SSO на Keycloak и согласовал требования к внедрению с командами безопасности и разработки."
+    },
+    {
+      "en": "Managed development and test infrastructure across approximately ten virtualization hosts, each running around 50 virtual machines.",
+      "ru": "Управлял инфраструктурой разработки и тестирования на примерно десяти хостах виртуализации, каждый из которых обслуживал около 50 виртуальных машин."
+    },
+    {
+      "en": "Deployed Kubernetes in an air-gapped Linux environment and automated offline releases.",
+      "ru": "Развернул Kubernetes в изолированной Linux-среде и автоматизировал офлайн-релизы."
+    },
+    {
+      "en": "Maintained data, messaging, and delivery services, including PostgreSQL/Patroni, Cassandra, RabbitMQ, Airflow, TeamCity, and Nexus. Automated operations with Ansible, Python, and Bash.",
+      "ru": "Сопровождал сервисы данных, обмена сообщениями и доставки, включая PostgreSQL/Patroni, Cassandra, RabbitMQ, Airflow, TeamCity и Nexus. Автоматизировал операции с Ansible, Python и Bash."
+    },
+    {
+      "en": "Delivered cloud infrastructure and web applications across freelance and Flant projects, including work with AWS services.",
+      "ru": "Разрабатывал облачную инфраструктуру и веб-приложения в рамках фриланса и проектов Flant, в том числе с использованием сервисов AWS."
+    },
+    {
+      "en": "Built React/Next.js and Node.js applications and deployed Java/Spring workloads to Kubernetes using Helm and automated delivery workflows.",
+      "ru": "Разрабатывал приложения на React/Next.js и Node.js и развёртывал Java/Spring-сервисы в Kubernetes с Helm и автоматизированными процессами доставки."
+    },
+    {
+      "en": "Supported delivery and operations with Prometheus, Grafana, ELK, and PostgreSQL/Patroni.",
+      "ru": "Поддерживал доставку и эксплуатацию production-систем с Prometheus, Grafana, ELK и PostgreSQL/Patroni."
+    },
+    {
+      "en": "Senior Platform & SRE Engineer with experience building and operating production Kubernetes platforms, automating software delivery, and leading DevOps teams. My background includes cloud and bare-metal infrastructure, security controls, observability, incident response, and disaster recovery. My current personal R&D focuses on agent infrastructure for software engineering, including MCP, A2A, and workflows with human review and approval.",
+      "ru": "Senior Platform & SRE Engineer с опытом создания и эксплуатации production-платформ на Kubernetes, автоматизации доставки ПО и руководства DevOps-командами. Мой опыт включает облачную и bare-metal инфраструктуру, меры безопасности, наблюдаемость, реагирование на инциденты и аварийное восстановление. Текущие личные R&D-проекты посвящены инфраструктуре агентов для разработки ПО: MCP, A2A и процессам с проверкой и согласованием изменений человеком."
+    },
+    {
+      "en": "IT services",
+      "ru": "ИТ-услуги"
+    },
+    {
+      "en": "Earlier experience",
+      "ru": "Ранний опыт"
+    },
+    {
+      "en": "Software Development & DevOps",
+      "ru": "Разработка ПО и DevOps"
+    },
+    {
+      "en": "Information Security Intern ·",
+      "ru": "Стажёр по информационной безопасности ·"
+    },
+    {
+      "en": "· Contract · Remote",
+      "ru": "· Контракт · Удалённо"
+    },
+    {
+      "en": "· Full-time · Hybrid",
+      "ru": "· Полная занятость · Гибридно"
+    },
+    {
+      "en": "· Full-time · Remote",
+      "ru": "· Полная занятость · Удалённо"
+    },
+    {
+      "en": "– Present · Personal R&D · PoCs",
+      "ru": "– настоящее время · Личные R&D · PoC"
+    },
+    {
+      "en": "· Personal R&D",
+      "ru": "· Личные R&D"
+    },
+    {
+      "en": "Built and led a DevOps team with four direct reports, coordinating an infrastructure group of ~10 people. Established onboarding, training, knowledge sharing, and regular technical reviews.",
+      "ru": "Создал DevOps-команду с четырьмя сотрудниками в прямом подчинении и координировал инфраструктурную группу из ~10 человек. Организовал онбординг, обучение, обмен знаниями и регулярные технические ревью."
+    },
+    {
+      "en": "Built cloud infrastructure from the ground up and provisioned ~8 Kubernetes clusters (20+ nodes total) with Terraform and GitOps. Improved availability through Multi-AZ and Multi-Region design, integrating cloud services with VMware infrastructure.",
+      "ru": "Построил облачную инфраструктуру с нуля и развернул ~8 Kubernetes-кластеров (20+ узлов суммарно) с Terraform и GitOps. Повысил доступность за счёт Multi-AZ и Multi-Region архитектуры, объединив облачные сервисы с инфраструктурой VMware."
+    },
+    {
+      "en": "Led service migration to the cloud with minimal downtime and controlled change management.",
+      "ru": "Руководил миграцией сервисов в облако с минимальным простоем и контролируемым управлением изменениями."
+    },
+    {
+      "en": "Reduced infrastructure costs through automated shutdown of unused resources and usage governance.",
+      "ru": "Снизил затраты на инфраструктуру благодаря автоматическому выключению неиспользуемых ресурсов и контролю потребления."
+    },
+    {
+      "en": "Built reusable Jenkins delivery pipelines for 30–40 microservices with Helm, security checks, tests, and approvals. Build and delivery took ~5 minutes for batches of more than six services.",
+      "ru": "Создал переиспользуемые пайплайны Jenkins для 30–40 микросервисов с Helm, проверками безопасности, тестами и согласованиями. Сборка и доставка пакетов более чем из шести сервисов занимали ~5 минут."
+    },
+    {
+      "en": "Introduced Vault, encrypted service communication, centralized monitoring, and tested disaster recovery procedures. Developed a Keycloak SSO proof of concept and coordinated requirements with security and development teams.",
+      "ru": "Внедрил Vault, шифрование межсервисного взаимодействия, централизованный мониторинг и проверенные процедуры аварийного восстановления. Разработал прототип SSO на Keycloak и согласовал требования с командами безопасности и разработки."
+    },
+    {
+      "en": "Travel tech",
+      "ru": "Sirena-Travel"
+    },
+    {
+      "en": "Insurance brokerage",
+      "ru": "Сбербанк Страховой брокер"
+    },
+    {
+      "en": "IT services company",
+      "ru": "I-Teco"
+    },
+    {
+      "en": "Telecommunications company",
+      "ru": "МТС"
     }
   ],
   "portfolio": {

@@ -4,7 +4,7 @@
 
 Ilya Papou is also known as Ilya Popov, PILPROD and pilprod. PILPROD and pilprod are capitalization variants of the same professional handle. All these names refer to the same person and the same professional profile at https://papou.work/.
 
-I’ve built and operated production Kubernetes platforms and reusable DevSecOps pipelines. My personal R&D includes agent infrastructure prototypes for software engineering with MCP, A2A and human-in-the-loop workflow design. I prefer AWS and Google Cloud for cloud projects, and RKE2, Proxmox and Ubuntu for bare-metal and self-hosted infrastructure.
+Senior Platform & SRE Engineer with experience building and operating production Kubernetes platforms, automating software delivery, and leading DevOps teams. My background includes cloud and bare-metal infrastructure, security controls, observability, incident response, and disaster recovery. My current personal R&D focuses on agent infrastructure for software engineering, including MCP, A2A, and workflows with human review and approval.
 
 ## CV links
 
@@ -15,7 +15,7 @@ English is the primary version. The optional [Russian CV](https://papou.work/ru/
 - [Structured portfolio graph](https://papou.work/portfolio.jsonld): Separate Person, CreativeWork, SoftwareSourceCode and ImageObject identities, with explicit project/repository/photo relationships. LinkedIn section links are not individual public project permalinks.
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
 - [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260907-no-dash): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contact, repository and project portfolio links, under 1 MB.
-- [Professional experience](https://papou.work/#experience): Sirena-Travel, Sberbank Insurance Broker, I-Teco, Flant & Freelance and the MTS (Mobile TeleSystems) internship.
+- [Professional experience](https://papou.work/#experience): Travel technology, insurance brokerage, IT services, Flant & Freelance and an earlier telecommunications internship.
 - [Agent Orchestration Infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Technical skills](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.
 - [Home Aeroponics & IoT automation](https://papou.work/#home-aeroponics): Home growing automation, climate control and monitoring.
@@ -60,58 +60,57 @@ English is the primary version. The optional [Russian CV](https://papou.work/ru/
 - Finance & insurance
 - Aviation & travel
 - iGaming & anti-fraud
-- Public sector
 
 ## Professional experience
 
-### [Sirena-Travel](https://sirena-travel.com/) — Senior SRE & Platform Engineer
+### Travel tech — Senior SRE & Platform Engineer
 
-Mar 2025 — Sep 2026 · Contract · Thailand · Remote
+Mar 2025 — Sep 2026 · Contract · Remote
+
 Aviation & travel
 
-- Built and operated a bare-metal RKE2 platform with encrypted etcd and mTLS for inter-DC Kafka, service-to-service traffic, PostgreSQL and Redis. Managed certificates centrally in Vault and propagated updates using External Secrets Operator (ESO), webhooks and Ansible.
-- Standardized service delivery through GitLab CI/CD, shared Helm charts and Argo CD.
-- Owned on-call response, investigated failures and documented recovery and prevention steps.
-- Centralized images and dependencies in Nexus. Enforced SAST, GitGuardian and Trivy gates blocking releases and Argo CD sync to production. Assigned developers tasks for vulnerability and dependency fixes, secret removal and development password rotation.
-- Integrated kagent and Mattermost for AI-assisted engineering, with agent definitions and platform configuration managed through IaC and GitOps.
+- Built and operated a bare-metal Kubernetes platform using RKE2, with encrypted etcd, mTLS across services and data systems, and centralized certificate management through Vault.
+- Standardized deployments with GitLab CI/CD, reusable Helm charts, and Argo CD. Integrated security checks into release workflows to block vulnerable builds and production deployments.
+- Owned on-call incident response, investigated failures, and documented recovery procedures and preventive actions.
+- Integrated kagent and Mattermost for AI-assisted engineering, managing agent definitions and platform configuration through IaC and GitOps.
 
-### [Sberbank Insurance Broker](https://www.sberbank.com/) — Head of DevOps
+### Insurance brokerage — Head of DevOps
 
-Jun 2023 — Mar 2025 · Full-time · Russia · Hybrid
+Jun 2023 — Mar 2025 · Full-time · Hybrid
+
 Finance & insurance
 
-- Built and led a DevOps team with 4 direct reports. Coordinated work across a wider infrastructure group of ~10 people. Established shared standards, documentation and knowledge sharing.
-- Provisioned ~8 Kubernetes clusters (20+ nodes total) with Terraform and GitOps. Integrated Cloud.ru Advanced (Huawei Cloud technology) services with VMware on bare-metal servers at Cloud.ru.
-- Built a Jenkins DevSecOps pipeline for 30–40 microservices: Jira-triggered releases with shared Helm charts, security checks, tests and approvals. Build and delivery took ~5 min for >6 services. Full releases with cross-department approvals completed within a day. The pipeline remained in use and supported new services after my departure.
-- Built a Keycloak SSO PoC with Nginx. Coordinated microservice changes and handed off requirements and technical specs to Security and Development. Introduced Vault, encrypted service traffic, centralized monitoring and tested disaster recovery.
+- Built and led a DevOps team with four direct reports, coordinating an infrastructure group of ~10 people. Established onboarding, training, knowledge sharing, and regular technical reviews.
+- Built cloud infrastructure from the ground up and provisioned ~8 Kubernetes clusters (20+ nodes total) with Terraform and GitOps. Improved availability through Multi-AZ and Multi-Region design, integrating cloud services with VMware infrastructure.
+- Led service migration to the cloud with minimal downtime and controlled change management.
+- Reduced infrastructure costs through automated shutdown of unused resources and usage governance.
+- Built reusable Jenkins delivery pipelines for 30–40 microservices with Helm, security checks, tests, and approvals. Build and delivery took ~5 minutes for batches of more than six services.
+- Introduced Vault, encrypted service communication, centralized monitoring, and tested disaster recovery procedures. Developed a Keycloak SSO proof of concept and coordinated requirements with security and development teams.
 
-### [I-Teco](https://www.i-teco.ru/) — Senior DevOps Engineer
+### IT services company — Senior DevOps Engineer
 
-Apr 2022 — Jun 2023 · Full-time · Russia · Remote
-Public sector
+Apr 2022 — Jun 2023 · Full-time · Remote
 
-- Managed development and test infrastructure on ~10 Hyper-V & Windows Server hosts, each running ~50 VMs, including Linux guests and shared engineering services.
-- Built Kubernetes on Alt Linux 9.2 in an air-gapped environment. Prepared releases on USB drives for security-controlled physical transfer and deployed them using scripts.
-- Maintained Airflow, Cassandra, RabbitMQ, PostgreSQL & Patroni, Docker Swarm, TeamCity and Nexus. Automated operations with Ansible, Python and Bash and used OpenVPN for isolated access.
+IT services
 
-### [Flant](https://flant.ru/) & Freelance — Development & DevOps
+- Managed development and test infrastructure across approximately ten virtualization hosts, each running around 50 virtual machines.
+- Deployed Kubernetes in an air-gapped Linux environment and automated offline releases.
+- Maintained data, messaging, and delivery services, including PostgreSQL/Patroni, Cassandra, RabbitMQ, Airflow, TeamCity, and Nexus. Automated operations with Ansible, Python, and Bash.
+
+### [Flant](https://flant.ru/) & Freelance — Software Development & DevOps
 
 Nov 2019 — Mar 2022 · Selected projects · Remote
+
 Cross-industry IT consulting
 
-- Delivered cloud infrastructure and web applications across freelance and Flant projects using AWS (S3, Lambda, Kubernetes and IAM) and Yandex Cloud.
-- Built React & Next.js and Node.js & Express applications. Deployed Java & Spring workloads to Kubernetes with Helm, GitHub Actions and Ansible.
-- Supported delivery and operations with Prometheus, Grafana, ELK and PostgreSQL & Patroni.
+- Delivered cloud infrastructure and web applications across freelance and Flant projects, including work with AWS services.
+- Built React/Next.js and Node.js applications and deployed Java/Spring workloads to Kubernetes using Helm and automated delivery workflows.
+- Supported delivery and operations with Prometheus, Grafana, ELK, and PostgreSQL/Patroni.
 
-### [MTS (Mobile TeleSystems)](https://mts.ru/) — Information Security Intern
+### Earlier experience
 
-Feb 2018 — Nov 2019 · Internship · Belarus · Remote
-Telecommunications
+Information Security Intern · Telecommunications company · Feb 2018 — Nov 2019
 
-- Configured Linux, including Kali Linux, and analyzed boot flow and core OS components. Evaluated major virtualization models and built isolated security-testing labs.
-- Mapped networks and assessed exposed services with Nmap and reconnaissance tools. Identified vulnerabilities and validated findings in controlled Metasploit exercises.
-- Configured and tested VPN, Tor and I2P traffic routing. Encrypted and decrypted binary files.
-- Used cryptocurrency wallets and transactions to study blockchain validation and data flow.
 
 ## Engineering experience & technical skills
 
@@ -119,7 +118,7 @@ Telecommunications
 
 ### Agent Orchestration Infrastructure
 
-Jun 2026 – Present · Personal R&D · PoCs · Buenos Aires, Argentina
+Jun 2026 – Present · Personal R&D · PoCs
 
 Personal R&D platform for developers and AI coding agents working on software and infrastructure tasks. Designed to preserve context across agent handoffs, connect tools and long-running workflows, and keep changes under human review and approval.
 
@@ -186,7 +185,7 @@ Code: [Platform](https://github.com/pilprod/yourown-chat) · [Agent runtime](htt
 
 ### Home Aeroponics & IoT automation
 
-Aug 2024 — Jan 2025 · Personal R&D · Moscow City, Russia
+Aug 2024 — Jan 2025 · Personal R&D
 
 - Designed and built an integrated aeroponic system: drew wiring schematics, soldered electronics, and connected ESP32, Arduino, Raspberry Pi, sensors and actuators.
 - Developed C++ sensor firmware and Python automation for climate control, mist generation, water supply and circulation, tank-to-tank transfers and leak detection.
@@ -198,7 +197,7 @@ Code: [Controllers](https://github.com/pilprod/aeroponics-iot-control) · [Senso
 
 ### Zero-Trust Mesh & Open-source NGFW
 
-Jan 2025 — Mar 2025 · Personal R&D · Bangkok City, Thailand
+Jan 2025 — Mar 2025 · Personal R&D
 
 - Built an encrypted, multi-region Tailscale lab mesh linking devices and private networks across cloud, bare metal and homelabs.
 - Automated network configuration and enabled one-click onboarding of new nodes.

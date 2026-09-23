@@ -2,8 +2,8 @@
   "file": "assets/Ilya Papou CV — DevOps & SRE.pdf",
   "title": "Ilya Papou CV — DevOps & SRE",
   "pages": 2,
-  "bytes": 351476,
-  "sha256": "34f39b56fae885c2fba99c29a44da4f3ae66781b77326d5c55b9092a4d4167a7",
+  "bytes": 343412,
+  "sha256": "27611b11ad701d4b1649f3856f9d69572adc68de11a09d0d204288af628d693b",
   "sources": {
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
@@ -20,7 +20,7 @@
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/social/cv-preview-20260906.jpg": "65becfd41f14750bc094b9bab179f4240771aa8a88d61c7c3277feedbf095ba0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "index.html": "76f7256046d19f115dc66d03c8cc1790955759d3d6e5e59e509ce253dba4ea45",
-    "styles.css": "08284e7021903fc0ec352fb8189bae669f9d2cf17fa17ef6405b5113f25d4efb"
+    "index.html": "a1c66b174be3a769f74b16e42bee776f64909ca4ce146ca19e2d07db1fb26b17",
+    "styles.css": "db058d266f9691cb60ad47e772274c68e2ac87fa6a6aaa6f2eb11e5c5f12ebcf"
   }
 }
