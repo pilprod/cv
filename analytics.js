@@ -12,6 +12,16 @@
   const tools = document.getElementById("analytics-tools");
   if (!panel || !settings || !status || !tools) return;
   const isRussian = document.documentElement?.lang === "ru";
+  // Only reviewed public routes are sent; query strings and fragments stay private.
+  const pages = new Map([
+    ["/", ["/", "CV — Platform and SRE Engineering"]],
+    ["/index.html", ["/", "CV — Platform and SRE Engineering"]],
+    ["/ru/", ["/ru/", "CV — Platform and SRE Engineering — RU"]],
+    ["/ru/index.html", ["/ru/", "CV — Platform and SRE Engineering — RU"]],
+    ["/portfolio.html", ["/portfolio.html", "Portfolio — Projects and lab photographs"]],
+    ["/ru/portfolio.html", ["/ru/portfolio.html", "Portfolio — Projects and lab photographs — RU"]]
+  ]);
+  const page = pages.get(new URL(window.location.href).pathname);
   const messages = isRussian ? ["В предпросмотре аналитика отключена.", "Аналитика включена.", "Аналитика отключена.", "Аналитика отключена на время этого посещения. Браузер не смог сохранить выбор."]
     : ["Analytics is disabled in this preview.", "Analytics is on.", "Analytics is off.", "Analytics is off for this visit. Your browser could not save this choice."];
 
@@ -62,7 +72,7 @@
   }
 
   function startAnalytics() {
-    if (!production || active || choice?.value !== "granted" || choice.expiresAt <= Date.now()) return;
+    if (!production || !page || active || choice?.value !== "granted" || choice.expiresAt <= Date.now()) return;
     active = true;
     window[disableKey] = false;
     window.dataLayer = window.dataLayer || [];
@@ -75,9 +85,9 @@
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
       send_page_view: false,
-      page_location: "https://papou.work/",
+      page_location: "https://papou.work" + page[0],
       page_referrer: safeReferrer(),
-      page_title: "CV — Platform and SRE Engineering"
+      page_title: page[1]
     });
     window.gtag("event", "page_view", { send_to: measurementId });
     if (!scriptAdded) {
@@ -146,6 +156,18 @@
 
   document.getElementById("analytics-allow").addEventListener("click", () => decide("granted"));
   document.getElementById("analytics-decline").addEventListener("click", () => decide("denied"));
+  const pdfLink = document.getElementById("open-pdf");
+  function trackPdfOpen(event) {
+    if (event.defaultPrevented || !active || window[disableKey]
+        || choice?.value !== "granted" || choice.expiresAt <= Date.now()) return;
+    // A link activation, not proof of a completed download or a read document.
+    // Keep native navigation and never send the link URL, filename or contact data.
+    window.gtag("event", "cv_pdf_open", { send_to: measurementId });
+  }
+  pdfLink?.addEventListener("click", trackPdfOpen);
+  pdfLink?.addEventListener("auxclick", event => {
+    if (event.button === 1) trackPdfOpen(event);
+  });
   settings.addEventListener("click", () => {
     showPanel(panel.hidden);
     if (!panel.hidden) document.getElementById("analytics-decline").focus({ preventScroll: true });

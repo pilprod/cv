@@ -5,6 +5,10 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'portfolio.json'), 'utf8'));
 const check = process.argv.includes('--check');
+// Reuse the CV notice and controls so both pages disclose the same collection.
+const cvHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const analyticsControls = cvHtml.match(/<div id="analytics-tools"[\s\S]*?<\/footer>/)[0];
+const analyticsNotice = cvHtml.match(/<section class="analytics-consent"[\s\S]*?<script src="analytics\.js[^\"]*" defer><\/script>/)[0];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ref = id => ({'@id':id});
 const projectId = p => `${data.canonical}#${p.id}`;
@@ -62,6 +66,8 @@ const html = `<!doctype html>
 <main class="portfolio-main" id="project-sources"><header class="portfolio-intro"><p class="eyebrow">Ilya Papou · Ilya Popov · pilprod</p><h1>Project sources<br>and lab photographs</h1><p>Code, context and hands-on work behind three personal R&D projects.</p><nav class="project-index" aria-label="R&D projects">${data.projects.map(p=>`<a href="#${p.id}">${esc(p.name)}</a>`).join('')}</nav></header>
 ${data.projects.map(projectHtml).join('\n')}
 </main><footer class="portfolio-footer"><p><a href="portfolio.md">Markdown overview</a> · <a href="portfolio.jsonld">Structured project data</a> · <a href="/">Full CV</a></p><p>Research periods describe the work, not the publication date of a repository. LinkedIn links open the profile sections; locate the matching project and role shown here. Access may require sign-in.</p></footer>
+<footer class="analytics-footer" aria-label="Portfolio resources and privacy">${analyticsControls}
+${analyticsNotice}
 </body></html>
 `;
 let markdown = '# Ilya Papou — Project sources and lab photographs\n\nIlya Papou, also known as Ilya Popov, PILPROD and pilprod.\n\n[CV](https://papou.work/) · [Readable portfolio]('+data.canonical+') · [GitHub](https://github.com/pilprod) · [LinkedIn]('+data.linkedin.profile+')\n\n';

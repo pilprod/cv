@@ -21,7 +21,7 @@ class Element {
 
 function browser(options = {}) {
   const state = { now: NOW, reloads: 0, scripts: [], timers: new Map(), cookieWrites: [] };
-  const ids = ["analytics-consent", "analytics-settings", "analytics-status", "analytics-tools", "analytics-allow", "analytics-decline"];
+  const ids = ["analytics-consent", "analytics-settings", "analytics-status", "analytics-tools", "analytics-allow", "analytics-decline", "open-pdf"];
   const elements = Object.fromEntries(ids.map((id) => [id, new Element()]));
   const storage = new Map();
   if (options.saved !== undefined) storage.set(KEY, typeof options.saved === "string" ? options.saved : JSON.stringify(options.saved));
@@ -232,6 +232,56 @@ test("Russian interface retains the same opt-in privacy behavior", () => {
   assert.equal(app.state.scripts.length, 1);
   app.click('analytics-decline');
   assert.equal(app.window['ga-disable-' + ID], true);
+});
+
+test("known pages remain distinguishable without leaking query strings or fragments", () => {
+  for (const [input, canonical] of [["/", "/"], ["/index.html", "/"], ["/ru/", "/ru/"], ["/ru/index.html", "/ru/"], ["/portfolio.html", "/portfolio.html"], ["/ru/portfolio.html", "/ru/portfolio.html"]]) {
+    const app = browser({ url: "https://papou.work" + input + "?email=private@example.com#secret", saved: {value: "granted", expiresAt: NOW + LIFETIME} });
+    const config = app.commands().find(([type]) => type === "config")[2];
+    assert.equal(config.page_location, "https://papou.work" + canonical);
+    assert.doesNotMatch(JSON.stringify(app.commands()), /private@|secret/);
+  }
+  const unknown = browser({url: "https://papou.work/private-path", saved: {value: "granted", expiresAt: NOW + LIFETIME}});
+  assert.equal(unknown.state.scripts.length, 0);
+});
+
+test("PDF activation requires live consent and never sends a link URL", () => {
+  const app = browser();
+  app.click("open-pdf");
+  assert.equal(app.commands().length, 0);
+  app.click("analytics-allow");
+  app.click("open-pdf");
+  const events = () => app.commands().filter(([type, name]) => type === "event" && name === "cv_pdf_open");
+  assert.equal(events().length, 1);
+  assert.deepEqual(Object.keys(events()[0][2]), ["send_to"]);
+  app.elements["open-pdf"].fire("auxclick", {button: 2});
+  app.elements["open-pdf"].fire("click", {defaultPrevented: true});
+  assert.equal(events().length, 1);
+  app.elements["open-pdf"].fire("auxclick", {button: 1});
+  assert.equal(events().length, 2);
+  app.click("analytics-decline");
+  app.click("open-pdf");
+  assert.equal(events().length, 2);
+  const expired = browser({saved: {value: "granted", expiresAt: NOW + 1}});
+  expired.state.now += 2;
+  expired.click("open-pdf");
+  assert.equal(expired.commands().filter(([type]) => type === "event").length, 1);
+});
+
+test("PDF on preview origins never emits even with stored consent", () => {
+  const app = browser({url: "http://localhost/", saved: {value: "granted", expiresAt: NOW + LIFETIME}});
+  app.click("open-pdf");
+  assert.equal(app.commands().length, 0);
+});
+
+test("all published pages include one controller and the consent controls", () => {
+  for (const file of ["index.html", "ru/index.html", "portfolio.html", "ru/portfolio.html"]) {
+    const html = fs.readFileSync(path.join(__dirname, "..", file), "utf8");
+    assert.equal((html.match(/<script src="\/?analytics\.js\?/g) || []).length, 1, file);
+    for (const id of ["analytics-tools", "analytics-status", "analytics-consent", "analytics-settings", "analytics-allow", "analytics-decline"]) {
+      assert.equal((html.match(new RegExp('id="' + id + '"', 'g')) || []).length, 1, file + ": " + id);
+    }
+  }
 });
 
 console.log(`\n${passed} analytics checks passed. No network requests were made.`);
