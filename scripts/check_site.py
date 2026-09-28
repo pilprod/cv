@@ -357,7 +357,7 @@ def main():
     assert all(meta.get(key, "").strip() for key in required), "Missing metadata: " + ", ".join(k for k in required if not meta.get(k))
     assert meta["author"] == name and name in title, "Title/author must identify the visible person"
     assert meta["og:title"] == title == meta["twitter:title"], "Search/social titles differ"
-    assert ALTERNATIVE_NAME in visible, "Alternate name missing from visible CV"
+    assert "Also known as " + ALTERNATIVE_NAME not in visible, "Removed alternate-name row must stay out of the visible CV"
     assert title == "Ilya Papou — Senior Platform & SRE Engineer | CV", "Search/social title must reflect the current role and CV"
     for key in ("description", "og:description", "twitter:description"):
         assert name in meta[key] and ALTERNATIVE_NAME in meta[key], key + " must identify both names"
