@@ -98,6 +98,7 @@ SOURCE_DIGESTS = {
     "project/Zero-Trust Mesh": "90d4b875a562f7c906289293af223ba04b104f77bf5fd191628e74282d00c197",
 }
 SOURCE_LINKS = {
+    "https://red-rose.tech", "https://sberbankins.ru",
     "https://flant.ru",
     "https://papou.work",
     "https://wa.me/papou.work", "https://t.me/pilprod",
