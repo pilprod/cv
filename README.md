@@ -2,7 +2,7 @@
 
 A static English-only CV published at [papou.work](https://papou.work).
 
-September 28 revision: expanded platform GitOps/Terragrunt, ML migration, Airflow DAG distribution, secrets and mTLS experience; added production incidents, complete development-infrastructure ownership with 100+ VMs, Nexus scripting and isolated-deployment documentation; expanded Spring, Go and Helm work. Employer names follow the live LinkedIn profile: Red Rose Traveltech, Sberbank, Public Sector, Flant and Telecommunications company. Dates, other experience and personal projects remain unchanged.
+September 28 revision: expanded platform GitOps/Terragrunt, ML migration, Airflow DAG distribution, secrets and mTLS experience; added production incidents, complete development-infrastructure ownership with 100+ VMs, Nexus scripting and isolated-deployment documentation; expanded Spring, Go and Helm work. Employer names follow the live LinkedIn profile, with the user's subsequent Sber Insurance naming correction: Red Rose Traveltech, Sber Insurance, Public Sector, Flant and Telecommunications company. Dates, other experience and personal projects remain unchanged.
 
 The Russian site, PDF, language controls and discovery links are retired. Earlier versions remain recoverable from Git history. The spoken-language section still records Russian as Native. Build the English portfolio with `node scripts/build_portfolio.cjs`, export with `node scripts/export_pdf.cjs`, then run `python3 scripts/check_site.py`, `python3 scripts/check_languages.py` and the remaining checks below. The PDF remains two A4 pages under 1 MB, with unchanged type sizes and tighter first-page spacing. Figma and LinkedIn are maintained separately.
 

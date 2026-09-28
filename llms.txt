@@ -13,7 +13,7 @@ Senior Platform & SRE Engineer with experience building and operating production
 - [Structured portfolio graph](https://papou.work/portfolio.jsonld): Separate Person, CreativeWork, SoftwareSourceCode and ImageObject identities, with explicit project/repository/photo relationships. LinkedIn section links are not individual public project permalinks.
 - [Full CV](https://papou.work/): Profile, contact details, spoken languages, professional experience, technical skills and personal projects.
 - [Download CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260928-company-links): The same CV in a fixed two-page A4 layout, with a high-resolution portrait and clickable contact, repository and project portfolio links, under 1 MB.
-- [Professional experience](https://papou.work/#experience): Red Rose Traveltech, Sberbank, Public Sector, Flant and an earlier telecommunications internship.
+- [Professional experience](https://papou.work/#experience): Red Rose Traveltech, Sber Insurance, Public Sector, Flant and an earlier telecommunications internship.
 - [Agent Orchestration Infrastructure](https://papou.work/#projects): Personal R&D in agent infrastructure, orchestration and release workflows.
 - [Technical skills](https://papou.work/#technologies): Platform and delivery, cloud infrastructure, software engineering, security and reliability, ML and data infrastructure, and agent infrastructure.
 - [Home Aeroponics & IoT automation](https://papou.work/#home-aeroponics): Home growing automation, climate control and monitoring.
@@ -73,7 +73,7 @@ Aviation & travel
 - Centralized packages and images in Nexus, with one Docker group endpoint and no direct external access. Added SAST, GitGuardian and Trivy checks to block vulnerable releases.
 - Owned on-call incident response and documented recovery and preventive actions. Integrated kagent and Mattermost for AI-assisted engineering, managing agents and platform configuration through IaC and GitOps.
 
-### [Sberbank](https://sberbankins.ru/) — Head of DevOps
+### [Sber Insurance](https://sberbankins.ru/) — Head of DevOps
 
 Jun 2023 — Mar 2025 · Full-time · Hybrid
 

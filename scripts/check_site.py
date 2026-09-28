@@ -78,7 +78,7 @@ SOURCE_DIGESTS = {
     "sidebar/domains": "aa1a04b74e0f55359df2e37c216274da92c68cf36be9f935cd6fbf7f70a7c6a6",
     # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
     "job/Sirena-Travel": "34204d4cf9b716ca9abe155cd683c2feb4c8f6b05bede9344e9032aef18d2d30",
-    "job/Sberbank": "8a0179eac6e5c4acde51a8614e88e8c3bcf1422c07c5f9c16ba0536cae4a97d7",
+    "job/Sberbank": "c6b2416d82990fd83536c1e7f2a7301d272a0aad787a1f8ec81a5f5c0a17288a",
     "job/I-Teco": "6fc6d81e5b9d51052b0732c3ce22c5071f3eb7a9762b00d653d6b087a76a30b3",
     # User-requested heading: Flant & Freelance.
     "job/Freelance-Flant": "3672276426f8cc662a3254d9ce23f338a08349c481af8bc585fa5df940c5bb1d",
@@ -153,7 +153,7 @@ def check_source_content(page):
     assert len(page.source_content["job"]) == len(domains), "Expected five professional experiences"
     for item, domain in zip(page.source_content["job"], domains):
         assert "Domain:" not in item and domain in item, "Missing experience domain or unwanted Domain prefix"
-    for item, company in zip(page.source_content["job"], ("Red Rose Traveltech", "Sberbank", "Public Sector", "Flant", "Telecommunications company")):
+    for item, company in zip(page.source_content["job"], ("Red Rose Traveltech", "Sber Insurance", "Public Sector", "Flant", "Telecommunications company")):
         assert company in item, "Company differs from the LinkedIn names reviewed September 28"
     assert "Full-time · Hybrid" in page.source_content["job"][1], "Sber's work arrangement must be Hybrid"
     for kind, labels in SOURCE_PARTS.items():
