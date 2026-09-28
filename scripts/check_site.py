@@ -81,7 +81,7 @@ SOURCE_DIGESTS = {
     "job/Sberbank": "c6b2416d82990fd83536c1e7f2a7301d272a0aad787a1f8ec81a5f5c0a17288a",
     "job/I-Teco": "6fc6d81e5b9d51052b0732c3ce22c5071f3eb7a9762b00d653d6b087a76a30b3",
     # User-requested heading: Flant & Freelance.
-    "job/Freelance-Flant": "3672276426f8cc662a3254d9ce23f338a08349c481af8bc585fa5df940c5bb1d",
+    "job/Freelance-Flant": "79f2fb719ed506a75c4182c17da39367fc24ee65e9be7b8cf3ad3a1f70b6eede",
     # User-requested employer name: MTS (Mobile TeleSystems).
     "job/MTS": "4625a439806f61d2e36d51dedb2e32ffe362cb0cc6fd6f23c9d7f1f7ff7911b6",
     # September 6: user-requested visible portfolio link on PDF page 2.

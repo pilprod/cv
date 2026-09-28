@@ -98,7 +98,7 @@ Public sector
 - Administered Linux and automated operations with Ansible, Python and Bash, including Python scripts for Nexus administration.
 - Maintained TeamCity, Nexus, Cassandra, Solr, ZooKeeper, HAProxy and ELK. Wrote deployment and configuration documentation for these services in isolated environments.
 
-### [Flant](https://flant.ru/) — Software Development & DevOps
+### [Flant](https://flant.ru/) — Software Engineering & DevOps
 
 Nov 2019 — Mar 2022 · Selected projects · Remote
 
