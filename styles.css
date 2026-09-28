@@ -281,7 +281,7 @@ h3 {
   justify-content: space-between;
   gap: var(--toolbar-gap);
   width: 100%;
-  max-width: 1120px;
+  max-width: none;
   margin: 0 auto;
   padding: 24px 32px;
   font-size: var(--toolbar-font-size);
@@ -326,7 +326,17 @@ h3 {
 
 .site-toolbar > .site-brand {
   flex-shrink: 0;
-  font-weight: 700;
+  justify-content: flex-start;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -1.5px;
+}
+
+.site-brand .brand-dot {
+  color: var(--blue);
 }
 
 .site-toolbar nav {
@@ -1562,7 +1572,7 @@ h3 {
 .site-toolbar .toolbar-actions { display: flex; align-items: center; flex: 0 0 auto; gap: var(--toolbar-gap); margin-left: auto; }
 .site-toolbar .pdf-action { margin-left: 0; }
 @media screen and (max-width: 640px) {
-  .site-toolbar > .site-brand { display: none; }
+  .site-toolbar > .site-brand { font-size: 23px; letter-spacing: -1.2px; }
 }
 
 @media print {

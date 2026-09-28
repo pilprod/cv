@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "modified": "2026-09-10T01:00:22Z",
-  "cvModified": "2026-09-28T22:45:05Z",
+  "modified": "2026-09-28T23:13:36Z",
+  "cvModified": "2026-09-28T23:13:36Z",
   "canonical": "https://papou.work/portfolio.html",
   "person": "https://papou.work/#person",
   "linkedin": {
@@ -124,7 +124,11 @@
             }
           ]
         }
-      ]
+      ],
+      "concept": {
+        "label": "LeafCoin concept",
+        "url": "https://leafcoin.org/"
+      }
     },
     {
       "id": "mesh",

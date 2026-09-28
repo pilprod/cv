@@ -29,7 +29,7 @@ VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
 SOURCE_TECHNOLOGIES = {
     "platform": ("Platform & delivery", (
         "Linux · Kubernetes · RKE2 · Docker", "Terraform · HCP Terraform Stacks",
-        "Helm · Argo CD · Ansible", "GitLab CI/CD · Jenkins", "GitHub Actions · Nexus")),
+        "Helm · Argo CD · Flux CD · Ansible", "GitLab CI/CD · Jenkins", "GitHub Actions · Nexus")),
     "cloud": ("Cloud infrastructure", (
         "AWS · GCP",
         "S3 · Lambda · EKS · IAM", "GKE · Cloud SQL · GCS",
@@ -75,7 +75,7 @@ SOURCE_DIGESTS = {
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
     "sidebar/strengths": "5eddd31c856782aa6d067cbd9f59c47ab5fd5c09dd58b07b1df42b695bc1c192",
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
-    "sidebar/domains": "aa1a04b74e0f55359df2e37c216274da92c68cf36be9f935cd6fbf7f70a7c6a6",
+    "sidebar/domains": "deea0de44ffd9b40da5469f9e4531ad913f51a711c0d8b5dfeea1c001a22f054",
     # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
     "job/Sirena-Travel": "34204d4cf9b716ca9abe155cd683c2feb4c8f6b05bede9344e9032aef18d2d30",
     "job/Sberbank": "c6b2416d82990fd83536c1e7f2a7301d272a0aad787a1f8ec81a5f5c0a17288a",
@@ -98,6 +98,7 @@ SOURCE_DIGESTS = {
     "project/Zero-Trust Mesh": "90d4b875a562f7c906289293af223ba04b104f77bf5fd191628e74282d00c197",
 }
 SOURCE_LINKS = {
+    "https://leafcoin.org",
     "https://red-rose.tech", "https://sberbankins.ru",
     "https://flant.ru",
     "https://papou.work",
@@ -117,7 +118,8 @@ PROJECT_LINKS = {
               ("kagent integration", "https://github.com/pilprod/yourown-chat-kagent"),
               ("Mattermost fork", "https://github.com/pilprod/mattermost"),
               ("Image build", "https://github.com/pilprod/yourown-chat-mattermost")),
-    "home": (("Controllers", "https://github.com/pilprod/aeroponics-iot-control"),
+    "home": (("LeafCoin concept", "https://leafcoin.org/"),
+             ("Controllers", "https://github.com/pilprod/aeroponics-iot-control"),
              ("Sensor firmware", "https://github.com/pilprod/aeroponics-sensor-firmware")),
     "mesh": (("Ansible", "https://github.com/pilprod/lab-network-automation"),
              ("Access policy", "https://github.com/pilprod/zero-trust-mesh-policy"),
@@ -188,7 +190,7 @@ def check_technologies(page, llms):
             line_ends.append(position)
         assert group["line_ends"] == line_ends, f"Print technology grouping differs from source: {title}"
         count += len(expected)
-    assert count == 85, "Expected 83 source technologies plus the requested AWS/GCP tags"
+    assert count == 86, "Expected 83 source technologies plus the requested AWS, GCP and Flux CD tags"
     return count
 
 

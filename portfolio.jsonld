@@ -31,7 +31,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-10T01:00:22Z",
+      "dateModified": "2026-09-28T23:13:36Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -260,6 +260,11 @@
         }
       ],
       "subjectOf": [
+        {
+          "@type": "WebPage",
+          "url": "https://leafcoin.org/",
+          "name": "LeafCoin concept"
+        },
         {
           "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
         },

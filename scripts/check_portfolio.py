@@ -168,7 +168,7 @@ def main():
     for resource in ['portfolio.html','portfolio.md','portfolio.jsonld']:
         assert CANONICAL + resource in llms
     cv_html = read('index.html')
-    assert 'href="portfolio.html"' in cv_html, 'CV must link to the portfolio page'
+    assert 'href="https://papou.work/portfolio.html"' in cv_html, 'CV must retain its portfolio link in the project introduction'
     cv_page = EvidencePage()
     cv_page.feed(cv_html)
     profile = next(n for doc in cv_page.scripts for n in doc['@graph'] if n['@type'] == 'ProfilePage')

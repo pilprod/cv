@@ -4,7 +4,7 @@
 <title>Ilya Papou — R&amp;D projects, source code &amp; lab photographs</title>
 <meta name="description" content="Agent infrastructure, aeroponics and zero-trust network experiments. Public GitHub code, archival prototypes and 9 lab photographs, with project context.">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
-<link rel="canonical" href="https://papou.work/portfolio.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260928-experience"><link rel="stylesheet" href="portfolio.css?v=20260928-english">
+<link rel="canonical" href="https://papou.work/portfolio.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260928-brand"><link rel="stylesheet" href="portfolio.css?v=20260928-english">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Ilya Papou — CV &amp; Portfolio"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="Ilya Papou — R&amp;D projects, source code &amp; lab photographs"><meta property="og:description" content="Agent infrastructure, aeroponics and zero-trust network experiments. Public GitHub code, archival prototypes and 9 lab photographs, with project context."><meta property="og:url" content="https://papou.work/portfolio.html">
@@ -43,7 +43,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-10T01:00:22Z",
+      "dateModified": "2026-09-28T23:13:36Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -272,6 +272,11 @@
         }
       ],
       "subjectOf": [
+        {
+          "@type": "WebPage",
+          "url": "https://leafcoin.org/",
+          "name": "LeafCoin concept"
+        },
         {
           "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
         },
@@ -670,6 +675,7 @@
 <section class="evidence-project" id="agent" aria-labelledby="title-agent">
   <header><p class="eyebrow">Personal R&amp;D · PoCs</p><h2 id="title-agent">Agent Orchestration Infrastructure</h2><p class="project-period">Jun 2026 – Present · Buenos Aires, Argentina</p></header>
   <p class="project-intro">Personal R&amp;D for developers and AI coding agents working on software and infrastructure tasks, with context-preserving handoffs, tool integration and human review.</p><p>Platform components were deployed on Google Cloud. Orchestration and approval flows include designed and prepared work; Agent Host contracts were validated with simulated providers, not a claimed production-wide end-to-end deployment.</p>
+
   <div class="profile-mapping"><p><a href="/#projects">Project in the CV</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Agent Orchestration Infrastructure · Personal R&amp;D · PoCs</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Associated Experience</a>: Agent Infrastructure Engineer · Personal R&amp;D · PoCs — YourOwn.Chat</p></div>
   <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/yourown-chat">Platform infrastructure</a></h3><p class="repo-name">pilprod/yourown-chat</p><p>Google Cloud infrastructure and delivery configuration for the chat and agent platform.</p><p class="scope-note">Terraform, Helm and release-pipeline work.</p></li>
 <li><h3><a href="https://github.com/pilprod/substrate">Agent runtime</a></h3><p class="repo-name">pilprod/substrate</p><p>Substrate fork used for external-worker and Agent Host runtime integration.</p><p class="scope-note">Fork of kagent-dev/substrate; upstream code and project-specific integration are distinct.</p><p class="scope-note">Upstream: <a href="https://github.com/kagent-dev/substrate">kagent-dev/substrate</a></p></li>
@@ -682,6 +688,7 @@
 <section class="evidence-project" id="home" aria-labelledby="title-home">
   <header><p class="eyebrow">Personal R&amp;D</p><h2 id="title-home">Home Aeroponics &amp; IoT automation</h2><p class="project-period">Aug 2024 – Jan 2025 · Moscow City, Russia</p></header>
   <p class="project-intro">An integrated aeroponics lab combining sensor electronics, C++ firmware, Python automation, MQTT and Home Assistant monitoring.</p><p>The photographs document the wider historical lab. The public repositories are selected archival snapshots, not the complete installation or proof of a currently buildable or safety-tested system.</p>
+  <p><a href="https://leafcoin.org/">LeafCoin concept</a></p>
   <div class="profile-mapping"><p><a href="/#home-aeroponics">Project in the CV</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Home Aeroponics &amp; IoT automation · Personal R&amp;D</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Associated Experience</a>: IoT &amp; Automation Engineer · Personal R&amp;D — Home Aeroponics &amp; IoT automation</p></div>
   <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/aeroponics-iot-control">Controllers and integration</a></h3><p class="repo-name">pilprod/aeroponics-iot-control</p><p>Python/MQTT climate-device controllers and sanitized Mosquitto and Zigbee2MQTT examples.</p><p class="scope-note">Historical snapshot; not the complete Home Assistant configuration. No integration or physical-safety validation claimed.</p></li>
 <li><h3><a href="https://github.com/pilprod/aeroponics-sensor-firmware">Sensor firmware</a></h3><p class="repo-name">pilprod/aeroponics-sensor-firmware</p><p>Five archived Arduino prototypes for light sensing, water-sensor telemetry and relay-command experiments.</p><p class="scope-note">Experimental 2024 source variants, not final solutions or build-verified releases. Dependencies, incomplete integrations and hardware-safety limitations are documented per sketch.</p><div class="variants"><h4>Archived prototypes · 2024</h4><ul><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino">Light sensors with JSON/MQTT</a><p>Arduino Uno R4 WiFi prototype; missing modified sensor library, undefined software-I2C instances and unregistered message callback.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino">Light sensors with Serial output</a><p>Four TCS34725 sensors through separate software-I2C buses; modified Adafruit dependency is absent. No MQTT.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino">pH and relay commands</a><p>Serial-controlled relay experiment with pH readings. No MQTT; calibration and relay states are not hardware-validated.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino">EC/TDS and Serial1 relay commands</a><p>Water-sensor and relay experiment. MQTT connects but does not publish telemetry in this variant.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino">pH and moisture telemetry</a><p>pH and two analog moisture inputs with averaging and JSON/MQTT. Calibration, conversion and periodic reset remain unverified.</p></li></ul></div></li></ul>
@@ -698,6 +705,7 @@
 <section class="evidence-project" id="mesh" aria-labelledby="title-mesh">
   <header><p class="eyebrow">Personal R&amp;D</p><h2 id="title-mesh">Zero-Trust Mesh &amp; Open-source NGFW</h2><p class="project-period">Jan 2025 – Mar 2025 · Bangkok City, Thailand</p></header>
   <p class="project-intro">A multi-region Tailscale lab with automated node configuration, GitOps-managed access policies and OPNsense network experiments.</p><p>Public sources are sanitized lab examples. They do not include live inventories, credentials or a claim that the examples are deployed as published.</p>
+
   <div class="profile-mapping"><p><a href="/#zero-trust-mesh">Project in the CV</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Zero-Trust Mesh &amp; Open-source NGFW · Personal R&amp;D</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Associated Experience</a>: Network &amp; Security Engineer · Personal R&amp;D — Zero-Trust Mesh &amp; Open-source NGFW</p></div>
   <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/lab-network-automation">Node automation</a></h3><p class="repo-name">pilprod/lab-network-automation</p><p>Ansible installation, enrollment and network configuration for Tailscale lab nodes.</p><p class="scope-note">Sanitized automation without private inventories or credentials.</p></li>
 <li><h3><a href="https://github.com/pilprod/zero-trust-mesh-policy">Access policy</a></h3><p class="repo-name">pilprod/zero-trust-mesh-policy</p><p>Tagged service-access policy for agents, storage, observability and workflow services.</p><p class="scope-note">Policy example, not a published live network configuration.</p></li>
