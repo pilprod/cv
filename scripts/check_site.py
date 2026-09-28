@@ -59,7 +59,8 @@ SOURCE_PARTS = {
 # Editorial fingerprints cover every word, not just selected keywords.
 # September 23 local draft: condensed experience, one-line internship,
 # architecture-focused wording and no historical-role or project locations.
-# This draft has not been published or synchronized to Figma.
+# September 28: expanded three roles and matched live LinkedIn company names.
+# The separate Figma source has not been updated.
 SOURCE_DIGESTS = {
     # September 5 user-directed cloud emphasis: the final summary preference,
     # AWS-first freelance wording and deployed GCP components first in R&D.
@@ -76,11 +77,11 @@ SOURCE_DIGESTS = {
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
     "sidebar/domains": "aa1a04b74e0f55359df2e37c216274da92c68cf36be9f935cd6fbf7f70a7c6a6",
     # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
-    "job/Sirena-Travel": "feb1192e9e65b06610839607198d9e27737a676a792705aa1c4a390cbade62f7",
-    "job/Sberbank": "5ca756e6625e58ca1ef1441f0dcb3ac2a9ab405c68d549b6d54b7ecb3627ff0b",
-    "job/I-Teco": "a45b607c218374d6134f9304aec55a3d7c537536a1ab71091a155f5b1809f4aa",
+    "job/Sirena-Travel": "34204d4cf9b716ca9abe155cd683c2feb4c8f6b05bede9344e9032aef18d2d30",
+    "job/Sberbank": "8a0179eac6e5c4acde51a8614e88e8c3bcf1422c07c5f9c16ba0536cae4a97d7",
+    "job/I-Teco": "6fc6d81e5b9d51052b0732c3ce22c5071f3eb7a9762b00d653d6b087a76a30b3",
     # User-requested heading: Flant & Freelance.
-    "job/Freelance-Flant": "60346478e3bbc7daacc8e7f0581bdff208a9b532c509e235aabe5cadc164800e",
+    "job/Freelance-Flant": "3672276426f8cc662a3254d9ce23f338a08349c481af8bc585fa5df940c5bb1d",
     # User-requested employer name: MTS (Mobile TeleSystems).
     "job/MTS": "4625a439806f61d2e36d51dedb2e32ffe362cb0cc6fd6f23c9d7f1f7ff7911b6",
     # September 6: user-requested visible portfolio link on PDF page 2.
@@ -145,13 +146,14 @@ def check_source_content(page):
     for item, metadata in zip(page.source_content["project"], project_metadata):
         assert metadata in item, "Project dates or personal R&D status changed"
     assert "8 years in IT · 5+ in DevOps & SRE" in page.source_content["identity"][0], "Preserve the requested experience headline"
-    assert len(page.cv_content["achievement"]) == 32, "Expected 16 professional and 16 personal-project achievements"
-    domains = ("Aviation & travel", "Finance & insurance", "IT services",
+    assert len(page.cv_content["achievement"]) == 37, "Expected 21 professional and 16 personal-project achievements"
+    domains = ("Aviation & travel", "Finance & insurance", "Public sector",
                "Cross-industry IT consulting", "Earlier experience")
     assert len(page.source_content["job"]) == len(domains), "Expected five professional experiences"
     for item, domain in zip(page.source_content["job"], domains):
         assert "Domain:" not in item and domain in item, "Missing experience domain or unwanted Domain prefix"
-    assert not re.search(r"Sberbank|Sber|Sirena-Travel|I-Teco|\bMTS\b|Cloud\.ru|Huawei|Yandex|Alt Linux", " ".join(page.source_content["job"])), "English employer anonymization regressed"
+    for item, company in zip(page.source_content["job"], ("Red Rose Traveltech", "Sberbank", "Public Sector", "Flant", "Telecommunications company")):
+        assert company in item, "Company differs from the LinkedIn names reviewed September 28"
     assert "Full-time · Hybrid" in page.source_content["job"][1], "Sber's work arrangement must be Hybrid"
     for kind, labels in SOURCE_PARTS.items():
         items = page.source_content[kind]
@@ -451,9 +453,9 @@ def main():
     assert all(alias in sitemap_comments for alias in HANDLE_ALIASES), "Missing handle aliases in sitemap.xml comments"
     sitemap = ET.fromstring(sitemap_text)
     ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    assert [loc.text for loc in sitemap.findall("s:url/s:loc", ns)] == [CANONICAL, CANONICAL + "portfolio.html", CANONICAL + "ru/", CANONICAL + "ru/portfolio.html"], "Sitemap must contain both languages of the CV and portfolio"
+    assert [loc.text for loc in sitemap.findall("s:url/s:loc", ns)] == [CANONICAL, CANONICAL + "portfolio.html"], "Sitemap must contain only the English CV and portfolio"
     lastmods = sitemap.findall("s:url/s:lastmod", ns)
-    assert len(lastmods) == 4 and all(node.text for node in lastmods), "Missing sitemap lastmod"
+    assert len(lastmods) == 2 and all(node.text for node in lastmods), "Missing sitemap lastmod"
     modified = dt.datetime.fromisoformat(lastmods[0].text.replace("Z", "+00:00"))
     assert modified.date() <= dt.date.today(), "Future sitemap lastmod"
     profile_modified = dt.datetime.fromisoformat(profile.get("dateModified", "").replace("Z", "+00:00"))

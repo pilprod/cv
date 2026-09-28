@@ -223,19 +223,9 @@ test("session fallback overrides a stale permanent grant before reloading", () =
   assert.equal(app.state.reloads, 1);
 });
 
-test("Russian interface retains the same opt-in privacy behavior", () => {
-  const app = browser({ lang: 'ru', url: 'https://papou.work/ru/' });
-  assert.equal(app.elements['analytics-status'].textContent, 'Аналитика отключена.');
-  assert.equal(app.state.scripts.length, 0);
-  app.click('analytics-allow');
-  assert.equal(app.elements['analytics-status'].textContent, 'Аналитика включена.');
-  assert.equal(app.state.scripts.length, 1);
-  app.click('analytics-decline');
-  assert.equal(app.window['ga-disable-' + ID], true);
-});
 
 test("known pages remain distinguishable without leaking query strings or fragments", () => {
-  for (const [input, canonical] of [["/", "/"], ["/index.html", "/"], ["/ru/", "/ru/"], ["/ru/index.html", "/ru/"], ["/portfolio.html", "/portfolio.html"], ["/ru/portfolio.html", "/ru/portfolio.html"]]) {
+  for (const [input, canonical] of [["/", "/"], ["/index.html", "/"], ["/portfolio.html", "/portfolio.html"]]) {
     const app = browser({ url: "https://papou.work" + input + "?email=private@example.com#secret", saved: {value: "granted", expiresAt: NOW + LIFETIME} });
     const config = app.commands().find(([type]) => type === "config")[2];
     assert.equal(config.page_location, "https://papou.work" + canonical);
@@ -275,7 +265,7 @@ test("PDF on preview origins never emits even with stored consent", () => {
 });
 
 test("all published pages include one controller and the consent controls", () => {
-  for (const file of ["index.html", "ru/index.html", "portfolio.html", "ru/portfolio.html"]) {
+  for (const file of ["index.html", "portfolio.html"]) {
     const html = fs.readFileSync(path.join(__dirname, "..", file), "utf8");
     assert.equal((html.match(/<script src="\/?analytics\.js\?/g) || []).length, 1, file);
     for (const id of ["analytics-tools", "analytics-status", "analytics-consent", "analytics-settings", "analytics-allow", "analytics-decline"]) {

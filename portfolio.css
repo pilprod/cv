@@ -1,6 +1,5 @@
 .portfolio-page { font-size: 16px; }
 .portfolio-main, .portfolio-footer { max-width: 1120px; margin: auto; }
-.portfolio-toolbar .language-options { left: auto; right: 0; }
 .portfolio-main { background: var(--paper); padding: 48px 56px; }
 .portfolio-intro { margin-bottom: 64px; }
 .portfolio-intro h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 24px; }

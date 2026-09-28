@@ -7,11 +7,11 @@ const http = require('node:http');
 const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
-const isRussian = process.argv.includes('--ru');
-const sourcePage = isRussian ? 'ru/index.html' : 'index.html';
-const pdfTitle = isRussian ? 'Ilya Popov CV — DevOps & SRE — RU' : 'Ilya Papou CV — DevOps & SRE';
+if (process.argv.includes('--ru')) throw new Error('The Russian CV has been removed.');
+const sourcePage = 'index.html';
+const pdfTitle = 'Ilya Papou CV — DevOps & SRE';
 const pdfPath = `assets/${pdfTitle}.pdf`;
-const manifestPath = isRussian ? 'assets/cv-pdf-ru.json' : 'assets/cv-pdf.json';
+const manifestPath = 'assets/cv-pdf.json';
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 const types = { '.html': 'text/html', '.css': 'text/css', '.png': 'image/png',
   '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ttf': 'font/ttf', '.pdf': 'application/pdf' };
@@ -69,14 +69,14 @@ const assetSources = directory => fs.readdirSync(path.join(root, directory), { w
       console.error(await page.evaluate(() => [...document.querySelectorAll('.cv-page')].map(sheet=>({page:sheet.className, gap:sheet.querySelector('.page-number').getBoundingClientRect().top-sheet.querySelector('.projects-secondary, .experience .job:last-child').getBoundingClientRect().bottom}))));
       throw new Error('Page footer must stay inside margins and clear of content (10px after project cards, 4px after experience).');
     }
-    const portfolioLinkFits = await page.evaluate(isRussian => {
+    const portfolioLinkFits = await page.evaluate(() => {
       const link = document.querySelector('.page-two .portfolio-overview-link');
-      if (!link || link.href !== 'https://papou.work/' + (isRussian ? 'ru/' : '') + 'portfolio.html') return false;
+      if (!link || link.href !== 'https://papou.work/portfolio.html') return false;
       const bounds = link.getBoundingClientRect();
       const intro = link.closest('.page-intro').getBoundingClientRect();
       return bounds.width > 0 && bounds.height > 0 && bounds.left >= intro.left
         && bounds.right <= intro.right && bounds.top >= intro.top && bounds.bottom <= intro.bottom;
-    }, isRussian);
+    });
     if (!portfolioLinkFits) throw new Error('The project portfolio link must remain visible and unclipped on PDF page 2.');
     await page.evaluate(title => { document.title = title; }, pdfTitle);
     const pdf = await page.pdf({ preferCSSPageSize: true, printBackground: true, displayHeaderFooter: false });

@@ -30,14 +30,11 @@
   <meta name="twitter:image" content="https://papou.work/assets/social/cv-preview-20260906.jpg">
   <meta name="twitter:image:alt" content="Ilya Papou, Senior Platform &amp; SRE Engineer — CV and R&amp;D portfolio, with portrait.">
   <link rel="canonical" href="https://papou.work/">
-  <link rel="alternate" hreflang="en" href="https://papou.work/">
-  <link rel="alternate" hreflang="ru" href="https://papou.work/ru/">
-  <link rel="alternate" hreflang="x-default" href="https://papou.work/">
   <link rel="describedby" href="/llms.txt" type="text/plain" title="CV overview for agents">
   <link rel="describedby" href="/portfolio.jsonld" type="application/ld+json" title="Project, repository and photograph relationships">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20260907-bold-cv">
+  <link rel="stylesheet" href="styles.css?v=20260928-experience">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -59,7 +56,7 @@
           "name": "Ilya Papou — Senior Platform & SRE Engineer | CV",
           "description": "Ilya Papou (Ilya Popov), Senior Platform & SRE Engineer. Kubernetes, AWS, Google Cloud and agent infrastructure. CV, GitHub code and R&D prototypes.",
           "inLanguage": "en",
-          "dateModified": "2026-09-07T16:26:28Z",
+          "dateModified": "2026-09-28T22:45:05Z",
           "primaryImageOfPage": {
             "@type": "ImageObject",
             "contentUrl": "https://papou.work/assets/social/cv-preview-20260906.jpg",
@@ -122,11 +119,7 @@
       <a href="#projects">Projects</a>
       <a href="#technologies">Skills</a>
       <div class="toolbar-actions">
-        <details class="language-menu">
-          <summary aria-label="Choose language, current: English"><span class="current-language-flag" aria-hidden="true">🇬🇧</span><span class="language-caret" aria-hidden="true">▾</span></summary>
-          <div class="language-options"><a href="/" lang="en" aria-current="page"><span aria-hidden="true">🇬🇧</span> English</a><a href="/ru/" lang="ru"><span aria-hidden="true">🇷🇺</span> Русский</a></div>
-        </details>
-        <a id="open-pdf" class="pdf-action" href="assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260907-no-dash">Open PDF</a>
+        <a id="open-pdf" class="pdf-action" href="assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20260928-experience">Open PDF</a>
       </div>
     </nav>
   </div>
@@ -211,22 +204,24 @@
         <article class="job">
           <header class="job-header">
             <div class="job-title-line"><div class="job-heading">
-              <h3 class="company">Travel tech</h3>
+              <h3 class="company">Red Rose Traveltech</h3>
               <p class="job-role">Senior SRE &amp; Platform Engineer</p>
             </div><span class="job-domain">Aviation &amp; travel</span></div>
             <p class="job-meta"><time datetime="2025-03">Mar 2025</time> — <time datetime="2026-09">Sep 2026</time> · Contract · Remote</p>
           </header>
           <ul class="achievements">
-            <li>Built and operated a bare-metal Kubernetes platform using RKE2, with encrypted etcd, mTLS across services and data systems, and centralized certificate management through Vault.</li>
-            <li>Standardized deployments with GitLab CI/CD, reusable Helm charts, and Argo CD. Integrated security checks into release workflows to block vulnerable builds and production deployments.</li>
-            <li>Owned on-call incident response, investigated failures, and documented recovery procedures and preventive actions.</li>
-            <li>Integrated kagent and Mattermost for AI-assisted engineering, managing agent definitions and platform configuration through IaC and GitOps.</li>
+            <li>Built and operated a unified bare-metal RKE2 Kubernetes platform for microservices, ML workloads and shared services. Used Terragrunt for infrastructure management.</li>
+            <li>Established platform-wide Argo CD GitOps delivery with GitLab CI/CD and shared Helm charts for one-click deployment and configuration. Standardized ML service deployments and migrated them between platforms without downtime.</li>
+            <li>Supported anti-fraud services. Customized Airflow Helm charts and extended DAG distribution mechanisms.</li>
+            <li>Encrypted etcd, managed service accounts and centralized certificates with Vault. Prepared deployments to run without repository-stored credentials. Implemented mTLS, including Kafka and Redis client connections.</li>
+            <li>Centralized packages and images in Nexus, with one Docker group endpoint and no direct external access. Added SAST, GitGuardian and Trivy checks to block vulnerable releases.</li>
+            <li>Owned on-call incident response and documented recovery and preventive actions. Integrated kagent and Mattermost for AI-assisted engineering, managing agents and platform configuration through IaC and GitOps.</li>
           </ul>
         </article>
         <article class="job">
           <header class="job-header">
             <div class="job-title-line"><div class="job-heading">
-              <h3 class="company">Insurance brokerage</h3>
+              <h3 class="company">Sberbank</h3>
               <p class="job-role">Head of DevOps</p>
             </div><span class="job-domain">Finance &amp; insurance</span></div>
             <p class="job-meta"><time datetime="2023-06">Jun 2023</time> — <time datetime="2025-03">Mar 2025</time> · Full-time · Hybrid</p>
@@ -243,29 +238,32 @@
         <article class="job">
           <header class="job-header">
             <div class="job-title-line"><div class="job-heading">
-              <h3 class="company">IT services company</h3>
+              <h3 class="company">Public Sector</h3>
               <p class="job-role">Senior DevOps Engineer</p>
-            </div><span class="job-domain">IT services</span></div>
+            </div><span class="job-domain">Public sector</span></div>
             <p class="job-meta"><time datetime="2022-04">Apr 2022</time> — <time datetime="2023-06">Jun 2023</time> · Full-time · Remote</p>
           </header>
           <ul class="achievements">
-            <li>Managed development and test infrastructure across approximately ten virtualization hosts, each running around 50 virtual machines.</li>
-            <li>Deployed Kubernetes in an air-gapped Linux environment and automated offline releases.</li>
-            <li>Maintained data, messaging, and delivery services, including PostgreSQL/Patroni, Cassandra, RabbitMQ, Airflow, TeamCity, and Nexus. Automated operations with Ansible, Python, and Bash.</li>
+            <li>Administered all development hypervisors and environments, including Hyper-V with 100+ virtual machines on Windows Server hosts in isolated enterprise and public-sector environments.</li>
+            <li>Investigated production incidents involving Docker Swarm, RabbitMQ and PostgreSQL/Patroni. Maintained Airflow, resolved network issues and managed OpenVPN connectivity.</li>
+            <li>Built Kubernetes on ALT Linux 9.2 in an air-gapped environment, wrote manifests and CI/CD pipelines, and automated offline releases.</li>
+            <li>Administered Linux and automated operations with Ansible, Python and Bash, including Python scripts for Nexus administration.</li>
+            <li>Maintained TeamCity, Nexus, Cassandra, Solr, ZooKeeper, HAProxy and ELK. Wrote deployment and configuration documentation for these services in isolated environments.</li>
           </ul>
         </article>
         <article class="job">
           <header class="job-header">
             <div class="job-title-line"><div class="job-heading">
-              <h3 class="company"><a href="https://flant.ru/">Flant</a> &amp; Freelance</h3>
+              <h3 class="company"><a href="https://flant.ru/">Flant</a></h3>
               <p class="job-role">Software Development &amp; DevOps</p>
             </div><span class="job-domain">Cross-industry IT consulting</span></div>
             <p class="job-meta"><time datetime="2019-11">Nov 2019</time> — <time datetime="2022-03">Mar 2022</time> · Selected projects · Remote</p>
           </header>
           <ul class="achievements">
-            <li>Delivered cloud infrastructure and web applications across freelance and Flant projects, including work with AWS services.</li>
-            <li>Built React/Next.js and Node.js applications and deployed Java/Spring workloads to Kubernetes using Helm and automated delivery workflows.</li>
-            <li>Supported delivery and operations with Prometheus, Grafana, ELK, and PostgreSQL/Patroni.</li>
+            <li>Configured, deployed and operated Java/Spring applications on Kubernetes. Developed reusable Helm charts with Go templates and contributed to Go development.</li>
+            <li>Delivered AWS and Yandex Cloud infrastructure. Automated configuration with Ansible and used GitHub Actions to build and publish Docker images to Yandex Cloud.</li>
+            <li>Managed production Prometheus, Grafana, ELK and PostgreSQL/Patroni. Built React, Next.js, Node.js and Express applications and improved website SEO.</li>
+            <li>Created advertising materials, generated leads and managed a customer database for business automation equipment.</li>
           </ul>
         </article>
         <article class="job job-earlier">

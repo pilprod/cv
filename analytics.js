@@ -11,19 +11,14 @@
   const status = document.getElementById("analytics-status");
   const tools = document.getElementById("analytics-tools");
   if (!panel || !settings || !status || !tools) return;
-  const isRussian = document.documentElement?.lang === "ru";
   // Only reviewed public routes are sent; query strings and fragments stay private.
   const pages = new Map([
     ["/", ["/", "CV — Platform and SRE Engineering"]],
     ["/index.html", ["/", "CV — Platform and SRE Engineering"]],
-    ["/ru/", ["/ru/", "CV — Platform and SRE Engineering — RU"]],
-    ["/ru/index.html", ["/ru/", "CV — Platform and SRE Engineering — RU"]],
     ["/portfolio.html", ["/portfolio.html", "Portfolio — Projects and lab photographs"]],
-    ["/ru/portfolio.html", ["/ru/portfolio.html", "Portfolio — Projects and lab photographs — RU"]]
   ]);
   const page = pages.get(new URL(window.location.href).pathname);
-  const messages = isRussian ? ["В предпросмотре аналитика отключена.", "Аналитика включена.", "Аналитика отключена.", "Аналитика отключена на время этого посещения. Браузер не смог сохранить выбор."]
-    : ["Analytics is disabled in this preview.", "Analytics is on.", "Analytics is off.", "Analytics is off for this visit. Your browser could not save this choice."];
+  const messages = ["Analytics is disabled in this preview.", "Analytics is on.", "Analytics is off.", "Analytics is off for this visit. Your browser could not save this choice."];
 
   const denied = {
     analytics_storage: "denied",
