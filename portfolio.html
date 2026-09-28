@@ -43,7 +43,7 @@
       "url": "https://papou.work/portfolio.html",
       "name": "Ilya Papou — R&D projects, source code & lab photographs",
       "inLanguage": "en",
-      "dateModified": "2026-09-28T23:13:36Z",
+      "dateModified": "2026-09-28T23:22:29Z",
       "primaryImageOfPage": {
         "@id": "https://papou.work/portfolio.html#photo-electronics-workbench"
       },
@@ -275,7 +275,7 @@
         {
           "@type": "WebPage",
           "url": "https://leafcoin.org/",
-          "name": "LeafCoin concept"
+          "name": "Leafcoin concept"
         },
         {
           "@id": "https://www.linkedin.com/in/pilprod/details/projects/"
@@ -688,7 +688,7 @@
 <section class="evidence-project" id="home" aria-labelledby="title-home">
   <header><p class="eyebrow">Personal R&amp;D</p><h2 id="title-home">Home Aeroponics &amp; IoT automation</h2><p class="project-period">Aug 2024 – Jan 2025 · Moscow City, Russia</p></header>
   <p class="project-intro">An integrated aeroponics lab combining sensor electronics, C++ firmware, Python automation, MQTT and Home Assistant monitoring.</p><p>The photographs document the wider historical lab. The public repositories are selected archival snapshots, not the complete installation or proof of a currently buildable or safety-tested system.</p>
-  <p><a href="https://leafcoin.org/">LeafCoin concept</a></p>
+  <p><a href="https://leafcoin.org/">Leafcoin concept</a></p>
   <div class="profile-mapping"><p><a href="/#home-aeroponics">Project in the CV</a></p><p><a href="https://www.linkedin.com/in/pilprod/details/projects/">LinkedIn Projects</a>: Home Aeroponics &amp; IoT automation · Personal R&amp;D</p><p><a href="https://www.linkedin.com/in/pilprod/details/experience/">Associated Experience</a>: IoT &amp; Automation Engineer · Personal R&amp;D — Home Aeroponics &amp; IoT automation</p></div>
   <ul class="repository-list"><li><h3><a href="https://github.com/pilprod/aeroponics-iot-control">Controllers and integration</a></h3><p class="repo-name">pilprod/aeroponics-iot-control</p><p>Python/MQTT climate-device controllers and sanitized Mosquitto and Zigbee2MQTT examples.</p><p class="scope-note">Historical snapshot; not the complete Home Assistant configuration. No integration or physical-safety validation claimed.</p></li>
 <li><h3><a href="https://github.com/pilprod/aeroponics-sensor-firmware">Sensor firmware</a></h3><p class="repo-name">pilprod/aeroponics-sensor-firmware</p><p>Five archived Arduino prototypes for light sensing, water-sensor telemetry and relay-command experiments.</p><p class="scope-note">Experimental 2024 source variants, not final solutions or build-verified releases. Dependencies, incomplete integrations and hardware-safety limitations are documented per sketch.</p><div class="variants"><h4>Archived prototypes · 2024</h4><ul><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/uno/uno.ino">Light sensors with JSON/MQTT</a><p>Arduino Uno R4 WiFi prototype; missing modified sensor library, undefined software-I2C instances and unregistered message callback.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/tcs34725_serial/tcs34725_serial.ino">Light sensors with Serial output</a><p>Four TCS34725 sensors through separate software-I2C buses; modified Adafruit dependency is absent. No MQTT.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_relay_serial/ph_relay_serial.ino">pH and relay commands</a><p>Serial-controlled relay experiment with pH readings. No MQTT; calibration and relay states are not hardware-validated.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ec_tds_relay_serial/ec_tds_relay_serial.ino">EC/TDS and Serial1 relay commands</a><p>Water-sensor and relay experiment. MQTT connects but does not publish telemetry in this variant.</p></li><li><a href="https://github.com/pilprod/aeroponics-sensor-firmware/blob/main/variants/ph_moisture_mqtt/ph_moisture_mqtt.ino">pH and moisture telemetry</a><p>pH and two analog moisture inputs with averaging and JSON/MQTT. Calibration, conversion and periodic reset remain unverified.</p></li></ul></div></li></ul>

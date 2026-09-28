@@ -4,13 +4,13 @@
 .portfolio-intro { margin-bottom: 64px; }
 .portfolio-intro h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.1; letter-spacing: -.035em; margin: 16px 0 24px; }
 .portfolio-intro > p:last-of-type { max-width: 640px; font-size: 20px; }
-.project-index { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 32px; border-top: 1px solid var(--muted); padding-top: 24px; }
-.evidence-project { margin-top: 64px; padding-top: 32px; border-top: 3px solid var(--teal); scroll-margin-top: 24px; }
+.project-index { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 32px; padding-top: 24px; }
+.evidence-project { margin-top: 64px; padding-top: 32px; scroll-margin-top: 24px; }
 .evidence-project h2 { font-size: clamp(25px, 3vw, 34px); line-height: 1.18; margin: 10px 0 12px; }
 .project-period, .scope-note { color: var(--muted); }
 .project-intro { font-size: 19px; margin-top: 24px; }
 .evidence-project > p { margin-bottom: 14px; max-width: 850px; }
-.profile-mapping { border-left: 3px solid var(--blue); padding-left: 18px; margin: 24px 0; }
+.profile-mapping { margin: 24px 0; }
 .profile-mapping p + p { margin-top: 6px; }
 .repository-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .repository-list > li { min-width: 0; padding: 20px; border: 1px solid #a8bac3; }

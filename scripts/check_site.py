@@ -120,7 +120,7 @@ PROJECT_LINKS = {
               ("Image build", "https://github.com/pilprod/yourown-chat-mattermost")),
     "home": (("Controllers", "https://github.com/pilprod/aeroponics-iot-control"),
              ("Sensor firmware", "https://github.com/pilprod/aeroponics-sensor-firmware"),
-             ("LeafCoin", "https://leafcoin.org/")),
+             ("Leafcoin", "https://leafcoin.org/")),
     "mesh": (("Ansible", "https://github.com/pilprod/lab-network-automation"),
              ("Access policy", "https://github.com/pilprod/zero-trust-mesh-policy"),
              ("GCP network lab", "https://github.com/pilprod/gcp-ngfw-network-lab")),

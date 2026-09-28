@@ -170,7 +170,6 @@ h3 {
   padding: 20px max(24px, calc((100vw - 1120px) / 2));
   padding-bottom: max(20px, env(safe-area-inset-bottom));
   border: 0;
-  border-top: 1px solid #ccdce3;
   border-radius: 0;
   background: var(--paper);
   box-shadow: 0 -8px 30px rgb(11 18 32 / 10%);
@@ -280,10 +279,9 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: var(--toolbar-gap);
-  width: 100%;
-  max-width: none;
+  width: min(1120px, calc(100% - clamp(0px, 12.5vw - 80px, 48px)));
   margin: 0 auto;
-  padding: 24px 32px;
+  padding: 20px 24px;
   font-size: var(--toolbar-font-size);
   font-weight: 500;
   line-height: 20px;
@@ -829,7 +827,6 @@ h3 {
     gap: 14px 24px;
     margin-block: 32px 20px;
     padding: 0 0 14px;
-    border-bottom: 1px solid #d8e0e8;
   }
 
   .identity-copy {
@@ -1112,7 +1109,6 @@ h3 {
     grid-column: 1 / -1;
     margin: 0;
     padding-top: 14px;
-    border-top: 1px solid #d4e2e7;
   }
 
   .profile-toggle {
@@ -1651,7 +1647,6 @@ h3 {
     gap: 8px 24px;
     margin: 30px 0 6px;
     padding: 0 0 8px;
-    border-bottom: 1px solid #d8e0e8;
   }
 
   .identity-copy {
@@ -1833,7 +1828,6 @@ h3 {
   .job + .job {
     margin-top: 4px;
     padding-top: 4px;
-    border-top: 1px solid #d8e0e8;
   }
 
   .job-header {

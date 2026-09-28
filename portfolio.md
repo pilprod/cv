@@ -35,7 +35,7 @@ The photographs document the wider historical lab. The public repositories are s
 - [LinkedIn Projects](https://www.linkedin.com/in/pilprod/details/projects/): Home Aeroponics & IoT automation · Personal R&D
 - [Associated LinkedIn Experience](https://www.linkedin.com/in/pilprod/details/experience/): IoT & Automation Engineer · Personal R&D — Home Aeroponics & IoT automation
 
-- [LeafCoin concept](https://leafcoin.org/)
+- [Leafcoin concept](https://leafcoin.org/)
 
 - [pilprod/aeroponics-iot-control](https://github.com/pilprod/aeroponics-iot-control): Python/MQTT climate-device controllers and sanitized Mosquitto and Zigbee2MQTT examples. Historical snapshot; not the complete Home Assistant configuration. No integration or physical-safety validation claimed.
 - [pilprod/aeroponics-sensor-firmware](https://github.com/pilprod/aeroponics-sensor-firmware): Five archived Arduino prototypes for light sensing, water-sensor telemetry and relay-command experiments. Experimental 2024 source variants, not final solutions or build-verified releases. Dependencies, incomplete integrations and hardware-safety limitations are documented per sketch.
