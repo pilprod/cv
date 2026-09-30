@@ -298,7 +298,6 @@ h3 {
 
 .site-toolbar > a,
 .site-toolbar nav > a,
-.site-toolbar .ats-action,
 .site-toolbar .pdf-action,
 .portfolio-toolbar > a,
 .portfolio-toolbar nav > a {
@@ -351,17 +350,6 @@ h3 {
   flex: 0 0 auto;
   gap: var(--toolbar-gap);
   margin-left: auto;
-}
-
-.site-toolbar .ats-action {
-  padding: 0 12px;
-  border: 1px solid currentColor;
-  border-radius: 6px;
-}
-
-.site-toolbar .ats-action:hover,
-.site-toolbar .ats-action:focus-visible {
-  color: var(--blue);
 }
 
 .site-toolbar .pdf-action {
@@ -1232,7 +1220,6 @@ h3 {
     --toolbar-gap: 8px;
   }
 
-  .site-toolbar .ats-action,
   .site-toolbar .pdf-action {
     padding-inline: 8px;
   }
@@ -1501,7 +1488,6 @@ h3 {
     --toolbar-gap: 6px;
   }
 
-  .site-toolbar .ats-action,
   .site-toolbar .pdf-action {
     padding-inline: 6px;
   }
