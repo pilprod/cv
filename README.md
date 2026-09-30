@@ -71,9 +71,11 @@ The PDF omits the colored bar-and-dot accents above projects, the Contacts accen
 
 The contact block includes `papou.work`, WhatsApp Business `papou.work` and Telegram `pilprod` in both screen and print layouts. Messaging usernames are displayed without an `@` prefix. Each contact uses a compact monochrome vector icon with an accessible channel label instead of a repeated text prefix. Messaging links use `https://wa.me/papou.work` and `https://t.me/pilprod`; no phone number is published.
 
-GitHub Pages serves the repository root from `main`. No build step is required.
+GitHub Pages serves the repository root from `main`. No build step is required. Cloudflare proxies the apex A/AAAA records and the `www` CNAME. SSL is Full (strict); an exact-host 301 redirect sends `www.papou.work` to `https://papou.work`, preserving path and query. Mail DNS is independent and must not be changed for web deployment. No archived `old` hostname is needed.
 
 ## Optional analytics
+
+Cloudflare Web Analytics was enabled on September 30, 2026 with automatic installation and **Enable, excluding visitor data in EU**. The account-level RUM ruleset has `enabled: true`, `lite: true`, and an unpaused wildcard rule. One automatic beacon was verified in the proxied HTML for CV, ATS and portfolio, with validated HTTPS. Do not add a manual Cloudflare script or reuse another site's token. Cloudflare uses no analytics cookies; the EU setting suppresses its snippet for EU visitors. See [Cloudflare setup options](https://developers.cloudflare.com/web-analytics/get-started/).
 
 The GA4 web stream uses measurement ID `G-HHJNK65HTV`. `analytics.js` is a first-party consent controller, not an eagerly loaded Google tag. The **Allow Google Analytics?** notice controls optional Google analytics cookies and collection together. It loads Google Analytics only on `https://papou.work` after a visitor explicitly chooses **Allow Google Analytics**. Until then, or after **Decline Google Analytics**, no Google Analytics script or measurement request is sent. Local previews never collect analytics. A separate notice explains Cloudflare Web Analytics: automatic cookieless performance measurement with EU visitors excluded. The Google consent buttons do not control Cloudflare.
 
@@ -144,7 +146,7 @@ The checks protect the September 4, 2026 Figma/PDF baseline plus the user-direct
 
 After deployment, the site owner can submit `https://papou.work/sitemap.xml` in Google Search Console and Bing Webmaster Tools, and use their URL inspection tools. This repository does not create verification tokens or automatically claim ownership. Crawling, indexing, rich results and AI citations depend on the search services.
 
-Google Search Console setup was verified on September 5, 2026: ownership confirmed, the sitemap processed successfully with one discovered page, and URL Inspection reported the canonical homepage indexed with HTTPS and valid ProfilePage structured data. This is a point-in-time check, not a guarantee of future indexing or ranking. No Bing submission was performed in this setup.
+On September 30, 2026, the `papou.work` domain property was verified through an additional DNS TXT record for the current Google account, preserving existing verification records. Search Console reported the canonical homepage indexed with HTTPS and one valid ProfilePage item. The existing sitemap had Success status and was resubmitted successfully; fresh indexing requests were accepted for the CV and portfolio. The portfolio was discovered but not yet indexed at inspection. The existing GA4 association links the `https://papou.work/` URL-prefix property to the `papou.work` web stream (15722482368). ATS remains `noindex` and is not submitted. These are point-in-time checks, not guarantees of future indexing or ranking. No Bing submission was performed in this setup.
 
 References: [Google AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), [ProfilePage structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page), [OpenAI crawlers](https://developers.openai.com/api/docs/bots), [llms.txt proposal](https://llmstxt.org/).
 
