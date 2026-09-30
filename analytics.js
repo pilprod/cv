@@ -10,15 +10,20 @@
   const settings = document.getElementById("analytics-settings");
   const status = document.getElementById("analytics-status");
   const tools = document.getElementById("analytics-tools");
-  if (!panel || !settings || !status || !tools) return;
+  const allow = document.getElementById("analytics-allow");
+  const decline = document.getElementById("analytics-decline");
+  if (!panel || !settings || !status || !tools || !allow || !decline) return;
+  // A duplicate controller must not register another tag or pageview.
+  if (window.__papouAnalyticsLoaded) return;
+  window.__papouAnalyticsLoaded = true;
   // Only reviewed public routes are sent; query strings and fragments stay private.
   const pages = new Map([
     ["/", ["/", "CV — Platform and SRE Engineering"]],
     ["/index.html", ["/", "CV — Platform and SRE Engineering"]],
     ["/portfolio.html", ["/portfolio.html", "Portfolio — Projects and lab photographs"]],
+    ["/ats.html", ["/ats.html", "CV — ATS — DevOps and SRE Engineering"]],
   ]);
   const page = pages.get(new URL(window.location.href).pathname);
-  const messages = ["Analytics is disabled in this preview.", "Analytics is on.", "Analytics is off.", "Analytics is off for this visit. Your browser could not save this choice."];
 
   const denied = {
     analytics_storage: "denied",
@@ -28,22 +33,43 @@
   };
   let active = false;
   let scriptAdded = false;
-  let choiceSaved = true;
+  let choiceSaved;
   let expiryTimer;
   window[disableKey] = true;
 
-  function readChoice() {
+  function validChoice(saved) {
+    return saved && ["granted", "denied"].includes(saved.value)
+      && Number.isFinite(saved.expiresAt) && saved.expiresAt > Date.now()
+      && saved.expiresAt <= Date.now() + consentLifetime;
+  }
+
+  function readStorage(storage) {
     try {
-      const saved = JSON.parse(window.sessionStorage?.getItem(consentKey) || window.localStorage.getItem(consentKey));
-      if (saved && ["granted", "denied"].includes(saved.value)
-          && Number.isFinite(saved.expiresAt) && saved.expiresAt > Date.now()
-          && saved.expiresAt <= Date.now() + consentLifetime) return saved;
-      window.localStorage.removeItem(consentKey);
-    } catch { /* Storage may be blocked. Analytics stays off without a choice. */ }
+      const saved = JSON.parse(storage?.getItem(consentKey) || "null");
+      if (validChoice(saved)) return { value: saved.value, expiresAt: saved.expiresAt };
+      storage?.removeItem(consentKey);
+    } catch { /* Blocked or malformed storage never grants consent. */ }
     return null;
   }
 
-  let choice = readChoice();
+  function readChoice(skipSession = false) {
+    // A session fallback overrides an unwritable permanent grant on reload.
+    if (!skipSession) {
+      try {
+        const saved = readStorage(window.sessionStorage);
+        if (saved) return { choice: saved, persisted: false };
+      } catch { /* Access to the storage object itself may be blocked. */ }
+    }
+    try {
+      const saved = readStorage(window.localStorage);
+      if (saved) return { choice: saved, persisted: true };
+    } catch { /* Google stays off until a choice is made. */ }
+    return { choice: null, persisted: true };
+  }
+
+  let restored = readChoice();
+  let choice = restored.choice;
+  choiceSaved = restored.persisted;
 
   function showPanel(show, restoreFocus = false) {
     panel.hidden = !show;
@@ -53,10 +79,12 @@
 
   function render() {
     tools.hidden = false;
-    status.textContent = !production ? messages[0]
-      : choice?.value === "granted" ? messages[1]
-      : choiceSaved ? messages[2] : messages[3];
-    showPanel(!choice);
+    status.textContent = !production || !page ? "Google Analytics is disabled in this preview."
+      : choice?.value === "granted" ? choiceSaved ? "Google Analytics is on."
+        : "Google Analytics is on for this visit. Your browser could not save this choice."
+      : choiceSaved ? "Google Analytics is off."
+        : "Google Analytics is off for this visit. Your browser could not save this choice.";
+    showPanel(Boolean(production && page) && !choice);
   }
 
   function safeReferrer() {
@@ -75,11 +103,18 @@
     // Basic consent mode: this queue and the Google script exist only after opt-in.
     window.gtag("consent", "default", denied);
     window.gtag("consent", "update", { ...denied, analytics_storage: "granted" });
+    window.gtag("set", "ads_data_redaction", true);
+    window.gtag("set", "url_passthrough", false);
     window.gtag("js", new Date());
     window.gtag("config", measurementId, {
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
       send_page_view: false,
+      cookie_domain: window.location.hostname,
+      cookie_path: "/",
+      cookie_expires: consentLifetime / 1000,
+      cookie_update: false,
+      cookie_flags: "SameSite=Lax;Secure",
       page_location: "https://papou.work" + page[0],
       page_referrer: safeReferrer(),
       page_title: page[1]
@@ -88,6 +123,7 @@
     if (!scriptAdded) {
       scriptAdded = true;
       const script = document.createElement("script");
+      script.id = "papou-google-analytics";
       script.async = true;
       script.referrerPolicy = "no-referrer";
       script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
@@ -108,7 +144,7 @@
   function stopAnalytics(reload = true) {
     window[disableKey] = true;
     if (active) window.gtag("consent", "update", denied);
-    clearAnalyticsCookies();
+    if (production && page) clearAnalyticsCookies();
     if (active) {
       active = false;
       // Unload an already-running tag, including its pending timers/listeners.
@@ -123,6 +159,7 @@
     if (remaining <= 0) {
       choice = null;
       try { window.localStorage.removeItem(consentKey); } catch { /* Optional storage. */ }
+      try { window.sessionStorage?.removeItem(consentKey); } catch { /* Optional storage. */ }
       stopAnalytics();
       render();
     } else {
@@ -132,49 +169,56 @@
 
   function decide(value) {
     choice = { value, expiresAt: Date.now() + consentLifetime };
-    choiceSaved = true;
+    choiceSaved = false;
     try {
       window.localStorage.setItem(consentKey, JSON.stringify(choice));
-      window.sessionStorage?.removeItem(consentKey);
-    } catch {
-      choiceSaved = false;
+      choiceSaved = true;
+    } catch { /* Keep the current decision even if persistence is blocked. */ }
+    if (choiceSaved) {
+      try { window.sessionStorage?.removeItem(consentKey); } catch { /* Optional storage. */ }
+    } else {
       try { window.localStorage.removeItem(consentKey); } catch { /* May be read-only. */ }
       try { window.sessionStorage?.setItem(consentKey, JSON.stringify(choice)); } catch { /* Current-page disable still applies. */ }
     }
     if (value === "granted") startAnalytics();
     // Never reload back into a stale saved approval when browser storage is read-only.
-    else stopAnalytics(readChoice()?.value !== "granted");
+    else stopAnalytics(readChoice().choice?.value !== "granted");
     checkExpiry();
     render();
     showPanel(false, true);
   }
 
-  document.getElementById("analytics-allow").addEventListener("click", () => decide("granted"));
-  document.getElementById("analytics-decline").addEventListener("click", () => decide("denied"));
-  const pdfLink = document.getElementById("open-pdf");
-  function trackPdfOpen(event) {
+  allow.addEventListener("click", () => decide("granted"));
+  decline.addEventListener("click", () => decide("denied"));
+  function trackPdfOpen(event, eventName) {
     if (event.defaultPrevented || !active || window[disableKey]
         || choice?.value !== "granted" || choice.expiresAt <= Date.now()) return;
     // A link activation, not proof of a completed download or a read document.
     // Keep native navigation and never send the link URL, filename or contact data.
-    window.gtag("event", "cv_pdf_open", { send_to: measurementId });
+    window.gtag("event", eventName, { send_to: measurementId });
   }
-  pdfLink?.addEventListener("click", trackPdfOpen);
-  pdfLink?.addEventListener("auxclick", event => {
-    if (event.button === 1) trackPdfOpen(event);
-  });
+  for (const [id, eventName] of [["open-pdf", "cv_pdf_open"], ["download-ats-pdf", "cv_ats_pdf_open"]]) {
+    const link = document.getElementById(id);
+    link?.addEventListener("click", event => trackPdfOpen(event, eventName));
+    link?.addEventListener("auxclick", event => {
+      if (event.button === 1) trackPdfOpen(event, eventName);
+    });
+  }
   settings.addEventListener("click", () => {
     showPanel(panel.hidden);
-    if (!panel.hidden) document.getElementById("analytics-decline").focus({ preventScroll: true });
+    if (!panel.hidden) decline.focus({ preventScroll: true });
   });
   panel.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && choice) showPanel(false, true);
   });
   window.addEventListener("storage", (event) => {
     if (event.key !== consentKey && event.key !== null) return;
-    choice = readChoice();
+    try { window.sessionStorage?.removeItem(consentKey); } catch { /* Cross-tab withdrawal still takes effect below. */ }
+    restored = readChoice(true);
+    choice = restored.choice;
+    choiceSaved = restored.persisted;
     if (choice?.value === "granted") startAnalytics();
-    else stopAnalytics();
+    else stopAnalytics(readChoice().choice?.value !== "granted");
     checkExpiry();
     render();
   });
@@ -183,7 +227,7 @@
   });
 
   if (choice?.value === "granted") startAnalytics();
-  else clearAnalyticsCookies();
+  else if (production && page) clearAnalyticsCookies();
   checkExpiry();
   render();
 })();

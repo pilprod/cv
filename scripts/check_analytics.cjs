@@ -13,15 +13,15 @@ const NOW = Date.parse("2026-09-05T12:00:00Z");
 
 class Element {
   constructor() { this.hidden = true; this.listeners = {}; this.attributes = {}; }
-  addEventListener(name, callback) { this.listeners[name] = callback; }
+  addEventListener(name, callback) { (this.listeners[name] ||= []).push(callback); }
   setAttribute(name, value) { this.attributes[name] = value; }
   focus() { this.focused = true; }
-  fire(name, event = {}) { this.listeners[name]?.(event); }
+  fire(name, event = {}) { for (const callback of this.listeners[name] || []) callback(event); }
 }
 
 function browser(options = {}) {
   const state = { now: NOW, reloads: 0, scripts: [], timers: new Map(), cookieWrites: [] };
-  const ids = ["analytics-consent", "analytics-settings", "analytics-status", "analytics-tools", "analytics-allow", "analytics-decline", "open-pdf"];
+  const ids = ["analytics-consent", "analytics-settings", "analytics-status", "analytics-tools", "analytics-allow", "analytics-decline", "open-pdf", "download-ats-pdf"];
   const elements = Object.fromEntries(ids.map((id) => [id, new Element()]));
   const storage = new Map();
   if (options.saved !== undefined) storage.set(KEY, typeof options.saved === "string" ? options.saved : JSON.stringify(options.saved));
@@ -42,11 +42,15 @@ function browser(options = {}) {
   };
   if (options.sessionStorage) {
     const session = new Map();
+    if (options.sessionSaved !== undefined) session.set(KEY, typeof options.sessionSaved === "string" ? options.sessionSaved : JSON.stringify(options.sessionSaved));
     window.sessionStorage = {
       getItem(key) { return session.get(key) || null; },
       setItem(key, value) { session.set(key, value); },
       removeItem(key) { session.delete(key); }
     };
+  }
+  if (options.sessionStorageGetterBlocked) {
+    Object.defineProperty(window, "sessionStorage", { get() { throw Error("Session storage blocked"); } });
   }
   const document = {
     documentElement: {lang: options.lang || 'en'},
@@ -63,9 +67,11 @@ function browser(options = {}) {
     }
   };
   class Clock extends Date { static now() { return state.now; } }
-  vm.runInNewContext(source, { window, document, URL, Date: Clock }, { filename: "analytics.js" });
+  const context = vm.createContext({ window, document, URL, Date: Clock });
+  vm.runInContext(source, context, { filename: "analytics.js" });
   return {
     state, window, document, elements, storage, cookies,
+    runAgain() { vm.runInContext(source, context, { filename: "analytics.js" }); },
     click(id) { elements[id].fire("click"); },
     commands() { return Array.from(window.dataLayer || [], (entry) => Array.from(entry)); },
     stored() { return JSON.parse(storage.get(KEY)); },
@@ -121,6 +127,12 @@ test("allow sends one sanitized pageview, denies all advertising, and loads once
   assert.equal(config.allow_google_signals, false);
   assert.equal(config.allow_ad_personalization_signals, false);
   assert.equal(config.send_page_view, false);
+  assert.equal(config.cookie_domain, "papou.work");
+  assert.equal(config.cookie_path, "/");
+  assert.equal(config.cookie_expires, LIFETIME / 1000);
+  assert.equal(config.cookie_update, false);
+  assert.equal(config.cookie_flags, "SameSite=Lax;Secure");
+  assert.deepEqual(commands.filter(([type]) => type === "set"), [["set", "ads_data_redaction", true], ["set", "url_passthrough", false]]);
   assert.equal(config.page_location, "https://papou.work/");
   assert.equal(config.page_referrer, "https://example.org/");
   assert.equal(config.page_title, "CV — Platform and SRE Engineering");
@@ -182,6 +194,11 @@ test("open-page expiry is enforced without overflowing browser timers", () => {
   assert.equal(app.state.reloads, 1);
   assert.equal(app.storage.has(KEY), false);
   assert.equal(app.elements["analytics-consent"].hidden, false);
+  const session = browser({ sessionStorage: true, sessionSaved: { value: "granted", expiresAt: NOW + 1 } });
+  session.advance(2);
+  assert.equal(session.window.sessionStorage.getItem(KEY), null);
+  assert.equal(session.window["ga-disable-" + ID], true);
+  assert.equal(session.state.reloads, 1);
 });
 
 test("cross-tab withdrawal and cleared storage stop collection", () => {
@@ -223,16 +240,55 @@ test("session fallback overrides a stale permanent grant before reloading", () =
   assert.equal(app.state.reloads, 1);
 });
 
+test("duplicate controller execution cannot duplicate tags, pageviews or PDF listeners", () => {
+  const app = browser({ saved: { value: "granted", expiresAt: NOW + LIFETIME } });
+  app.runAgain();
+  app.click("analytics-allow");
+  app.click("open-pdf");
+  assert.equal(app.state.scripts.length, 1);
+  assert.equal(app.commands().filter(([type]) => type === "config").length, 1);
+  assert.equal(app.commands().filter(([type, name]) => type === "event" && name === "page_view").length, 1);
+  assert.equal(app.commands().filter(([type, name]) => type === "event" && name === "cv_pdf_open").length, 1);
+});
+
+test("blocked or invalid session storage does not hide valid permanent decisions", () => {
+  for (const options of [
+    { sessionStorageGetterBlocked: true },
+    { sessionStorage: true, sessionSaved: "not json" },
+    { sessionStorage: true, sessionSaved: { value: "denied", expiresAt: NOW } }
+  ]) {
+    const app = browser({ ...options, saved: { value: "granted", expiresAt: NOW + LIFETIME } });
+    assert.equal(app.state.scripts.length, 1);
+    app.click("analytics-decline");
+    assert.equal(app.stored().value, "denied");
+    assert.equal(app.window["ga-disable-" + ID], true);
+    assert.equal(app.state.reloads, 1);
+    assert.equal(app.elements["analytics-status"].textContent, "Google Analytics is off.");
+  }
+});
+
+test("cross-tab refusal overrides an old session fallback", () => {
+  const app = browser({ storageReadOnly: true, sessionStorage: true });
+  app.click("analytics-allow");
+  assert.equal(JSON.parse(app.window.sessionStorage.getItem(KEY)).value, "granted");
+  app.storageEvent({ value: "denied", expiresAt: NOW + LIFETIME });
+  assert.equal(app.window["ga-disable-" + ID], true);
+  assert.equal(app.state.reloads, 1);
+  assert.equal(app.window.sessionStorage.getItem(KEY), null);
+});
 
 test("known pages remain distinguishable without leaking query strings or fragments", () => {
-  for (const [input, canonical] of [["/", "/"], ["/index.html", "/"], ["/portfolio.html", "/portfolio.html"]]) {
+  for (const [input, canonical] of [["/", "/"], ["/index.html", "/"], ["/portfolio.html", "/portfolio.html"], ["/ats.html", "/ats.html"]]) {
     const app = browser({ url: "https://papou.work" + input + "?email=private@example.com#secret", saved: {value: "granted", expiresAt: NOW + LIFETIME} });
     const config = app.commands().find(([type]) => type === "config")[2];
     assert.equal(config.page_location, "https://papou.work" + canonical);
     assert.doesNotMatch(JSON.stringify(app.commands()), /private@|secret/);
+    if (input === "/ats.html") assert.equal(config.page_title, "CV — ATS — DevOps and SRE Engineering");
   }
   const unknown = browser({url: "https://papou.work/private-path", saved: {value: "granted", expiresAt: NOW + LIFETIME}});
   assert.equal(unknown.state.scripts.length, 0);
+  assert.equal(unknown.elements["analytics-consent"].hidden, true);
+  assert.match(unknown.elements["analytics-status"].textContent, /disabled/);
 });
 
 test("PDF activation requires live consent and never sends a link URL", () => {
@@ -261,13 +317,42 @@ test("PDF activation requires live consent and never sends a link URL", () => {
 test("PDF on preview origins never emits even with stored consent", () => {
   const app = browser({url: "http://localhost/", saved: {value: "granted", expiresAt: NOW + LIFETIME}});
   app.click("open-pdf");
+  app.click("download-ats-pdf");
   assert.equal(app.commands().length, 0);
 });
 
+test("ATS PDF activation requires live consent and never sends a link URL or filename", () => {
+  const app = browser({ url: "https://papou.work/ats.html?email=private@example.com#secret" });
+  app.click("download-ats-pdf");
+  assert.equal(app.commands().length, 0);
+  app.click("analytics-allow");
+  app.elements["download-ats-pdf"].fire("click", { defaultPrevented: true });
+  app.elements["download-ats-pdf"].fire("auxclick", { button: 2 });
+  const events = () => app.commands().filter(([type, name]) => type === "event" && name === "cv_ats_pdf_open");
+  assert.equal(events().length, 0);
+  app.click("download-ats-pdf");
+  app.elements["download-ats-pdf"].fire("auxclick", { button: 1 });
+  assert.equal(events().length, 2);
+  for (const event of events()) assert.deepEqual(Object.keys(event[2]), ["send_to"]);
+  assert.doesNotMatch(JSON.stringify(app.commands()), /private@|secret|link_url|file_name|\.pdf/);
+  app.click("analytics-decline");
+  app.click("download-ats-pdf");
+  assert.equal(events().length, 2);
+  const expired = browser({ url: "https://papou.work/ats.html", saved: { value: "granted", expiresAt: NOW + 1 } });
+  expired.state.now += 2;
+  expired.click("download-ats-pdf");
+  assert.equal(expired.commands().filter(([type, name]) => type === "event" && name === "cv_ats_pdf_open").length, 0);
+});
+
 test("all published pages include one controller and the consent controls", () => {
-  for (const file of ["index.html", "portfolio.html"]) {
+  for (const file of ["index.html", "portfolio.html", "ats.html"]) {
     const html = fs.readFileSync(path.join(__dirname, "..", file), "utf8");
     assert.equal((html.match(/<script src="\/?analytics\.js\?/g) || []).length, 1, file);
+    assert.doesNotMatch(html, /<script\b[^>]*src=["'][^"']*(?:googletagmanager|google-analytics)\.com/i, "Google must be loaded by the opt-in controller");
+    assert.doesNotMatch(html, /\bgtag\s*\(/, "No second Google installation in the HTML");
+    assert.doesNotMatch(html, /static\.cloudflareinsights\.com|data-cf-beacon/i, "Cloudflare must use automatic injection, without a manual beacon");
+    assert.match(html, /Cloudflare separately measures page performance without cookies, with EU visitors excluded\./, file);
+    assert.match(html, /These buttons control Google Analytics\./, file);
     for (const id of ["analytics-tools", "analytics-status", "analytics-consent", "analytics-settings", "analytics-allow", "analytics-decline"]) {
       assert.equal((html.match(new RegExp('id="' + id + '"', 'g')) || []).length, 1, file + ": " + id);
     }
