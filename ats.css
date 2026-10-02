@@ -99,22 +99,22 @@ h3 { font-size: 17px; line-height: 1.25; }
   max-height: calc(100dvh - 24px);
   overflow: auto;
   margin: 0;
-  padding: 20px max(24px, calc((100vw - 850px) / 2));
-  padding-bottom: max(20px, env(safe-area-inset-bottom));
+  padding: 12px max(24px, calc((100vw - 850px) / 2));
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
   background: var(--ats-paper);
   box-shadow: 0 -8px 30px rgb(0 0 0 / 10%);
-  font-size: 14px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.45;
 }
-.analytics-kicker { margin-bottom: 4px; color: #565656; font-size: 11px; }
-.analytics-copy h2 { margin-bottom: 8px; font-size: 20px; }
-.analytics-note { margin-top: 8px; color: #565656; font-size: 12px; }
-.analytics-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.analytics-kicker { display: none; }
+.analytics-copy h2 { margin-bottom: 4px; font-size: 16px; }
+.analytics-note { margin-top: 6px; color: #565656; font-size: 12px; line-height: 1.4; }
+.analytics-actions { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
 .analytics-actions button {
-  min-height: 42px;
+  min-height: 38px;
   border: 1px solid var(--ats-ink);
   border-radius: 6px;
-  padding: 9px 14px;
+  padding: 7px 14px;
   font: inherit;
   font-weight: 500;
   cursor: pointer;
@@ -123,14 +123,28 @@ h3 { font-size: 17px; line-height: 1.25; }
 .analytics-allow { background: var(--ats-ink); color: var(--ats-paper); }
 .analytics-actions button:focus-visible,
 .analytics-footer button:focus-visible { outline: 2px solid #565656; outline-offset: 3px; }
+.analytics-button-label-mobile { display: none; }
 
 @media (max-width: 600px) {
   body { font-size: 15px; }
   .preview-actions { margin-top: 16px; padding: 0 18px; font-size: 14px; }
   .ats-cv { padding: 28px 18px; margin: 16px 0 0; }
   h1 { font-size: 29px; }
-  .analytics-consent { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-inline: 18px; }
-  .analytics-actions button { flex: 1; padding-inline: 10px; }
+  .analytics-consent { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-inline: 18px; }
+  .analytics-actions { flex-direction: row; }
+  .analytics-button-label-desktop { display: none; }
+  .analytics-button-label-mobile { display: inline; }
+  .analytics-actions button {
+    flex: 1;
+    min-height: 44px;
+    border: 0;
+    border-radius: 0;
+    padding: 0 12px;
+    background: transparent;
+    color: var(--ats-ink);
+    font-size: 14px;
+    font-weight: 600;
+  }
 }
 
 @page { size: A4; margin: 14mm 15mm; }

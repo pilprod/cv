@@ -93,6 +93,8 @@ On September 23, 2026, the owner voluntarily allowed analytics in Chrome. The pu
 
 On September 30, 2026, a clean-browser test of all three proxied routes verified zero Google requests before consent, after initial refusal and after withdrawal. One explicit `page_view` per route and the ATS PDF event returned HTTP 204 only after approval. Cloudflare RUM returned HTTP 204 independently of Google consent, with exactly one beacon script per page. ATS controls fit 320px and 390px viewports and remain hidden in print. This confirms the observed request delivery, not aggregate visitor coverage.
 
+On October 2, 2026, the consent banner was made compact across CV, ATS and portfolio without changing `analytics.js` or the notice copy. At widths up to 600px, flat buttons show **Decline** and **Allow** with 44px touch targets and the full Google Analytics accessible labels. The CV banner measured 131px instead of 233px at 1440×1000, and 290px instead of 385px at 390×844. Local browser checks covered 320, 390, 768 and 1440px in light and dark themes, keyboard focus, print hiding, and real control activation for approval, refusal and withdrawal with Google stubbed (no external analytics traffic).
+
 Run the dependency-free consent tests before release:
 
 ```sh

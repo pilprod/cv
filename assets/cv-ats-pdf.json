@@ -3,11 +3,11 @@
   "title": "Ilya Papou CV (ATS) — DevOps & SRE",
   "pages": 3,
   "bytes": 177850,
-  "sha256": "408684bbe1874c498c0f7d6e65520724515dee8491d531214aaa7e3db6b62381",
+  "sha256": "dc7ba7efd42a776c66a8818e2ad12d025a0a3ed81cc1d70c3c890c434a892282",
   "tagged": true,
   "sources": {
     "assets/fonts/ibm-plex-sans.ttf": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3",
-    "ats.css": "ac089c4ab42d854c5f288c276a9fe48d1266195bb304f437f1776043587ccda1",
-    "ats.html": "fb06f048f509e89917a08abc69e5b49308aa5fa23bc91f990350028a707428bc"
+    "ats.css": "8fd2f64e990e6fa74bc53521fc6455add885ca92026af7d6e242a69fe4b1a980",
+    "ats.html": "d6f84f58a3d4a4e6db7c018450cfa5f9ea09a3afc20870c1bbb2b17484eb89bd"
   }
 }
