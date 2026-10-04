@@ -97,6 +97,8 @@ On October 2, 2026, the consent banner was made compact across CV, ATS and portf
 
 On October 4, 2026, the regional controller passed 30 dependency-free checks, including all EU member countries, non-EU automatic collection, lookup failures/timeouts, refusal during pending lookup, blocked storage, cross-tab changes and PDF event gating. CV and ATS PDFs were regenerated because the HTML fingerprints changed; extracted text and rendered pixels matched the preceding versions on all five pages.
 
+The October 4 controller was published successfully through GitHub Pages. Live Chrome verification covered an explicitly allowed homepage visit, a clean non-EU visit without pressing **Allow**, and withdrawal. GA4 Realtime received `page_view`, `first_visit` and `session_start`. The clean visit displayed **Google Analytics is on. You can turn it off in settings.**; withdrawal displayed **Google Analytics is off.** The ordinary profile's pre-existing refusal was restored after the tests. These observations verify the tested visits, not complete traffic coverage. The separate validation workflow did not start because GitHub reported an account billing lock; its checks passed locally, and the Pages deployment succeeded.
+
 Run the dependency-free consent tests before release:
 
 ```sh
