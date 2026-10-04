@@ -71,6 +71,50 @@
   let choice = restored.choice;
   choiceSaved = restored.persisted;
 
+  // Cloudflare resolves the visitor country. Never infer it from language,
+  // timezone or cached browser state, and never send trace data to Google.
+  let automaticOutsideEU = false;
+  let regionResolved = false;
+  const euCountries = new Set("AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE".split(" "));
+  const countries = new Set("AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS XK YE YT ZA ZM ZW".split(" "));
+
+  function analyticsAllowed() {
+    if (choice && choice.expiresAt > Date.now()) return choice.value === "granted";
+    return automaticOutsideEU;
+  }
+
+  function applyRegion(outsideEU) {
+    regionResolved = true;
+    automaticOutsideEU = outsideEU;
+    if (analyticsAllowed()) startAnalytics();
+    else if (production && page) clearAnalyticsCookies();
+    render();
+  }
+
+  async function resolveRegion() {
+    if (!production || !page) return;
+    if (window.location.origin !== "https://papou.work" || typeof window.fetch !== "function") {
+      applyRegion(false);
+      return;
+    }
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 2000);
+    try {
+      const response = await window.fetch("/cdn-cgi/trace", {
+        cache: "no-store", credentials: "omit", redirect: "error", signal: controller.signal
+      });
+      if (!response.ok || !response.headers.get("content-type")?.startsWith("text/plain")) throw Error("Region unavailable");
+      const trace = await response.text();
+      const locations = trace.length <= 4096 ? [...trace.matchAll(/^loc=([A-Z]{2})\r?$/gm)] : [];
+      const country = locations.length === 1 ? locations[0][1] : "";
+      applyRegion(countries.has(country) && !euCountries.has(country));
+    } catch {
+      applyRegion(false);
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
   function showPanel(show, restoreFocus = false) {
     panel.hidden = !show;
     settings.setAttribute("aria-expanded", String(show));
@@ -80,11 +124,12 @@
   function render() {
     tools.hidden = false;
     status.textContent = !production || !page ? "Google Analytics is disabled in this preview."
-      : choice?.value === "granted" ? choiceSaved ? "Google Analytics is on."
+      : analyticsAllowed() ? !choice ? "Google Analytics is on. You can turn it off in settings."
+        : choiceSaved ? "Google Analytics is on."
         : "Google Analytics is on for this visit. Your browser could not save this choice."
       : choiceSaved ? "Google Analytics is off."
         : "Google Analytics is off for this visit. Your browser could not save this choice.";
-    showPanel(Boolean(production && page) && !choice);
+    showPanel(Boolean(production && page) && !choice && !automaticOutsideEU);
   }
 
   function safeReferrer() {
@@ -95,12 +140,12 @@
   }
 
   function startAnalytics() {
-    if (!production || !page || active || choice?.value !== "granted" || choice.expiresAt <= Date.now()) return;
+    if (!production || !page || active || !analyticsAllowed()) return;
     active = true;
     window[disableKey] = false;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
-    // Basic consent mode: this queue and the Google script exist only after opt-in.
+    // EU/unknown visitors need opt-in; verified non-EU visitors use the default unless declined.
     window.gtag("consent", "default", denied);
     window.gtag("consent", "update", { ...denied, analytics_storage: "granted" });
     window.gtag("set", "ads_data_redaction", true);
@@ -160,11 +205,18 @@
       choice = null;
       try { window.localStorage.removeItem(consentKey); } catch { /* Optional storage. */ }
       try { window.sessionStorage?.removeItem(consentKey); } catch { /* Optional storage. */ }
-      stopAnalytics();
+      if (analyticsAllowed()) startAnalytics();
+      else stopAnalytics();
       render();
     } else {
       expiryTimer = window.setTimeout(checkExpiry, Math.min(remaining, 2147483647));
     }
+  }
+
+  function reloadCanPreserveRefusal() {
+    const saved = readChoice().choice;
+    // A non-EU default would restart after reload if the refusal cannot be saved.
+    return saved?.value === "denied" || (regionResolved && !automaticOutsideEU && saved?.value !== "granted");
   }
 
   function decide(value) {
@@ -182,7 +234,7 @@
     }
     if (value === "granted") startAnalytics();
     // Never reload back into a stale saved approval when browser storage is read-only.
-    else stopAnalytics(readChoice().choice?.value !== "granted");
+    else stopAnalytics(reloadCanPreserveRefusal());
     checkExpiry();
     render();
     showPanel(false, true);
@@ -192,7 +244,7 @@
   decline.addEventListener("click", () => decide("denied"));
   function trackPdfOpen(event, eventName) {
     if (event.defaultPrevented || !active || window[disableKey]
-        || choice?.value !== "granted" || choice.expiresAt <= Date.now()) return;
+        || !analyticsAllowed()) return;
     // A link activation, not proof of a completed download or a read document.
     // Keep native navigation and never send the link URL, filename or contact data.
     window.gtag("event", eventName, { send_to: measurementId });
@@ -217,8 +269,8 @@
     restored = readChoice(true);
     choice = restored.choice;
     choiceSaved = restored.persisted;
-    if (choice?.value === "granted") startAnalytics();
-    else stopAnalytics(readChoice().choice?.value !== "granted");
+    if (analyticsAllowed()) startAnalytics();
+    else stopAnalytics(reloadCanPreserveRefusal());
     checkExpiry();
     render();
   });
@@ -226,8 +278,9 @@
     if (document.visibilityState === "visible") checkExpiry();
   });
 
-  if (choice?.value === "granted") startAnalytics();
-  else if (production && page) clearAnalyticsCookies();
+  if (analyticsAllowed()) startAnalytics();
+  else if (choice && production && page) clearAnalyticsCookies();
   checkExpiry();
   render();
+  resolveRegion();
 })();
