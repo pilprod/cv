@@ -316,7 +316,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 24px;
   min-height: 36px;
   padding: 0 16px;
 }
@@ -324,23 +324,23 @@ h3 {
 .pdf-strip a {
   display: inline-flex;
   align-items: center;
-  min-height: 36px;
+  min-height: 28px;
+  margin-block: 4px;
+  padding-inline: 10px;
+  border-radius: 4px;
   color: white;
   white-space: nowrap;
   text-decoration: none;
 }
 
 .pdf-strip a:hover {
+  background: rgb(255 255 255 / 8%);
   text-decoration: underline;
 }
 
 .pdf-strip a:focus-visible {
   outline-color: white;
   outline-offset: 2px;
-}
-
-.pdf-strip span {
-  opacity: .55;
 }
 
 .site-toolbar,
@@ -429,11 +429,12 @@ h3 {
 .booking-action,
 .portfolio-toolbar .booking-action,
 .site-toolbar .booking-action {
+  position: relative;
   color: white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 36px;
   padding: 0 18px;
   border: 1px solid #315ef5;
   border-radius: 6px;
@@ -441,6 +442,13 @@ h3 {
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
+}
+
+/* Keep a comfortable touch target around the shorter visible button. */
+.booking-action::before {
+  content: "";
+  position: absolute;
+  inset: -4px 0;
 }
 
 .booking-action:hover,
@@ -1315,6 +1323,8 @@ h3 {
 
   .pdf-strip a {
     min-height: 44px;
+    margin-block: 0;
+    padding-inline: 8px;
     font-size: 11px;
   }
 
