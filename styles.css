@@ -304,6 +304,45 @@ h3 {
   transform: translateY(0);
 }
 
+.pdf-strip {
+  background: #0d6075;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.pdf-strip-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 36px;
+  padding: 0 16px;
+}
+
+.pdf-strip a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: white;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.pdf-strip a:hover {
+  text-decoration: underline;
+}
+
+.pdf-strip a:focus-visible {
+  outline-color: white;
+  outline-offset: 2px;
+}
+
+.pdf-strip span {
+  opacity: .55;
+}
+
 .site-toolbar,
 .portfolio-toolbar {
   --toolbar-font-size: 16px;
@@ -316,7 +355,7 @@ h3 {
   gap: var(--toolbar-gap);
   width: min(1120px, calc(100% - clamp(0px, 12.5vw - 80px, 48px)));
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 16px 24px;
   font-size: var(--toolbar-font-size);
   font-weight: 500;
   line-height: 20px;
@@ -333,7 +372,7 @@ h3 {
 
 .site-toolbar > a,
 .site-toolbar nav > a,
-.site-toolbar .pdf-action,
+.site-toolbar .booking-action,
 .portfolio-toolbar > a,
 .portfolio-toolbar nav > a {
   display: inline-flex;
@@ -387,22 +426,31 @@ h3 {
   margin-left: auto;
 }
 
-.site-toolbar .pdf-action {
+.booking-action,
+.portfolio-toolbar .booking-action,
+.site-toolbar .booking-action {
   color: white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--toolbar-height);
-  padding: 0 12px;
-  border: 1px solid var(--ink);
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #315ef5;
   border-radius: 6px;
-  background: var(--ink);
+  background: #315ef5;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
-.site-toolbar .pdf-action:hover,
-.site-toolbar .pdf-action:focus-visible {
-  border-color: var(--blue);
-  background: #182234;
+.booking-action:hover,
+.booking-action:focus-visible,
+.portfolio-toolbar .booking-action:hover,
+.portfolio-toolbar .booking-action:focus-visible,
+.site-toolbar .booking-action:hover,
+.site-toolbar .booking-action:focus-visible {
+  border-color: #264bd0;
+  background: #264bd0;
   color: white;
 }
 
@@ -854,7 +902,7 @@ h3 {
   }
 
   .site-toolbar > .site-brand,
-  .site-toolbar nav a:not(.pdf-action) {
+  .site-toolbar nav a:not(.booking-action) {
     transform: none;
   }
 
@@ -1227,7 +1275,7 @@ h3 {
 @media screen and (max-width: 700px) {
   .site-toolbar,
   .portfolio-toolbar {
-    padding: 20px;
+    padding: 12px 20px;
   }
 }
 
@@ -1241,7 +1289,7 @@ h3 {
   }
 
   .site-toolbar > .site-brand,
-  .site-toolbar nav a:not(.pdf-action) {
+  .site-toolbar nav a:not(.booking-action) {
     transform: none;
   }
 
@@ -1255,8 +1303,27 @@ h3 {
     --toolbar-gap: 8px;
   }
 
-  .site-toolbar .pdf-action {
+  .site-toolbar .booking-action {
     padding-inline: 8px;
+  }
+
+  .pdf-strip-links {
+    gap: 12px;
+    min-height: 44px;
+    padding-inline: 12px;
+  }
+
+  .pdf-strip a {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .portfolio-toolbar nav {
+    gap: 12px;
+  }
+
+  .portfolio-toolbar .booking-action {
+    padding-inline: 10px;
   }
 
   .cv {
@@ -1523,7 +1590,7 @@ h3 {
     --toolbar-gap: 6px;
   }
 
-  .site-toolbar .pdf-action {
+  .site-toolbar .booking-action {
     padding-inline: 6px;
   }
 
@@ -1595,17 +1662,24 @@ h3 {
     background: var(--sidebar);
   }
 
-  /* Keep the PDF action black even though the heading ink is now light. */
-  .site-toolbar .pdf-action {
-    background: #0b1220;
-    border-color: #657586;
+  /* Keep the primary booking action legible in the device-dark palette. */
+  .booking-action,
+  .portfolio-toolbar .booking-action,
+  .site-toolbar .booking-action {
+    background: #93adff;
+    border-color: #93adff;
+    color: #0b1220;
   }
 
-  .site-toolbar .pdf-action:hover,
-  .site-toolbar .pdf-action:focus-visible {
-    background: #182234;
-    border-color: var(--blue);
-    color: white;
+  .booking-action:hover,
+  .booking-action:focus-visible,
+  .portfolio-toolbar .booking-action:hover,
+  .portfolio-toolbar .booking-action:focus-visible,
+  .site-toolbar .booking-action:hover,
+  .site-toolbar .booking-action:focus-visible {
+    background: #b4c5ff;
+    border-color: #b4c5ff;
+    color: #0b1220;
   }
 
   .analytics-consent {
@@ -1645,6 +1719,7 @@ h3 {
   }
 
   .site-toolbar,
+  .pdf-strip,
   .skip-link,
   .profile-toggle,
   .portrait-mobile,

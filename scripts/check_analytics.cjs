@@ -21,7 +21,7 @@ class Element {
 
 function browser(options = {}) {
   const state = { now: NOW, reloads: 0, scripts: [], timers: new Map(), cookieWrites: [] };
-  const ids = ["analytics-consent", "analytics-settings", "analytics-status", "analytics-tools", "analytics-allow", "analytics-decline", "open-pdf", "download-ats-pdf"];
+  const ids = ["analytics-consent", "analytics-settings", "analytics-status", "analytics-tools", "analytics-allow", "analytics-decline", "open-pdf", "download-ats-pdf", "book-call"];
   const elements = Object.fromEntries(ids.map((id) => [id, new Element()]));
   const storage = new Map();
   if (options.saved !== undefined) storage.set(KEY, typeof options.saved === "string" ? options.saved : JSON.stringify(options.saved));
@@ -345,6 +345,35 @@ test("ATS PDF activation requires live consent and never sends a link URL or fil
   assert.equal(expired.commands().filter(([type, name]) => type === "event" && name === "cv_ats_pdf_open").length, 0);
 });
 
+test("booking activation uses live consent, minimal fields and native link semantics on all routes", () => {
+  for (const route of ["/", "/ats.html", "/portfolio.html"]) {
+    const app = browser({url: "https://papou.work" + route + "?email=private@example.com#secret"});
+    const events = () => app.commands().filter(([type, name]) => type === "event" && name === "booking_open");
+    app.click("book-call");
+    assert.equal(events().length, 0);
+    app.click("analytics-allow");
+    app.elements["book-call"].fire("click", {defaultPrevented:true});
+    app.elements["book-call"].fire("auxclick", {button:2});
+    assert.equal(events().length, 0);
+    app.click("book-call");
+    app.elements["book-call"].fire("auxclick", {button:1});
+    assert.equal(events().length, 2);
+    for (const event of events()) assert.deepEqual(JSON.parse(JSON.stringify(event)), ["event", "booking_open", {send_to:ID}]);
+    assert.doesNotMatch(JSON.stringify(app.commands()), /private@|secret|calendar\.app|link_url|file_name/);
+    app.click("analytics-decline");
+    app.click("book-call");
+    assert.equal(events().length, 2);
+  }
+  for (const url of ["http://localhost/", "https://papou.work/unreviewed.html"]) {
+    const app=browser({url,saved:{value:"granted",expiresAt:NOW+LIFETIME}});
+    app.click("book-call");
+    assert.equal(app.commands().length,0);
+  }
+  const expired=browser({saved:{value:"granted",expiresAt:NOW+1}});
+  expired.state.now+=2;expired.click("book-call");
+  assert.equal(expired.commands().filter(x=>x[0]==="event"&&x[1]==="booking_open").length,0);
+});
+
 test("all published pages include one controller and the consent controls", () => {
   for (const file of ["index.html", "portfolio.html", "ats.html"]) {
     const html = fs.readFileSync(path.join(__dirname, "..", file), "utf8");
@@ -354,7 +383,7 @@ test("all published pages include one controller and the consent controls", () =
     assert.doesNotMatch(html, /static\.cloudflareinsights\.com|data-cf-beacon/i, "Cloudflare must use automatic injection, without a manual beacon");
     assert.match(html, /Cloudflare separately measures page performance without cookies, with EU visitors excluded\./, file);
     assert.match(html, /These buttons control Google Analytics\./, file);
-    for (const id of ["analytics-tools", "analytics-status", "analytics-consent", "analytics-settings", "analytics-allow", "analytics-decline"]) {
+    for (const id of ["analytics-tools", "analytics-status", "analytics-consent", "analytics-settings", "analytics-allow", "analytics-decline", "open-pdf", "download-ats-pdf", "book-call"]) {
       assert.equal((html.match(new RegExp('id="' + id + '"', 'g')) || []).length, 1, file + ": " + id);
     }
   }
@@ -483,6 +512,15 @@ async function regionalTests() {
     assert.equal(pdfEvents().length,2);
     app.click("analytics-decline");app.click("open-pdf");
     assert.equal(pdfEvents().length,2);
+  });
+  await regionalTest("booking follows the non-EU default and stops on cross-tab refusal", async () => {
+    const app=browser({fetch:async()=>response("AR")});
+    app.click("book-call");assert.equal(app.commands().length,0);
+    await flush();app.click("book-call");
+    const events=()=>app.commands().filter(x=>x[0]==="event"&&x[1]==="booking_open");
+    assert.equal(events().length,1);
+    app.storageEvent({value:"denied",expiresAt:NOW+LIFETIME});
+    app.click("book-call");assert.equal(events().length,1);
   });
   console.log(`\n${passed} analytics checks passed. No network requests were made.`);
 }

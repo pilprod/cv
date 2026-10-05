@@ -22,8 +22,15 @@
 body { margin: 0; font-size: 16px; line-height: 1.45; }
 a { color: inherit; text-underline-offset: 2px; }
 p, ul, h1, h2, h3 { margin: 0; }
+.pdf-strip { background: #0d6075; color: white; font-size: 12px; font-weight: 500; line-height: 16px; }
+.pdf-strip-links { display: flex; align-items: center; justify-content: center; gap: 18px; min-height: 36px; padding: 0 16px; }
+.pdf-strip a { display: inline-flex; align-items: center; min-height: 36px; color: white; white-space: nowrap; text-decoration: none; }
+.pdf-strip a:hover { text-decoration: underline; }
+.pdf-strip a:focus-visible { outline: 3px solid white; outline-offset: 2px; }
+.pdf-strip span { opacity: .55; }
 .preview-actions {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   max-width: 850px;
@@ -31,6 +38,9 @@ p, ul, h1, h2, h3 { margin: 0; }
   padding: 0 24px;
 }
 .preview-actions a { font-weight: 600; }
+.preview-actions .booking-action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border: 1px solid #315ef5; border-radius: 6px; background: #315ef5; color: white; text-decoration: none; white-space: nowrap; }
+.preview-actions .booking-action:hover { background: #264bd0; border-color: #264bd0; }
+.preview-actions a:focus-visible { outline: 3px solid #315ef5; outline-offset: 3px; }
 .ats-cv {
   max-width: 850px;
   margin: 20px auto 40px;
@@ -128,6 +138,8 @@ h3 { font-size: 17px; line-height: 1.25; }
 @media (max-width: 600px) {
   body { font-size: 15px; }
   .preview-actions { margin-top: 16px; padding: 0 18px; font-size: 14px; }
+  .pdf-strip-links { gap: 12px; min-height: 44px; padding-inline: 12px; }
+  .pdf-strip a { min-height: 44px; font-size: 11px; }
   .ats-cv { padding: 28px 18px; margin: 16px 0 0; }
   h1 { font-size: 29px; }
   .analytics-consent { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-inline: 18px; }
@@ -152,7 +164,7 @@ h3 { font-size: 17px; line-height: 1.25; }
 @media print {
   :root { background: white; }
   body { font-family: Arial, sans-serif; font-size: 10.5pt; line-height: 1.25; }
-  .preview-actions, .analytics-footer, .analytics-consent { display: none !important; }
+  .preview-actions, .pdf-strip, .analytics-footer, .analytics-consent { display: none !important; }
   .ats-cv { max-width: none; margin: 0; padding: 0; }
   h1 { font-size: 20pt; }
   .professional-title { font-size: 11.5pt; margin: 4pt 0; }

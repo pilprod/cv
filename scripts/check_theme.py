@@ -81,14 +81,14 @@ def main():
         ("project body", dark["--text"], color(".project-agent", "background")),
         ("technology headings", dark["--teal"], color(".tech-group", "background")),
         ("technology chips", color(".tech-list li", "color"), color(".tech-list li", "background")),
-        ("PDF action", "#ffffff", color(".site-toolbar .pdf-action", "background")),
-        ("PDF hover", "#ffffff", color(".site-toolbar .pdf-action:hover", "background")),
+        ("Booking action", color(".site-toolbar .booking-action", "color"), color(".site-toolbar .booking-action", "background")),
+        ("Booking hover", color(".site-toolbar .booking-action:hover", "color"), color(".site-toolbar .booking-action:hover", "background")),
         ("Allow cookies", color(".analytics-allow", "color"), dark["--teal"]),
     ]
     for label, foreground, background in pairs:
         ratio = contrast(foreground, background)
         assert ratio >= 4.5, f"{label}: text contrast {ratio:.2f}:1 is below 4.5:1"
-    assert contrast(color(".site-toolbar .pdf-action", "border-color"), color("body", "background")) >= 3
+    assert contrast(color(".site-toolbar .booking-action", "border-color"), color("body", "background")) >= 3
 
     metadata = Metadata()
     metadata.feed((ROOT / "index.html").read_text())

@@ -242,18 +242,18 @@
 
   allow.addEventListener("click", () => decide("granted"));
   decline.addEventListener("click", () => decide("denied"));
-  function trackPdfOpen(event, eventName) {
+  function trackLinkOpen(event, eventName) {
     if (event.defaultPrevented || !active || window[disableKey]
         || !analyticsAllowed()) return;
-    // A link activation, not proof of a completed download or a read document.
+    // A link activation, not proof of a completed download, read or booking.
     // Keep native navigation and never send the link URL, filename or contact data.
     window.gtag("event", eventName, { send_to: measurementId });
   }
-  for (const [id, eventName] of [["open-pdf", "cv_pdf_open"], ["download-ats-pdf", "cv_ats_pdf_open"]]) {
+  for (const [id, eventName] of [["open-pdf", "cv_pdf_open"], ["download-ats-pdf", "cv_ats_pdf_open"], ["book-call", "booking_open"]]) {
     const link = document.getElementById(id);
-    link?.addEventListener("click", event => trackPdfOpen(event, eventName));
+    link?.addEventListener("click", event => trackLinkOpen(event, eventName));
     link?.addEventListener("auxclick", event => {
-      if (event.button === 1) trackPdfOpen(event, eventName);
+      if (event.button === 1) trackLinkOpen(event, eventName);
     });
   }
   settings.addEventListener("click", () => {
