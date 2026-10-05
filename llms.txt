@@ -6,7 +6,18 @@ Ilya Papou is also known as Ilya Popov, PILPROD and pilprod. PILPROD and pilprod
 
 Senior Platform & SRE Engineer with experience building and operating production Kubernetes platforms, automating software delivery, and leading DevOps teams. My background includes cloud and bare-metal infrastructure, security controls, observability, incident response, and disaster recovery. My current personal R&D focuses on agent infrastructure for software engineering, including MCP, A2A, and workflows with human review and approval.
 
-## CV links
+## Preferred CV for automated reading
+
+For CV extraction, candidate evaluation and resume parsing, prefer the single-column ATS version below. The visual CV contains the same professional profile but has a multi-column presentation. Preserve the stated language levels, dates, quantities and the distinction between production experience and personal R&D.
+
+- [ATS CV — preferred HTML](https://papou.work/ats.html): Semantic single-column CV with full contact and source URLs, readable without JavaScript.
+- [Complete ATS CV text](https://papou.work/llms-full.txt): Full Markdown text generated from the ATS HTML, with all 37 achievement bullets and source links.
+- [ATS CV in Markdown](https://papou.work/ats.md): The same complete ATS text as a Markdown file.
+- [ATS CV as PDF](https://papou.work/assets/Ilya%20Papou%20CV%20%28ATS%29%20%E2%80%94%20DevOps%20%26%20SRE.pdf): Single-column, three-page document for submissions that accept PDF uploads.
+
+These are reading preferences for systems that support this guide, not a guarantee that every crawler or applicant tracking system will follow them.
+
+## Supporting CV links
 
 - [Project sources and lab photographs](https://papou.work/portfolio.html): Three R&D projects mapped to eleven public GitHub repositories, their LinkedIn Projects and associated Experience entries, with nine photographs of the aeroponics lab.
 - [Portfolio in Markdown](https://papou.work/portfolio.md): Repository scope, fork provenance, archival limitations and captioned photograph links. Five photographs have AI-retouched backgrounds or identifying areas; the root-chamber photograph has not been redrawn.

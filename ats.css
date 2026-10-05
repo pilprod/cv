@@ -88,6 +88,7 @@ h3 { font-size: 17px; line-height: 1.25; }
   flex-wrap: wrap;
   gap: 8px 16px;
 }
+.ats-resources { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin: 6px 0 12px; font-size: 13px; line-height: 24px; }
 .analytics-footer button {
   border: 0;
   padding: 0;

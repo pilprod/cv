@@ -3,6 +3,9 @@
 # Search crawlers can read the HTML, Markdown and assets.
 # Project sources and photographs: https://papou.work/portfolio.html
 # Machine-readable companions: /portfolio.md and /portfolio.jsonld
+# Preferred CV for automated reading: https://papou.work/ats.html
+# Complete ATS CV text: https://papou.work/llms-full.txt
+# Format links are guidance, not robots routing directives.
 User-agent: *
 Allow: /
 

@@ -30,11 +30,14 @@
   <meta name="twitter:image" content="https://papou.work/assets/social/cv-preview-20260906.jpg">
   <meta name="twitter:image:alt" content="Ilya Papou, Senior Platform &amp; SRE Engineer — CV and R&amp;D portfolio, with portrait.">
   <link rel="canonical" href="https://papou.work/">
+  <link rel="alternate" href="/ats.html" type="text/html" title="Preferred ATS CV for automated reading">
+  <link rel="alternate" href="/ats.md" type="text/markdown" title="ATS CV in Markdown">
+  <link rel="alternate" href="/assets/Ilya%20Papou%20CV%20(ATS)%20%E2%80%94%20DevOps%20%26%20SRE.pdf" type="application/pdf" title="ATS CV as PDF">
   <link rel="describedby" href="/llms.txt" type="text/plain" title="CV overview for agents">
   <link rel="describedby" href="/portfolio.jsonld" type="application/ld+json" title="Project, repository and photograph relationships">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ibm-plex-sans.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=20261005-spacing">
+  <link rel="stylesheet" href="styles.css?v=20261005-ats-footer">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -82,6 +85,19 @@
           "alternateName": ["Ilya Popov", "PILPROD", "pilprod"],
           "url": "https://papou.work/",
           "image": "https://papou.work/assets/portrait.jpg",
+          "subjectOf": {
+            "@type": "CreativeWork",
+            "@id": "https://papou.work/ats.html#cv",
+            "url": "https://papou.work/ats.html",
+            "name": "Ilya Papou — ATS CV",
+            "description": "Single-column CV intended for automated reading and applicant tracking systems.",
+            "inLanguage": "en",
+            "encoding": [
+              {"@type": "MediaObject", "contentUrl": "https://papou.work/ats.html", "encodingFormat": "text/html"},
+              {"@type": "MediaObject", "contentUrl": "https://papou.work/ats.md", "encodingFormat": "text/markdown"},
+              {"@type": "MediaObject", "contentUrl": "https://papou.work/assets/Ilya%20Papou%20CV%20(ATS)%20%E2%80%94%20DevOps%20%26%20SRE.pdf", "encodingFormat": "application/pdf"}
+            ]
+          },
           "jobTitle": "Senior Platform & SRE Engineer",
           "description": "Senior Platform & SRE Engineer with experience building and operating production Kubernetes platforms, automating software delivery, and leading DevOps teams. My background includes cloud and bare-metal infrastructure, security controls, observability, incident response, and disaster recovery. My current personal R&D focuses on agent infrastructure for software engineering, including MCP, A2A, and workflows with human review and approval.",
           "homeLocation": {
@@ -115,7 +131,6 @@
   <nav class="pdf-strip" aria-label="PDF versions">
     <div class="pdf-strip-links">
       <a id="open-pdf" href="assets/Ilya%20Papou%20CV%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20261005-spacing" target="_blank" rel="noopener">Open PDF Version</a>
-      <a id="download-ats-pdf" href="assets/Ilya%20Papou%20CV%20(ATS)%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20261005-spacing" target="_blank" rel="noopener">Open ATS version</a>
     </div>
   </nav>
   <div class="site-toolbar">
@@ -464,6 +479,10 @@
     </section>
   </main>
   <footer class="analytics-footer" aria-label="Privacy settings">
+    <nav class="ats-resources" aria-label="ATS CV formats">
+      <a id="download-ats-pdf" href="assets/Ilya%20Papou%20CV%20(ATS)%20%E2%80%94%20DevOps%20%26%20SRE.pdf?v=20261005-ats-footer" target="_blank" rel="noopener">Open ATS version</a>
+      <a href="/ats.html" type="text/html">Text version</a>
+    </nav>
     <div id="analytics-tools" hidden>
       <span id="analytics-status" role="status" aria-live="polite">Google Analytics is off.</span>
       <button id="analytics-settings" type="button" aria-expanded="false" aria-controls="analytics-consent">Google Analytics settings</button>

@@ -21,6 +21,7 @@ jobs:
         run: python3 scripts/check_site.py
       - name: Validate portfolio relationships and generated discovery resources
         run: |
+          python3 scripts/build_ats_text.py --check
           node scripts/build_portfolio.cjs --check
           python3 scripts/check_languages.py
           python3 scripts/check_portfolio.py

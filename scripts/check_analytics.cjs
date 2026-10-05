@@ -389,6 +389,24 @@ test("all published pages include one controller and the consent controls", () =
   }
 });
 
+test("ATS formats remain discoverable and the PDF action lives in the footer", () => {
+  for (const file of ["index.html", "portfolio.html", "ats.html"]) {
+    const html=fs.readFileSync(path.join(__dirname,"..",file),"utf8");
+    const strip=html.match(/<nav class="pdf-strip"[\s\S]*?<\/nav>/)[0];
+    assert.doesNotMatch(strip,/download-ats-pdf|Open ATS version/,file);
+    const footer=html.match(/<footer class="analytics-footer"[\s\S]*?<\/footer>/)[0];
+    assert.match(footer,/id="download-ats-pdf"/,file);
+    assert.match(html,/<link rel="alternate" href="\/ats\.md" type="text\/markdown"/,file);
+  }
+  const guide=fs.readFileSync(path.join(__dirname,"..","llms.txt"),"utf8");
+  const preferred=guide.split("## Preferred CV for automated reading")[1].split("## Supporting CV links")[0];
+  assert.equal(preferred.match(/\]\((https:[^)]+)\)/)[1],"https://papou.work/ats.html");
+  assert.match(preferred,/llms-full\.txt/);
+  const ats=fs.readFileSync(path.join(__dirname,"..","ats.html"),"utf8");
+  assert.doesNotMatch(ats,/<meta name="robots" content="[^"]*noindex/);
+  assert.match(ats,/<link rel="canonical" href="https:\/\/papou\.work\/"/);
+});
+
 async function regionalTests() {
   const flush = async () => { for (let i = 0; i < 8; i++) await Promise.resolve(); };
   const response = country => ({ok:true,headers:{get:()=>"text/plain; charset=UTF-8"},text:async()=>"ip=192.0.2.123\nloc="+country+"\n"});
