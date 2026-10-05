@@ -75,7 +75,8 @@ SOURCE_DIGESTS = {
     "sidebar/languages": "d711fe74f8189d23348779a52492365a2483f26a9683eb0066b91edd001e1572",
     "sidebar/strengths": "5eddd31c856782aa6d067cbd9f59c47ab5fd5c09dd58b07b1df42b695bc1c192",
     "sidebar/environments": "59f89af421cabf2610fc3b177fce1b276523cb2d4bdc4b6a2a7f4435518c953b",
-    "sidebar/domains": "deea0de44ffd9b40da5469f9e4531ad913f51a711c0d8b5dfeea1c001a22f054",
+    # October 5: user requested separate Public Sector and iGaming rows, in that order.
+    "sidebar/domains": "60bbd8164ff096e86e7320bc54b3904de1650bd22377b718d15e70e1c4156843",
     # September 5: restore the existing Figma domains and user-confirmed Sber Hybrid.
     "job/Sirena-Travel": "34204d4cf9b716ca9abe155cd683c2feb4c8f6b05bede9344e9032aef18d2d30",
     "job/Sberbank": "c6b2416d82990fd83536c1e7f2a7301d272a0aad787a1f8ec81a5f5c0a17288a",

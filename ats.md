@@ -32,7 +32,11 @@ Core strengths: Platform ownership; Production reliability; Delivery automation;
 
 Environments: Cloud & bare metal; Isolated, air-gapped; Product & consulting; Remote teams.
 
-Domain experience: Finance & insurance; Aviation & travel; iGaming & Public Sector.
+Domain experience: Finance & insurance; Aviation & travel.
+
+Public Sector
+
+iGaming
 
 ## Technical Skills
 

@@ -2,10 +2,10 @@
   "file": "assets/Ilya Papou CV — DevOps & SRE.pdf",
   "title": "Ilya Papou CV — DevOps & SRE",
   "pages": 2,
-  "bytes": 346709,
-  "sha256": "a6e2224a9a1f5618baba7d993ea2340c66b79dbfdb5bdaac14445a8f5a1563c1",
+  "bytes": 346703,
+  "sha256": "28a6c4d22111cb52c90a05e9251cb699bdbcf42c91883ecd3b4c6eda29faeee6",
   "sources": {
-    "assets/cv-ats-pdf.json": "2429cf4d30bff3fe124055ed5c5535269b7ca14cc2df8bfcc3a6d698d6db4bb5",
+    "assets/cv-ats-pdf.json": "ea080be84df1819f8e3fe872a422f440fb8d7e7a63d2ad49548d86060b784920",
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
     "assets/fonts/ibm-plex-mono-medium.ttf": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
@@ -21,7 +21,7 @@
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/social/cv-preview-20260906.jpg": "65becfd41f14750bc094b9bab179f4240771aa8a88d61c7c3277feedbf095ba0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "index.html": "6d3efd0298e21f982d4cdc8a9ea31380dff7b749b86dba77c10979e001cd756e",
+    "index.html": "51e3af69378b778b8c4944bf3271ebab8baa3c7f10c5a4d78a0086273f220bac",
     "styles.css": "5e8fd22ee1a143a885d6419a656703f8d8ebe995cf5f5597a8c4ec3eb8fdc949"
   }
 }
