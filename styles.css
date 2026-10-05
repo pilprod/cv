@@ -447,9 +447,9 @@ h3 {
   justify-content: center;
   min-height: 36px;
   padding: 0 18px;
-  border: 1px solid #315ef5;
+  border: 1px solid #0d6075;
   border-radius: 6px;
-  background: #315ef5;
+  background: #0d6075;
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
@@ -468,8 +468,8 @@ h3 {
 .portfolio-toolbar .booking-action:focus-visible,
 .site-toolbar .booking-action:hover,
 .site-toolbar .booking-action:focus-visible {
-  border-color: #264bd0;
-  background: #264bd0;
+  border-color: #0b5265;
+  background: #0b5265;
   color: white;
 }
 
@@ -1683,13 +1683,13 @@ h3 {
     background: var(--sidebar);
   }
 
-  /* Keep the primary booking action legible in the device-dark palette. */
+  /* Match the PDF strip, with a visible edge against the dark surface. */
   .booking-action,
   .portfolio-toolbar .booking-action,
   .site-toolbar .booking-action {
-    background: #93adff;
-    border-color: #93adff;
-    color: #0b1220;
+    background: #0d6075;
+    border-color: #398599;
+    color: white;
   }
 
   .booking-action:hover,
@@ -1698,9 +1698,9 @@ h3 {
   .portfolio-toolbar .booking-action:focus-visible,
   .site-toolbar .booking-action:hover,
   .site-toolbar .booking-action:focus-visible {
-    background: #b4c5ff;
-    border-color: #b4c5ff;
-    color: #0b1220;
+    background: #0b5265;
+    border-color: #398599;
+    color: white;
   }
 
   .analytics-consent {

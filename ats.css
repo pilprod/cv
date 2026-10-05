@@ -38,9 +38,9 @@ p, ul, h1, h2, h3 { margin: 0; }
   padding: 0 24px;
 }
 .preview-actions a { font-weight: 600; }
-.preview-actions .booking-action { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 18px; border: 1px solid #315ef5; border-radius: 6px; background: #315ef5; color: white; text-decoration: none; white-space: nowrap; }
+.preview-actions .booking-action { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 18px; border: 1px solid #0d6075; border-radius: 6px; background: #0d6075; color: white; text-decoration: none; white-space: nowrap; }
 .booking-action::before { content: ""; position: absolute; inset: -4px 0; }
-.preview-actions .booking-action:hover { background: #264bd0; border-color: #264bd0; }
+.preview-actions .booking-action:hover { background: #0b5265; border-color: #0b5265; }
 .preview-actions a:focus-visible { outline: 3px solid #315ef5; outline-offset: 3px; }
 .ats-cv {
   max-width: 850px;
@@ -171,8 +171,8 @@ h3 { font-size: 17px; line-height: 1.25; }
     background: #0b1118;
   }
   .ats-cv a { color: #77cedd; }
-  .preview-actions .booking-action { background: #93adff; border-color: #93adff; color: #0b1220; }
-  .preview-actions .booking-action:hover { background: #b4c5ff; border-color: #b4c5ff; }
+  .preview-actions .booking-action { background: #0d6075; border-color: #398599; color: white; }
+  .preview-actions .booking-action:hover { background: #0b5265; border-color: #398599; }
   .preview-actions a:focus-visible { outline-color: #93adff; }
   .analytics-consent { box-shadow: 0 -8px 30px rgb(0 0 0 / 28%); }
 }
