@@ -32,7 +32,7 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
     const page = await browser.newPage({ viewport: { width: 1000, height: 1000 } });
     await page.goto(`http://127.0.0.1:${server.address().port}/${sourcePage}`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
-    await page.emulateMedia({ media: 'print', colorScheme: 'light' });
+    await page.emulateMedia({ media: 'print', colorScheme: 'dark' });
     const layout = await page.evaluate(() => {
       const cv = document.querySelector('.ats-cv');
       const style = getComputedStyle(cv);
@@ -43,9 +43,11 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=
         bodyFont: bodyStyle.fontSize,
         bullets: document.querySelectorAll('.achievements > li').length,
         hiddenActions: getComputedStyle(document.querySelector('.preview-actions')).display === 'none',
+        ink: getComputedStyle(document.documentElement).getPropertyValue('--ats-ink').trim(),
+        paper: getComputedStyle(document.documentElement).getPropertyValue('--ats-paper').trim(),
       };
     });
-    if (layout.overflow || layout.columns !== 'auto' || layout.bullets !== 37 || !layout.hiddenActions)
+    if (layout.overflow || layout.columns !== 'auto' || layout.bullets !== 37 || !layout.hiddenActions || layout.ink !== '#171717' || layout.paper !== '#fff')
       throw new Error(`ATS layout/content check failed: ${JSON.stringify(layout)}`);
     await page.evaluate(title => { document.title = title; }, pdfTitle);
     const pdf = await page.pdf({ preferCSSPageSize: true, printBackground: false,

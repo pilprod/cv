@@ -9,6 +9,7 @@
 :root {
   --ats-ink: #171717;
   --ats-paper: #fff;
+  --ats-muted: #565656;
   color-scheme: light;
   font-family: "IBM Plex Sans", Arial, sans-serif;
   color: var(--ats-ink);
@@ -77,7 +78,7 @@ h3 { font-size: 17px; line-height: 1.25; }
   max-width: 850px;
   margin: 0 auto 24px;
   padding: 0 24px;
-  color: #565656;
+  color: var(--ats-muted);
   font-size: 12px;
   text-align: center;
 }
@@ -119,7 +120,7 @@ h3 { font-size: 17px; line-height: 1.25; }
 }
 .analytics-kicker { display: none; }
 .analytics-copy h2 { margin-bottom: 4px; font-size: 16px; }
-.analytics-note { margin-top: 6px; color: #565656; font-size: 12px; line-height: 1.4; }
+.analytics-note { margin-top: 6px; color: var(--ats-muted); font-size: 12px; line-height: 1.4; }
 .analytics-actions { display: flex; flex-direction: column; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
 .analytics-actions button {
   min-height: 38px;
@@ -133,7 +134,7 @@ h3 { font-size: 17px; line-height: 1.25; }
 .analytics-decline { background: var(--ats-paper); color: var(--ats-ink); }
 .analytics-allow { background: var(--ats-ink); color: var(--ats-paper); }
 .analytics-actions button:focus-visible,
-.analytics-footer button:focus-visible { outline: 2px solid #565656; outline-offset: 3px; }
+.analytics-footer button:focus-visible { outline: 2px solid var(--ats-muted); outline-offset: 3px; }
 .analytics-button-label-mobile { display: none; }
 
 @media (max-width: 600px) {
@@ -158,6 +159,22 @@ h3 { font-size: 17px; line-height: 1.25; }
     font-size: 14px;
     font-weight: 600;
   }
+}
+
+/* The device theme affects the screen only; printed CVs stay light. */
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ats-ink: #ced8e3;
+    --ats-paper: #131c27;
+    --ats-muted: #9fb0c3;
+    background: #0b1118;
+  }
+  .ats-cv a { color: #77cedd; }
+  .preview-actions .booking-action { background: #93adff; border-color: #93adff; color: #0b1220; }
+  .preview-actions .booking-action:hover { background: #b4c5ff; border-color: #b4c5ff; }
+  .preview-actions a:focus-visible { outline-color: #93adff; }
+  .analytics-consent { box-shadow: 0 -8px 30px rgb(0 0 0 / 28%); }
 }
 
 @page { size: A4; margin: 14mm 15mm; }
