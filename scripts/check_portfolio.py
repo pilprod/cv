@@ -25,7 +25,8 @@ class EvidencePage(HTMLParser):
             self.ids.append(attrs['id'])
         if tag == 'a':
             self.links.append(attrs.get('href', ''))
-        if tag == 'img':
+        # Decorative controls are not portfolio evidence photographs.
+        if tag == 'img' and attrs.get('aria-hidden') != 'true':
             self.images.append(attrs)
         if tag == 'source':
             self.picture_sources.append(attrs)

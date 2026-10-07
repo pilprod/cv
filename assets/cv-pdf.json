@@ -3,15 +3,16 @@
   "title": "Ilya Papou CV — DevOps & SRE",
   "pages": 2,
   "bytes": 346703,
-  "sha256": "28a6c4d22111cb52c90a05e9251cb699bdbcf42c91883ecd3b4c6eda29faeee6",
+  "sha256": "70956eddb8e6c5bd3ac2e416b5a84e3231304f2d50f2ef0c3458b853ba653772",
   "sources": {
-    "assets/cv-ats-pdf.json": "ea080be84df1819f8e3fe872a422f440fb8d7e7a63d2ad49548d86060b784920",
+    "assets/cv-ats-pdf.json": "1b15fb859565ce8ff50e9ab759ce3cedc66bf89734ba9fc314172704ae459d0f",
     "assets/favicon.svg": "7a56f8292c7fdb03679e99281135e0fbb1b191b49d0fd60cd2ee0b69878fb2ae",
     "assets/fonts/OFL.txt": "d741e57d5f865e294df801f96b7b5161a88b211df65887e4358d271c9fc5fb4f",
     "assets/fonts/ibm-plex-mono-medium.ttf": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
     "assets/fonts/ibm-plex-mono-semibold.ttf": "d3c38e55c78f5b0f28009fddba4834ec503278936a5986032424c9bd2d23aa46",
     "assets/fonts/ibm-plex-mono.ttf": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
     "assets/fonts/ibm-plex-sans.ttf": "3b031aa4216174205bd8471f88a49b91f093169e9e87bd5262242bc5967fe2e3",
+    "assets/pdf-icon.svg": "2fdfa4a3eb15868ec9bd2a5a59205dfd9e0372a851062915b1cdbde76c7ff792",
     "assets/photo-registration.svg": "40208d8b712417d49ce7162cdc39382895d6f3c40e1067518db1c723b9a550f7",
     "assets/portrait-print.png": "5c44bb92b7eea5b328db5a0e924bd0cf8ce90c12fbbd702871c16411f7f5fd8f",
     "assets/portrait-source.jpg": "bdd5fb0019dabee64fd8067de95d91617929af0643519d105d4a6cf27fff34f2",
@@ -21,7 +22,7 @@
     "assets/research-motif.svg": "6ba726c7e11a8c64c7be35e938b880df7563da6f23043ebcab650518a3ffccf0",
     "assets/social/cv-preview-20260906.jpg": "65becfd41f14750bc094b9bab179f4240771aa8a88d61c7c3277feedbf095ba0",
     "assets/topology-motif.svg": "b6e9dbc49345b7be16e040050ca7bc75ae55e6f5d7b957ccd6c38249fc204ccd",
-    "index.html": "51e3af69378b778b8c4944bf3271ebab8baa3c7f10c5a4d78a0086273f220bac",
-    "styles.css": "5e8fd22ee1a143a885d6419a656703f8d8ebe995cf5f5597a8c4ec3eb8fdc949"
+    "index.html": "1c7b64ef7e72882caec35495845ec00e1d1031d4cca73ad3500ed62f59ef678b",
+    "styles.css": "653b5b267bf5495e9712547a618f7dc0e6e93dcd151f997f0a3126bd21cee418"
   }
 }

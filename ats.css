@@ -25,7 +25,8 @@ a { color: inherit; text-underline-offset: 2px; }
 p, ul, h1, h2, h3 { margin: 0; }
 .pdf-strip { background: #0d6075; color: white; font-size: 12px; font-weight: 500; line-height: 16px; }
 .pdf-strip-links { display: flex; align-items: center; justify-content: center; gap: 24px; min-height: 36px; padding: 0 16px; }
-.pdf-strip a { display: inline-flex; align-items: center; min-height: 28px; margin-block: 4px; padding-inline: 10px; border-radius: 4px; color: white; white-space: nowrap; text-decoration: none; }
+.pdf-strip a { display: inline-flex; align-items: center; gap: 8px; min-height: 28px; margin-block: 4px; padding-inline: 10px; border-radius: 4px; color: white; white-space: nowrap; text-decoration: none; }
+.pdf-strip .pdf-icon { flex: 0 0 auto; width: 20px; height: 24px; }
 .pdf-strip a:hover { background: rgb(255 255 255 / 8%); text-decoration: underline; }
 .pdf-strip a:focus-visible { outline: 3px solid white; outline-offset: 2px; }
 .preview-actions {
@@ -38,9 +39,9 @@ p, ul, h1, h2, h3 { margin: 0; }
   padding: 0 24px;
 }
 .preview-actions a { font-weight: 600; }
-.preview-actions .booking-action { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 18px; border: 1px solid #0d6075; border-radius: 6px; background: #0d6075; color: white; text-decoration: none; white-space: nowrap; }
+.preview-actions .booking-action { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 18px; border: 0; border-radius: 6px; background: #0d6075; color: white; text-decoration: none; white-space: nowrap; }
 .booking-action::before { content: ""; position: absolute; inset: -4px 0; }
-.preview-actions .booking-action:hover { background: #0b5265; border-color: #0b5265; }
+.preview-actions .booking-action:hover { background: #0b5265; }
 .preview-actions a:focus-visible { outline: 3px solid #315ef5; outline-offset: 3px; }
 .ats-cv {
   max-width: 850px;
@@ -171,8 +172,8 @@ h3 { font-size: 17px; line-height: 1.25; }
     background: #0b1118;
   }
   .ats-cv a { color: #77cedd; }
-  .preview-actions .booking-action { background: #0d6075; border-color: #398599; color: white; }
-  .preview-actions .booking-action:hover { background: #0b5265; border-color: #398599; }
+  .preview-actions .booking-action { background: #0d6075; color: white; }
+  .preview-actions .booking-action:hover { background: #0b5265; }
   .preview-actions a:focus-visible { outline-color: #93adff; }
   .analytics-consent { box-shadow: 0 -8px 30px rgb(0 0 0 / 28%); }
 }

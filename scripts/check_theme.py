@@ -88,7 +88,7 @@ def main():
     for label, foreground, background in pairs:
         ratio = contrast(foreground, background)
         assert ratio >= 4.5, f"{label}: text contrast {ratio:.2f}:1 is below 4.5:1"
-    assert contrast(color(".site-toolbar .booking-action", "border-color"), color("body", "background")) >= 3
+    assert contrast(dark["--blue"], color("body", "background")) >= 3, "Keyboard focus must remain visible against the dark page"
 
     metadata = Metadata()
     metadata.feed((ROOT / "index.html").read_text())

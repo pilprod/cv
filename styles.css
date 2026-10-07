@@ -335,6 +335,7 @@ h3 {
 .pdf-strip a {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   min-height: 28px;
   margin-block: 4px;
   padding-inline: 10px;
@@ -342,6 +343,12 @@ h3 {
   color: white;
   white-space: nowrap;
   text-decoration: none;
+}
+
+.pdf-strip .pdf-icon {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 24px;
 }
 
 .pdf-strip a:hover {
@@ -447,7 +454,7 @@ h3 {
   justify-content: center;
   min-height: 36px;
   padding: 0 18px;
-  border: 1px solid #0d6075;
+  border: 0;
   border-radius: 6px;
   background: #0d6075;
   font-weight: 600;
@@ -468,7 +475,6 @@ h3 {
 .portfolio-toolbar .booking-action:focus-visible,
 .site-toolbar .booking-action:hover,
 .site-toolbar .booking-action:focus-visible {
-  border-color: #0b5265;
   background: #0b5265;
   color: white;
 }
@@ -1683,12 +1689,11 @@ h3 {
     background: var(--sidebar);
   }
 
-  /* Match the PDF strip, with a visible edge against the dark surface. */
+  /* Match the PDF strip in the device-dark palette. */
   .booking-action,
   .portfolio-toolbar .booking-action,
   .site-toolbar .booking-action {
     background: #0d6075;
-    border-color: #398599;
     color: white;
   }
 
@@ -1699,7 +1704,6 @@ h3 {
   .site-toolbar .booking-action:hover,
   .site-toolbar .booking-action:focus-visible {
     background: #0b5265;
-    border-color: #398599;
     color: white;
   }
 
