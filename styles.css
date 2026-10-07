@@ -138,22 +138,36 @@ h3 {
 }
 
 .ats-resources {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  margin: 6px 0 12px;
+  gap: 16px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
   font-size: 13px;
   line-height: 24px;
 }
 
-.analytics-footer > div {
-  display: flex;
-  justify-content: center;
+.ats-resources > a,
+.ats-resources button {
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 4px 14px;
+  justify-content: center;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.ats-resources > a:first-child { justify-self: start; }
+#analytics-tools { grid-column: 2; grid-row: 1; }
+.ats-resources > a:last-child { justify-self: end; grid-column: 3; grid-row: 1; }
+.analytics-settings-mobile { display: none; }
+
+@media (max-width: 480px) {
+  .analytics-footer { padding-inline: 16px; }
+  .ats-resources { gap: 8px; font-size: 12px; }
+  .analytics-settings-desktop { display: none; }
+  .analytics-settings-mobile { display: inline; }
 }
 
 .analytics-footer button {
@@ -161,6 +175,7 @@ h3 {
   padding: 0;
   background: transparent;
   color: var(--teal);
+  font: inherit;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 3px;

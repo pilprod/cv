@@ -83,14 +83,39 @@ h3 { font-size: 17px; line-height: 1.25; }
   font-size: 12px;
   text-align: center;
 }
-.analytics-footer > div {
-  display: flex;
+.ats-resources {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.ats-resources > a,
+.ats-resources button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px 16px;
+  min-height: 44px;
+  white-space: nowrap;
 }
-.ats-resources { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin: 6px 0 12px; font-size: 13px; line-height: 24px; }
+
+.ats-resources > a:first-child { justify-self: start; }
+#analytics-tools { grid-column: 2; grid-row: 1; }
+.ats-resources > a:last-child { justify-self: end; grid-column: 3; grid-row: 1; }
+.analytics-settings-mobile { display: none; }
+
+@media (max-width: 480px) {
+  .analytics-footer { padding-inline: 16px; }
+  .ats-resources { gap: 8px; font-size: 12px; }
+  .analytics-settings-desktop { display: none; }
+  .analytics-settings-mobile { display: inline; }
+}
+
 .analytics-footer button {
   border: 0;
   padding: 0;

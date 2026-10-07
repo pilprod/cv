@@ -9,8 +9,8 @@ const check = process.argv.includes('--check');
 const cvHtml = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const pdfStrip = cvHtml.match(/<nav class="pdf-strip"[\s\S]*?<\/nav>/)[0];
 const bookingAction = cvHtml.match(/<a class="booking-action"[^>]*>[\s\S]*?<\/a>/)[0];
-const atsResources = cvHtml.match(/<nav class="ats-resources"[\s\S]*?<\/nav>/)[0];
-const analyticsControls = cvHtml.match(/<div id="analytics-tools"[\s\S]*?<\/footer>/)[0];
+const analyticsFooter = cvHtml.match(/<footer class="analytics-footer"[\s\S]*?<\/footer>/)[0]
+  .replace('aria-label="Privacy settings"', 'aria-label="Portfolio resources and privacy"');
 const analyticsNotice = cvHtml.match(/<section class="analytics-consent"[\s\S]*?<script src="analytics\.js[^\"]*" defer><\/script>/)[0];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ref = id => ({'@id':id});
@@ -56,7 +56,7 @@ const html = `<!doctype html>
 <title>${esc(socialTitle)}</title>
 <meta name="description" content="${esc(socialDescription)}">
 <meta name="author" content="Ilya Papou"><meta name="robots" content="index, follow, max-image-preview:large"><meta name="color-scheme" content="light dark">
-<link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261006-pdf-icon"><link rel="stylesheet" href="portfolio.css?v=20260928-english">
+<link rel="canonical" href="${data.canonical}"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20261007-footer-row"><link rel="stylesheet" href="portfolio.css?v=20260928-english">
 <link rel="alternate" href="/ats.html" type="text/html" title="Preferred ATS CV for automated reading"><link rel="alternate" href="/ats.md" type="text/markdown" title="ATS CV in Markdown">
 <link rel="alternate" href="portfolio.md" type="text/markdown" title="Project sources in Markdown"><link rel="alternate" href="portfolio.jsonld" type="application/ld+json" title="Project relationship graph"><link rel="describedby" href="llms.txt" type="text/plain" title="CV overview for agents">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Ilya Papou — CV &amp; Portfolio"><meta property="og:locale" content="en_US">
@@ -71,8 +71,7 @@ ${pdfStrip}
 <main class="portfolio-main" id="project-sources"><header class="portfolio-intro"><p class="eyebrow">Ilya Papou · Ilya Popov · pilprod</p><h1>Project sources<br>and lab photographs</h1><p>Code, context and hands-on work behind three personal R&D projects.</p><nav class="project-index" aria-label="R&D projects">${data.projects.map(p=>`<a href="#${p.id}">${esc(p.name)}</a>`).join('')}</nav></header>
 ${data.projects.map(projectHtml).join('\n')}
 </main><footer class="portfolio-footer"><p><a href="portfolio.md">Markdown overview</a> · <a href="portfolio.jsonld">Structured project data</a> · <a href="/">Full CV</a></p><p>Research periods describe the work, not the publication date of a repository. LinkedIn links open the profile sections; locate the matching project and role shown here. Access may require sign-in.</p></footer>
-<footer class="analytics-footer" aria-label="Portfolio resources and privacy">${atsResources}
-${analyticsControls}
+${analyticsFooter}
 ${analyticsNotice}
 </body></html>
 `;
